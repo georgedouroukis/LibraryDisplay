@@ -57,30 +57,10 @@ namespace LibraryDisplay
             homePanel.Visible = true;
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-
-            homePanel.Visible = false;
-            bookPanel.Visible = true;
-        }
-
-        private void publishersCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            homePanel.Visible = false;
-            publisherPanel.Visible = true;
-        }
-
         private void homeButtonPublisherPanel_Click(object sender, EventArgs e)
         {
             publisherPanel.Visible = false;
             homePanel.Visible = true;
-        }
-
-
-        private void authorsCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            homePanel.Visible = false;
-            authorPanel.Visible = true;
         }
 
         private void homeButtonAuthorPanel_Click(object sender, EventArgs e)
@@ -88,5 +68,32 @@ namespace LibraryDisplay
             authorPanel.Visible = false;
             homePanel.Visible = true;
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            searchListView.Items.Clear();
+            List<ListViewItem> result = SearchUtility.Search(searchTextBox.Text, booksCheckBox.Checked, authorsCheckBox.Checked, publishersCheckBox.Checked);
+            foreach (ListViewItem item in result)
+            {
+                searchListView.Items.Add(item);
+            }
+        }
+
+        private void allCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (allCheckBox.Checked)
+            {
+                booksCheckBox.Checked = true;
+                authorsCheckBox.Checked = true;
+                publishersCheckBox.Checked = true;
+            }
+            else
+            {
+                booksCheckBox.Checked = false;
+                authorsCheckBox.Checked = false;
+                publishersCheckBox.Checked = false;
+            }
+        }
+
     }
 }
