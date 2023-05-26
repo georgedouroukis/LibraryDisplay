@@ -50,12 +50,12 @@
             this.splitContainer4 = (new global::System.Windows.Forms.SplitContainer());
             this.tableLayoutPanel2 = (new global::System.Windows.Forms.TableLayoutPanel());
             this.editButtonPublisherPanel = (new global::System.Windows.Forms.Button());
-            this.label6 = (new global::System.Windows.Forms.Label());
+            this.publisherLabelPublisherPanel = (new global::System.Windows.Forms.Label());
             this.flowLayoutPanel6 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.label3 = (new global::System.Windows.Forms.Label());
-            this.textBox2 = (new global::System.Windows.Forms.TextBox());
+            this.emailLabelPublisherPanel = (new global::System.Windows.Forms.TextBox());
             this.label4 = (new global::System.Windows.Forms.Label());
-            this.textBox3 = (new global::System.Windows.Forms.TextBox());
+            this.phoneLabelPublisherPanel = (new global::System.Windows.Forms.TextBox());
             this.splitContainer5 = (new global::System.Windows.Forms.SplitContainer());
             this.flowLayoutPanel5 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.flowLayoutPanel7 = (new global::System.Windows.Forms.FlowLayoutPanel());
@@ -94,9 +94,8 @@
             this.flowLayoutPanel15 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.authorFlowBookPanel = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.label7 = (new global::System.Windows.Forms.Label());
-            this.flowLayoutPanel18 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.publisherFlowBookPanel = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.label11 = (new global::System.Windows.Forms.Label());
-            this.publisherLabelBookPanel = (new global::System.Windows.Forms.TextBox());
             this.flowLayoutPanel19 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.label14 = (new global::System.Windows.Forms.Label());
             this.pagesLabelBookPanel = (new global::System.Windows.Forms.TextBox());
@@ -106,9 +105,8 @@
             this.flowLayoutPanel21 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.label16 = (new global::System.Windows.Forms.Label());
             this.isbnLabelBookPanel = (new global::System.Windows.Forms.TextBox());
-            this.flowLayoutPanel22 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.genreFlowBookPanel = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.label17 = (new global::System.Windows.Forms.Label());
-            this.textBox7 = (new global::System.Windows.Forms.TextBox());
             this.createPanel = (new global::System.Windows.Forms.SplitContainer());
             this.tableLayoutPanel6 = (new global::System.Windows.Forms.TableLayoutPanel());
             this.saveButtonCreatePanel = (new global::System.Windows.Forms.Button());
@@ -314,11 +312,11 @@
             ((global::System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel15.SuspendLayout();
             this.authorFlowBookPanel.SuspendLayout();
-            this.flowLayoutPanel18.SuspendLayout();
+            this.publisherFlowBookPanel.SuspendLayout();
             this.flowLayoutPanel19.SuspendLayout();
             this.flowLayoutPanel20.SuspendLayout();
             this.flowLayoutPanel21.SuspendLayout();
-            this.flowLayoutPanel22.SuspendLayout();
+            this.genreFlowBookPanel.SuspendLayout();
             ((global::System.ComponentModel.ISupportInitialize)(this.createPanel)).BeginInit();
             this.createPanel.Panel1.SuspendLayout();
             this.createPanel.Panel2.SuspendLayout();
@@ -657,7 +655,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Absolute, 112F));
             this.tableLayoutPanel2.Controls.Add(this.editButtonPublisherPanel, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.publisherLabelPublisherPanel, 1, 0);
             this.tableLayoutPanel2.Dock = (global::System.Windows.Forms.DockStyle.Fill);
             this.tableLayoutPanel2.Location = (new global::System.Drawing.Point(0, 0));
             this.tableLayoutPanel2.Name = ("tableLayoutPanel2");
@@ -676,23 +674,23 @@
             this.editButtonPublisherPanel.Text = ("Edit");
             this.editButtonPublisherPanel.UseVisualStyleBackColor = (true);
             // 
-            // label6
+            // publisherLabelPublisherPanel
             // 
-            this.label6.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.label6.Font = (new global::System.Drawing.Font("Segoe UI", 16F, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point));
-            this.label6.Location = (new global::System.Drawing.Point(115, 0));
-            this.label6.Name = ("label6");
-            this.label6.Size = (new global::System.Drawing.Size(515, 86));
-            this.label6.TabIndex = (4);
-            this.label6.Text = ("Publisher Name");
-            this.label6.TextAlign = (global::System.Drawing.ContentAlignment.MiddleCenter);
+            this.publisherLabelPublisherPanel.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.publisherLabelPublisherPanel.Font = (new global::System.Drawing.Font("Segoe UI", 16F, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point));
+            this.publisherLabelPublisherPanel.Location = (new global::System.Drawing.Point(115, 0));
+            this.publisherLabelPublisherPanel.Name = ("publisherLabelPublisherPanel");
+            this.publisherLabelPublisherPanel.Size = (new global::System.Drawing.Size(515, 86));
+            this.publisherLabelPublisherPanel.TabIndex = (4);
+            this.publisherLabelPublisherPanel.Text = ("Publisher Name");
+            this.publisherLabelPublisherPanel.TextAlign = (global::System.Drawing.ContentAlignment.MiddleCenter);
             // 
             // flowLayoutPanel6
             // 
             this.flowLayoutPanel6.Controls.Add(this.label3);
-            this.flowLayoutPanel6.Controls.Add(this.textBox2);
+            this.flowLayoutPanel6.Controls.Add(this.emailLabelPublisherPanel);
             this.flowLayoutPanel6.Controls.Add(this.label4);
-            this.flowLayoutPanel6.Controls.Add(this.textBox3);
+            this.flowLayoutPanel6.Controls.Add(this.phoneLabelPublisherPanel);
             this.flowLayoutPanel6.Dock = (global::System.Windows.Forms.DockStyle.Fill);
             this.flowLayoutPanel6.Location = (new global::System.Drawing.Point(0, 0));
             this.flowLayoutPanel6.Name = ("flowLayoutPanel6");
@@ -708,13 +706,13 @@
             this.label3.TabIndex = (2);
             this.label3.Text = ("Email:");
             // 
-            // textBox2
+            // emailLabelPublisherPanel
             // 
-            this.textBox2.Location = (new global::System.Drawing.Point(67, 3));
-            this.textBox2.Name = ("textBox2");
-            this.textBox2.ReadOnly = (true);
-            this.textBox2.Size = (new global::System.Drawing.Size(223, 31));
-            this.textBox2.TabIndex = (8);
+            this.emailLabelPublisherPanel.Location = (new global::System.Drawing.Point(67, 3));
+            this.emailLabelPublisherPanel.Name = ("emailLabelPublisherPanel");
+            this.emailLabelPublisherPanel.ReadOnly = (true);
+            this.emailLabelPublisherPanel.Size = (new global::System.Drawing.Size(223, 31));
+            this.emailLabelPublisherPanel.TabIndex = (8);
             // 
             // label4
             // 
@@ -725,13 +723,13 @@
             this.label4.TabIndex = (3);
             this.label4.Text = ("PhoneNo:");
             // 
-            // textBox3
+            // phoneLabelPublisherPanel
             // 
-            this.textBox3.Location = (new global::System.Drawing.Point(392, 3));
-            this.textBox3.Name = ("textBox3");
-            this.textBox3.ReadOnly = (true);
-            this.textBox3.Size = (new global::System.Drawing.Size(223, 31));
-            this.textBox3.TabIndex = (9);
+            this.phoneLabelPublisherPanel.Location = (new global::System.Drawing.Point(392, 3));
+            this.phoneLabelPublisherPanel.Name = ("phoneLabelPublisherPanel");
+            this.phoneLabelPublisherPanel.ReadOnly = (true);
+            this.phoneLabelPublisherPanel.Size = (new global::System.Drawing.Size(223, 31));
+            this.phoneLabelPublisherPanel.TabIndex = (9);
             // 
             // splitContainer5
             // 
@@ -1138,11 +1136,11 @@
             // flowLayoutPanel15
             // 
             this.flowLayoutPanel15.Controls.Add(this.authorFlowBookPanel);
-            this.flowLayoutPanel15.Controls.Add(this.flowLayoutPanel18);
+            this.flowLayoutPanel15.Controls.Add(this.publisherFlowBookPanel);
             this.flowLayoutPanel15.Controls.Add(this.flowLayoutPanel19);
             this.flowLayoutPanel15.Controls.Add(this.flowLayoutPanel20);
             this.flowLayoutPanel15.Controls.Add(this.flowLayoutPanel21);
-            this.flowLayoutPanel15.Controls.Add(this.flowLayoutPanel22);
+            this.flowLayoutPanel15.Controls.Add(this.genreFlowBookPanel);
             this.flowLayoutPanel15.Dock = (global::System.Windows.Forms.DockStyle.Fill);
             this.flowLayoutPanel15.FlowDirection = (global::System.Windows.Forms.FlowDirection.TopDown);
             this.flowLayoutPanel15.Location = (new global::System.Drawing.Point(0, 0));
@@ -1169,15 +1167,14 @@
             this.label7.TabIndex = (6);
             this.label7.Text = ("Author:");
             // 
-            // flowLayoutPanel18
+            // publisherFlowBookPanel
             // 
-            this.flowLayoutPanel18.AutoSize = (true);
-            this.flowLayoutPanel18.Controls.Add(this.label11);
-            this.flowLayoutPanel18.Controls.Add(this.publisherLabelBookPanel);
-            this.flowLayoutPanel18.Location = (new global::System.Drawing.Point(3, 34));
-            this.flowLayoutPanel18.Name = ("flowLayoutPanel18");
-            this.flowLayoutPanel18.Size = (new global::System.Drawing.Size(362, 37));
-            this.flowLayoutPanel18.TabIndex = (1);
+            this.publisherFlowBookPanel.AutoSize = (true);
+            this.publisherFlowBookPanel.Controls.Add(this.label11);
+            this.publisherFlowBookPanel.Location = (new global::System.Drawing.Point(3, 34));
+            this.publisherFlowBookPanel.Name = ("publisherFlowBookPanel");
+            this.publisherFlowBookPanel.Size = (new global::System.Drawing.Size(94, 25));
+            this.publisherFlowBookPanel.TabIndex = (1);
             // 
             // label11
             // 
@@ -1188,20 +1185,12 @@
             this.label11.TabIndex = (6);
             this.label11.Text = ("Publisher:");
             // 
-            // publisherLabelBookPanel
-            // 
-            this.publisherLabelBookPanel.Location = (new global::System.Drawing.Point(97, 3));
-            this.publisherLabelBookPanel.Name = ("publisherLabelBookPanel");
-            this.publisherLabelBookPanel.ReadOnly = (true);
-            this.publisherLabelBookPanel.Size = (new global::System.Drawing.Size(262, 31));
-            this.publisherLabelBookPanel.TabIndex = (7);
-            // 
             // flowLayoutPanel19
             // 
             this.flowLayoutPanel19.AutoSize = (true);
             this.flowLayoutPanel19.Controls.Add(this.label14);
             this.flowLayoutPanel19.Controls.Add(this.pagesLabelBookPanel);
-            this.flowLayoutPanel19.Location = (new global::System.Drawing.Point(3, 77));
+            this.flowLayoutPanel19.Location = (new global::System.Drawing.Point(3, 65));
             this.flowLayoutPanel19.Name = ("flowLayoutPanel19");
             this.flowLayoutPanel19.Size = (new global::System.Drawing.Size(362, 37));
             this.flowLayoutPanel19.TabIndex = (2);
@@ -1229,7 +1218,7 @@
             this.flowLayoutPanel20.AutoSizeMode = (global::System.Windows.Forms.AutoSizeMode.GrowAndShrink);
             this.flowLayoutPanel20.Controls.Add(this.label15);
             this.flowLayoutPanel20.Controls.Add(this.publicationDateLabelBookPanel);
-            this.flowLayoutPanel20.Location = (new global::System.Drawing.Point(3, 120));
+            this.flowLayoutPanel20.Location = (new global::System.Drawing.Point(3, 108));
             this.flowLayoutPanel20.Name = ("flowLayoutPanel20");
             this.flowLayoutPanel20.Size = (new global::System.Drawing.Size(362, 37));
             this.flowLayoutPanel20.TabIndex = (3);
@@ -1256,7 +1245,7 @@
             this.flowLayoutPanel21.AutoSize = (true);
             this.flowLayoutPanel21.Controls.Add(this.label16);
             this.flowLayoutPanel21.Controls.Add(this.isbnLabelBookPanel);
-            this.flowLayoutPanel21.Location = (new global::System.Drawing.Point(3, 163));
+            this.flowLayoutPanel21.Location = (new global::System.Drawing.Point(3, 151));
             this.flowLayoutPanel21.Name = ("flowLayoutPanel21");
             this.flowLayoutPanel21.Size = (new global::System.Drawing.Size(362, 37));
             this.flowLayoutPanel21.TabIndex = (4);
@@ -1278,15 +1267,14 @@
             this.isbnLabelBookPanel.Size = (new global::System.Drawing.Size(296, 31));
             this.isbnLabelBookPanel.TabIndex = (7);
             // 
-            // flowLayoutPanel22
+            // genreFlowBookPanel
             // 
-            this.flowLayoutPanel22.AutoSize = (true);
-            this.flowLayoutPanel22.Controls.Add(this.label17);
-            this.flowLayoutPanel22.Controls.Add(this.textBox7);
-            this.flowLayoutPanel22.Location = (new global::System.Drawing.Point(3, 206));
-            this.flowLayoutPanel22.Name = ("flowLayoutPanel22");
-            this.flowLayoutPanel22.Size = (new global::System.Drawing.Size(362, 37));
-            this.flowLayoutPanel22.TabIndex = (5);
+            this.genreFlowBookPanel.AutoSize = (true);
+            this.genreFlowBookPanel.Controls.Add(this.label17);
+            this.genreFlowBookPanel.Location = (new global::System.Drawing.Point(3, 194));
+            this.genreFlowBookPanel.Name = ("genreFlowBookPanel");
+            this.genreFlowBookPanel.Size = (new global::System.Drawing.Size(68, 25));
+            this.genreFlowBookPanel.TabIndex = (5);
             // 
             // label17
             // 
@@ -1296,14 +1284,6 @@
             this.label17.Size = (new global::System.Drawing.Size(62, 25));
             this.label17.TabIndex = (6);
             this.label17.Text = ("Genre:");
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = (new global::System.Drawing.Point(71, 3));
-            this.textBox7.Name = ("textBox7");
-            this.textBox7.ReadOnly = (true);
-            this.textBox7.Size = (new global::System.Drawing.Size(288, 31));
-            this.textBox7.TabIndex = (7);
             // 
             // createPanel
             // 
@@ -2791,16 +2771,16 @@
             this.flowLayoutPanel15.PerformLayout();
             this.authorFlowBookPanel.ResumeLayout(false);
             this.authorFlowBookPanel.PerformLayout();
-            this.flowLayoutPanel18.ResumeLayout(false);
-            this.flowLayoutPanel18.PerformLayout();
+            this.publisherFlowBookPanel.ResumeLayout(false);
+            this.publisherFlowBookPanel.PerformLayout();
             this.flowLayoutPanel19.ResumeLayout(false);
             this.flowLayoutPanel19.PerformLayout();
             this.flowLayoutPanel20.ResumeLayout(false);
             this.flowLayoutPanel20.PerformLayout();
             this.flowLayoutPanel21.ResumeLayout(false);
             this.flowLayoutPanel21.PerformLayout();
-            this.flowLayoutPanel22.ResumeLayout(false);
-            this.flowLayoutPanel22.PerformLayout();
+            this.genreFlowBookPanel.ResumeLayout(false);
+            this.genreFlowBookPanel.PerformLayout();
             this.createPanel.Panel1.ResumeLayout(false);
             this.createPanel.Panel2.ResumeLayout(false);
             ((global::System.ComponentModel.ISupportInitialize)(this.createPanel)).EndInit();
@@ -2946,7 +2926,7 @@
         private Button editButtonAuthorPanel;
         private TableLayoutPanel tableLayoutPanel2;
         private Button editButtonPublisherPanel;
-        private Label label6;
+        private Label publisherLabelPublisherPanel;
         private TableLayoutPanel homePanel;
         private TableLayoutPanel tableLayoutPanel5;
         private TableLayoutPanel tableLayoutPanel4;
@@ -2992,9 +2972,8 @@
         private FlowLayoutPanel authorFlowBookPanel;
         private Label label7;
         private FlowLayoutPanel flowLayoutPanel16;
-        private FlowLayoutPanel flowLayoutPanel18;
+        private FlowLayoutPanel publisherFlowBookPanel;
         private Label label11;
-        private TextBox publisherLabelBookPanel;
         private FlowLayoutPanel flowLayoutPanel19;
         private Label label14;
         private TextBox pagesLabelBookPanel;
@@ -3004,10 +2983,10 @@
         private FlowLayoutPanel flowLayoutPanel21;
         private Label label16;
         private TextBox isbnLabelBookPanel;
-        private FlowLayoutPanel flowLayoutPanel22;
+        private FlowLayoutPanel genreFlowBookPanel;
         private Label label17;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox emailLabelPublisherPanel;
+        private TextBox phoneLabelPublisherPanel;
         private FlowLayoutPanel flowLayoutPanel25;
         private Label label10;
         private TextBox textBox9;
@@ -3037,7 +3016,6 @@
         private FlowLayoutPanel flowLayoutPanel32;
         private Button uploadButtonCreatePanel;
         private Label uploadedFilePathLabelCreatePanel;
-        private TextBox textBox7;
         private FlowLayoutPanel flowLayoutPanel33;
         private FlowLayoutPanel flowLayoutPanel34;
         private FlowLayoutPanel flowLayoutPanel35;

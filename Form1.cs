@@ -104,34 +104,70 @@ namespace LibraryDisplay
             switch (firstSelectedItem.SubItems[1].Text)
             {
                 case "Book":
-                    JObject data = await GetRequests.GetBookById(firstSelectedItem.SubItems[2].Text);
-                    pagesLabelBookPanel.Text = data["pageNumber"].ToString();
-                    isbnLabelBookPanel.Text = data["isbn"].ToString();
-                    publicationDateLabelBookPanel.Text = data["publicationDate"].ToString();
-                    bookLabelBookPanel.Text = data["title"].ToString();
-                    JObject publisher = await GetRequests.GetPublisherById(data["publisher"].ToString());
-                    publisherLabelBookPanel.Text = publisher["name"].ToString();
-                    foreach (var item in data["authors"])
-                    {
-                        Label label = new Label();
-                        JObject author = await GetRequests.GetAuthorsById(item.ToString());
-                        label.Text = author["firstName"] + " " + author["lastName"] + " " + author["middleName"];
-                        label.AutoSize = true;
-                        label.BorderStyle = BorderStyle.FixedSingle;
-                        authorFlowBookPanel.Controls.Add(label);
-                    }
-                    homePanel.Visible = false;
-                    bookPanel.Visible = true;
+                    await openBookPanel(firstSelectedItem.SubItems[2].Text);
                     break;
                 case "Author":
-                    Console.WriteLine(firstSelectedItem.SubItems[2].Text + " Author2");
+                    await openAuthorPanel(firstSelectedItem.SubItems[2].Text);
                     break;
                 case "Publisher":
-                    Console.WriteLine(firstSelectedItem.SubItems[2].Text + " Publisher3");
+                    await openPublisherPanel(firstSelectedItem.SubItems[2].Text);
                     break;
             }
         }
 
+        private async Task openBookPanel(string id)
+        {
+            authorFlowBookPanel.Controls.Clear();
+            authorFlowBookPanel.Controls.Add(new Label() { Text = "Author: ", AutoSize = true });
+            publisherFlowBookPanel.Controls.Clear();
+            publisherFlowBookPanel.Controls.Add(new Label() { Text = "Publisher: ", AutoSize = true });
+            genreFlowBookPanel.Controls.Clear();
+            genreFlowBookPanel.Controls.Add(new Label() { Text = "Genre: ", AutoSize = true });
+
+            JObject data = await GetRequests.GetBookById(id);
+            pagesLabelBookPanel.Text = data["pageNumber"]!.ToString();
+            isbnLabelBookPanel.Text = data["isbn"]!.ToString();
+            publicationDateLabelBookPanel.Text = data["publicationDate"]!.ToString();
+            bookLabelBookPanel.Text = data["title"]!.ToString();
+
+            JObject publisher = await GetRequests.GetPublisherById(data["publisher"]!.ToString());
+            ClickableLabel publisherLabel = new ClickableLabel();
+            publisherLabel.Text = publisher["name"]!.ToString();
+            publisherFlowBookPanel.Controls.Add(publisherLabel); 
+
+            foreach (var item in data["authors"]!)
+            {
+                ClickableLabel label = new ClickableLabel();
+                JObject author = await GetRequests.GetAuthorsById(item.ToString());
+                label.Text = author["firstName"] + " " + author["lastName"] + " " + author["middleName"];
+                authorFlowBookPanel.Controls.Add(label);
+            }
+
+            foreach (var item in data["genres"]!)
+            {
+                ClickableLabel label = new ClickableLabel();
+                JObject genre = await GetRequests.GetGenresById(item.ToString());
+                label.Text = genre["genre"]!.ToString();
+                genreFlowBookPanel.Controls.Add(label);
+            }
+            homePanel.Visible = false;
+            bookPanel.Visible = true;
+        }
+
+        private async Task openAuthorPanel(string id)
+        {
+
+        }
+
+        private async Task openPublisherPanel(string id)
+        {
+            JObject publisherData = await GetRequests.GetPublisherById(id);
+            publisherLabelPublisherPanel.Text = "Publisher " + publisherData["name"]!.ToString();
+            emailLabelPublisherPanel.Text = publisherData["email"]!.ToString();
+            phoneLabelPublisherPanel.Text = publisherData["phone"]!.ToString();
+            homePanel.Visible = false;
+            publisherPanel.Visible = true;
+        }
 
     }
 }
