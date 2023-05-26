@@ -1,3 +1,5 @@
+using Newtonsoft.Json.Linq;
+
 namespace LibraryDisplay
 {
     public partial class LibraryForm : Form
@@ -69,10 +71,10 @@ namespace LibraryDisplay
             homePanel.Visible = true;
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private async void searchButton_Click(object sender, EventArgs e)
         {
             searchListView.Items.Clear();
-            List<ListViewItem> result = SearchUtility.Search(searchTextBox.Text, booksCheckBox.Checked, authorsCheckBox.Checked, publishersCheckBox.Checked);
+            List<ListViewItem> result = await SearchUtility.Search(searchTextBox.Text, booksCheckBox.Checked, authorsCheckBox.Checked, publishersCheckBox.Checked);
             foreach (ListViewItem item in result)
             {
                 searchListView.Items.Add(item);
@@ -94,6 +96,42 @@ namespace LibraryDisplay
                 publishersCheckBox.Checked = false;
             }
         }
+
+        private async void searchListView_Click(object sender, EventArgs e)
+        {
+            var firstSelectedItem = searchListView.SelectedItems[0];
+
+            switch (firstSelectedItem.SubItems[1].Text)
+            {
+                case "Book":
+                    JObject data = await GetRequests.GetBookById(firstSelectedItem.SubItems[2].Text);
+                    pagesLabelBookPanel.Text = data["pageNumber"].ToString();
+                    isbnLabelBookPanel.Text = data["isbn"].ToString();
+                    publicationDateLabelBookPanel.Text = data["publicationDate"].ToString();
+                    bookLabelBookPanel.Text = data["title"].ToString();
+                    JObject publisher = await GetRequests.GetPublisherById(data["publisher"].ToString());
+                    publisherLabelBookPanel.Text = publisher["name"].ToString();
+                    foreach (var item in data["authors"])
+                    {
+                        Label label = new Label();
+                        JObject author = await GetRequests.GetAuthorsById(item.ToString());
+                        label.Text = author["firstName"] + " " + author["lastName"] + " " + author["middleName"];
+                        label.AutoSize = true;
+                        label.BorderStyle = BorderStyle.FixedSingle;
+                        authorFlowBookPanel.Controls.Add(label);
+                    }
+                    homePanel.Visible = false;
+                    bookPanel.Visible = true;
+                    break;
+                case "Author":
+                    Console.WriteLine(firstSelectedItem.SubItems[2].Text + " Author2");
+                    break;
+                case "Publisher":
+                    Console.WriteLine(firstSelectedItem.SubItems[2].Text + " Publisher3");
+                    break;
+            }
+        }
+
 
     }
 }

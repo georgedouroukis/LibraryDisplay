@@ -12,51 +12,52 @@ namespace LibraryDisplay
     {
         public static List<ListViewItem> listViewItems = new List<ListViewItem>();
 
-        public static  List<ListViewItem> Search(string text, bool books, bool authors, bool publishers)
+        public static  async Task<List<ListViewItem>> Search(string text, bool books, bool authors, bool publishers)
         {
             listViewItems.Clear();
             if (books)
             {
-                 bookSearch(text);
+                await bookSearch(text);
             }
             if (authors)
             {
-                authorSearch(text);
+               await authorSearch(text);
             }
             if (publishers)
             {
-                publisherSearch(text);
+                await publisherSearch(text);
             }
             return listViewItems;
         }
 
-        private static void  bookSearch(string text)
+        private static async Task authorSearch(string text)
         {
             try
             {
                 using (var client = new HttpClient())
                 {
-                    Uri endpoint = new Uri("http://localhost:8080/api/books");
-                    HttpResponseMessage responce =  client.GetAsync(endpoint).Result;
-                    var json =  responce.Content.ReadAsStringAsync().Result;
+                    Uri endpoint = new Uri("http://localhost:8080/api/authors");
+                    HttpResponseMessage responce = await client.GetAsync(endpoint);
+                    var json = await responce.Content.ReadAsStringAsync();
                     JObject responceObject = JObject.Parse(json);
 
                     if (responce.IsSuccessStatusCode)
                     {
-                        foreach (var item in responceObject["data"]) 
+                        foreach (var item in responceObject["data"]!) 
                         {
-                            if (item["title"].ToString().Contains(text, StringComparison.CurrentCultureIgnoreCase))
+                            string fullName = item["firstName"]!.ToString() + " "+ item["lastName"]!.ToString() + " " + item["middleName"]!.ToString();
+                            if (fullName.Contains(text, StringComparison.CurrentCultureIgnoreCase))
                             {
-                                ListViewItem searchItem = new ListViewItem("Book");
-                                searchItem.SubItems.Add(item["title"].ToString());
-                                searchItem.SubItems.Add(item["id"].ToString());
+                                ListViewItem searchItem = new ListViewItem(fullName);
+                                searchItem.SubItems.Add("Author");
+                                searchItem.SubItems.Add(item["id"]!.ToString());
                                 listViewItems.Add(searchItem);
                             }
                         }
                     }
                     else
                     {
-                        MessageBox.Show(responceObject["error"].ToString(),"Status Code: " + responce.StatusCode.ToString());
+                        MessageBox.Show(responceObject["error"]!.ToString(),"Status Code: " + responce.StatusCode.ToString());
                     }
 
                 }
@@ -68,14 +69,78 @@ namespace LibraryDisplay
            
         }
 
-        private static void authorSearch(string text)
+        private static async Task bookSearch(string text)
         {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    Uri endpoint = new Uri("http://localhost:8080/api/books");
+                    HttpResponseMessage responce = await client.GetAsync(endpoint);
+                    var json = await responce.Content.ReadAsStringAsync();
+                    JObject responceObject = JObject.Parse(json);
 
+                    if (responce.IsSuccessStatusCode)
+                    {
+                        foreach (var item in responceObject["data"]!)
+                        {
+                            if (item["title"]!.ToString().Contains(text, StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                ListViewItem searchItem = new ListViewItem(item["title"]!.ToString());
+                                searchItem.SubItems.Add("Book");
+                                searchItem.SubItems.Add(item["id"]!.ToString());
+                                listViewItems.Add(searchItem);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(responceObject["error"]!.ToString(), "Status Code: " + responce.StatusCode.ToString());
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, e.GetType().ToString());
+            }
         }
 
-        private static void publisherSearch(string text)
+        private static async Task publisherSearch(string text)
         {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    Uri endpoint = new Uri("http://localhost:8080/api/publishers");
+                    HttpResponseMessage responce = await client.GetAsync(endpoint);
+                    var json = await responce.Content.ReadAsStringAsync();
+                    JObject responceObject = JObject.Parse(json);
 
+                    if (responce.IsSuccessStatusCode)
+                    {
+                        foreach (var item in responceObject["data"]!)
+                        {
+                            if (item["name"]!.ToString().Contains(text, StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                ListViewItem searchItem = new ListViewItem(item["name"]!.ToString());
+                                searchItem.SubItems.Add("Publisher");
+                                searchItem.SubItems.Add(item["id"]!.ToString());
+                                listViewItems.Add(searchItem);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(responceObject["error"]!.ToString(), "Status Code: " + responce.StatusCode.ToString());
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, e.GetType().ToString());
+            }
         }
     }
 }
