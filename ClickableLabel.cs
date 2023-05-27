@@ -8,11 +8,33 @@ namespace LibraryDisplay
 {
     internal class ClickableLabel : Label
     {
-        public ClickableLabel() : base()
+
+        string id;
+        DbTable table;
+        
+        public ClickableLabel(string id, DbTable table) : base()
         {
             AutoSize = true;
             Cursor = Cursors.Hand;
-            BorderStyle = BorderStyle.FixedSingle;
+            this.MouseEnter += changeColor;
+            this.MouseLeave += changeColorback;
+            this.id = id;
+            this.table = table;
+            
         }
+
+        public void changeColor(object sender, EventArgs e)
+        {
+            BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            ForeColor = Color.White;
+        }
+
+        public void changeColorback(object sender, EventArgs e)
+        {
+            BackColor = System.Drawing.SystemColors.Control;
+            ForeColor = Color.Black;
+
+        }
+
     }
 }

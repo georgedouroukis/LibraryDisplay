@@ -251,6 +251,25 @@
             this.flowLayoutPanel70 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.flowLayoutPanel62 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.button3 = (new global::System.Windows.Forms.Button());
+            this.splitContainer3 = (new global::System.Windows.Forms.SplitContainer());
+            this.splitContainer11 = (new global::System.Windows.Forms.SplitContainer());
+            this.tableLayoutPanel8 = (new global::System.Windows.Forms.TableLayoutPanel());
+            this.button4 = (new global::System.Windows.Forms.Button());
+            this.label6 = (new global::System.Windows.Forms.Label());
+            this.genrePanel = (new global::System.Windows.Forms.SplitContainer());
+            this.splitContainer13 = (new global::System.Windows.Forms.SplitContainer());
+            this.tableLayoutPanel9 = (new global::System.Windows.Forms.TableLayoutPanel());
+            this.editButtonGenrePanel = (new global::System.Windows.Forms.Button());
+            this.genreLabelGenrePanel = (new global::System.Windows.Forms.Label());
+            this.flowLayoutPanel17 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.splitContainer14 = (new global::System.Windows.Forms.SplitContainer());
+            this.flowLayoutPanel18 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.flowLayoutPanel22 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.homeButtonGenrePanel = (new global::System.Windows.Forms.Button());
+            this.idAuthorPanel = (new global::System.Windows.Forms.Label());
+            this.idGenrePanel = (new global::System.Windows.Forms.Label());
+            this.idPublisherPanel = (new global::System.Windows.Forms.Label());
+            this.idBookPanel = (new global::System.Windows.Forms.Label());
             ((global::System.ComponentModel.ISupportInitialize)(this.collectionPanel)).BeginInit();
             this.collectionPanel.Panel1.SuspendLayout();
             this.collectionPanel.Panel2.SuspendLayout();
@@ -389,11 +408,30 @@
             this.flowLayoutPanel68.SuspendLayout();
             this.flowLayoutPanel69.SuspendLayout();
             this.flowLayoutPanel62.SuspendLayout();
+            ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.SuspendLayout();
+            ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer11)).BeginInit();
+            this.splitContainer11.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            ((global::System.ComponentModel.ISupportInitialize)(this.genrePanel)).BeginInit();
+            this.genrePanel.Panel1.SuspendLayout();
+            this.genrePanel.Panel2.SuspendLayout();
+            this.genrePanel.SuspendLayout();
+            ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer13)).BeginInit();
+            this.splitContainer13.Panel1.SuspendLayout();
+            this.splitContainer13.Panel2.SuspendLayout();
+            this.splitContainer13.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer14)).BeginInit();
+            this.splitContainer14.Panel1.SuspendLayout();
+            this.splitContainer14.Panel2.SuspendLayout();
+            this.splitContainer14.SuspendLayout();
+            this.flowLayoutPanel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // collectionPanel
             // 
-            this.collectionPanel.Location = (new global::System.Drawing.Point(1720, 28));
+            this.collectionPanel.Location = (new global::System.Drawing.Point(2297, 568));
             this.collectionPanel.Name = ("collectionPanel");
             this.collectionPanel.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
             // 
@@ -404,8 +442,8 @@
             // collectionPanel.Panel2
             // 
             this.collectionPanel.Panel2.Controls.Add(this.splitContainer7);
-            this.collectionPanel.Size = (new global::System.Drawing.Size(263, 491));
-            this.collectionPanel.SplitterDistance = (87);
+            this.collectionPanel.Size = (new global::System.Drawing.Size(423, 697));
+            this.collectionPanel.SplitterDistance = (123);
             this.collectionPanel.TabIndex = (0);
             // 
             // label1
@@ -414,7 +452,7 @@
             this.label1.Font = (new global::System.Drawing.Font("Segoe UI", 16F, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point));
             this.label1.Location = (new global::System.Drawing.Point(0, 0));
             this.label1.Name = ("label1");
-            this.label1.Size = (new global::System.Drawing.Size(263, 87));
+            this.label1.Size = (new global::System.Drawing.Size(423, 123));
             this.label1.TabIndex = (3);
             this.label1.Text = ("My Collection");
             this.label1.TextAlign = (global::System.Drawing.ContentAlignment.MiddleCenter);
@@ -433,8 +471,8 @@
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.flowLayoutPanel4);
-            this.splitContainer7.Size = (new global::System.Drawing.Size(263, 400));
-            this.splitContainer7.SplitterDistance = (336);
+            this.splitContainer7.Size = (new global::System.Drawing.Size(423, 570));
+            this.splitContainer7.SplitterDistance = (478);
             this.splitContainer7.TabIndex = (1);
             // 
             // flowLayoutPanel2
@@ -443,7 +481,7 @@
             this.flowLayoutPanel2.Dock = (global::System.Windows.Forms.DockStyle.Fill);
             this.flowLayoutPanel2.Location = (new global::System.Drawing.Point(0, 0));
             this.flowLayoutPanel2.Name = ("flowLayoutPanel2");
-            this.flowLayoutPanel2.Size = (new global::System.Drawing.Size(263, 336));
+            this.flowLayoutPanel2.Size = (new global::System.Drawing.Size(423, 478));
             this.flowLayoutPanel2.TabIndex = (1);
             // 
             // flowLayoutPanel4
@@ -453,13 +491,13 @@
             this.flowLayoutPanel4.FlowDirection = (global::System.Windows.Forms.FlowDirection.RightToLeft);
             this.flowLayoutPanel4.Location = (new global::System.Drawing.Point(0, 0));
             this.flowLayoutPanel4.Name = ("flowLayoutPanel4");
-            this.flowLayoutPanel4.Size = (new global::System.Drawing.Size(263, 60));
+            this.flowLayoutPanel4.Size = (new global::System.Drawing.Size(423, 88));
             this.flowLayoutPanel4.TabIndex = (0);
             // 
             // homeButtonCollectionPanel
             // 
             this.homeButtonCollectionPanel.Anchor = (global::System.Windows.Forms.AnchorStyles.Right);
-            this.homeButtonCollectionPanel.Location = (new global::System.Drawing.Point(148, 3));
+            this.homeButtonCollectionPanel.Location = (new global::System.Drawing.Point(308, 3));
             this.homeButtonCollectionPanel.Name = ("homeButtonCollectionPanel");
             this.homeButtonCollectionPanel.Size = (new global::System.Drawing.Size(112, 34));
             this.homeButtonCollectionPanel.TabIndex = (7);
@@ -469,7 +507,7 @@
             // 
             // authorPanel
             // 
-            this.authorPanel.Location = (new global::System.Drawing.Point(2069, 77));
+            this.authorPanel.Location = (new global::System.Drawing.Point(1409, 11));
             this.authorPanel.Margin = (new global::System.Windows.Forms.Padding(25));
             this.authorPanel.Name = ("authorPanel");
             this.authorPanel.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
@@ -481,8 +519,8 @@
             // authorPanel.Panel2
             // 
             this.authorPanel.Panel2.Controls.Add(this.splitContainer6);
-            this.authorPanel.Size = (new global::System.Drawing.Size(394, 442));
-            this.authorPanel.SplitterDistance = (155);
+            this.authorPanel.Size = (new global::System.Drawing.Size(550, 481));
+            this.authorPanel.SplitterDistance = (166);
             this.authorPanel.TabIndex = (1);
             // 
             // splitContainer2
@@ -502,8 +540,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.textBox14);
             this.splitContainer2.Panel2.Controls.Add(this.DescriptionLabelAuthorPanel);
             this.splitContainer2.Panel2.Margin = (new global::System.Windows.Forms.Padding(20));
-            this.splitContainer2.Size = (new global::System.Drawing.Size(394, 155));
-            this.splitContainer2.SplitterDistance = (69);
+            this.splitContainer2.Size = (new global::System.Drawing.Size(550, 166));
+            this.splitContainer2.SplitterDistance = (73);
             this.splitContainer2.TabIndex = (0);
             // 
             // tableLayoutPanel1
@@ -515,17 +553,18 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Absolute, 112F));
             this.tableLayoutPanel1.Controls.Add(this.editButtonAuthorPanel, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.authorLabelAuthorPanel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.idAuthorPanel, 0, 0);
             this.tableLayoutPanel1.Location = (new global::System.Drawing.Point(0, 0));
             this.tableLayoutPanel1.Name = ("tableLayoutPanel1");
             this.tableLayoutPanel1.RowCount = (1);
             this.tableLayoutPanel1.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = (new global::System.Drawing.Size(394, 69));
+            this.tableLayoutPanel1.Size = (new global::System.Drawing.Size(550, 73));
             this.tableLayoutPanel1.TabIndex = (0);
             // 
             // editButtonAuthorPanel
             // 
-            this.editButtonAuthorPanel.Anchor = (global::System.Windows.Forms.AnchorStyles.None);
-            this.editButtonAuthorPanel.Location = (new global::System.Drawing.Point(285, 17));
+            this.editButtonAuthorPanel.Anchor = (global::System.Windows.Forms.AnchorStyles.Right);
+            this.editButtonAuthorPanel.Location = (new global::System.Drawing.Point(441, 19));
             this.editButtonAuthorPanel.Name = ("editButtonAuthorPanel");
             this.editButtonAuthorPanel.Size = (new global::System.Drawing.Size(106, 34));
             this.editButtonAuthorPanel.TabIndex = (4);
@@ -538,7 +577,7 @@
             this.authorLabelAuthorPanel.Font = (new global::System.Drawing.Font("Segoe UI", 16F, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point));
             this.authorLabelAuthorPanel.Location = (new global::System.Drawing.Point(115, 0));
             this.authorLabelAuthorPanel.Name = ("authorLabelAuthorPanel");
-            this.authorLabelAuthorPanel.Size = (new global::System.Drawing.Size(164, 69));
+            this.authorLabelAuthorPanel.Size = (new global::System.Drawing.Size(320, 73));
             this.authorLabelAuthorPanel.TabIndex = (6);
             this.authorLabelAuthorPanel.Text = ("Author Name");
             this.authorLabelAuthorPanel.TextAlign = (global::System.Drawing.ContentAlignment.MiddleCenter);
@@ -550,7 +589,7 @@
             this.textBox14.Multiline = (true);
             this.textBox14.Name = ("textBox14");
             this.textBox14.ReadOnly = (true);
-            this.textBox14.Size = (new global::System.Drawing.Size(394, 82));
+            this.textBox14.Size = (new global::System.Drawing.Size(550, 89));
             this.textBox14.TabIndex = (1);
             this.textBox14.Text = ("Description");
             // 
@@ -559,7 +598,7 @@
             this.DescriptionLabelAuthorPanel.Dock = (global::System.Windows.Forms.DockStyle.Fill);
             this.DescriptionLabelAuthorPanel.Location = (new global::System.Drawing.Point(0, 0));
             this.DescriptionLabelAuthorPanel.Name = ("DescriptionLabelAuthorPanel");
-            this.DescriptionLabelAuthorPanel.Size = (new global::System.Drawing.Size(394, 82));
+            this.DescriptionLabelAuthorPanel.Size = (new global::System.Drawing.Size(550, 89));
             this.DescriptionLabelAuthorPanel.TabIndex = (0);
             this.DescriptionLabelAuthorPanel.Text = ("Description");
             // 
@@ -577,8 +616,8 @@
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.flowLayoutPanel3);
-            this.splitContainer6.Size = (new global::System.Drawing.Size(394, 283));
-            this.splitContainer6.SplitterDistance = (238);
+            this.splitContainer6.Size = (new global::System.Drawing.Size(550, 311));
+            this.splitContainer6.SplitterDistance = (260);
             this.splitContainer6.TabIndex = (1);
             // 
             // flowLayoutPanel1
@@ -587,7 +626,7 @@
             this.flowLayoutPanel1.Dock = (global::System.Windows.Forms.DockStyle.Fill);
             this.flowLayoutPanel1.Location = (new global::System.Drawing.Point(0, 0));
             this.flowLayoutPanel1.Name = ("flowLayoutPanel1");
-            this.flowLayoutPanel1.Size = (new global::System.Drawing.Size(394, 238));
+            this.flowLayoutPanel1.Size = (new global::System.Drawing.Size(550, 260));
             this.flowLayoutPanel1.TabIndex = (2);
             // 
             // flowLayoutPanel3
@@ -597,13 +636,13 @@
             this.flowLayoutPanel3.FlowDirection = (global::System.Windows.Forms.FlowDirection.RightToLeft);
             this.flowLayoutPanel3.Location = (new global::System.Drawing.Point(0, 0));
             this.flowLayoutPanel3.Name = ("flowLayoutPanel3");
-            this.flowLayoutPanel3.Size = (new global::System.Drawing.Size(394, 41));
+            this.flowLayoutPanel3.Size = (new global::System.Drawing.Size(550, 47));
             this.flowLayoutPanel3.TabIndex = (8);
             // 
             // homeButtonAuthorPanel
             // 
             this.homeButtonAuthorPanel.Anchor = (global::System.Windows.Forms.AnchorStyles.Right);
-            this.homeButtonAuthorPanel.Location = (new global::System.Drawing.Point(279, 3));
+            this.homeButtonAuthorPanel.Location = (new global::System.Drawing.Point(435, 3));
             this.homeButtonAuthorPanel.Name = ("homeButtonAuthorPanel");
             this.homeButtonAuthorPanel.Size = (new global::System.Drawing.Size(112, 34));
             this.homeButtonAuthorPanel.TabIndex = (9);
@@ -656,6 +695,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Absolute, 112F));
             this.tableLayoutPanel2.Controls.Add(this.editButtonPublisherPanel, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.publisherLabelPublisherPanel, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.idPublisherPanel, 0, 0);
             this.tableLayoutPanel2.Dock = (global::System.Windows.Forms.DockStyle.Fill);
             this.tableLayoutPanel2.Location = (new global::System.Drawing.Point(0, 0));
             this.tableLayoutPanel2.Name = ("tableLayoutPanel2");
@@ -787,14 +827,14 @@
             this.homePanel.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.homePanel.Controls.Add(this.flowLayoutPanel8, 0, 1);
             this.homePanel.Controls.Add(this.splitContainer8, 0, 2);
-            this.homePanel.Location = (new global::System.Drawing.Point(58, 72));
+            this.homePanel.Location = (new global::System.Drawing.Point(27, 23));
             this.homePanel.Name = ("homePanel");
             this.homePanel.RowCount = (4);
             this.homePanel.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 10F));
             this.homePanel.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 10F));
             this.homePanel.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 70F));
             this.homePanel.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 10F));
-            this.homePanel.Size = (new global::System.Drawing.Size(708, 603));
+            this.homePanel.Size = (new global::System.Drawing.Size(635, 603));
             this.homePanel.TabIndex = (2);
             // 
             // tableLayoutPanel5
@@ -810,16 +850,16 @@
             this.tableLayoutPanel5.Name = ("tableLayoutPanel5");
             this.tableLayoutPanel5.RowCount = (1);
             this.tableLayoutPanel5.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = (new global::System.Drawing.Size(702, 55));
+            this.tableLayoutPanel5.Size = (new global::System.Drawing.Size(629, 55));
             this.tableLayoutPanel5.TabIndex = (3);
             // 
             // flowLayoutPanel10
             // 
             this.flowLayoutPanel10.Controls.Add(this.createButtonHomePanel);
             this.flowLayoutPanel10.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.flowLayoutPanel10.Location = (new global::System.Drawing.Point(529, 3));
+            this.flowLayoutPanel10.Location = (new global::System.Drawing.Point(474, 3));
             this.flowLayoutPanel10.Name = ("flowLayoutPanel10");
-            this.flowLayoutPanel10.Size = (new global::System.Drawing.Size(170, 49));
+            this.flowLayoutPanel10.Size = (new global::System.Drawing.Size(152, 49));
             this.flowLayoutPanel10.TabIndex = (0);
             // 
             // createButtonHomePanel
@@ -840,13 +880,13 @@
             this.flowLayoutPanel11.FlowDirection = (global::System.Windows.Forms.FlowDirection.RightToLeft);
             this.flowLayoutPanel11.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel11.Name = ("flowLayoutPanel11");
-            this.flowLayoutPanel11.Size = (new global::System.Drawing.Size(169, 49));
+            this.flowLayoutPanel11.Size = (new global::System.Drawing.Size(151, 49));
             this.flowLayoutPanel11.TabIndex = (1);
             // 
             // collectionButtonHomePanel
             // 
             this.collectionButtonHomePanel.AutoSize = (true);
-            this.collectionButtonHomePanel.Location = (new global::System.Drawing.Point(36, 3));
+            this.collectionButtonHomePanel.Location = (new global::System.Drawing.Point(18, 3));
             this.collectionButtonHomePanel.Name = ("collectionButtonHomePanel");
             this.collectionButtonHomePanel.Size = (new global::System.Drawing.Size(130, 35));
             this.collectionButtonHomePanel.TabIndex = (0);
@@ -866,16 +906,16 @@
             this.tableLayoutPanel4.Name = ("tableLayoutPanel4");
             this.tableLayoutPanel4.RowCount = (1);
             this.tableLayoutPanel4.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = (new global::System.Drawing.Size(702, 54));
+            this.tableLayoutPanel4.Size = (new global::System.Drawing.Size(629, 54));
             this.tableLayoutPanel4.TabIndex = (0);
             // 
             // flowLayoutPanel9
             // 
             this.flowLayoutPanel9.Controls.Add(this.searchButton);
             this.flowLayoutPanel9.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.flowLayoutPanel9.Location = (new global::System.Drawing.Point(529, 3));
+            this.flowLayoutPanel9.Location = (new global::System.Drawing.Point(474, 3));
             this.flowLayoutPanel9.Name = ("flowLayoutPanel9");
-            this.flowLayoutPanel9.Size = (new global::System.Drawing.Size(170, 48));
+            this.flowLayoutPanel9.Size = (new global::System.Drawing.Size(152, 48));
             this.flowLayoutPanel9.TabIndex = (0);
             // 
             // searchButton
@@ -895,12 +935,12 @@
             this.flowLayoutPanel12.FlowDirection = (global::System.Windows.Forms.FlowDirection.RightToLeft);
             this.flowLayoutPanel12.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel12.Name = ("flowLayoutPanel12");
-            this.flowLayoutPanel12.Size = (new global::System.Drawing.Size(520, 48));
+            this.flowLayoutPanel12.Size = (new global::System.Drawing.Size(465, 48));
             this.flowLayoutPanel12.TabIndex = (1);
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = (new global::System.Drawing.Point(104, 3));
+            this.searchTextBox.Location = (new global::System.Drawing.Point(49, 3));
             this.searchTextBox.Name = ("searchTextBox");
             this.searchTextBox.Size = (new global::System.Drawing.Size(413, 31));
             this.searchTextBox.TabIndex = (0);
@@ -915,7 +955,7 @@
             this.flowLayoutPanel8.Location = (new global::System.Drawing.Point(3, 63));
             this.flowLayoutPanel8.Name = ("flowLayoutPanel8");
             this.flowLayoutPanel8.Padding = (new global::System.Windows.Forms.Padding(100, 0, 0, 0));
-            this.flowLayoutPanel8.Size = (new global::System.Drawing.Size(702, 54));
+            this.flowLayoutPanel8.Size = (new global::System.Drawing.Size(629, 54));
             this.flowLayoutPanel8.TabIndex = (1);
             // 
             // allCheckBox
@@ -972,8 +1012,8 @@
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.Controls.Add(this.searchListView);
-            this.splitContainer8.Size = (new global::System.Drawing.Size(702, 416));
-            this.splitContainer8.SplitterDistance = (234);
+            this.splitContainer8.Size = (new global::System.Drawing.Size(629, 416));
+            this.splitContainer8.SplitterDistance = (209);
             this.splitContainer8.TabIndex = (2);
             // 
             // genreTreeView
@@ -982,8 +1022,9 @@
             this.genreTreeView.Dock = (global::System.Windows.Forms.DockStyle.Fill);
             this.genreTreeView.Location = (new global::System.Drawing.Point(0, 0));
             this.genreTreeView.Name = ("genreTreeView");
-            this.genreTreeView.Size = (new global::System.Drawing.Size(234, 416));
+            this.genreTreeView.Size = (new global::System.Drawing.Size(209, 416));
             this.genreTreeView.TabIndex = (0);
+            this.genreTreeView.NodeMouseClick += (this.genreTreeView_NodeMouseClick);
             // 
             // searchListView
             // 
@@ -993,7 +1034,7 @@
             this.searchListView.Location = (new global::System.Drawing.Point(0, 0));
             this.searchListView.MultiSelect = (false);
             this.searchListView.Name = ("searchListView");
-            this.searchListView.Size = (new global::System.Drawing.Size(464, 416));
+            this.searchListView.Size = (new global::System.Drawing.Size(416, 416));
             this.searchListView.TabIndex = (0);
             this.searchListView.UseCompatibleStateImageBehavior = (false);
             this.searchListView.View = (global::System.Windows.Forms.View.Details);
@@ -1017,7 +1058,7 @@
             this.bookPanel.Controls.Add(this.flowLayoutPanel13, 0, 3);
             this.bookPanel.Controls.Add(this.panel1, 0, 2);
             this.bookPanel.Controls.Add(this.splitContainer1, 0, 1);
-            this.bookPanel.Location = (new global::System.Drawing.Point(876, 748));
+            this.bookPanel.Location = (new global::System.Drawing.Point(822, 748));
             this.bookPanel.Name = ("bookPanel");
             this.bookPanel.RowCount = (4);
             this.bookPanel.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 15F));
@@ -1037,6 +1078,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Absolute, 112F));
             this.tableLayoutPanel3.Controls.Add(this.editButtonBookPanel, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.bookLabelBookPanel, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.idBookPanel, 0, 0);
             this.tableLayoutPanel3.Location = (new global::System.Drawing.Point(3, 3));
             this.tableLayoutPanel3.Name = ("tableLayoutPanel3");
             this.tableLayoutPanel3.RowCount = (1);
@@ -1288,7 +1330,7 @@
             // 
             // createPanel
             // 
-            this.createPanel.Location = (new global::System.Drawing.Point(887, 12));
+            this.createPanel.Location = (new global::System.Drawing.Point(695, 5));
             this.createPanel.Name = ("createPanel");
             this.createPanel.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
             // 
@@ -1299,7 +1341,7 @@
             // createPanel.Panel2
             // 
             this.createPanel.Panel2.Controls.Add(this.splitContainer9);
-            this.createPanel.Size = (new global::System.Drawing.Size(719, 714));
+            this.createPanel.Size = (new global::System.Drawing.Size(686, 714));
             this.createPanel.SplitterDistance = (56);
             this.createPanel.TabIndex = (4);
             // 
@@ -1316,13 +1358,13 @@
             this.tableLayoutPanel6.Name = ("tableLayoutPanel6");
             this.tableLayoutPanel6.RowCount = (1);
             this.tableLayoutPanel6.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = (new global::System.Drawing.Size(719, 56));
+            this.tableLayoutPanel6.Size = (new global::System.Drawing.Size(686, 56));
             this.tableLayoutPanel6.TabIndex = (1);
             // 
             // saveButtonCreatePanel
             // 
             this.saveButtonCreatePanel.Anchor = (global::System.Windows.Forms.AnchorStyles.None);
-            this.saveButtonCreatePanel.Location = (new global::System.Drawing.Point(610, 11));
+            this.saveButtonCreatePanel.Location = (new global::System.Drawing.Point(577, 11));
             this.saveButtonCreatePanel.Name = ("saveButtonCreatePanel");
             this.saveButtonCreatePanel.Size = (new global::System.Drawing.Size(106, 34));
             this.saveButtonCreatePanel.TabIndex = (4);
@@ -1335,7 +1377,7 @@
             this.label5.Font = (new global::System.Drawing.Font("Segoe UI", 16F, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point));
             this.label5.Location = (new global::System.Drawing.Point(115, 0));
             this.label5.Name = ("label5");
-            this.label5.Size = (new global::System.Drawing.Size(489, 56));
+            this.label5.Size = (new global::System.Drawing.Size(456, 56));
             this.label5.TabIndex = (6);
             this.label5.Text = ("Create New...");
             this.label5.TextAlign = (global::System.Drawing.ContentAlignment.MiddleCenter);
@@ -1354,7 +1396,7 @@
             // splitContainer9.Panel2
             // 
             this.splitContainer9.Panel2.Controls.Add(this.flowLayoutPanel14);
-            this.splitContainer9.Size = (new global::System.Drawing.Size(719, 654));
+            this.splitContainer9.Size = (new global::System.Drawing.Size(686, 654));
             this.splitContainer9.SplitterDistance = (598);
             this.splitContainer9.TabIndex = (0);
             // 
@@ -1368,7 +1410,7 @@
             this.tabControl1.Location = (new global::System.Drawing.Point(0, 0));
             this.tabControl1.Name = ("tabControl1");
             this.tabControl1.SelectedIndex = (0);
-            this.tabControl1.Size = (new global::System.Drawing.Size(719, 598));
+            this.tabControl1.Size = (new global::System.Drawing.Size(686, 598));
             this.tabControl1.TabIndex = (0);
             // 
             // createBookTab
@@ -1377,7 +1419,7 @@
             this.createBookTab.Location = (new global::System.Drawing.Point(4, 34));
             this.createBookTab.Name = ("createBookTab");
             this.createBookTab.Padding = (new global::System.Windows.Forms.Padding(3));
-            this.createBookTab.Size = (new global::System.Drawing.Size(711, 560));
+            this.createBookTab.Size = (new global::System.Drawing.Size(678, 560));
             this.createBookTab.TabIndex = (0);
             this.createBookTab.Text = ("Book");
             this.createBookTab.UseVisualStyleBackColor = (true);
@@ -1400,7 +1442,7 @@
             this.flowLayoutPanel16.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel16.Name = ("flowLayoutPanel16");
             this.flowLayoutPanel16.Padding = (new global::System.Windows.Forms.Padding(20));
-            this.flowLayoutPanel16.Size = (new global::System.Drawing.Size(705, 554));
+            this.flowLayoutPanel16.Size = (new global::System.Drawing.Size(672, 554));
             this.flowLayoutPanel16.TabIndex = (0);
             // 
             // flowLayoutPanel29
@@ -1646,7 +1688,7 @@
             this.createAuthorTab.Location = (new global::System.Drawing.Point(4, 34));
             this.createAuthorTab.Name = ("createAuthorTab");
             this.createAuthorTab.Padding = (new global::System.Windows.Forms.Padding(3));
-            this.createAuthorTab.Size = (new global::System.Drawing.Size(711, 560));
+            this.createAuthorTab.Size = (new global::System.Drawing.Size(678, 560));
             this.createAuthorTab.TabIndex = (1);
             this.createAuthorTab.Text = ("Author");
             this.createAuthorTab.UseVisualStyleBackColor = (true);
@@ -1662,7 +1704,7 @@
             this.flowLayoutPanel33.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel33.Name = ("flowLayoutPanel33");
             this.flowLayoutPanel33.Padding = (new global::System.Windows.Forms.Padding(20));
-            this.flowLayoutPanel33.Size = (new global::System.Drawing.Size(705, 554));
+            this.flowLayoutPanel33.Size = (new global::System.Drawing.Size(672, 554));
             this.flowLayoutPanel33.TabIndex = (0);
             // 
             // flowLayoutPanel39
@@ -1672,7 +1714,7 @@
             this.flowLayoutPanel39.Controls.Add(this.textBox17);
             this.flowLayoutPanel39.Location = (new global::System.Drawing.Point(23, 23));
             this.flowLayoutPanel39.Name = ("flowLayoutPanel39");
-            this.flowLayoutPanel39.Size = (new global::System.Drawing.Size(651, 37));
+            this.flowLayoutPanel39.Size = (new global::System.Drawing.Size(544, 62));
             this.flowLayoutPanel39.TabIndex = (20);
             // 
             // label22
@@ -1686,7 +1728,7 @@
             // 
             // textBox17
             // 
-            this.textBox17.Location = (new global::System.Drawing.Point(110, 3));
+            this.textBox17.Location = (new global::System.Drawing.Point(3, 28));
             this.textBox17.Name = ("textBox17");
             this.textBox17.Size = (new global::System.Drawing.Size(538, 31));
             this.textBox17.TabIndex = (7);
@@ -1696,9 +1738,9 @@
             this.flowLayoutPanel40.AutoSize = (true);
             this.flowLayoutPanel40.Controls.Add(this.label23);
             this.flowLayoutPanel40.Controls.Add(this.textBox18);
-            this.flowLayoutPanel40.Location = (new global::System.Drawing.Point(23, 66));
+            this.flowLayoutPanel40.Location = (new global::System.Drawing.Point(23, 91));
             this.flowLayoutPanel40.Name = ("flowLayoutPanel40");
-            this.flowLayoutPanel40.Size = (new global::System.Drawing.Size(651, 37));
+            this.flowLayoutPanel40.Size = (new global::System.Drawing.Size(546, 62));
             this.flowLayoutPanel40.TabIndex = (21);
             // 
             // label23
@@ -1712,7 +1754,7 @@
             // 
             // textBox18
             // 
-            this.textBox18.Location = (new global::System.Drawing.Point(108, 3));
+            this.textBox18.Location = (new global::System.Drawing.Point(3, 28));
             this.textBox18.Name = ("textBox18");
             this.textBox18.Size = (new global::System.Drawing.Size(540, 31));
             this.textBox18.TabIndex = (7);
@@ -1722,9 +1764,9 @@
             this.flowLayoutPanel41.AutoSize = (true);
             this.flowLayoutPanel41.Controls.Add(this.label24);
             this.flowLayoutPanel41.Controls.Add(this.textBox19);
-            this.flowLayoutPanel41.Location = (new global::System.Drawing.Point(23, 109));
+            this.flowLayoutPanel41.Location = (new global::System.Drawing.Point(23, 159));
             this.flowLayoutPanel41.Name = ("flowLayoutPanel41");
-            this.flowLayoutPanel41.Size = (new global::System.Drawing.Size(651, 37));
+            this.flowLayoutPanel41.Size = (new global::System.Drawing.Size(522, 62));
             this.flowLayoutPanel41.TabIndex = (22);
             // 
             // label24
@@ -1738,14 +1780,14 @@
             // 
             // textBox19
             // 
-            this.textBox19.Location = (new global::System.Drawing.Point(132, 3));
+            this.textBox19.Location = (new global::System.Drawing.Point(3, 28));
             this.textBox19.Name = ("textBox19");
             this.textBox19.Size = (new global::System.Drawing.Size(516, 31));
             this.textBox19.TabIndex = (7);
             // 
             // textBox20
             // 
-            this.textBox20.Location = (new global::System.Drawing.Point(23, 152));
+            this.textBox20.Location = (new global::System.Drawing.Point(23, 227));
             this.textBox20.Multiline = (true);
             this.textBox20.Name = ("textBox20");
             this.textBox20.PlaceholderText = ("Description");
@@ -1758,7 +1800,7 @@
             this.createPublisherTab.Location = (new global::System.Drawing.Point(4, 34));
             this.createPublisherTab.Name = ("createPublisherTab");
             this.createPublisherTab.Padding = (new global::System.Windows.Forms.Padding(3));
-            this.createPublisherTab.Size = (new global::System.Drawing.Size(711, 560));
+            this.createPublisherTab.Size = (new global::System.Drawing.Size(678, 560));
             this.createPublisherTab.TabIndex = (2);
             this.createPublisherTab.Text = ("Publisher");
             this.createPublisherTab.UseVisualStyleBackColor = (true);
@@ -1773,7 +1815,7 @@
             this.flowLayoutPanel34.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel34.Name = ("flowLayoutPanel34");
             this.flowLayoutPanel34.Padding = (new global::System.Windows.Forms.Padding(20));
-            this.flowLayoutPanel34.Size = (new global::System.Drawing.Size(705, 554));
+            this.flowLayoutPanel34.Size = (new global::System.Drawing.Size(672, 554));
             this.flowLayoutPanel34.TabIndex = (0);
             // 
             // flowLayoutPanel36
@@ -1860,7 +1902,7 @@
             this.createGenreTab.Location = (new global::System.Drawing.Point(4, 34));
             this.createGenreTab.Name = ("createGenreTab");
             this.createGenreTab.Padding = (new global::System.Windows.Forms.Padding(3));
-            this.createGenreTab.Size = (new global::System.Drawing.Size(711, 560));
+            this.createGenreTab.Size = (new global::System.Drawing.Size(678, 560));
             this.createGenreTab.TabIndex = (3);
             this.createGenreTab.Text = ("Genre");
             this.createGenreTab.UseVisualStyleBackColor = (true);
@@ -1876,7 +1918,7 @@
             this.flowLayoutPanel35.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel35.Name = ("flowLayoutPanel35");
             this.flowLayoutPanel35.Padding = (new global::System.Windows.Forms.Padding(20));
-            this.flowLayoutPanel35.Size = (new global::System.Drawing.Size(705, 554));
+            this.flowLayoutPanel35.Size = (new global::System.Drawing.Size(672, 554));
             this.flowLayoutPanel35.TabIndex = (0);
             // 
             // flowLayoutPanel63
@@ -1886,7 +1928,7 @@
             this.flowLayoutPanel63.Controls.Add(this.textBox33);
             this.flowLayoutPanel63.Location = (new global::System.Drawing.Point(23, 23));
             this.flowLayoutPanel63.Name = ("flowLayoutPanel63");
-            this.flowLayoutPanel63.Size = (new global::System.Drawing.Size(647, 37));
+            this.flowLayoutPanel63.Size = (new global::System.Drawing.Size(579, 62));
             this.flowLayoutPanel63.TabIndex = (14);
             // 
             // label40
@@ -1900,7 +1942,7 @@
             // 
             // textBox33
             // 
-            this.textBox33.Location = (new global::System.Drawing.Point(71, 3));
+            this.textBox33.Location = (new global::System.Drawing.Point(3, 28));
             this.textBox33.Name = ("textBox33");
             this.textBox33.Size = (new global::System.Drawing.Size(573, 31));
             this.textBox33.TabIndex = (7);
@@ -1910,9 +1952,9 @@
             this.flowLayoutPanel64.AutoSize = (true);
             this.flowLayoutPanel64.Controls.Add(this.label41);
             this.flowLayoutPanel64.Controls.Add(this.comboBox7);
-            this.flowLayoutPanel64.Location = (new global::System.Drawing.Point(23, 66));
+            this.flowLayoutPanel64.Location = (new global::System.Drawing.Point(23, 91));
             this.flowLayoutPanel64.Name = ("flowLayoutPanel64");
-            this.flowLayoutPanel64.Size = (new global::System.Drawing.Size(647, 39));
+            this.flowLayoutPanel64.Size = (new global::System.Drawing.Size(525, 64));
             this.flowLayoutPanel64.TabIndex = (17);
             // 
             // label41
@@ -1927,7 +1969,7 @@
             // comboBox7
             // 
             this.comboBox7.FormattingEnabled = (true);
-            this.comboBox7.Location = (new global::System.Drawing.Point(125, 3));
+            this.comboBox7.Location = (new global::System.Drawing.Point(3, 28));
             this.comboBox7.Name = ("comboBox7");
             this.comboBox7.Size = (new global::System.Drawing.Size(519, 33));
             this.comboBox7.TabIndex = (7);
@@ -1937,9 +1979,9 @@
             this.flowLayoutPanel65.AutoSize = (true);
             this.flowLayoutPanel65.Controls.Add(this.label42);
             this.flowLayoutPanel65.Controls.Add(this.comboBox8);
-            this.flowLayoutPanel65.Location = (new global::System.Drawing.Point(23, 111));
+            this.flowLayoutPanel65.Location = (new global::System.Drawing.Point(23, 161));
             this.flowLayoutPanel65.Name = ("flowLayoutPanel65");
-            this.flowLayoutPanel65.Size = (new global::System.Drawing.Size(647, 39));
+            this.flowLayoutPanel65.Size = (new global::System.Drawing.Size(540, 64));
             this.flowLayoutPanel65.TabIndex = (18);
             // 
             // label42
@@ -1954,14 +1996,14 @@
             // comboBox8
             // 
             this.comboBox8.FormattingEnabled = (true);
-            this.comboBox8.Location = (new global::System.Drawing.Point(110, 3));
+            this.comboBox8.Location = (new global::System.Drawing.Point(3, 28));
             this.comboBox8.Name = ("comboBox8");
             this.comboBox8.Size = (new global::System.Drawing.Size(534, 33));
             this.comboBox8.TabIndex = (7);
             // 
             // flowLayoutPanel66
             // 
-            this.flowLayoutPanel66.Location = (new global::System.Drawing.Point(23, 156));
+            this.flowLayoutPanel66.Location = (new global::System.Drawing.Point(23, 231));
             this.flowLayoutPanel66.Name = ("flowLayoutPanel66");
             this.flowLayoutPanel66.Size = (new global::System.Drawing.Size(644, 37));
             this.flowLayoutPanel66.TabIndex = (19);
@@ -1973,13 +2015,13 @@
             this.flowLayoutPanel14.FlowDirection = (global::System.Windows.Forms.FlowDirection.RightToLeft);
             this.flowLayoutPanel14.Location = (new global::System.Drawing.Point(0, 0));
             this.flowLayoutPanel14.Name = ("flowLayoutPanel14");
-            this.flowLayoutPanel14.Size = (new global::System.Drawing.Size(719, 52));
+            this.flowLayoutPanel14.Size = (new global::System.Drawing.Size(686, 52));
             this.flowLayoutPanel14.TabIndex = (1);
             // 
             // homeButtonCreatePanel
             // 
             this.homeButtonCreatePanel.Anchor = (global::System.Windows.Forms.AnchorStyles.Right);
-            this.homeButtonCreatePanel.Location = (new global::System.Drawing.Point(604, 3));
+            this.homeButtonCreatePanel.Location = (new global::System.Drawing.Point(571, 3));
             this.homeButtonCreatePanel.Name = ("homeButtonCreatePanel");
             this.homeButtonCreatePanel.Size = (new global::System.Drawing.Size(112, 34));
             this.homeButtonCreatePanel.TabIndex = (7);
@@ -1989,7 +2031,7 @@
             // 
             // editPanel
             // 
-            this.editPanel.Location = (new global::System.Drawing.Point(1665, 569));
+            this.editPanel.Location = (new global::System.Drawing.Point(1508, 560));
             this.editPanel.Name = ("editPanel");
             this.editPanel.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
             // 
@@ -2000,7 +2042,7 @@
             // editPanel.Panel2
             // 
             this.editPanel.Panel2.Controls.Add(this.splitContainer10);
-            this.editPanel.Size = (new global::System.Drawing.Size(845, 778));
+            this.editPanel.Size = (new global::System.Drawing.Size(737, 787));
             this.editPanel.SplitterDistance = (61);
             this.editPanel.TabIndex = (5);
             // 
@@ -2017,13 +2059,13 @@
             this.tableLayoutPanel7.Name = ("tableLayoutPanel7");
             this.tableLayoutPanel7.RowCount = (1);
             this.tableLayoutPanel7.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = (new global::System.Drawing.Size(845, 61));
+            this.tableLayoutPanel7.Size = (new global::System.Drawing.Size(737, 61));
             this.tableLayoutPanel7.TabIndex = (1);
             // 
             // button1
             // 
             this.button1.Anchor = (global::System.Windows.Forms.AnchorStyles.None);
-            this.button1.Location = (new global::System.Drawing.Point(736, 13));
+            this.button1.Location = (new global::System.Drawing.Point(628, 13));
             this.button1.Name = ("button1");
             this.button1.Size = (new global::System.Drawing.Size(106, 34));
             this.button1.TabIndex = (4);
@@ -2036,7 +2078,7 @@
             this.label25.Font = (new global::System.Drawing.Font("Segoe UI", 16F, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point));
             this.label25.Location = (new global::System.Drawing.Point(115, 0));
             this.label25.Name = ("label25");
-            this.label25.Size = (new global::System.Drawing.Size(615, 61));
+            this.label25.Size = (new global::System.Drawing.Size(507, 61));
             this.label25.TabIndex = (6);
             this.label25.Text = ("Edit...");
             this.label25.TextAlign = (global::System.Drawing.ContentAlignment.MiddleCenter);
@@ -2055,8 +2097,8 @@
             // splitContainer10.Panel2
             // 
             this.splitContainer10.Panel2.Controls.Add(this.flowLayoutPanel62);
-            this.splitContainer10.Size = (new global::System.Drawing.Size(845, 713));
-            this.splitContainer10.SplitterDistance = (650);
+            this.splitContainer10.Size = (new global::System.Drawing.Size(737, 722));
+            this.splitContainer10.SplitterDistance = (658);
             this.splitContainer10.TabIndex = (0);
             // 
             // tabControl2
@@ -2069,7 +2111,7 @@
             this.tabControl2.Location = (new global::System.Drawing.Point(0, 0));
             this.tabControl2.Name = ("tabControl2");
             this.tabControl2.SelectedIndex = (0);
-            this.tabControl2.Size = (new global::System.Drawing.Size(845, 650));
+            this.tabControl2.Size = (new global::System.Drawing.Size(737, 658));
             this.tabControl2.TabIndex = (0);
             // 
             // tabPage1
@@ -2078,7 +2120,7 @@
             this.tabPage1.Location = (new global::System.Drawing.Point(4, 34));
             this.tabPage1.Name = ("tabPage1");
             this.tabPage1.Padding = (new global::System.Windows.Forms.Padding(3));
-            this.tabPage1.Size = (new global::System.Drawing.Size(837, 612));
+            this.tabPage1.Size = (new global::System.Drawing.Size(729, 620));
             this.tabPage1.TabIndex = (0);
             this.tabPage1.Text = ("Book");
             this.tabPage1.UseVisualStyleBackColor = (true);
@@ -2101,7 +2143,7 @@
             this.flowLayoutPanel42.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel42.Name = ("flowLayoutPanel42");
             this.flowLayoutPanel42.Padding = (new global::System.Windows.Forms.Padding(20));
-            this.flowLayoutPanel42.Size = (new global::System.Drawing.Size(831, 606));
+            this.flowLayoutPanel42.Size = (new global::System.Drawing.Size(723, 614));
             this.flowLayoutPanel42.TabIndex = (0);
             // 
             // flowLayoutPanel43
@@ -2347,7 +2389,7 @@
             this.tabPage2.Location = (new global::System.Drawing.Point(4, 34));
             this.tabPage2.Name = ("tabPage2");
             this.tabPage2.Padding = (new global::System.Windows.Forms.Padding(3));
-            this.tabPage2.Size = (new global::System.Drawing.Size(837, 612));
+            this.tabPage2.Size = (new global::System.Drawing.Size(729, 620));
             this.tabPage2.TabIndex = (1);
             this.tabPage2.Text = ("Author");
             this.tabPage2.UseVisualStyleBackColor = (true);
@@ -2363,7 +2405,7 @@
             this.flowLayoutPanel53.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel53.Name = ("flowLayoutPanel53");
             this.flowLayoutPanel53.Padding = (new global::System.Windows.Forms.Padding(20));
-            this.flowLayoutPanel53.Size = (new global::System.Drawing.Size(831, 606));
+            this.flowLayoutPanel53.Size = (new global::System.Drawing.Size(723, 614));
             this.flowLayoutPanel53.TabIndex = (0);
             // 
             // flowLayoutPanel54
@@ -2459,7 +2501,7 @@
             this.tabPage3.Location = (new global::System.Drawing.Point(4, 34));
             this.tabPage3.Name = ("tabPage3");
             this.tabPage3.Padding = (new global::System.Windows.Forms.Padding(3));
-            this.tabPage3.Size = (new global::System.Drawing.Size(837, 612));
+            this.tabPage3.Size = (new global::System.Drawing.Size(729, 620));
             this.tabPage3.TabIndex = (2);
             this.tabPage3.Text = ("Publisher");
             this.tabPage3.UseVisualStyleBackColor = (true);
@@ -2474,7 +2516,7 @@
             this.flowLayoutPanel57.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel57.Name = ("flowLayoutPanel57");
             this.flowLayoutPanel57.Padding = (new global::System.Windows.Forms.Padding(20));
-            this.flowLayoutPanel57.Size = (new global::System.Drawing.Size(831, 606));
+            this.flowLayoutPanel57.Size = (new global::System.Drawing.Size(723, 614));
             this.flowLayoutPanel57.TabIndex = (0);
             // 
             // flowLayoutPanel58
@@ -2561,7 +2603,7 @@
             this.tabPage4.Location = (new global::System.Drawing.Point(4, 34));
             this.tabPage4.Name = ("tabPage4");
             this.tabPage4.Padding = (new global::System.Windows.Forms.Padding(3));
-            this.tabPage4.Size = (new global::System.Drawing.Size(837, 612));
+            this.tabPage4.Size = (new global::System.Drawing.Size(729, 620));
             this.tabPage4.TabIndex = (3);
             this.tabPage4.Text = ("Genre");
             this.tabPage4.UseVisualStyleBackColor = (true);
@@ -2577,7 +2619,7 @@
             this.flowLayoutPanel61.Location = (new global::System.Drawing.Point(3, 3));
             this.flowLayoutPanel61.Name = ("flowLayoutPanel61");
             this.flowLayoutPanel61.Padding = (new global::System.Windows.Forms.Padding(20));
-            this.flowLayoutPanel61.Size = (new global::System.Drawing.Size(831, 606));
+            this.flowLayoutPanel61.Size = (new global::System.Drawing.Size(723, 614));
             this.flowLayoutPanel61.TabIndex = (0);
             // 
             // flowLayoutPanel67
@@ -2674,24 +2716,247 @@
             this.flowLayoutPanel62.FlowDirection = (global::System.Windows.Forms.FlowDirection.RightToLeft);
             this.flowLayoutPanel62.Location = (new global::System.Drawing.Point(0, 0));
             this.flowLayoutPanel62.Name = ("flowLayoutPanel62");
-            this.flowLayoutPanel62.Size = (new global::System.Drawing.Size(845, 59));
+            this.flowLayoutPanel62.Size = (new global::System.Drawing.Size(737, 60));
             this.flowLayoutPanel62.TabIndex = (1);
             // 
             // button3
             // 
             this.button3.Anchor = (global::System.Windows.Forms.AnchorStyles.Right);
-            this.button3.Location = (new global::System.Drawing.Point(730, 3));
+            this.button3.Location = (new global::System.Drawing.Point(622, 3));
             this.button3.Name = ("button3");
             this.button3.Size = (new global::System.Drawing.Size(112, 34));
             this.button3.TabIndex = (7);
             this.button3.Text = ("Home");
             this.button3.UseVisualStyleBackColor = (true);
             // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Location = (new global::System.Drawing.Point(2178, 16));
+            this.splitContainer3.Margin = (new global::System.Windows.Forms.Padding(25));
+            this.splitContainer3.Name = ("splitContainer3");
+            this.splitContainer3.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
+            this.splitContainer3.Size = (new global::System.Drawing.Size(150, 100));
+            this.splitContainer3.TabIndex = (0);
+            // 
+            // splitContainer11
+            // 
+            this.splitContainer11.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.splitContainer11.Location = (new global::System.Drawing.Point(0, 0));
+            this.splitContainer11.Name = ("splitContainer11");
+            this.splitContainer11.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
+            this.splitContainer11.Size = (new global::System.Drawing.Size(150, 100));
+            this.splitContainer11.TabIndex = (0);
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.Anchor = ((global::System.Windows.Forms.AnchorStyles)((((global::System.Windows.Forms.AnchorStyles.Top) | (global::System.Windows.Forms.AnchorStyles.Bottom)) | (global::System.Windows.Forms.AnchorStyles.Left)) | (global::System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel8.ColumnCount = (3);
+            this.tableLayoutPanel8.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel8.Controls.Add(this.button4, 2, 0);
+            this.tableLayoutPanel8.Location = (new global::System.Drawing.Point(0, 0));
+            this.tableLayoutPanel8.Name = ("tableLayoutPanel8");
+            this.tableLayoutPanel8.RowCount = (1);
+            this.tableLayoutPanel8.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Size = (new global::System.Drawing.Size(200, 100));
+            this.tableLayoutPanel8.TabIndex = (0);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = (global::System.Windows.Forms.AnchorStyles.None);
+            this.button4.Location = (new global::System.Drawing.Point(91, 33));
+            this.button4.Name = ("button4");
+            this.button4.Size = (new global::System.Drawing.Size(106, 34));
+            this.button4.TabIndex = (4);
+            this.button4.Text = ("Edit");
+            this.button4.UseVisualStyleBackColor = (true);
+            // 
+            // label6
+            // 
+            this.label6.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.label6.Font = (new global::System.Drawing.Font("Segoe UI", 16F, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point));
+            this.label6.Location = (new global::System.Drawing.Point(115, 0));
+            this.label6.Name = ("label6");
+            this.label6.Size = (new global::System.Drawing.Size(130, 68));
+            this.label6.TabIndex = (6);
+            this.label6.Text = ("Author Name");
+            this.label6.TextAlign = (global::System.Drawing.ContentAlignment.MiddleCenter);
+            // 
+            // genrePanel
+            // 
+            this.genrePanel.Location = (new global::System.Drawing.Point(2001, 23));
+            this.genrePanel.Name = ("genrePanel");
+            this.genrePanel.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
+            // 
+            // genrePanel.Panel1
+            // 
+            this.genrePanel.Panel1.Controls.Add(this.splitContainer13);
+            // 
+            // genrePanel.Panel2
+            // 
+            this.genrePanel.Panel2.Controls.Add(this.splitContainer14);
+            this.genrePanel.Size = (new global::System.Drawing.Size(745, 469));
+            this.genrePanel.SplitterDistance = (78);
+            this.genrePanel.TabIndex = (6);
+            // 
+            // splitContainer13
+            // 
+            this.splitContainer13.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.splitContainer13.Location = (new global::System.Drawing.Point(0, 0));
+            this.splitContainer13.Name = ("splitContainer13");
+            this.splitContainer13.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
+            // 
+            // splitContainer13.Panel1
+            // 
+            this.splitContainer13.Panel1.Controls.Add(this.tableLayoutPanel9);
+            // 
+            // splitContainer13.Panel2
+            // 
+            this.splitContainer13.Panel2.AutoScroll = (true);
+            this.splitContainer13.Panel2.Controls.Add(this.flowLayoutPanel17);
+            this.splitContainer13.Panel2.Margin = (new global::System.Windows.Forms.Padding(20));
+            this.splitContainer13.Size = (new global::System.Drawing.Size(745, 78));
+            this.splitContainer13.SplitterDistance = (37);
+            this.splitContainer13.TabIndex = (0);
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = (3);
+            this.tableLayoutPanel9.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new global::System.Windows.Forms.ColumnStyle(global::System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel9.Controls.Add(this.editButtonGenrePanel, 2, 0);
+            this.tableLayoutPanel9.Controls.Add(this.genreLabelGenrePanel, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.idGenrePanel, 0, 0);
+            this.tableLayoutPanel9.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.tableLayoutPanel9.Location = (new global::System.Drawing.Point(0, 0));
+            this.tableLayoutPanel9.Name = ("tableLayoutPanel9");
+            this.tableLayoutPanel9.RowCount = (1);
+            this.tableLayoutPanel9.RowStyles.Add(new global::System.Windows.Forms.RowStyle(global::System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Size = (new global::System.Drawing.Size(745, 37));
+            this.tableLayoutPanel9.TabIndex = (0);
+            // 
+            // editButtonGenrePanel
+            // 
+            this.editButtonGenrePanel.Anchor = (global::System.Windows.Forms.AnchorStyles.Right);
+            this.editButtonGenrePanel.Location = (new global::System.Drawing.Point(636, 3));
+            this.editButtonGenrePanel.Name = ("editButtonGenrePanel");
+            this.editButtonGenrePanel.Size = (new global::System.Drawing.Size(106, 31));
+            this.editButtonGenrePanel.TabIndex = (6);
+            this.editButtonGenrePanel.Text = ("Edit");
+            this.editButtonGenrePanel.UseVisualStyleBackColor = (true);
+            // 
+            // genreLabelGenrePanel
+            // 
+            this.genreLabelGenrePanel.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.genreLabelGenrePanel.Font = (new global::System.Drawing.Font("Segoe UI", 16F, global::System.Drawing.FontStyle.Regular, global::System.Drawing.GraphicsUnit.Point));
+            this.genreLabelGenrePanel.Location = (new global::System.Drawing.Point(115, 0));
+            this.genreLabelGenrePanel.Name = ("genreLabelGenrePanel");
+            this.genreLabelGenrePanel.Size = (new global::System.Drawing.Size(515, 37));
+            this.genreLabelGenrePanel.TabIndex = (4);
+            this.genreLabelGenrePanel.Text = ("Genre");
+            this.genreLabelGenrePanel.TextAlign = (global::System.Drawing.ContentAlignment.MiddleCenter);
+            // 
+            // flowLayoutPanel17
+            // 
+            this.flowLayoutPanel17.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.flowLayoutPanel17.Location = (new global::System.Drawing.Point(0, 0));
+            this.flowLayoutPanel17.Name = ("flowLayoutPanel17");
+            this.flowLayoutPanel17.Size = (new global::System.Drawing.Size(745, 37));
+            this.flowLayoutPanel17.TabIndex = (0);
+            // 
+            // splitContainer14
+            // 
+            this.splitContainer14.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.splitContainer14.Location = (new global::System.Drawing.Point(0, 0));
+            this.splitContainer14.Name = ("splitContainer14");
+            this.splitContainer14.Orientation = (global::System.Windows.Forms.Orientation.Horizontal);
+            // 
+            // splitContainer14.Panel1
+            // 
+            this.splitContainer14.Panel1.Controls.Add(this.flowLayoutPanel18);
+            // 
+            // splitContainer14.Panel2
+            // 
+            this.splitContainer14.Panel2.Controls.Add(this.flowLayoutPanel22);
+            this.splitContainer14.Size = (new global::System.Drawing.Size(745, 387));
+            this.splitContainer14.SplitterDistance = (322);
+            this.splitContainer14.TabIndex = (0);
+            // 
+            // flowLayoutPanel18
+            // 
+            this.flowLayoutPanel18.AutoScroll = (true);
+            this.flowLayoutPanel18.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.flowLayoutPanel18.Location = (new global::System.Drawing.Point(0, 0));
+            this.flowLayoutPanel18.Name = ("flowLayoutPanel18");
+            this.flowLayoutPanel18.Size = (new global::System.Drawing.Size(745, 322));
+            this.flowLayoutPanel18.TabIndex = (1);
+            // 
+            // flowLayoutPanel22
+            // 
+            this.flowLayoutPanel22.Controls.Add(this.homeButtonGenrePanel);
+            this.flowLayoutPanel22.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.flowLayoutPanel22.FlowDirection = (global::System.Windows.Forms.FlowDirection.RightToLeft);
+            this.flowLayoutPanel22.Location = (new global::System.Drawing.Point(0, 0));
+            this.flowLayoutPanel22.Name = ("flowLayoutPanel22");
+            this.flowLayoutPanel22.Size = (new global::System.Drawing.Size(745, 61));
+            this.flowLayoutPanel22.TabIndex = (1);
+            // 
+            // homeButtonGenrePanel
+            // 
+            this.homeButtonGenrePanel.Anchor = (global::System.Windows.Forms.AnchorStyles.Right);
+            this.homeButtonGenrePanel.Location = (new global::System.Drawing.Point(630, 3));
+            this.homeButtonGenrePanel.Name = ("homeButtonGenrePanel");
+            this.homeButtonGenrePanel.Size = (new global::System.Drawing.Size(112, 34));
+            this.homeButtonGenrePanel.TabIndex = (8);
+            this.homeButtonGenrePanel.Text = ("Home");
+            this.homeButtonGenrePanel.UseVisualStyleBackColor = (true);
+            this.homeButtonGenrePanel.Click += (this.homeButtonGenrePanel_Click);
+            // 
+            // idAuthorPanel
+            // 
+            this.idAuthorPanel.AutoSize = (true);
+            this.idAuthorPanel.Location = (new global::System.Drawing.Point(3, 0));
+            this.idAuthorPanel.Name = ("idAuthorPanel");
+            this.idAuthorPanel.Size = (new global::System.Drawing.Size(0, 25));
+            this.idAuthorPanel.TabIndex = (7);
+            this.idAuthorPanel.Visible = (false);
+            // 
+            // idGenrePanel
+            // 
+            this.idGenrePanel.AutoSize = (true);
+            this.idGenrePanel.Location = (new global::System.Drawing.Point(3, 0));
+            this.idGenrePanel.Name = ("idGenrePanel");
+            this.idGenrePanel.Size = (new global::System.Drawing.Size(0, 25));
+            this.idGenrePanel.TabIndex = (7);
+            this.idGenrePanel.Visible = (false);
+            // 
+            // idPublisherPanel
+            // 
+            this.idPublisherPanel.AutoSize = (true);
+            this.idPublisherPanel.Location = (new global::System.Drawing.Point(3, 0));
+            this.idPublisherPanel.Name = ("idPublisherPanel");
+            this.idPublisherPanel.Size = (new global::System.Drawing.Size(0, 25));
+            this.idPublisherPanel.TabIndex = (7);
+            this.idPublisherPanel.Visible = (false);
+            // 
+            // idBookPanel
+            // 
+            this.idBookPanel.AutoSize = (true);
+            this.idBookPanel.Location = (new global::System.Drawing.Point(3, 0));
+            this.idBookPanel.Name = ("idBookPanel");
+            this.idBookPanel.Size = (new global::System.Drawing.Size(0, 25));
+            this.idBookPanel.TabIndex = (7);
+            this.idBookPanel.Visible = (false);
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = (new global::System.Drawing.SizeF(10F, 25F));
             this.AutoScaleMode = (global::System.Windows.Forms.AutoScaleMode.Font);
-            this.ClientSize = (new global::System.Drawing.Size(2556, 1371));
+            this.BackColor = (global::System.Drawing.SystemColors.Control);
+            this.ClientSize = (new global::System.Drawing.Size(2776, 1371));
+            this.Controls.Add(this.genrePanel);
             this.Controls.Add(this.editPanel);
             this.Controls.Add(this.createPanel);
             this.Controls.Add(this.bookPanel);
@@ -2721,6 +2986,7 @@
             ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.splitContainer6.Panel1.ResumeLayout(false);
             this.splitContainer6.Panel2.ResumeLayout(false);
             ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
@@ -2735,6 +3001,7 @@
             ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
             this.splitContainer5.Panel1.ResumeLayout(false);
@@ -2760,6 +3027,7 @@
             this.splitContainer8.ResumeLayout(false);
             this.bookPanel.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.flowLayoutPanel13.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -2896,6 +3164,26 @@
             this.flowLayoutPanel69.ResumeLayout(false);
             this.flowLayoutPanel69.PerformLayout();
             this.flowLayoutPanel62.ResumeLayout(false);
+            ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer11)).EndInit();
+            this.splitContainer11.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.genrePanel.Panel1.ResumeLayout(false);
+            this.genrePanel.Panel2.ResumeLayout(false);
+            ((global::System.ComponentModel.ISupportInitialize)(this.genrePanel)).EndInit();
+            this.genrePanel.ResumeLayout(false);
+            this.splitContainer13.Panel1.ResumeLayout(false);
+            this.splitContainer13.Panel2.ResumeLayout(false);
+            ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer13)).EndInit();
+            this.splitContainer13.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
+            this.splitContainer14.Panel1.ResumeLayout(false);
+            this.splitContainer14.Panel2.ResumeLayout(false);
+            ((global::System.ComponentModel.ISupportInitialize)(this.splitContainer14)).EndInit();
+            this.splitContainer14.ResumeLayout(false);
+            this.flowLayoutPanel22.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
@@ -3123,5 +3411,24 @@
         private global::System.Windows.Forms.FlowLayoutPanel flowLayoutPanel70;
         private global::System.Windows.Forms.ColumnHeader result;
         private global::System.Windows.Forms.ColumnHeader category;
+        private global::System.Windows.Forms.SplitContainer splitContainer3;
+        private global::System.Windows.Forms.SplitContainer splitContainer11;
+        private global::System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private global::System.Windows.Forms.Button button4;
+        private global::System.Windows.Forms.Label label6;
+        private global::System.Windows.Forms.SplitContainer genrePanel;
+        private global::System.Windows.Forms.SplitContainer splitContainer13;
+        private global::System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private global::System.Windows.Forms.Button editButtonGenrePanel;
+        private global::System.Windows.Forms.Label genreLabelGenrePanel;
+        private global::System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
+        private global::System.Windows.Forms.SplitContainer splitContainer14;
+        private global::System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
+        private global::System.Windows.Forms.FlowLayoutPanel flowLayoutPanel22;
+        private global::System.Windows.Forms.Button homeButtonGenrePanel;
+        private global::System.Windows.Forms.Label idAuthorPanel;
+        private global::System.Windows.Forms.Label idPublisherPanel;
+        private global::System.Windows.Forms.Label idBookPanel;
+        private global::System.Windows.Forms.Label idGenrePanel;
     }
 }

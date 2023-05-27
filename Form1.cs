@@ -27,10 +27,11 @@ namespace LibraryDisplay
             collectionPanel.Visible = false;
             createPanel.Dock = DockStyle.Fill;
             createPanel.Visible = false;
+            genrePanel.Dock = DockStyle.Fill;
+            genrePanel.Visible = false;
+            editPanel.Dock = DockStyle.Fill;
+            editPanel.Visible = false;
         }
-
-
-
 
         private void collectionButtonHomePanel_Click(object sender, EventArgs e)
         {
@@ -135,32 +136,37 @@ namespace LibraryDisplay
             bookLabelBookPanel.Text = data["title"]!.ToString();
 
             JObject publisher = await GetRequests.GetPublisherById(data["publisher"]!.ToString());
-            ClickableLabel publisherLabel = new ClickableLabel();
+            ClickableLabel publisherLabel = new ClickableLabel(data["publisher"]!.ToString(), DbTable.Publisher);
             publisherLabel.Text = publisher["name"]!.ToString();
             publisherFlowBookPanel.Controls.Add(publisherLabel);
 
             foreach (var item in data["authors"]!)
             {
-                ClickableLabel label = new ClickableLabel();
-                JObject author = await GetRequests.GetAuthorsById(item.ToString());
+                ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Author);
+                JObject author = await GetRequests.GetAuthorById(item.ToString());
                 label.Text = author["firstName"] + " " + author["lastName"] + " " + author["middleName"];
                 authorFlowBookPanel.Controls.Add(label);
             }
 
             foreach (var item in data["genres"]!)
             {
-                ClickableLabel label = new ClickableLabel();
-                JObject genre = await GetRequests.GetGenresById(item.ToString());
+                ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Genre);
+                JObject genre = await GetRequests.GetGenreById(item.ToString());
                 label.Text = genre["genre"]!.ToString();
                 genreFlowBookPanel.Controls.Add(label);
             }
+            idBookPanel.Text = id;
             homePanel.Visible = false;
             bookPanel.Visible = true;
         }
 
         private async Task openAuthorPanel(string id)
         {
-
+            JObject authorData = await GetRequests.GetAuthorById(id);
+            authorLabelAuthorPanel.Text = authorData["firstName"] + " " + authorData["lastName"] + " " + authorData["middleName"];
+            idAuthorPanel.Text = id;
+            homePanel.Visible = false;
+            authorPanel.Visible = true;
         }
 
         private async Task openPublisherPanel(string id)
@@ -169,8 +175,18 @@ namespace LibraryDisplay
             publisherLabelPublisherPanel.Text = "Publisher " + publisherData["name"]!.ToString();
             emailLabelPublisherPanel.Text = publisherData["email"]!.ToString();
             phoneLabelPublisherPanel.Text = publisherData["phone"]!.ToString();
+            idPublisherPanel.Text = id;
             homePanel.Visible = false;
             publisherPanel.Visible = true;
+        }
+
+        private async Task openGenrePanel(string id)
+        {
+            JObject genreData = await GetRequests.GetGenreById(id);
+            genreLabelGenrePanel.Text = genreData["genre"].ToString();
+            idGenrePanel.Text = id;
+            homePanel.Visible = false;
+            genrePanel.Visible = true;
         }
 
         private async void genreTreeViewPopulate()
@@ -216,6 +232,15 @@ namespace LibraryDisplay
             }
         }
 
+        private async void genreTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            await openGenrePanel(e.Node.Tag.ToString());
+        }
 
+        private void homeButtonGenrePanel_Click(object sender, EventArgs e)
+        {
+            genrePanel.Visible = false;
+            homePanel.Visible = true;
+        }
     }
 }

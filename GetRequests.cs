@@ -79,7 +79,7 @@ namespace LibraryDisplay
             return responceData!;
         }
 
-        public static async Task<JObject> GetAuthorsById(string id)
+        public static async Task<JObject> GetAuthorById(string id)
         {
             JObject? responceData = new JObject();
             try
@@ -108,7 +108,7 @@ namespace LibraryDisplay
             return responceData!;
         }
 
-        public static async Task<JObject> GetGenresById(string id)
+        public static async Task<JObject> GetGenreById(string id)
         {
             JObject? responceData = new JObject();
             try
