@@ -77,7 +77,7 @@
             this.authorsCheckBox = (new global::System.Windows.Forms.CheckBox());
             this.publishersCheckBox = (new global::System.Windows.Forms.CheckBox());
             this.splitContainer8 = (new global::System.Windows.Forms.SplitContainer());
-            this.treeView1 = (new global::System.Windows.Forms.TreeView());
+            this.genreTreeView = (new global::System.Windows.Forms.TreeView());
             this.searchListView = (new global::System.Windows.Forms.ListView());
             this.result = (new global::System.Windows.Forms.ColumnHeader());
             this.category = (new global::System.Windows.Forms.ColumnHeader());
@@ -967,7 +967,7 @@
             // 
             // splitContainer8.Panel1
             // 
-            this.splitContainer8.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer8.Panel1.Controls.Add(this.genreTreeView);
             // 
             // splitContainer8.Panel2
             // 
@@ -976,13 +976,14 @@
             this.splitContainer8.SplitterDistance = (234);
             this.splitContainer8.TabIndex = (2);
             // 
-            // treeView1
+            // genreTreeView
             // 
-            this.treeView1.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.treeView1.Location = (new global::System.Drawing.Point(0, 0));
-            this.treeView1.Name = ("treeView1");
-            this.treeView1.Size = (new global::System.Drawing.Size(234, 416));
-            this.treeView1.TabIndex = (0);
+            this.genreTreeView.Cursor = (global::System.Windows.Forms.Cursors.Hand);
+            this.genreTreeView.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.genreTreeView.Location = (new global::System.Drawing.Point(0, 0));
+            this.genreTreeView.Name = ("genreTreeView");
+            this.genreTreeView.Size = (new global::System.Drawing.Size(234, 416));
+            this.genreTreeView.TabIndex = (0);
             // 
             // searchListView
             // 
@@ -2945,7 +2946,7 @@
         private ListView searchListView;
         private FlowLayoutPanel flowLayoutPanel12;
         private TextBox searchTextBox;
-        private TreeView treeView1;
+        private TreeView genreTreeView;
         private TableLayoutPanel bookPanel;
         private TableLayoutPanel tableLayoutPanel3;
         private Button editButtonBookPanel;

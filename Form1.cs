@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace LibraryDisplay
@@ -7,6 +8,7 @@ namespace LibraryDisplay
         public LibraryForm()
         {
             InitializeComponent();
+            genreTreeViewPopulate();
         }
 
         private void LibraryForm_Load(object sender, EventArgs e)
@@ -26,6 +28,8 @@ namespace LibraryDisplay
             createPanel.Dock = DockStyle.Fill;
             createPanel.Visible = false;
         }
+
+
 
 
         private void collectionButtonHomePanel_Click(object sender, EventArgs e)
@@ -133,7 +137,7 @@ namespace LibraryDisplay
             JObject publisher = await GetRequests.GetPublisherById(data["publisher"]!.ToString());
             ClickableLabel publisherLabel = new ClickableLabel();
             publisherLabel.Text = publisher["name"]!.ToString();
-            publisherFlowBookPanel.Controls.Add(publisherLabel); 
+            publisherFlowBookPanel.Controls.Add(publisherLabel);
 
             foreach (var item in data["authors"]!)
             {
@@ -168,6 +172,50 @@ namespace LibraryDisplay
             homePanel.Visible = false;
             publisherPanel.Visible = true;
         }
+
+        private async void genreTreeViewPopulate()
+        {
+            List<JObject> data = await GetRequests.GetGenres();
+
+            List<Genre> genres = data.Select(x => JsonConvert.DeserializeObject<Genre>(x.ToString())).ToList();
+
+            Dictionary<int, Genre> genreDictionary = new Dictionary<int, Genre>();
+            foreach (var genre in genres)
+            {
+                genreDictionary.Add(genre.id, genre);
+            }
+
+            foreach (var genre in genres)
+            {
+                if (genre.parentGenre == null)
+                {
+                    TreeNode rootNode = new TreeNode(genre.genre);
+                    rootNode.Tag = genre.id;
+                    AddChildGenres(genre, rootNode, genreDictionary);
+                    genreTreeView.Nodes.Add(rootNode);
+                }
+            }
+
+            genreTreeView.ExpandAll();
+        }
+
+        private void AddChildGenres(Genre parentGenre, TreeNode parentNode, Dictionary<int, Genre> genreDictionary)
+        {
+            if (parentGenre.subGenres.Count == 0)
+                return;
+
+            foreach (var subGenreId in parentGenre.subGenres)
+            {
+                if (genreDictionary.TryGetValue(subGenreId, out Genre subGenre))
+                {
+                    TreeNode subGenreNode = new TreeNode(subGenre.genre);
+                    subGenreNode.Tag = subGenre.id;
+                    AddChildGenres(subGenre, subGenreNode, genreDictionary);
+                    parentNode.Nodes.Add(subGenreNode);
+                }
+            }
+        }
+
 
     }
 }
