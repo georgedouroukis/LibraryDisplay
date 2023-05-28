@@ -11,8 +11,9 @@ namespace LibraryDisplay
 
         string id;
         DbTable table;
+        LibraryForm form;
         
-        public ClickableLabel(string id, DbTable table) : base()
+        public ClickableLabel(string id, DbTable table, LibraryForm form) : base()
         {
             AutoSize = true;
             Cursor = Cursors.Hand;
@@ -20,6 +21,8 @@ namespace LibraryDisplay
             this.MouseLeave += changeColorback;
             this.id = id;
             this.table = table;
+            this.form = form;
+            this.MouseClick += MouseClicked;
             
         }
 
@@ -36,5 +39,20 @@ namespace LibraryDisplay
 
         }
 
+        public async void MouseClicked(object sender, EventArgs e)
+        {
+            if (this.table == DbTable.Genre) 
+            {
+                await form.openGenrePanel(id);
+            }
+            else if (this.table == DbTable.Author)
+            {
+                await form.openAuthorPanel(id);
+            }
+            else if (this.table == DbTable.Publisher)
+            {
+                await form.openPublisherPanel(id);
+            }
+        }
     }
 }

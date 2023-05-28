@@ -168,5 +168,102 @@ namespace LibraryDisplay
             }
             return responceData;
         }
+
+        public static async Task<List<JObject>> GetBooks()
+        {
+            List<JObject> responceData = new List<JObject>();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    Uri endpoint = new Uri("http://localhost:8080/api/books");
+                    HttpResponseMessage responce = await client.GetAsync(endpoint);
+                    var json = await responce.Content.ReadAsStringAsync();
+                    JObject responceObject = JObject.Parse(json);
+
+                    if (responce.IsSuccessStatusCode)
+                    {
+                        foreach (var item in responceObject["data"]!)
+                        {
+                            responceData.Add(item as JObject);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(responceObject["error"]!.ToString(), "Status Code: " + responce.StatusCode.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, e.GetType().ToString());
+            }
+            return responceData;
+        }
+
+        public static async Task<List<JObject>> GetPublishers()
+        {
+            List<JObject> responceData = new List<JObject>();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    Uri endpoint = new Uri("http://localhost:8080/api/publishers");
+                    HttpResponseMessage responce = await client.GetAsync(endpoint);
+                    var json = await responce.Content.ReadAsStringAsync();
+                    JObject responceObject = JObject.Parse(json);
+
+                    if (responce.IsSuccessStatusCode)
+                    {
+                        foreach (var item in responceObject["data"]!)
+                        {
+                            responceData.Add(item as JObject);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(responceObject["error"]!.ToString(), "Status Code: " + responce.StatusCode.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, e.GetType().ToString());
+            }
+            return responceData;
+        }
+
+        public static async Task<List<JObject>> GetAuthors()
+        {
+            List<JObject> responceData = new List<JObject>();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    Uri endpoint = new Uri("http://localhost:8080/api/authors");
+                    HttpResponseMessage responce = await client.GetAsync(endpoint);
+                    var json = await responce.Content.ReadAsStringAsync();
+                    JObject responceObject = JObject.Parse(json);
+
+                    if (responce.IsSuccessStatusCode)
+                    {
+                        foreach (var item in responceObject["data"]!)
+                        {
+                            responceData.Add(item as JObject);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(responceObject["error"]!.ToString(), "Status Code: " + responce.StatusCode.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, e.GetType().ToString());
+            }
+            return responceData;
+        }
+
     }
 }
