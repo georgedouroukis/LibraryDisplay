@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            global::System.ComponentModel.ComponentResourceManager resources = new global::System.ComponentModel.ComponentResourceManager(typeof(global::LibraryDisplay.LibraryForm));
             this.collectionPanel = (new global::System.Windows.Forms.SplitContainer());
             this.label1 = (new global::System.Windows.Forms.Label());
             this.splitContainer7 = (new global::System.Windows.Forms.SplitContainer());
-            this.flowLayoutPanel2 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.collectionBookFlow = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.flowLayoutPanel4 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.homeButtonCollectionPanel = (new global::System.Windows.Forms.Button());
             this.authorPanel = (new global::System.Windows.Forms.SplitContainer());
@@ -43,7 +42,7 @@
             this.idAuthorPanel = (new global::System.Windows.Forms.Label());
             this.descriptionLabelAuthorPanel = (new global::System.Windows.Forms.TextBox());
             this.splitContainer6 = (new global::System.Windows.Forms.SplitContainer());
-            this.flowLayoutPanel1 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.authorBookFlow = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.flowLayoutPanel3 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.homeButtonAuthorPanel = (new global::System.Windows.Forms.Button());
             this.publisherPanel = (new global::System.Windows.Forms.SplitContainer());
@@ -58,7 +57,7 @@
             this.label4 = (new global::System.Windows.Forms.Label());
             this.phoneLabelPublisherPanel = (new global::System.Windows.Forms.TextBox());
             this.splitContainer5 = (new global::System.Windows.Forms.SplitContainer());
-            this.flowLayoutPanel5 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.publisherBookFlow = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.flowLayoutPanel7 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.homeButtonPublisherPanel = (new global::System.Windows.Forms.Button());
             this.homePanel = (new global::System.Windows.Forms.TableLayoutPanel());
@@ -266,7 +265,7 @@
             this.idGenrePanel = (new global::System.Windows.Forms.Label());
             this.flowLayoutPanel17 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.splitContainer14 = (new global::System.Windows.Forms.SplitContainer());
-            this.flowLayoutPanel18 = (new global::System.Windows.Forms.FlowLayoutPanel());
+            this.genreBookFlow = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.flowLayoutPanel22 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.homeButtonGenrePanel = (new global::System.Windows.Forms.Button());
             ((global::System.ComponentModel.ISupportInitialize)(this.collectionPanel)).BeginInit();
@@ -465,7 +464,7 @@
             // 
             // splitContainer7.Panel1
             // 
-            this.splitContainer7.Panel1.Controls.Add(this.flowLayoutPanel2);
+            this.splitContainer7.Panel1.Controls.Add(this.collectionBookFlow);
             // 
             // splitContainer7.Panel2
             // 
@@ -474,14 +473,14 @@
             this.splitContainer7.SplitterDistance = (478);
             this.splitContainer7.TabIndex = (1);
             // 
-            // flowLayoutPanel2
+            // collectionBookFlow
             // 
-            this.flowLayoutPanel2.AutoScroll = (true);
-            this.flowLayoutPanel2.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.flowLayoutPanel2.Location = (new global::System.Drawing.Point(0, 0));
-            this.flowLayoutPanel2.Name = ("flowLayoutPanel2");
-            this.flowLayoutPanel2.Size = (new global::System.Drawing.Size(423, 478));
-            this.flowLayoutPanel2.TabIndex = (1);
+            this.collectionBookFlow.AutoScroll = (true);
+            this.collectionBookFlow.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.collectionBookFlow.Location = (new global::System.Drawing.Point(0, 0));
+            this.collectionBookFlow.Name = ("collectionBookFlow");
+            this.collectionBookFlow.Size = (new global::System.Drawing.Size(423, 478));
+            this.collectionBookFlow.TabIndex = (1);
             // 
             // flowLayoutPanel4
             // 
@@ -610,7 +609,7 @@
             // 
             // splitContainer6.Panel1
             // 
-            this.splitContainer6.Panel1.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer6.Panel1.Controls.Add(this.authorBookFlow);
             // 
             // splitContainer6.Panel2
             // 
@@ -619,14 +618,14 @@
             this.splitContainer6.SplitterDistance = (260);
             this.splitContainer6.TabIndex = (1);
             // 
-            // flowLayoutPanel1
+            // authorBookFlow
             // 
-            this.flowLayoutPanel1.AutoScroll = (true);
-            this.flowLayoutPanel1.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.flowLayoutPanel1.Location = (new global::System.Drawing.Point(0, 0));
-            this.flowLayoutPanel1.Name = ("flowLayoutPanel1");
-            this.flowLayoutPanel1.Size = (new global::System.Drawing.Size(550, 260));
-            this.flowLayoutPanel1.TabIndex = (2);
+            this.authorBookFlow.AutoScroll = (true);
+            this.authorBookFlow.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.authorBookFlow.Location = (new global::System.Drawing.Point(0, 0));
+            this.authorBookFlow.Name = ("authorBookFlow");
+            this.authorBookFlow.Size = (new global::System.Drawing.Size(550, 260));
+            this.authorBookFlow.TabIndex = (2);
             // 
             // flowLayoutPanel3
             // 
@@ -788,7 +787,7 @@
             // 
             // splitContainer5.Panel1
             // 
-            this.splitContainer5.Panel1.Controls.Add(this.flowLayoutPanel5);
+            this.splitContainer5.Panel1.Controls.Add(this.publisherBookFlow);
             // 
             // splitContainer5.Panel2
             // 
@@ -797,14 +796,14 @@
             this.splitContainer5.SplitterDistance = (291);
             this.splitContainer5.TabIndex = (0);
             // 
-            // flowLayoutPanel5
+            // publisherBookFlow
             // 
-            this.flowLayoutPanel5.AutoScroll = (true);
-            this.flowLayoutPanel5.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.flowLayoutPanel5.Location = (new global::System.Drawing.Point(0, 0));
-            this.flowLayoutPanel5.Name = ("flowLayoutPanel5");
-            this.flowLayoutPanel5.Size = (new global::System.Drawing.Size(745, 291));
-            this.flowLayoutPanel5.TabIndex = (1);
+            this.publisherBookFlow.AutoScroll = (true);
+            this.publisherBookFlow.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.publisherBookFlow.Location = (new global::System.Drawing.Point(0, 0));
+            this.publisherBookFlow.Name = ("publisherBookFlow");
+            this.publisherBookFlow.Size = (new global::System.Drawing.Size(745, 291));
+            this.publisherBookFlow.TabIndex = (1);
             // 
             // flowLayoutPanel7
             // 
@@ -1189,7 +1188,6 @@
             // pictureBoxBookPanel
             // 
             this.pictureBoxBookPanel.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.pictureBoxBookPanel.Image = ((global::System.Drawing.Image)(resources.GetObject("pictureBoxBookPanel.Image")));
             this.pictureBoxBookPanel.Location = (new global::System.Drawing.Point(0, 0));
             this.pictureBoxBookPanel.Name = ("pictureBoxBookPanel");
             this.pictureBoxBookPanel.Size = (new global::System.Drawing.Size(255, 292));
@@ -2908,7 +2906,7 @@
             // 
             // splitContainer14.Panel1
             // 
-            this.splitContainer14.Panel1.Controls.Add(this.flowLayoutPanel18);
+            this.splitContainer14.Panel1.Controls.Add(this.genreBookFlow);
             // 
             // splitContainer14.Panel2
             // 
@@ -2917,14 +2915,14 @@
             this.splitContainer14.SplitterDistance = (322);
             this.splitContainer14.TabIndex = (0);
             // 
-            // flowLayoutPanel18
+            // genreBookFlow
             // 
-            this.flowLayoutPanel18.AutoScroll = (true);
-            this.flowLayoutPanel18.Dock = (global::System.Windows.Forms.DockStyle.Fill);
-            this.flowLayoutPanel18.Location = (new global::System.Drawing.Point(0, 0));
-            this.flowLayoutPanel18.Name = ("flowLayoutPanel18");
-            this.flowLayoutPanel18.Size = (new global::System.Drawing.Size(745, 322));
-            this.flowLayoutPanel18.TabIndex = (1);
+            this.genreBookFlow.AutoScroll = (true);
+            this.genreBookFlow.Dock = (global::System.Windows.Forms.DockStyle.Fill);
+            this.genreBookFlow.Location = (new global::System.Drawing.Point(0, 0));
+            this.genreBookFlow.Name = ("genreBookFlow");
+            this.genreBookFlow.Size = (new global::System.Drawing.Size(745, 322));
+            this.genreBookFlow.TabIndex = (1);
             // 
             // flowLayoutPanel22
             // 
@@ -3194,11 +3192,11 @@
         private SplitContainer splitContainer4;
         private FlowLayoutPanel flowLayoutPanel6;
         private SplitContainer splitContainer5;
-        private FlowLayoutPanel flowLayoutPanel5;
+        private FlowLayoutPanel publisherBookFlow;
         private SplitContainer splitContainer6;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel authorBookFlow;
         private SplitContainer splitContainer7;
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel collectionBookFlow;
         private Label label3;
         private Label label4;
         private FlowLayoutPanel flowLayoutPanel4;
@@ -3420,7 +3418,7 @@
         private global::System.Windows.Forms.Label genreLabelGenrePanel;
         private global::System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
         private global::System.Windows.Forms.SplitContainer splitContainer14;
-        private global::System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
+        private global::System.Windows.Forms.FlowLayoutPanel genreBookFlow;
         private global::System.Windows.Forms.FlowLayoutPanel flowLayoutPanel22;
         private global::System.Windows.Forms.Button homeButtonGenrePanel;
         private global::System.Windows.Forms.Label idAuthorPanel;

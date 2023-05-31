@@ -13,7 +13,7 @@ namespace LibraryDisplay
 
         private void LibraryForm_Load(object sender, EventArgs e)
         {
-            Size size = new Size(800, 800);
+            Size size = new Size(1200, 1200);
             this.Size = size;
             homePanel.Dock = DockStyle.Fill;
             homePanel.Visible = true;
@@ -120,37 +120,50 @@ namespace LibraryDisplay
             }
         }
 
-        private async Task openBookPanel(string id)
+        public async Task openBookPanel(string id)
         {
+            //initialise panel
             authorFlowBookPanel.Controls.Clear();
             authorFlowBookPanel.Controls.Add(new Label() { Text = "Author: ", AutoSize = true });
             publisherFlowBookPanel.Controls.Clear();
             publisherFlowBookPanel.Controls.Add(new Label() { Text = "Publisher: ", AutoSize = true });
             genreFlowBookPanel.Controls.Clear();
             genreFlowBookPanel.Controls.Add(new Label() { Text = "Genre: ", AutoSize = true });
+            pictureBoxBookPanel.Image = null;
+            homePanel.Visible = false;
+            authorPanel.Visible = false;
+            publisherPanel.Visible = false;
+            genrePanel.Visible = false;
+            bookPanel.Visible = true;
 
+            //get book
             JObject data = await GetRequests.GetBookById(id);
+            bookLabelBookPanel.Text = data["title"]!.ToString();
             pagesLabelBookPanel.Text = data["pageNumber"]!.ToString();
             isbnLabelBookPanel.Text = data["isbn"]!.ToString();
             publicationDateLabelBookPanel.Text = data["publicationDate"]!.ToString();
-            bookLabelBookPanel.Text = data["title"]!.ToString();
             descriptionLabelBookPanel.Text = data["description"]!.ToString();
-            //pictureBoxBookPanel.Image = await ImageHandler.GetImageFromUrl(data["imageUrl"]!.ToString());
-            pictureBoxBookPanel.LoadAsync(data["imageUrl"]!.ToString());
 
-            JObject publisher = await GetRequests.GetPublisherById(data["publisher"]!.ToString());
-            ClickableLabel publisherLabel = new ClickableLabel(data["publisher"]!.ToString(), DbTable.Publisher, this);
-            publisherLabel.Text = publisher["name"]!.ToString();
-            publisherFlowBookPanel.Controls.Add(publisherLabel);
+            //get picture
+            pictureBoxBookPanel.Image = await ImageHandler.GetImageFromUrl(data["imageUrl"]!.ToString());
+            //pictureBoxBookPanel.LoadAsync(data["imageUrl"]!.ToString());
 
+            //get authors
             foreach (var item in data["authors"]!)
             {
-                ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Author, this);
+                ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Author, this); //this param is used for id
                 JObject author = await GetRequests.GetAuthorById(item.ToString());
                 label.Text = author["firstName"] + " " + author["lastName"] + " " + author["middleName"];
                 authorFlowBookPanel.Controls.Add(label);
             }
 
+            //get publisher
+            JObject publisher = await GetRequests.GetPublisherById(data["publisher"]!.ToString());
+            ClickableLabel publisherLabel = new ClickableLabel(data["publisher"]!.ToString(), DbTable.Publisher, this);
+            publisherLabel.Text = publisher["name"]!.ToString();
+            publisherFlowBookPanel.Controls.Add(publisherLabel);
+
+            //get genres
             foreach (var item in data["genres"]!)
             {
                 ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Genre, this);
@@ -159,12 +172,13 @@ namespace LibraryDisplay
                 genreFlowBookPanel.Controls.Add(label);
             }
             idBookPanel.Text = id;
-            homePanel.Visible = false;
-            bookPanel.Visible = true;
+
         }
 
         public async Task openAuthorPanel(string id)
         {
+            
+            authorBookFlow.Controls.Clear();
             JObject authorData = await GetRequests.GetAuthorById(id);
             authorLabelAuthorPanel.Text = authorData["firstName"] + " " + authorData["lastName"] + " " + authorData["middleName"];
             descriptionLabelAuthorPanel.Text = authorData["description"]!.ToString();
@@ -172,10 +186,18 @@ namespace LibraryDisplay
             homePanel.Visible = false;
             bookPanel.Visible = false;
             authorPanel.Visible = true;
+
+            foreach (var item in authorData["books"]!)
+            {
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, this); 
+                JObject author = await GetRequests.GetBookById(item.ToString());
+                authorBookFlow.Controls.Add(book);
+            }
         }
 
         public async Task openPublisherPanel(string id)
         {
+            publisherBookFlow.Controls.Clear();
             JObject publisherData = await GetRequests.GetPublisherById(id);
             publisherLabelPublisherPanel.Text = "Publisher " + publisherData["name"]!.ToString();
             emailLabelPublisherPanel.Text = publisherData["email"]!.ToString();
@@ -184,16 +206,31 @@ namespace LibraryDisplay
             homePanel.Visible = false;
             bookPanel.Visible = false;
             publisherPanel.Visible = true;
+
+            foreach (var item in publisherData["books"]!)
+            {
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, this);
+                JObject author = await GetRequests.GetBookById(item.ToString());
+                publisherBookFlow.Controls.Add(book);
+            }
         }
 
         public async Task openGenrePanel(string id)
         {
+            genreBookFlow.Controls.Clear();
             JObject genreData = await GetRequests.GetGenreById(id);
             genreLabelGenrePanel.Text = genreData["genre"].ToString();
             idGenrePanel.Text = id;
             homePanel.Visible = false;
             bookPanel.Visible = false;
             genrePanel.Visible = true;
+
+            foreach (var item in genreData["books"]!)
+            {
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, this);
+                JObject author = await GetRequests.GetBookById(item.ToString());
+                genreBookFlow.Controls.Add(book);
+            }
         }
 
         private async void genreTreeViewPopulate()
