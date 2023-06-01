@@ -81,7 +81,8 @@ namespace LibraryDisplay.UserControls.GenericItems
 
         public async void MouseClicked(object sender, EventArgs e)
         {
-            await form.openBookPanel(id);
+            await form.bookControl.openBookPanel(id);
+            form.bookControl.BringToFront();
         }
 
         private void InitializeComponent()

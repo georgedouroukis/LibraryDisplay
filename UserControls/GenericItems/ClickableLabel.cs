@@ -44,15 +44,18 @@ namespace LibraryDisplay.UserControls.GenericItems
         {
             if (table == DbTable.Genre)
             {
-                await form.openGenrePanel(id);
+                await form.genreControl.openGenrePanel(id);
+                form.genreControl.BringToFront();
             }
             else if (table == DbTable.Author)
             {
-                await form.openAuthorPanel(id);
+                await form.authorControl.openAuthorPanel(id);
+                form.authorControl.BringToFront();
             }
             else if (table == DbTable.Publisher)
             {
-                await form.openPublisherPanel(id);
+                await form.publisherControl.openPublisherPanel(id);
+                form.publisherControl.BringToFront();
             }
         }
     }
