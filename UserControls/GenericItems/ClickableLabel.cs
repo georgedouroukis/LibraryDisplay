@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryDisplay.Models;
 
-namespace LibraryDisplay
+namespace LibraryDisplay.UserControls.GenericItems
 {
     internal class ClickableLabel : Label
     {
@@ -12,44 +13,44 @@ namespace LibraryDisplay
         string id;
         DbTable table;
         LibraryForm form;
-        
+
         public ClickableLabel(string id, DbTable table, LibraryForm form) : base()
         {
             AutoSize = true;
             Cursor = Cursors.Hand;
-            this.MouseEnter += changeColor;
-            this.MouseLeave += changeColorback;
+            MouseEnter += changeColor;
+            MouseLeave += changeColorback;
             this.id = id;
             this.table = table;
             this.form = form;
-            this.MouseClick += MouseClicked;
-            
+            MouseClick += MouseClicked;
+
         }
 
         public void changeColor(object sender, EventArgs e)
         {
-            BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            BackColor = SystemColors.ControlDarkDark;
             ForeColor = Color.White;
         }
 
         public void changeColorback(object sender, EventArgs e)
         {
-            BackColor = System.Drawing.SystemColors.Control;
+            BackColor = SystemColors.Control;
             ForeColor = Color.Black;
 
         }
 
         public async void MouseClicked(object sender, EventArgs e)
         {
-            if (this.table == DbTable.Genre) 
+            if (table == DbTable.Genre)
             {
                 await form.openGenrePanel(id);
             }
-            else if (this.table == DbTable.Author)
+            else if (table == DbTable.Author)
             {
                 await form.openAuthorPanel(id);
             }
-            else if (this.table == DbTable.Publisher)
+            else if (table == DbTable.Publisher)
             {
                 await form.openPublisherPanel(id);
             }

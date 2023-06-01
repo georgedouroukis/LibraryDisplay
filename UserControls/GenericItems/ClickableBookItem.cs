@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using LibraryDisplay.Models;
+using LibraryDisplay.Utils;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +8,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryDisplay
+namespace LibraryDisplay.UserControls.GenericItems
 {
     internal class ClickableBookItem : UserControl
     {
@@ -20,16 +22,16 @@ namespace LibraryDisplay
         public ClickableBookItem(string id, DbTable table, LibraryForm form) : base()
         {
             Cursor = Cursors.Hand;
-            this.Margin = new Padding(10);
-            this.Padding = new Padding(0);
+            Margin = new Padding(10);
+            Padding = new Padding(0);
             pictureBox.Margin = new Padding(10);
             pictureBox.Padding = new Padding(0);
             label.Margin = new Padding(0);
             label.Padding = new Padding(0);
-            this.Size = new Size(150, 240);
+            Size = new Size(150, 240);
             pictureBox.Dock = DockStyle.Top;
-            pictureBox.Size = new Size(140,190);
-            
+            pictureBox.Size = new Size(140, 190);
+
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
             label.Dock = DockStyle.Bottom;
@@ -37,50 +39,58 @@ namespace LibraryDisplay
             label.AutoSize = true;
 
             label.TextAlign = ContentAlignment.MiddleCenter;
-            
-            this.MouseEnter += enableBorder;
-            this.label.MouseEnter += enableBorder;
-            this.pictureBox.MouseEnter += enableBorder;
-           
-            this.MouseLeave += disableBorder;
-            this.label.MouseLeave += disableBorder;
-            this.pictureBox.MouseLeave += disableBorder;
-            this.id = id;
-            
-            this.form = form;
-            this.MouseClick += MouseClicked;
-            this.label.MouseClick += MouseClicked;
-            this.pictureBox.MouseClick += MouseClicked;
 
-            this.populate();
+            MouseEnter += enableBorder;
+            label.MouseEnter += enableBorder;
+            pictureBox.MouseEnter += enableBorder;
+
+            MouseLeave += disableBorder;
+            label.MouseLeave += disableBorder;
+            pictureBox.MouseLeave += disableBorder;
+            this.id = id;
+
+            this.form = form;
+            MouseClick += MouseClicked;
+            label.MouseClick += MouseClicked;
+            pictureBox.MouseClick += MouseClicked;
+
+            populate();
 
         }
 
         private async void populate()
         {
-            JObject data = await GetRequests.GetBookById(this.id);
-            
+            JObject data = await GetRequests.GetBookById(id);
+
             label.Text = data["title"]!.ToString();
             pictureBox.LoadAsync(data["imageUrl"]!.ToString());
-            
-            this.Controls.Add(pictureBox);
-            this.Controls.Add(label);
+
+            Controls.Add(pictureBox);
+            Controls.Add(label);
         }
 
         public void enableBorder(object sender, EventArgs e)
         {
-            this.BorderStyle = BorderStyle.FixedSingle;
+            BorderStyle = BorderStyle.FixedSingle;
         }
 
         public void disableBorder(object sender, EventArgs e)
         {
-            this.BorderStyle = BorderStyle.None;
+            BorderStyle = BorderStyle.None;
         }
 
         public async void MouseClicked(object sender, EventArgs e)
         {
-             await form.openBookPanel(id);
+            await form.openBookPanel(id);
         }
 
+        private void InitializeComponent()
+        {
+
+        }
+
+        private void ClickableBookItem_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

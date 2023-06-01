@@ -1,3 +1,6 @@
+using LibraryDisplay.Models;
+using LibraryDisplay.UserControls.GenericItems;
+using LibraryDisplay.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -18,19 +21,20 @@ namespace LibraryDisplay
             homePanel.Dock = DockStyle.Fill;
             homePanel.Visible = true;
             bookPanel.Dock = DockStyle.Fill;
-            bookPanel.Visible = false;
+            bookPanel.Visible = true;
             authorPanel.Dock = DockStyle.Fill;
-            authorPanel.Visible = false;
+            authorPanel.Visible = true;
             publisherPanel.Dock = DockStyle.Fill;
-            publisherPanel.Visible = false;
+            publisherPanel.Visible = true;
             collectionPanel.Dock = DockStyle.Fill;
-            collectionPanel.Visible = false;
+            collectionPanel.Visible = true;
             createPanel.Dock = DockStyle.Fill;
-            createPanel.Visible = false;
+            createPanel.Visible = true;
             genrePanel.Dock = DockStyle.Fill;
-            genrePanel.Visible = false;
+            genrePanel.Visible = true;
             editPanel.Dock = DockStyle.Fill;
-            editPanel.Visible = false;
+            editPanel.Visible = true;
+            homePanel.BringToFront();
         }
 
         private void collectionButtonHomePanel_Click(object sender, EventArgs e)
@@ -177,7 +181,7 @@ namespace LibraryDisplay
 
         public async Task openAuthorPanel(string id)
         {
-            
+
             authorBookFlow.Controls.Clear();
             JObject authorData = await GetRequests.GetAuthorById(id);
             authorLabelAuthorPanel.Text = authorData["firstName"] + " " + authorData["lastName"] + " " + authorData["middleName"];
@@ -189,7 +193,7 @@ namespace LibraryDisplay
 
             foreach (var item in authorData["books"]!)
             {
-                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, this); 
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, this);
                 JObject author = await GetRequests.GetBookById(item.ToString());
                 authorBookFlow.Controls.Add(book);
             }
@@ -296,21 +300,33 @@ namespace LibraryDisplay
             descriptionTextBoxEditBookPanel.Text = descriptionLabelBookPanel.Text;
 
             List<JObject> authors = await GetRequests.GetAuthors();
+            authorComboBoxEditBookPanel.Controls.Clear();
             foreach (JObject author in authors)
             {
-
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = author["firstName"] + " " + author["lastName"] + " " + author["middleName"];
+                item.Id = author["id"]!.ToString();
+                authorComboBoxEditBookPanel.Items.Add(item);
             }
 
             List<JObject> publishers = await GetRequests.GetPublishers();
+            publisherComboBoxEditBookPanel.Controls.Clear();
             foreach (JObject publisher in publishers)
             {
-
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = publisher["name"]!.ToString();
+                item.Id = publisher["id"]!.ToString();
+                publisherComboBoxEditBookPanel.Items.Add(item);
             }
 
             List<JObject> genres = await GetRequests.GetGenres();
+            genreComboBoxEditBookPanel.Controls.Clear();
             foreach (JObject genre in genres)
             {
-
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = genre["genre"]!.ToString();
+                item.Id = genre["id"]!.ToString();
+                genreComboBoxEditBookPanel.Items.Add(item);
             }
 
             bookPanel.Visible = false;

@@ -197,7 +197,7 @@
             this.flowLayoutPanel45 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.flowLayoutPanel46 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.label28 = (new global::System.Windows.Forms.Label());
-            this.publisherBomboBoxEditBookPanel = (new global::System.Windows.Forms.ComboBox());
+            this.publisherComboBoxEditBookPanel = (new global::System.Windows.Forms.ComboBox());
             this.flowLayoutPanel47 = (new global::System.Windows.Forms.FlowLayoutPanel());
             this.label29 = (new global::System.Windows.Forms.Label());
             this.pagesTextBoxEditBookPanel = (new global::System.Windows.Forms.TextBox());
@@ -2230,7 +2230,7 @@
             // 
             this.flowLayoutPanel46.AutoSize = (true);
             this.flowLayoutPanel46.Controls.Add(this.label28);
-            this.flowLayoutPanel46.Controls.Add(this.publisherBomboBoxEditBookPanel);
+            this.flowLayoutPanel46.Controls.Add(this.publisherComboBoxEditBookPanel);
             this.flowLayoutPanel46.Location = (new global::System.Drawing.Point(23, 154));
             this.flowLayoutPanel46.Name = ("flowLayoutPanel46");
             this.flowLayoutPanel46.Size = (new global::System.Drawing.Size(608, 39));
@@ -2245,13 +2245,13 @@
             this.label28.TabIndex = (6);
             this.label28.Text = ("Publisher:");
             // 
-            // publisherBomboBoxEditBookPanel
+            // publisherComboBoxEditBookPanel
             // 
-            this.publisherBomboBoxEditBookPanel.FormattingEnabled = (true);
-            this.publisherBomboBoxEditBookPanel.Location = (new global::System.Drawing.Point(97, 3));
-            this.publisherBomboBoxEditBookPanel.Name = ("publisherBomboBoxEditBookPanel");
-            this.publisherBomboBoxEditBookPanel.Size = (new global::System.Drawing.Size(508, 33));
-            this.publisherBomboBoxEditBookPanel.TabIndex = (7);
+            this.publisherComboBoxEditBookPanel.FormattingEnabled = (true);
+            this.publisherComboBoxEditBookPanel.Location = (new global::System.Drawing.Point(97, 3));
+            this.publisherComboBoxEditBookPanel.Name = ("publisherComboBoxEditBookPanel");
+            this.publisherComboBoxEditBookPanel.Size = (new global::System.Drawing.Size(508, 33));
+            this.publisherComboBoxEditBookPanel.TabIndex = (7);
             // 
             // flowLayoutPanel47
             // 
@@ -3339,7 +3339,7 @@
         private FlowLayoutPanel flowLayoutPanel45;
         private FlowLayoutPanel flowLayoutPanel46;
         private Label label28;
-        private ComboBox publisherBomboBoxEditBookPanel;
+        private ComboBox publisherComboBoxEditBookPanel;
         private FlowLayoutPanel flowLayoutPanel47;
         private Label label29;
         private TextBox pagesTextBoxEditBookPanel;

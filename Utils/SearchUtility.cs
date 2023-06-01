@@ -6,13 +6,13 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryDisplay
+namespace LibraryDisplay.Utils
 {
     internal class SearchUtility
     {
         public static List<ListViewItem> listViewItems = new List<ListViewItem>();
 
-        public static  async Task<List<ListViewItem>> Search(string text, bool books, bool authors, bool publishers)
+        public static async Task<List<ListViewItem>> Search(string text, bool books, bool authors, bool publishers)
         {
             listViewItems.Clear();
             if (books)
@@ -21,7 +21,7 @@ namespace LibraryDisplay
             }
             if (authors)
             {
-               await authorSearch(text);
+                await authorSearch(text);
             }
             if (publishers)
             {
@@ -33,9 +33,9 @@ namespace LibraryDisplay
         private static async Task authorSearch(string text)
         {
             List<JObject> list = await GetRequests.GetAuthors();
-            foreach (var item in list) 
+            foreach (var item in list)
             {
-                string fullName = item["firstName"]!.ToString() + " "+ item["lastName"]!.ToString() + " " + item["middleName"]!.ToString();
+                string fullName = item["firstName"]!.ToString() + " " + item["lastName"]!.ToString() + " " + item["middleName"]!.ToString();
                 if (fullName.Contains(text, StringComparison.CurrentCultureIgnoreCase))
                 {
                     ListViewItem searchItem = new ListViewItem(fullName);
@@ -58,7 +58,7 @@ namespace LibraryDisplay
                     searchItem.SubItems.Add(item["id"]!.ToString());
                     listViewItems.Add(searchItem);
                 }
-            }         
+            }
         }
 
         private static async Task publisherSearch(string text)
@@ -73,7 +73,7 @@ namespace LibraryDisplay
                     searchItem.SubItems.Add(item["id"]!.ToString());
                     listViewItems.Add(searchItem);
                 }
-            }      
+            }
         }
     }
 }

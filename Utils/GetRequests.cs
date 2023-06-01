@@ -7,33 +7,23 @@ using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Forms;
 
-namespace LibraryDisplay
+namespace LibraryDisplay.Utils
 {
-    public enum DbTable { Book = 1, Author = 2, Publisher = 3, Genre = 4 }
-
-    public class Genre
-    {
-        public int id { get; set; }
-        public string genre { get; set; }
-        public int? parentGenre { get; set; }
-        public List<int> subGenres { get; set; }
-        public List<int> books { get; set; }
-    }
     internal class GetRequests
     {
         public static async Task<JObject> GetBookById(string id)
         {
-            JObject? responceData =new JObject();//to avoid null pointer exception
+            JObject? responceData = new JObject();//to avoid null pointer exception
             try
             {
                 using (var client = new HttpClient())
                 {
-                    Uri endpoint = new Uri("http://localhost:8080/api/books/"+id);
+                    Uri endpoint = new Uri("http://localhost:8080/api/books/" + id);
                     HttpResponseMessage responce = await client.GetAsync(endpoint);
                     var json = await responce.Content.ReadAsStringAsync();
                     JObject responceObject = JObject.Parse(json);
 
-                    if (responce.IsSuccessStatusCode) 
+                    if (responce.IsSuccessStatusCode)
                     {
                         responceData = responceObject["data"] as JObject;
                     }
@@ -139,7 +129,7 @@ namespace LibraryDisplay
 
         public static async Task<List<JObject>> GetGenres()
         {
-            List<JObject> responceData=new List<JObject>();
+            List<JObject> responceData = new List<JObject>();
             try
             {
                 using (var client = new HttpClient())
@@ -151,7 +141,7 @@ namespace LibraryDisplay
 
                     if (responce.IsSuccessStatusCode)
                     {
-                        foreach(var item in responceObject["data"]!)
+                        foreach (var item in responceObject["data"]!)
                         {
                             responceData.Add(item as JObject);
                         }
