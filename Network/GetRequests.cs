@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Forms;
 
-namespace LibraryDisplay.Utils
+namespace LibraryDisplay.Network
 {
     internal class GetRequests
     {

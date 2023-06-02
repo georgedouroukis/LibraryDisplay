@@ -1,6 +1,6 @@
 ﻿using LibraryDisplay.Models;
+using LibraryDisplay.Network;
 using LibraryDisplay.UserControls.GenericItems;
-using LibraryDisplay.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -81,6 +81,7 @@ namespace LibraryDisplay.UserControls
                 label.Text = genre["genre"]!.ToString();
                 genreFlowBookPanel.Controls.Add(label);
             }
+            this.BringToFront();
             
 
         }

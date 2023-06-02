@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryDisplay.Models
+namespace LibraryDisplay.Utils
 {
     internal class ComboBoxItem
     {

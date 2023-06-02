@@ -1,4 +1,5 @@
 ﻿using LibraryDisplay.Models;
+using LibraryDisplay.Network;
 using LibraryDisplay.UserControls.GenericItems;
 using LibraryDisplay.Utils;
 using Newtonsoft.Json.Linq;
@@ -38,30 +39,40 @@ namespace LibraryDisplay.UserControls
             tempGenre = new Genre();
         }
 
-        private void homeButtonEditPanel_Click(object sender, EventArgs e)
+        private EditStatus checkStatus()
         {
             bool checkChanges = true;
+            DbTable table;
             if (bookEditTab.Enabled == true)
             {
                 createTempBook();
                 checkChanges = !referencedBook!.Equals(tempBook);
+                table = DbTable.Book;
             }
             else if (authorEditTab.Enabled == true)
             {
                 createTempAuthor();
                 checkChanges = !referencedAuthor!.Equals(tempAuthor);
+                table = DbTable.Author;
             }
-            else if(publisherEditTab.Enabled == true)
+            else if (publisherEditTab.Enabled == true)
             {
                 createTempPublisher();
                 checkChanges = !referencedPublisher!.Equals(tempAuthor);
+                table = DbTable.Publisher;
             }
-            else if(genreEditTab.Enabled==true)
+            else 
             {
                 createTempGenre();
                 checkChanges = !referencedGenre!.Equals(tempGenre);
+                table = DbTable.Genre;
             }
-            if (checkChanges)
+            return new EditStatus(checkChanges,table);
+        }
+        
+        private void homeButtonEditPanel_Click(object sender, EventArgs e)
+        {
+            if (checkStatus().HasChanges)
             {
                 DialogResult dr = MessageBox.Show("Discard Changes?", "Unsaved Changes", MessageBoxButtons.YesNo);
                 switch (dr)
@@ -81,7 +92,42 @@ namespace LibraryDisplay.UserControls
 
         private void saveButtonEditPanel_Click(object sender, EventArgs e)
         {
-
+            EditStatus status = checkStatus();
+            if (status.HasChanges)
+            {
+                DialogResult dr = MessageBox.Show("Are you sure?", "Save Changes", MessageBoxButtons.YesNo);
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        switch (status.Table)
+                        {
+                            case DbTable.Book:
+                                //SaveBookChanges(tempBook);
+                                parentForm.bookControl.openBookPanel(tempBook.id.ToString());
+                                break;
+                            case DbTable.Author:
+                                //SaveAuthorChanges(tempAuthor);
+                                parentForm.authorControl.openAuthorPanel(tempAuthor.id.ToString());
+                                break;
+                            case DbTable.Publisher:
+                                //SavePublisherChanges(tempPublisher);
+                                parentForm.publisherControl.openPublisherPanel(tempPublisher.id.ToString());
+                                break;
+                            case DbTable.Genre:
+                                //SaveGenreChanges(tempGenre);
+                                parentForm.genreControl.openGenrePanel(tempGenre.id.ToString());
+                                break;
+                        }
+                        Console.WriteLine("saving");
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("no changes found");
+            }
         }
 
         public async void openEditBookPanel(Book book)
@@ -289,8 +335,6 @@ namespace LibraryDisplay.UserControls
         {
 
         }
-
-
 
     }
 }
