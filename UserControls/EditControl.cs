@@ -3,6 +3,7 @@ using LibraryDisplay.UserControls.GenericItems;
 using LibraryDisplay.Utils;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,27 +18,82 @@ namespace LibraryDisplay.UserControls
     public partial class EditControl : UserControl
     {
         private LibraryForm parentForm;
+        private Book tempBook;
+        private Author tempAuthor;
+        private Publisher tempPublisher;
+        private Genre tempGenre;
+        private Book? referencedBook;
+        private Author? referencedAuthor;
+        private Publisher? referencedPublisher;
+        private Genre? referencedGenre;
+        
         public EditControl(LibraryForm parentForm)
         {
             InitializeComponent();
             this.parentForm = parentForm;
             editPanel.Dock = DockStyle.Fill;
+            tempBook = new Book();
+            tempAuthor = new Author();
+            tempPublisher = new Publisher();
+            tempGenre = new Genre();
         }
 
         private void homeButtonEditPanel_Click(object sender, EventArgs e)
         {
-            parentForm.homeControl.BringToFront();
+            bool checkChanges = true;
+            if (bookEditTab.Enabled == true)
+            {
+                createTempBook();
+                checkChanges = !referencedBook!.Equals(tempBook);
+            }
+            else if (authorEditTab.Enabled == true)
+            {
+                createTempAuthor();
+                checkChanges = !referencedAuthor!.Equals(tempAuthor);
+            }
+            else if(publisherEditTab.Enabled == true)
+            {
+                createTempPublisher();
+                checkChanges = !referencedPublisher!.Equals(tempAuthor);
+            }
+            else if(genreEditTab.Enabled==true)
+            {
+                createTempGenre();
+                checkChanges = !referencedGenre!.Equals(tempGenre);
+            }
+            if (checkChanges)
+            {
+                DialogResult dr = MessageBox.Show("Discard Changes?", "Unsaved Changes", MessageBoxButtons.YesNo);
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        parentForm.homeControl.BringToFront();
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+            }
+            else
+            {
+                parentForm.homeControl.BringToFront();
+            }
+        }
+
+        private void saveButtonEditPanel_Click(object sender, EventArgs e)
+        {
+
         }
 
         public async void openEditBookPanel(Book book)
         {
-
+            referencedBook = book;
             ////////////////////////////////populate Info
             titleTextBoxEditBookPanel.Text = book.title;
             pagesTextBoxEditBookPanel.Text = book.pageNumber.ToString();
             dateTextBoxEditBookPanel.Text = book.publicationDate;
             isbnTextBoxEditBookPanel.Text = book.isbn;
             descriptionTextBoxEditBookPanel.Text = book.description;
+            imageURLTextBoxEditBookPanel.Text = book.imageUrl;
 
             ////////////////////////////////populate Authors
             List<JObject> authors = await GetRequests.GetAuthors();
@@ -195,5 +251,46 @@ namespace LibraryDisplay.UserControls
                 authorFlowBookEditPanel.Controls.Add(label);
             }
         }
+
+        private void createTempBook()
+        {
+            tempBook.id = referencedBook.id;
+            tempBook.title = titleTextBoxEditBookPanel.Text;
+            tempBook.isbn = isbnTextBoxEditBookPanel.Text;
+            tempBook.pageNumber = Int32.Parse(pagesTextBoxEditBookPanel.Text);
+            tempBook.imageUrl = imageURLTextBoxEditBookPanel.Text;
+            tempBook.publicationDate = dateTextBoxEditBookPanel.Text;
+            tempBook.description = descriptionTextBoxEditBookPanel.Text;
+            ComboBoxItem? p = publisherComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
+            tempBook.publisher = Int32.Parse(p!.Id);
+            HashSet<int> a = new HashSet<int>();
+            foreach (RemovableLabel l in authorFlowBookEditPanel.Controls.OfType<RemovableLabel>())
+            {
+                a.Add(Int32.Parse(l.id));
+            }
+            tempBook.authors = a;
+            HashSet<int> g = new HashSet<int>();
+            foreach (RemovableLabel l in genreFlowBookEditPanel.Controls.OfType<RemovableLabel>())
+            {
+                g.Add(Int32.Parse(l.id));
+            }
+            tempBook.genres = g;
+
+        }
+        private void createTempAuthor()
+        {
+
+        }
+        private void createTempPublisher()
+        {
+
+        }
+        private void createTempGenre()
+        {
+
+        }
+
+
+
     }
 }

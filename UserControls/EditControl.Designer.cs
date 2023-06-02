@@ -60,9 +60,10 @@
             genreComboBoxEditBookPanel = new ComboBox();
             genreFlowBookEditPanel = new FlowLayoutPanel();
             descriptionTextBoxEditBookPanel = new TextBox();
-            flowLayoutPanel52 = new FlowLayoutPanel();
-            button2 = new Button();
-            label33 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            label1 = new Label();
+            imageURLTextBoxEditBookPanel = new TextBox();
+            imageCheckButonEditBookPanel = new Button();
             authorEditTab = new TabPage();
             flowLayoutPanel53 = new FlowLayoutPanel();
             flowLayoutPanel54 = new FlowLayoutPanel();
@@ -119,7 +120,7 @@
             flowLayoutPanel48.SuspendLayout();
             flowLayoutPanel49.SuspendLayout();
             flowLayoutPanel50.SuspendLayout();
-            flowLayoutPanel52.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             authorEditTab.SuspendLayout();
             flowLayoutPanel53.SuspendLayout();
             flowLayoutPanel54.SuspendLayout();
@@ -180,6 +181,7 @@
             saveButtonEditPanel.TabIndex = 4;
             saveButtonEditPanel.Text = "Save";
             saveButtonEditPanel.UseVisualStyleBackColor = true;
+            saveButtonEditPanel.Click += saveButtonEditPanel_Click;
             // 
             // label25
             // 
@@ -247,7 +249,7 @@
             flowLayoutPanel42.Controls.Add(flowLayoutPanel50);
             flowLayoutPanel42.Controls.Add(genreFlowBookEditPanel);
             flowLayoutPanel42.Controls.Add(descriptionTextBoxEditBookPanel);
-            flowLayoutPanel42.Controls.Add(flowLayoutPanel52);
+            flowLayoutPanel42.Controls.Add(flowLayoutPanel1);
             flowLayoutPanel42.Dock = DockStyle.Fill;
             flowLayoutPanel42.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel42.Location = new Point(3, 3);
@@ -484,34 +486,41 @@
             descriptionTextBoxEditBookPanel.Size = new Size(640, 269);
             descriptionTextBoxEditBookPanel.TabIndex = 12;
             // 
-            // flowLayoutPanel52
+            // flowLayoutPanel1
             // 
-            flowLayoutPanel52.Controls.Add(button2);
-            flowLayoutPanel52.Controls.Add(label33);
-            flowLayoutPanel52.Location = new Point(23, 672);
-            flowLayoutPanel52.Name = "flowLayoutPanel52";
-            flowLayoutPanel52.Size = new Size(605, 37);
-            flowLayoutPanel52.TabIndex = 18;
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(label1);
+            flowLayoutPanel1.Controls.Add(imageURLTextBoxEditBookPanel);
+            flowLayoutPanel1.Controls.Add(imageCheckButonEditBookPanel);
+            flowLayoutPanel1.Location = new Point(23, 672);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(636, 40);
+            flowLayoutPanel1.TabIndex = 18;
             // 
-            // button2
+            // label1
             // 
-            button2.Location = new Point(3, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(185, 34);
-            button2.TabIndex = 0;
-            button2.Text = "Upload an image...";
-            button2.UseVisualStyleBackColor = true;
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 25);
+            label1.TabIndex = 6;
+            label1.Text = "Image URL:";
             // 
-            // label33
+            // imageURLTextBoxEditBookPanel
             // 
-            label33.AutoSize = true;
-            label33.ForeColor = Color.DimGray;
-            label33.Location = new Point(194, 0);
-            label33.Name = "label33";
-            label33.Padding = new Padding(0, 8, 0, 0);
-            label33.Size = new Size(159, 33);
-            label33.TabIndex = 1;
-            label33.Text = "...\\placeholder.png";
+            imageURLTextBoxEditBookPanel.Location = new Point(111, 3);
+            imageURLTextBoxEditBookPanel.Name = "imageURLTextBoxEditBookPanel";
+            imageURLTextBoxEditBookPanel.Size = new Size(404, 31);
+            imageURLTextBoxEditBookPanel.TabIndex = 7;
+            // 
+            // imageCheckButonEditBookPanel
+            // 
+            imageCheckButonEditBookPanel.Location = new Point(521, 3);
+            imageCheckButonEditBookPanel.Name = "imageCheckButonEditBookPanel";
+            imageCheckButonEditBookPanel.Size = new Size(112, 34);
+            imageCheckButonEditBookPanel.TabIndex = 19;
+            imageCheckButonEditBookPanel.Text = "Check";
+            imageCheckButonEditBookPanel.UseVisualStyleBackColor = true;
             // 
             // authorEditTab
             // 
@@ -895,8 +904,8 @@
             flowLayoutPanel49.PerformLayout();
             flowLayoutPanel50.ResumeLayout(false);
             flowLayoutPanel50.PerformLayout();
-            flowLayoutPanel52.ResumeLayout(false);
-            flowLayoutPanel52.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             authorEditTab.ResumeLayout(false);
             flowLayoutPanel53.ResumeLayout(false);
             flowLayoutPanel53.PerformLayout();
@@ -962,9 +971,6 @@
         private ComboBox genreComboBoxEditBookPanel;
         private FlowLayoutPanel genreFlowBookEditPanel;
         private TextBox descriptionTextBoxEditBookPanel;
-        private FlowLayoutPanel flowLayoutPanel52;
-        private Button button2;
-        private Label label33;
         private TabPage authorEditTab;
         private FlowLayoutPanel flowLayoutPanel53;
         private FlowLayoutPanel flowLayoutPanel54;
@@ -1002,5 +1008,9 @@
         private FlowLayoutPanel flowLayoutPanel70;
         private FlowLayoutPanel flowLayoutPanel62;
         private Button homeButtonEditPanel;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label1;
+        private TextBox imageURLTextBoxEditBookPanel;
+        private Button imageCheckButonEditBookPanel;
     }
 }

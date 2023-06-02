@@ -60,9 +60,6 @@
             comboBox1 = new ComboBox();
             flowLayoutPanel30 = new FlowLayoutPanel();
             textBox15 = new TextBox();
-            flowLayoutPanel32 = new FlowLayoutPanel();
-            uploadButtonCreatePanel = new Button();
-            uploadedFilePathLabelCreatePanel = new Label();
             createAuthorTab = new TabPage();
             flowLayoutPanel33 = new FlowLayoutPanel();
             flowLayoutPanel39 = new FlowLayoutPanel();
@@ -100,6 +97,10 @@
             flowLayoutPanel66 = new FlowLayoutPanel();
             flowLayoutPanel14 = new FlowLayoutPanel();
             homeButtonCreatePanel = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            label1 = new Label();
+            imageURLTextBoxCreateBookPanel = new TextBox();
+            imageCheckButonCreateBookPanel = new Button();
             ((System.ComponentModel.ISupportInitialize)createPanel).BeginInit();
             createPanel.Panel1.SuspendLayout();
             createPanel.Panel2.SuspendLayout();
@@ -119,7 +120,6 @@
             flowLayoutPanel26.SuspendLayout();
             flowLayoutPanel27.SuspendLayout();
             flowLayoutPanel28.SuspendLayout();
-            flowLayoutPanel32.SuspendLayout();
             createAuthorTab.SuspendLayout();
             flowLayoutPanel33.SuspendLayout();
             flowLayoutPanel39.SuspendLayout();
@@ -136,6 +136,7 @@
             flowLayoutPanel64.SuspendLayout();
             flowLayoutPanel65.SuspendLayout();
             flowLayoutPanel14.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // createPanel
@@ -151,8 +152,8 @@
             // createPanel.Panel2
             // 
             createPanel.Panel2.Controls.Add(splitContainer9);
-            createPanel.Size = new Size(686, 714);
-            createPanel.SplitterDistance = 56;
+            createPanel.Size = new Size(881, 925);
+            createPanel.SplitterDistance = 72;
             createPanel.TabIndex = 5;
             // 
             // tableLayoutPanel6
@@ -168,13 +169,13 @@
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(686, 56);
+            tableLayoutPanel6.Size = new Size(881, 72);
             tableLayoutPanel6.TabIndex = 1;
             // 
             // saveButtonCreatePanel
             // 
             saveButtonCreatePanel.Anchor = AnchorStyles.None;
-            saveButtonCreatePanel.Location = new Point(577, 11);
+            saveButtonCreatePanel.Location = new Point(772, 19);
             saveButtonCreatePanel.Name = "saveButtonCreatePanel";
             saveButtonCreatePanel.Size = new Size(106, 34);
             saveButtonCreatePanel.TabIndex = 4;
@@ -187,7 +188,7 @@
             label5.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(115, 0);
             label5.Name = "label5";
-            label5.Size = new Size(456, 56);
+            label5.Size = new Size(651, 72);
             label5.TabIndex = 6;
             label5.Text = "Create New...";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -206,8 +207,8 @@
             // splitContainer9.Panel2
             // 
             splitContainer9.Panel2.Controls.Add(flowLayoutPanel14);
-            splitContainer9.Size = new Size(686, 654);
-            splitContainer9.SplitterDistance = 598;
+            splitContainer9.Size = new Size(881, 849);
+            splitContainer9.SplitterDistance = 776;
             splitContainer9.TabIndex = 0;
             // 
             // tabControl1
@@ -220,7 +221,7 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(686, 598);
+            tabControl1.Size = new Size(881, 776);
             tabControl1.TabIndex = 0;
             // 
             // createBookTab
@@ -229,7 +230,7 @@
             createBookTab.Location = new Point(4, 34);
             createBookTab.Name = "createBookTab";
             createBookTab.Padding = new Padding(3);
-            createBookTab.Size = new Size(678, 560);
+            createBookTab.Size = new Size(873, 738);
             createBookTab.TabIndex = 0;
             createBookTab.Text = "Book";
             createBookTab.UseVisualStyleBackColor = true;
@@ -246,13 +247,13 @@
             flowLayoutPanel16.Controls.Add(flowLayoutPanel28);
             flowLayoutPanel16.Controls.Add(flowLayoutPanel30);
             flowLayoutPanel16.Controls.Add(textBox15);
-            flowLayoutPanel16.Controls.Add(flowLayoutPanel32);
+            flowLayoutPanel16.Controls.Add(flowLayoutPanel1);
             flowLayoutPanel16.Dock = DockStyle.Fill;
             flowLayoutPanel16.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel16.Location = new Point(3, 3);
             flowLayoutPanel16.Name = "flowLayoutPanel16";
             flowLayoutPanel16.Padding = new Padding(20);
-            flowLayoutPanel16.Size = new Size(672, 554);
+            flowLayoutPanel16.Size = new Size(867, 732);
             flowLayoutPanel16.TabIndex = 0;
             // 
             // flowLayoutPanel29
@@ -462,35 +463,6 @@
             textBox15.PlaceholderText = "Description";
             textBox15.Size = new Size(630, 70);
             textBox15.TabIndex = 12;
-            // 
-            // flowLayoutPanel32
-            // 
-            flowLayoutPanel32.Controls.Add(uploadButtonCreatePanel);
-            flowLayoutPanel32.Controls.Add(uploadedFilePathLabelCreatePanel);
-            flowLayoutPanel32.Location = new Point(23, 492);
-            flowLayoutPanel32.Name = "flowLayoutPanel32";
-            flowLayoutPanel32.Size = new Size(605, 37);
-            flowLayoutPanel32.TabIndex = 18;
-            // 
-            // uploadButtonCreatePanel
-            // 
-            uploadButtonCreatePanel.Location = new Point(3, 3);
-            uploadButtonCreatePanel.Name = "uploadButtonCreatePanel";
-            uploadButtonCreatePanel.Size = new Size(185, 34);
-            uploadButtonCreatePanel.TabIndex = 0;
-            uploadButtonCreatePanel.Text = "Upload an image...";
-            uploadButtonCreatePanel.UseVisualStyleBackColor = true;
-            // 
-            // uploadedFilePathLabelCreatePanel
-            // 
-            uploadedFilePathLabelCreatePanel.AutoSize = true;
-            uploadedFilePathLabelCreatePanel.ForeColor = Color.DimGray;
-            uploadedFilePathLabelCreatePanel.Location = new Point(194, 0);
-            uploadedFilePathLabelCreatePanel.Name = "uploadedFilePathLabelCreatePanel";
-            uploadedFilePathLabelCreatePanel.Padding = new Padding(0, 8, 0, 0);
-            uploadedFilePathLabelCreatePanel.Size = new Size(159, 33);
-            uploadedFilePathLabelCreatePanel.TabIndex = 1;
-            uploadedFilePathLabelCreatePanel.Text = "...\\placeholder.png";
             // 
             // createAuthorTab
             // 
@@ -825,13 +797,13 @@
             flowLayoutPanel14.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel14.Location = new Point(0, 0);
             flowLayoutPanel14.Name = "flowLayoutPanel14";
-            flowLayoutPanel14.Size = new Size(686, 52);
+            flowLayoutPanel14.Size = new Size(881, 69);
             flowLayoutPanel14.TabIndex = 1;
             // 
             // homeButtonCreatePanel
             // 
             homeButtonCreatePanel.Anchor = AnchorStyles.Right;
-            homeButtonCreatePanel.Location = new Point(571, 3);
+            homeButtonCreatePanel.Location = new Point(766, 3);
             homeButtonCreatePanel.Name = "homeButtonCreatePanel";
             homeButtonCreatePanel.Size = new Size(112, 34);
             homeButtonCreatePanel.TabIndex = 7;
@@ -839,13 +811,49 @@
             homeButtonCreatePanel.UseVisualStyleBackColor = true;
             homeButtonCreatePanel.Click += homeButtonCreatePanel_Click;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.Controls.Add(label1);
+            flowLayoutPanel1.Controls.Add(imageURLTextBoxCreateBookPanel);
+            flowLayoutPanel1.Controls.Add(imageCheckButonCreateBookPanel);
+            flowLayoutPanel1.Location = new Point(23, 492);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(636, 40);
+            flowLayoutPanel1.TabIndex = 19;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 25);
+            label1.TabIndex = 6;
+            label1.Text = "Image URL:";
+            // 
+            // imageURLTextBoxCreateBookPanel
+            // 
+            imageURLTextBoxCreateBookPanel.Location = new Point(111, 3);
+            imageURLTextBoxCreateBookPanel.Name = "imageURLTextBoxCreateBookPanel";
+            imageURLTextBoxCreateBookPanel.Size = new Size(404, 31);
+            imageURLTextBoxCreateBookPanel.TabIndex = 7;
+            // 
+            // imageCheckButonCreateBookPanel
+            // 
+            imageCheckButonCreateBookPanel.Location = new Point(521, 3);
+            imageCheckButonCreateBookPanel.Name = "imageCheckButonCreateBookPanel";
+            imageCheckButonCreateBookPanel.Size = new Size(112, 34);
+            imageCheckButonCreateBookPanel.TabIndex = 19;
+            imageCheckButonCreateBookPanel.Text = "Check";
+            imageCheckButonCreateBookPanel.UseVisualStyleBackColor = true;
+            // 
             // CreateControl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(createPanel);
             Name = "CreateControl";
-            Size = new Size(793, 804);
+            Size = new Size(1029, 1040);
             createPanel.Panel1.ResumeLayout(false);
             createPanel.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)createPanel).EndInit();
@@ -873,8 +881,6 @@
             flowLayoutPanel27.PerformLayout();
             flowLayoutPanel28.ResumeLayout(false);
             flowLayoutPanel28.PerformLayout();
-            flowLayoutPanel32.ResumeLayout(false);
-            flowLayoutPanel32.PerformLayout();
             createAuthorTab.ResumeLayout(false);
             flowLayoutPanel33.ResumeLayout(false);
             flowLayoutPanel33.PerformLayout();
@@ -903,6 +909,8 @@
             flowLayoutPanel65.ResumeLayout(false);
             flowLayoutPanel65.PerformLayout();
             flowLayoutPanel14.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -940,9 +948,6 @@
         private ComboBox comboBox1;
         private FlowLayoutPanel flowLayoutPanel30;
         private TextBox textBox15;
-        private FlowLayoutPanel flowLayoutPanel32;
-        private Button uploadButtonCreatePanel;
-        private Label uploadedFilePathLabelCreatePanel;
         private TabPage createAuthorTab;
         private FlowLayoutPanel flowLayoutPanel33;
         private FlowLayoutPanel flowLayoutPanel39;
@@ -980,5 +985,9 @@
         private FlowLayoutPanel flowLayoutPanel66;
         private FlowLayoutPanel flowLayoutPanel14;
         private Button homeButtonCreatePanel;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label1;
+        private TextBox imageURLTextBoxCreateBookPanel;
+        private Button imageCheckButonCreateBookPanel;
     }
 }

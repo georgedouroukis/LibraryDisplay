@@ -9,7 +9,18 @@ namespace LibraryDisplay.Models
         public string lastName { get; set; }
         public string middleName { get; set; }
         public string description { get; set; }
-        public List<int> books { get; set; }
+        public HashSet<int> books { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Author author &&
+                   id == author.id &&
+                   firstName == author.firstName &&
+                   lastName == author.lastName &&
+                   middleName == author.middleName &&
+                   description == author.description &&
+                   books.SetEquals(author.books);
+        }
 
         public override string? ToString()
         {

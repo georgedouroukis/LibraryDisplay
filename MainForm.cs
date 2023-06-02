@@ -63,8 +63,8 @@ namespace LibraryDisplay
 
 
             homeControl.BringToFront();
-            
-            
+
+
         }
 
     }
