@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LibraryDisplay.UserControls.GenericItems
 {
-    internal class ClickableBookItem : UserControl
+    internal class RemovableBookItem : UserControl
     {
 
         string id;
@@ -20,7 +20,7 @@ namespace LibraryDisplay.UserControls.GenericItems
         Label label = new Label();
         FlowLayoutPanel parentFlow;
 
-        public ClickableBookItem(string id, DbTable table, LibraryForm form, FlowLayoutPanel parentFlow) : base()
+        public RemovableBookItem(string id, DbTable table, LibraryForm form, FlowLayoutPanel parentFlow) : base()
         {
             Cursor = Cursors.Hand;
             this.parentFlow = parentFlow;
@@ -57,7 +57,6 @@ namespace LibraryDisplay.UserControls.GenericItems
             pictureBox.MouseClick += MouseClicked;
 
             populate();
-            
         }
 
         private async void populate()

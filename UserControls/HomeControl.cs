@@ -27,7 +27,7 @@ namespace LibraryDisplay.UserControls
 
         private void createButtonHomePanel_Click(object sender, EventArgs e)
         {
-
+            parentForm.createControl.BringToFront();
         }
 
         private async void searchButton_Click(object sender, EventArgs e)
@@ -127,6 +127,7 @@ namespace LibraryDisplay.UserControls
         private async void genreTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             await parentForm.genreControl.openGenrePanel(e.Node.Tag.ToString());
+            parentForm.genreControl.BringToFront();
         }
 
         private void collectionButtonHomePanel_Click(object sender, EventArgs e)

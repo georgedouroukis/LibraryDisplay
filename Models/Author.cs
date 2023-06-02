@@ -1,4 +1,6 @@
-﻿namespace LibraryDisplay.Models
+﻿using Newtonsoft.Json;
+
+namespace LibraryDisplay.Models
 {
     public class Author
     {
@@ -9,5 +11,9 @@
         public string description { get; set; }
         public List<int> books { get; set; }
 
+        public override string? ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

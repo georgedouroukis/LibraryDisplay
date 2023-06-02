@@ -36,11 +36,11 @@ namespace LibraryDisplay.UserControls
             publisherLabelPublisherPanel.Text = "Publisher " + publisherData["name"]!.ToString();
             emailLabelPublisherPanel.Text = publisherData["email"]!.ToString();
             phoneLabelPublisherPanel.Text = publisherData["phone"]!.ToString();
-            idPublisherPanel.Text = id;
+            
 
             foreach (var item in publisherData["books"]!)
             {
-                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm);
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, publisherBookFlow);
                 JObject author = await GetRequests.GetBookById(item.ToString());
                 publisherBookFlow.Controls.Add(book);
             }

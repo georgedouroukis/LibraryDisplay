@@ -33,7 +33,6 @@
             tableLayoutPanel9 = new TableLayoutPanel();
             editButtonAuthorPanel = new Button();
             authorLabelAuthorPanel = new Label();
-            idAuthorPanel = new Label();
             descriptionLabelAuthorPanel = new TextBox();
             splitContainer14 = new SplitContainer();
             authorBookFlow = new FlowLayoutPanel();
@@ -100,7 +99,6 @@
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel9.Controls.Add(editButtonAuthorPanel, 2, 0);
             tableLayoutPanel9.Controls.Add(authorLabelAuthorPanel, 1, 0);
-            tableLayoutPanel9.Controls.Add(idAuthorPanel, 0, 0);
             tableLayoutPanel9.Dock = DockStyle.Fill;
             tableLayoutPanel9.Location = new Point(0, 0);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -129,15 +127,6 @@
             authorLabelAuthorPanel.TabIndex = 4;
             authorLabelAuthorPanel.Text = "Author";
             authorLabelAuthorPanel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // idAuthorPanel
-            // 
-            idAuthorPanel.AutoSize = true;
-            idAuthorPanel.Location = new Point(3, 0);
-            idAuthorPanel.Name = "idAuthorPanel";
-            idAuthorPanel.Size = new Size(0, 25);
-            idAuthorPanel.TabIndex = 7;
-            idAuthorPanel.Visible = false;
             // 
             // descriptionLabelAuthorPanel
             // 
@@ -217,7 +206,6 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer13).EndInit();
             splitContainer13.ResumeLayout(false);
             tableLayoutPanel9.ResumeLayout(false);
-            tableLayoutPanel9.PerformLayout();
             splitContainer14.Panel1.ResumeLayout(false);
             splitContainer14.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer14).EndInit();
@@ -233,7 +221,6 @@
         private TableLayoutPanel tableLayoutPanel9;
         private Button editButtonAuthorPanel;
         private Label authorLabelAuthorPanel;
-        private Label idAuthorPanel;
         private SplitContainer splitContainer14;
         private FlowLayoutPanel authorBookFlow;
         private FlowLayoutPanel flowLayoutPanel22;

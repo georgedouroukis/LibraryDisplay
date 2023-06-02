@@ -33,7 +33,6 @@
             tableLayoutPanel9 = new TableLayoutPanel();
             editButtonGenrePanel = new Button();
             genreLabelGenrePanel = new Label();
-            idGenrePanel = new Label();
             flowLayoutPanel17 = new FlowLayoutPanel();
             splitContainer14 = new SplitContainer();
             genreBookFlow = new FlowLayoutPanel();
@@ -100,7 +99,6 @@
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel9.Controls.Add(editButtonGenrePanel, 2, 0);
             tableLayoutPanel9.Controls.Add(genreLabelGenrePanel, 1, 0);
-            tableLayoutPanel9.Controls.Add(idGenrePanel, 0, 0);
             tableLayoutPanel9.Dock = DockStyle.Fill;
             tableLayoutPanel9.Location = new Point(0, 0);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -129,15 +127,6 @@
             genreLabelGenrePanel.TabIndex = 4;
             genreLabelGenrePanel.Text = "Genre";
             genreLabelGenrePanel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // idGenrePanel
-            // 
-            idGenrePanel.AutoSize = true;
-            idGenrePanel.Location = new Point(3, 0);
-            idGenrePanel.Name = "idGenrePanel";
-            idGenrePanel.Size = new Size(0, 25);
-            idGenrePanel.TabIndex = 7;
-            idGenrePanel.Visible = false;
             // 
             // flowLayoutPanel17
             // 
@@ -212,7 +201,6 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer13).EndInit();
             splitContainer13.ResumeLayout(false);
             tableLayoutPanel9.ResumeLayout(false);
-            tableLayoutPanel9.PerformLayout();
             splitContainer14.Panel1.ResumeLayout(false);
             splitContainer14.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer14).EndInit();
@@ -228,7 +216,6 @@
         private TableLayoutPanel tableLayoutPanel9;
         private Button editButtonGenrePanel;
         private Label genreLabelGenrePanel;
-        private Label idGenrePanel;
         private FlowLayoutPanel flowLayoutPanel17;
         private SplitContainer splitContainer14;
         private FlowLayoutPanel genreBookFlow;

@@ -32,7 +32,6 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             editButtonBookPanel = new Button();
             bookLabelBookPanel = new Label();
-            idBookPanel = new Label();
             flowLayoutPanel13 = new FlowLayoutPanel();
             homeButtonBookPanel = new Button();
             panel1 = new Panel();
@@ -101,7 +100,6 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel3.Controls.Add(editButtonBookPanel, 2, 0);
             tableLayoutPanel3.Controls.Add(bookLabelBookPanel, 1, 0);
-            tableLayoutPanel3.Controls.Add(idBookPanel, 0, 0);
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
@@ -118,6 +116,7 @@
             editButtonBookPanel.TabIndex = 4;
             editButtonBookPanel.Text = "Edit";
             editButtonBookPanel.UseVisualStyleBackColor = true;
+            editButtonBookPanel.Click += editButtonBookPanel_Click;
             // 
             // bookLabelBookPanel
             // 
@@ -129,15 +128,6 @@
             bookLabelBookPanel.TabIndex = 6;
             bookLabelBookPanel.Text = "Book Title";
             bookLabelBookPanel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // idBookPanel
-            // 
-            idBookPanel.AutoSize = true;
-            idBookPanel.Location = new Point(3, 0);
-            idBookPanel.Name = "idBookPanel";
-            idBookPanel.Size = new Size(0, 25);
-            idBookPanel.TabIndex = 7;
-            idBookPanel.Visible = false;
             // 
             // flowLayoutPanel13
             // 
@@ -369,7 +359,6 @@
             Size = new Size(779, 720);
             bookPanel.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
             flowLayoutPanel13.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -401,7 +390,6 @@
         private TableLayoutPanel tableLayoutPanel3;
         private Button editButtonBookPanel;
         private Label bookLabelBookPanel;
-        private Label idBookPanel;
         private FlowLayoutPanel flowLayoutPanel13;
         private Button homeButtonBookPanel;
         private Panel panel1;

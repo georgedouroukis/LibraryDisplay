@@ -33,7 +33,6 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             editButtonPublisherPanel = new Button();
             publisherLabelPublisherPanel = new Label();
-            idPublisherPanel = new Label();
             flowLayoutPanel6 = new FlowLayoutPanel();
             label3 = new Label();
             emailLabelPublisherPanel = new TextBox();
@@ -105,7 +104,6 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel2.Controls.Add(editButtonPublisherPanel, 2, 0);
             tableLayoutPanel2.Controls.Add(publisherLabelPublisherPanel, 1, 0);
-            tableLayoutPanel2.Controls.Add(idPublisherPanel, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -134,15 +132,6 @@
             publisherLabelPublisherPanel.TabIndex = 4;
             publisherLabelPublisherPanel.Text = "Publisher Name";
             publisherLabelPublisherPanel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // idPublisherPanel
-            // 
-            idPublisherPanel.AutoSize = true;
-            idPublisherPanel.Location = new Point(3, 0);
-            idPublisherPanel.Name = "idPublisherPanel";
-            idPublisherPanel.Size = new Size(0, 25);
-            idPublisherPanel.TabIndex = 7;
-            idPublisherPanel.Visible = false;
             // 
             // flowLayoutPanel6
             // 
@@ -254,7 +243,6 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer4).EndInit();
             splitContainer4.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
             flowLayoutPanel6.ResumeLayout(false);
             flowLayoutPanel6.PerformLayout();
             splitContainer5.Panel1.ResumeLayout(false);
@@ -272,7 +260,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Button editButtonPublisherPanel;
         private Label publisherLabelPublisherPanel;
-        private Label idPublisherPanel;
         private FlowLayoutPanel flowLayoutPanel6;
         private Label label3;
         private TextBox emailLabelPublisherPanel;

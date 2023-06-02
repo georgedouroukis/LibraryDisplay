@@ -41,12 +41,12 @@ namespace LibraryDisplay.UserControls
             JObject authorData = await GetRequests.GetAuthorById(id);
             authorLabelAuthorPanel.Text = authorData["firstName"] + " " + authorData["lastName"] + " " + authorData["middleName"];
             descriptionLabelAuthorPanel.Text = authorData["description"]!.ToString();
-            idAuthorPanel.Text = id;
+            
 
 
             foreach (var item in authorData["books"]!)
             {
-                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm);
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, authorBookFlow);
                 JObject author = await GetRequests.GetBookById(item.ToString());
                 authorBookFlow.Controls.Add(book);
             }

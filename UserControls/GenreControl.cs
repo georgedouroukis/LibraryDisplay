@@ -38,11 +38,11 @@ namespace LibraryDisplay.UserControls
             genreBookFlow.Controls.Clear();
             JObject genreData = await GetRequests.GetGenreById(id);
             genreLabelGenrePanel.Text = genreData["genre"].ToString();
-            idGenrePanel.Text = id;
+            
 
             foreach (var item in genreData["books"]!)
             {
-                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm);
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, genreBookFlow);
                 JObject author = await GetRequests.GetBookById(item.ToString());
                 genreBookFlow.Controls.Add(book);
             }

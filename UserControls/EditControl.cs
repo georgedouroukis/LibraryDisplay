@@ -1,4 +1,5 @@
 ﻿using LibraryDisplay.Models;
+using LibraryDisplay.UserControls.GenericItems;
 using LibraryDisplay.Utils;
 using Newtonsoft.Json.Linq;
 using System;
@@ -28,55 +29,105 @@ namespace LibraryDisplay.UserControls
             parentForm.homeControl.BringToFront();
         }
 
-        private async void openEditBookPanel()
+        public async void openEditBookPanel(Book book)
         {
-            //titleTextBoxEditBookPanel.Text = bookLabelBookPanel.Text;
-            //pagesTextBoxEditBookPanel.Text = pagesLabelBookPanel.Text;
-            //dateTextBoxEditBookPanel.Text = publicationDateLabelBookPanel.Text;
-            //isbnTextBoxEditBookPanel.Text = isbnLabelBookPanel.Text;
-            //descriptionTextBoxEditBookPanel.Text = descriptionLabelBookPanel.Text;
 
+            ////////////////////////////////populate Info
+            titleTextBoxEditBookPanel.Text = book.title;
+            pagesTextBoxEditBookPanel.Text = book.pageNumber.ToString();
+            dateTextBoxEditBookPanel.Text = book.publicationDate;
+            isbnTextBoxEditBookPanel.Text = book.isbn;
+            descriptionTextBoxEditBookPanel.Text = book.description;
+
+            ////////////////////////////////populate Authors
             List<JObject> authors = await GetRequests.GetAuthors();
-            authorComboBoxEditBookPanel.Controls.Clear();
+            authorComboBoxEditBookPanel.Items.Clear();
+
+            //create new author item 
+            ComboBoxItem createAuthor = new ComboBoxItem();
+            createAuthor.Text = "Create New Author...";
+            createAuthor.Id = "-1";
+            authorComboBoxEditBookPanel.Items.Add(createAuthor);
+
+
+            //populate combobox and flowpanel
+            authorFlowBookEditPanel.Controls.Clear();
             foreach (JObject author in authors)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = author["firstName"] + " " + author["lastName"] + " " + author["middleName"];
+                item.Text = author["lastName"] + " " + author["firstName"] + " " + author["middleName"];
                 item.Id = author["id"]!.ToString();
                 authorComboBoxEditBookPanel.Items.Add(item);
+                if (book.authors.Contains(Int32.Parse(item.Id)))
+                {
+                    RemovableLabel label = new RemovableLabel(item.Id, DbTable.Author, parentForm, authorFlowBookEditPanel);
+                    label.Text = item.Text;
+                    label.Tag = item.Id;
+                    authorFlowBookEditPanel.Controls.Add(label);
+                }
             }
 
+            ////////////////////////////////populate Publishers
             List<JObject> publishers = await GetRequests.GetPublishers();
-            publisherComboBoxEditBookPanel.Controls.Clear();
+            publisherComboBoxEditBookPanel.Items.Clear();
+
+            //create new publisher item 
+            ComboBoxItem createPublisher = new ComboBoxItem();
+            createPublisher.Text = "Create New Publisher...";
+            createPublisher.Id = "-1";
+            publisherComboBoxEditBookPanel.Items.Add(createPublisher);
+
+            //create no publisher item 
+            ComboBoxItem noPublisher = new ComboBoxItem();
+            noPublisher.Text = "--";
+            noPublisher.Id = "0";
+            publisherComboBoxEditBookPanel.Items.Add(noPublisher);
+
+            //populate combobox and selected
             foreach (JObject publisher in publishers)
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = publisher["name"]!.ToString();
                 item.Id = publisher["id"]!.ToString();
                 publisherComboBoxEditBookPanel.Items.Add(item);
+                if (book.publisher == Int32.Parse(item.Id))
+                {
+                    publisherComboBoxEditBookPanel.SelectedItem = item;
+                }
             }
 
+            ////////////////////////////////populate genres
             List<JObject> genres = await GetRequests.GetGenres();
-            genreComboBoxEditBookPanel.Controls.Clear();
+            genreComboBoxEditBookPanel.Items.Clear();
+
+            //create new genre item 
+            ComboBoxItem createGenre = new ComboBoxItem();
+            createGenre.Text = "Create New Genre...";
+            createGenre.Id = "-1";
+            genreComboBoxEditBookPanel.Items.Add(createGenre);
+
+            //populate combobox and flowpanel
+            genreFlowBookEditPanel.Controls.Clear();
             foreach (JObject genre in genres)
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = genre["genre"]!.ToString();
                 item.Id = genre["id"]!.ToString();
                 genreComboBoxEditBookPanel.Items.Add(item);
+                if (book.genres.Contains(Int32.Parse(item.Id)))
+                {
+                    RemovableLabel label = new RemovableLabel(item.Id, DbTable.Genre, parentForm, genreFlowBookEditPanel);
+                    label.Text = item.Text;
+                    genreFlowBookEditPanel.Controls.Add(label);
+                }
             }
 
-
+            ////////////////////////////////disable othe tabs
             editTabs.SelectedTab = bookEditTab;
             authorEditTab.Enabled = false;
             publisherEditTab.Enabled = false;
             genreEditTab.Enabled = false;
-
-        }
-
-        private void editButtonBookPanel_Click(object sender, EventArgs e)
-        {
-            openEditBookPanel();
+            parentForm.editControl.BringToFront();
         }
 
         private void editTabs_Selecting(object sender, TabControlCancelEventArgs e)
@@ -85,6 +136,64 @@ namespace LibraryDisplay.UserControls
                 e.Cancel = true;
         }
 
-        
+        private void authorFlowBookEditPanel_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (authorFlowBookEditPanel.Controls.Count == 0)
+            {
+
+                authorComboBoxEditBookPanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
+                authorFlowBookEditPanel.Visible = false;
+            }
+        }
+
+        private void authorFlowBookEditPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (authorFlowBookEditPanel.Controls.Count == 1)
+            {
+                authorFlowBookEditPanel.Visible = true;
+                authorComboBoxEditBookPanel.Margin = new System.Windows.Forms.Padding(3);
+            }
+        }
+
+        private void genreFlowBookEditPanel_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (genreFlowBookEditPanel.Controls.Count == 0)
+            {
+
+                genreComboBoxEditBookPanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
+                genreFlowBookEditPanel.Visible = false;
+            }
+        }
+
+        private void genreFlowBookEditPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (genreFlowBookEditPanel.Controls.Count == 1)
+            {
+                genreFlowBookEditPanel.Visible = true;
+                genreComboBoxEditBookPanel.Margin = new System.Windows.Forms.Padding(3);
+            }
+        }
+
+        private void authorComboBoxEditBookPanel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxItem? selection = authorComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
+
+            List<string> list = new List<string>();
+            foreach (RemovableLabel l in authorFlowBookEditPanel.Controls.OfType<RemovableLabel>())
+            {
+                list.Add(l.id);
+            }
+
+            if (selection!.Id == "-1")
+            {
+
+            }
+            else if (!list.Contains(selection!.Id))
+            {
+                RemovableLabel label = new RemovableLabel(selection!.Id, DbTable.Author, parentForm, authorFlowBookEditPanel);
+                label.Text = selection!.Text;
+                authorFlowBookEditPanel.Controls.Add(label);
+            }
+        }
     }
 }

@@ -13,8 +13,10 @@ namespace LibraryDisplay.UserControls.GenericItems
         string id;
         DbTable table;
         LibraryForm form;
+        FlowLayoutPanel parentFlow;
 
-        public ClickableLabel(string id, DbTable table, LibraryForm form) : base()
+
+        public ClickableLabel(string id, DbTable table, LibraryForm form, FlowLayoutPanel parentFlow) : base()
         {
             AutoSize = true;
             Cursor = Cursors.Hand;
@@ -23,8 +25,8 @@ namespace LibraryDisplay.UserControls.GenericItems
             this.id = id;
             this.table = table;
             this.form = form;
+            this.parentFlow = parentFlow;
             MouseClick += MouseClicked;
-
         }
 
         public void changeColor(object sender, EventArgs e)
