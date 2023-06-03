@@ -142,7 +142,7 @@ namespace LibraryDisplay.UserControls
             imageURLTextBoxEditBookPanel.Text = book.imageUrl;
 
             ////////////////////////////////populate Authors
-            List<JObject> authors = await GetRequests.GetAuthors();
+            HashSet<Author> authors = await GetRequests.GetAuthors();
             authorComboBoxEditBookPanel.Items.Clear();
 
             //create new author item 
@@ -154,11 +154,11 @@ namespace LibraryDisplay.UserControls
 
             //populate combobox and flowpanel
             authorFlowBookEditPanel.Controls.Clear();
-            foreach (JObject author in authors)
+            foreach (Author author in authors)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = author["lastName"] + " " + author["firstName"] + " " + author["middleName"];
-                item.Id = author["id"]!.ToString();
+                item.Text = author.lastName + " " + author.firstName + " " + author.middleName;
+                item.Id = author.id!.ToString();
                 authorComboBoxEditBookPanel.Items.Add(item);
                 if (book.authors.Contains(Int32.Parse(item.Id)))
                 {
@@ -170,7 +170,7 @@ namespace LibraryDisplay.UserControls
             }
 
             ////////////////////////////////populate Publishers
-            List<JObject> publishers = await GetRequests.GetPublishers();
+            HashSet<Publisher> publishers = await GetRequests.GetPublishers();
             publisherComboBoxEditBookPanel.Items.Clear();
 
             //create new publisher item 
@@ -186,11 +186,11 @@ namespace LibraryDisplay.UserControls
             publisherComboBoxEditBookPanel.Items.Add(noPublisher);
 
             //populate combobox and selected
-            foreach (JObject publisher in publishers)
+            foreach (Publisher publisher in publishers)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = publisher["name"]!.ToString();
-                item.Id = publisher["id"]!.ToString();
+                item.Text = publisher.name;
+                item.Id = publisher.id.ToString();
                 publisherComboBoxEditBookPanel.Items.Add(item);
                 if (book.publisher == Int32.Parse(item.Id))
                 {
@@ -199,7 +199,7 @@ namespace LibraryDisplay.UserControls
             }
 
             ////////////////////////////////populate genres
-            List<JObject> genres = await GetRequests.GetGenres();
+            HashSet<Genre> genres = await GetRequests.GetGenres();
             genreComboBoxEditBookPanel.Items.Clear();
 
             //create new genre item 
@@ -210,11 +210,11 @@ namespace LibraryDisplay.UserControls
 
             //populate combobox and flowpanel
             genreFlowBookEditPanel.Controls.Clear();
-            foreach (JObject genre in genres)
+            foreach (Genre genre in genres)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = genre["genre"]!.ToString();
-                item.Id = genre["id"]!.ToString();
+                item.Text = genre.genre;
+                item.Id = genre.id.ToString();
                 genreComboBoxEditBookPanel.Items.Add(item);
                 if (book.genres.Contains(Int32.Parse(item.Id)))
                 {

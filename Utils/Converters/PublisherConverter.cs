@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LibraryDisplay.Utils.Converters
 {
@@ -26,9 +27,10 @@ namespace LibraryDisplay.Utils.Converters
             return new HashSet<JObject>();
         }
 
-        public static HashSet<Publisher> JsonSetToEntitySet()
+        public static HashSet<Publisher> JsonSetToEntitySet(HashSet<JObject> data)
         {
-            return new HashSet<Publisher>();
+            HashSet<Publisher> publishers = data.Select(x => JsonConvert.DeserializeObject<Publisher>(x.ToString())).ToHashSet();
+            return publishers;
         }
     }
 }

@@ -82,9 +82,7 @@ namespace LibraryDisplay.UserControls
 
         private async void genreTreeViewPopulate()
         {
-            List<JObject> data = await GetRequests.GetGenres();
-
-            List<Genre> genres = data.Select(x => JsonConvert.DeserializeObject<Genre>(x.ToString())).ToList();
+            HashSet<Genre> genres = await GetRequests.GetGenres();
 
             Dictionary<int, Genre> genreDictionary = new Dictionary<int, Genre>();
             foreach (var genre in genres)

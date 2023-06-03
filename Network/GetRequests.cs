@@ -133,9 +133,9 @@ namespace LibraryDisplay.Network
             return genre!;
         }
 
-        public static async Task<List<JObject>> GetGenres()
+        public static async Task<HashSet<Genre>> GetGenres()
         {
-            List<JObject> responceData = new List<JObject>();
+            HashSet<JObject> responceData = new HashSet<JObject>();
             try
             {
                 using (var client = new HttpClient())
@@ -162,12 +162,13 @@ namespace LibraryDisplay.Network
             {
                 MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            return responceData;
+            HashSet<Genre> genres = GenreConverter.JsonSetToEntitySet(responceData);
+            return genres;
         }
 
-        public static async Task<List<JObject>> GetBooks()
+        public static async Task<HashSet<Book>> GetBooks()
         {
-            List<JObject> responceData = new List<JObject>();
+            HashSet<JObject> responceData = new HashSet<JObject>();
             try
             {
                 using (var client = new HttpClient())
@@ -194,12 +195,14 @@ namespace LibraryDisplay.Network
             {
                 MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            return responceData;
+            HashSet<Book> books = BookConverter.JsonSetToEntitySet(responceData);
+            return books;
         }
 
-        public static async Task<List<JObject>> GetPublishers()
+        public static async Task<HashSet<Publisher>> GetPublishers()
         {
-            List<JObject> responceData = new List<JObject>();
+            HashSet<JObject> responceData = new HashSet<JObject>();
+
             try
             {
                 using (var client = new HttpClient())
@@ -226,12 +229,13 @@ namespace LibraryDisplay.Network
             {
                 MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            return responceData;
+            HashSet<Publisher> publishers = PublisherConverter.JsonSetToEntitySet(responceData);
+            return publishers;
         }
 
-        public static async Task<List<JObject>> GetAuthors()
+        public static async Task<HashSet<Author>> GetAuthors()
         {
-            List<JObject> responceData = new List<JObject>();
+            HashSet<JObject> responceData = new HashSet<JObject>();
             try
             {
                 using (var client = new HttpClient())
@@ -258,7 +262,8 @@ namespace LibraryDisplay.Network
             {
                 MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            return responceData;
+            HashSet<Author> authors = AuthorConverter.JsonSetToEntitySet(responceData);
+            return authors;
         }
 
     }

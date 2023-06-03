@@ -27,9 +27,10 @@ namespace LibraryDisplay.Utils.Converters
             return new HashSet<JObject>();
         }
 
-        public static HashSet<Book> JsonSetToEntitySet()
+        public static HashSet<Book> JsonSetToEntitySet(HashSet<JObject> data)
         {
-            return new HashSet<Book>();
+            HashSet<Book> books = data.Select(x => JsonConvert.DeserializeObject<Book>(x.ToString())).ToHashSet();
+            return books;
         }
     }
 }

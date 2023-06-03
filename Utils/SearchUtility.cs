@@ -1,4 +1,5 @@
-﻿using LibraryDisplay.Network;
+﻿using LibraryDisplay.Models;
+using LibraryDisplay.Network;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -33,15 +34,15 @@ namespace LibraryDisplay.Utils
 
         private static async Task authorSearch(string text)
         {
-            List<JObject> list = await GetRequests.GetAuthors();
-            foreach (var item in list)
+            HashSet<Author> set = await GetRequests.GetAuthors();
+            foreach (var item in set)
             {
-                string fullName = item["firstName"]!.ToString() + " " + item["lastName"]!.ToString() + " " + item["middleName"]!.ToString();
+                string fullName = item.firstName + " " + item.lastName + " " + item.middleName;
                 if (fullName.Contains(text, StringComparison.CurrentCultureIgnoreCase))
                 {
                     ListViewItem searchItem = new ListViewItem(fullName);
                     searchItem.SubItems.Add("Author");
-                    searchItem.SubItems.Add(item["id"]!.ToString());
+                    searchItem.SubItems.Add(item.id.ToString());
                     listViewItems.Add(searchItem);
                 }
             }
@@ -49,14 +50,14 @@ namespace LibraryDisplay.Utils
 
         private static async Task bookSearch(string text)
         {
-            List<JObject> list = await GetRequests.GetBooks();
-            foreach (var item in list)
+            HashSet<Book> set = await GetRequests.GetBooks();
+            foreach (var item in set)
             {
-                if (item["title"]!.ToString().Contains(text, StringComparison.CurrentCultureIgnoreCase))
+                if (item.title.Contains(text, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    ListViewItem searchItem = new ListViewItem(item["title"]!.ToString());
+                    ListViewItem searchItem = new ListViewItem(item.title);
                     searchItem.SubItems.Add("Book");
-                    searchItem.SubItems.Add(item["id"]!.ToString());
+                    searchItem.SubItems.Add(item.id.ToString());
                     listViewItems.Add(searchItem);
                 }
             }
@@ -64,14 +65,14 @@ namespace LibraryDisplay.Utils
 
         private static async Task publisherSearch(string text)
         {
-            List<JObject> list = await GetRequests.GetPublishers();
-            foreach (var item in list)
+            HashSet<Publisher> set = await GetRequests.GetPublishers();
+            foreach (var item in set)
             {
-                if (item["name"]!.ToString().Contains(text, StringComparison.CurrentCultureIgnoreCase))
+                if (item.name.Contains(text, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    ListViewItem searchItem = new ListViewItem(item["name"]!.ToString());
+                    ListViewItem searchItem = new ListViewItem(item.name);
                     searchItem.SubItems.Add("Publisher");
-                    searchItem.SubItems.Add(item["id"]!.ToString());
+                    searchItem.SubItems.Add(item.id.ToString());
                     listViewItems.Add(searchItem);
                 }
             }
