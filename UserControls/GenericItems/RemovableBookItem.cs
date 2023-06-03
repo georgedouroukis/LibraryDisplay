@@ -61,10 +61,10 @@ namespace LibraryDisplay.UserControls.GenericItems
 
         private async void populate()
         {
-            JObject data = await GetRequests.GetBookById(id);
+            Book book = await GetRequests.GetBookById(id);
 
-            label.Text = data["title"]!.ToString();
-            pictureBox.LoadAsync(data["imageUrl"]!.ToString());
+            label.Text = book.title;
+            pictureBox.LoadAsync(book.imageUrl);
 
             Controls.Add(pictureBox);
             Controls.Add(label);

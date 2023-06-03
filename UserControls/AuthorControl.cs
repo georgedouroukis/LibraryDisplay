@@ -38,16 +38,15 @@ namespace LibraryDisplay.UserControls
         {
 
             authorBookFlow.Controls.Clear();
-            JObject authorData = await GetRequests.GetAuthorById(id);
-            authorLabelAuthorPanel.Text = authorData["firstName"] + " " + authorData["lastName"] + " " + authorData["middleName"];
-            descriptionLabelAuthorPanel.Text = authorData["description"]!.ToString();
+            Author author = await GetRequests.GetAuthorById(id);
+            authorLabelAuthorPanel.Text = author.firstName + " " + author.lastName + " " + author.middleName;
+            descriptionLabelAuthorPanel.Text = author.description;
             
 
 
-            foreach (var item in authorData["books"]!)
+            foreach (var item in author.books)
             {
                 ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, authorBookFlow);
-                JObject author = await GetRequests.GetBookById(item.ToString());
                 authorBookFlow.Controls.Add(book);
             }
         }

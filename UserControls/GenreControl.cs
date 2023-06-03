@@ -36,14 +36,13 @@ namespace LibraryDisplay.UserControls
         public async Task openGenrePanel(string id)
         {
             genreBookFlow.Controls.Clear();
-            JObject genreData = await GetRequests.GetGenreById(id);
-            genreLabelGenrePanel.Text = genreData["genre"].ToString();
+            Genre genre = await GetRequests.GetGenreById(id);
+            genreLabelGenrePanel.Text = genre.genre;
             
 
-            foreach (var item in genreData["books"]!)
+            foreach (var item in genre.books)
             {
                 ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, genreBookFlow);
-                JObject author = await GetRequests.GetBookById(item.ToString());
                 genreBookFlow.Controls.Add(book);
             }
         }

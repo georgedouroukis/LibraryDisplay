@@ -32,16 +32,15 @@ namespace LibraryDisplay.UserControls
         public async Task openPublisherPanel(string id)
         {
             publisherBookFlow.Controls.Clear();
-            JObject publisherData = await GetRequests.GetPublisherById(id);
-            publisherLabelPublisherPanel.Text = "Publisher " + publisherData["name"]!.ToString();
-            emailLabelPublisherPanel.Text = publisherData["email"]!.ToString();
-            phoneLabelPublisherPanel.Text = publisherData["phone"]!.ToString();
+            Publisher publisher = await GetRequests.GetPublisherById(id);
+            publisherLabelPublisherPanel.Text = "Publisher " + publisher.name;
+            emailLabelPublisherPanel.Text = publisher.email;
+            phoneLabelPublisherPanel.Text = publisher.phone;
             
 
-            foreach (var item in publisherData["books"]!)
+            foreach (var item in publisher.books)
             {
                 ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, publisherBookFlow);
-                JObject author = await GetRequests.GetBookById(item.ToString());
                 publisherBookFlow.Controls.Add(book);
             }
         }

@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Forms;
+using LibraryDisplay.Models;
+using LibraryDisplay.Utils.Converters;
 
 namespace LibraryDisplay.Network
 {
     internal class GetRequests
     {
-        public static async Task<JObject> GetBookById(string id)
+        public static async Task<Book> GetBookById(string id)
         {
             JObject? responceData = new JObject();//to avoid null pointer exception
             try
@@ -37,10 +39,11 @@ namespace LibraryDisplay.Network
             {
                 MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            return responceData!;
+            Book book = BookConverter.JsonToEntity(responceData);
+            return book!;
         }
 
-        public static async Task<JObject> GetPublisherById(string id)
+        public static async Task<Publisher> GetPublisherById(string id)
         {
             JObject? responceData = new JObject();
             try
@@ -66,10 +69,11 @@ namespace LibraryDisplay.Network
             {
                 MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            return responceData!;
+            Publisher publisher = PublisherConverter.JsonToEntity(responceData);
+            return publisher!;
         }
 
-        public static async Task<JObject> GetAuthorById(string id)
+        public static async Task<Author> GetAuthorById(string id)
         {
             JObject? responceData = new JObject();
             try
@@ -95,10 +99,11 @@ namespace LibraryDisplay.Network
             {
                 MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            return responceData!;
+            Author author = AuthorConverter.JsonToEntity(responceData);
+            return author!;
         }
 
-        public static async Task<JObject> GetGenreById(string id)
+        public static async Task<Genre> GetGenreById(string id)
         {
             JObject? responceData = new JObject();
             try
@@ -124,7 +129,8 @@ namespace LibraryDisplay.Network
             {
                 MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            return responceData!;
+            Genre genre = GenreConverter.JsonToEntity(responceData);
+            return genre!;
         }
 
         public static async Task<List<JObject>> GetGenres()

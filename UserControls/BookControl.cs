@@ -44,8 +44,7 @@ namespace LibraryDisplay.UserControls
 
 
             //get book
-            JObject data = await GetRequests.GetBookById(id);
-            Book book = JsonConvert.DeserializeObject<Book>(data.ToString());
+            Book book = await GetRequests.GetBookById(id);
             referencedBook = book;
 
             bookLabelBookPanel.Text = book.title;
@@ -59,26 +58,26 @@ namespace LibraryDisplay.UserControls
             //pictureBoxBookPanel.LoadAsync(data["imageUrl"]!.ToString());
 
             //get authors
-            foreach (var item in data["authors"]!)
+            foreach (var item in book.authors)
             {
                 ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Author, parentForm, authorFlowBookPanel); //this param is used for id
-                JObject author = await GetRequests.GetAuthorById(item.ToString());
-                label.Text = author["firstName"] + " " + author["lastName"] + " " + author["middleName"];
+                Author author = await GetRequests.GetAuthorById(item.ToString());
+                label.Text = author.firstName + " " + author.lastName + " " + author.middleName;
                 authorFlowBookPanel.Controls.Add(label);
             }
 
             //get publisher
-            JObject publisher = await GetRequests.GetPublisherById(data["publisher"]!.ToString());
-            ClickableLabel publisherLabel = new ClickableLabel(data["publisher"]!.ToString(), DbTable.Publisher, parentForm, publisherFlowBookPanel);
-            publisherLabel.Text = publisher["name"]!.ToString();
+            Publisher publisher = await GetRequests.GetPublisherById(book.publisher.ToString());
+            ClickableLabel publisherLabel = new ClickableLabel(book.publisher.ToString(), DbTable.Publisher, parentForm, publisherFlowBookPanel);
+            publisherLabel.Text = publisher.name;
             publisherFlowBookPanel.Controls.Add(publisherLabel);
 
             //get genres
-            foreach (var item in data["genres"]!)
+            foreach (var item in book.genres)
             {
                 ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Genre, parentForm, genreFlowBookPanel);
-                JObject genre = await GetRequests.GetGenreById(item.ToString());
-                label.Text = genre["genre"]!.ToString();
+                Genre genre = await GetRequests.GetGenreById(item.ToString());
+                label.Text = genre.genre;
                 genreFlowBookPanel.Controls.Add(label);
             }
             this.BringToFront();
