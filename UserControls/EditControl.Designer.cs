@@ -462,12 +462,14 @@
             genreComboBoxEditBookPanel.Name = "genreComboBoxEditBookPanel";
             genreComboBoxEditBookPanel.Size = new Size(534, 33);
             genreComboBoxEditBookPanel.TabIndex = 7;
+            genreComboBoxEditBookPanel.SelectedIndexChanged += genreComboBoxEditBookPanel_SelectedIndexChanged;
             // 
             // genreFlowBookEditPanel
             // 
             genreFlowBookEditPanel.AutoSize = true;
             genreFlowBookEditPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             genreFlowBookEditPanel.Location = new Point(23, 357);
+            genreFlowBookEditPanel.Margin = new Padding(3, 3, 3, 15);
             genreFlowBookEditPanel.Name = "genreFlowBookEditPanel";
             genreFlowBookEditPanel.Size = new Size(0, 0);
             genreFlowBookEditPanel.TabIndex = 14;
@@ -477,7 +479,7 @@
             // descriptionTextBoxEditBookPanel
             // 
             descriptionTextBoxEditBookPanel.BorderStyle = BorderStyle.None;
-            descriptionTextBoxEditBookPanel.Location = new Point(20, 385);
+            descriptionTextBoxEditBookPanel.Location = new Point(20, 397);
             descriptionTextBoxEditBookPanel.Margin = new Padding(0, 25, 0, 15);
             descriptionTextBoxEditBookPanel.Multiline = true;
             descriptionTextBoxEditBookPanel.Name = "descriptionTextBoxEditBookPanel";
@@ -492,7 +494,7 @@
             flowLayoutPanel1.Controls.Add(label1);
             flowLayoutPanel1.Controls.Add(imageURLTextBoxEditBookPanel);
             flowLayoutPanel1.Controls.Add(imageCheckButonEditBookPanel);
-            flowLayoutPanel1.Location = new Point(23, 672);
+            flowLayoutPanel1.Location = new Point(23, 684);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(636, 40);
             flowLayoutPanel1.TabIndex = 18;

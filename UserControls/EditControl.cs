@@ -27,7 +27,7 @@ namespace LibraryDisplay.UserControls
         private Author? referencedAuthor;
         private Publisher? referencedPublisher;
         private Genre? referencedGenre;
-        
+
         public EditControl(LibraryForm parentForm)
         {
             InitializeComponent();
@@ -61,15 +61,15 @@ namespace LibraryDisplay.UserControls
                 checkChanges = !referencedPublisher!.Equals(tempAuthor);
                 table = DbTable.Publisher;
             }
-            else 
+            else
             {
                 createTempGenre();
                 checkChanges = !referencedGenre!.Equals(tempGenre);
                 table = DbTable.Genre;
             }
-            return new EditStatus(checkChanges,table);
+            return new EditStatus(checkChanges, table);
         }
-        
+
         private void homeButtonEditPanel_Click(object sender, EventArgs e)
         {
             if (checkStatus().HasChanges)
@@ -90,7 +90,7 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        private void saveButtonEditPanel_Click(object sender, EventArgs e)
+        private async void saveButtonEditPanel_Click(object sender, EventArgs e)
         {
             EditStatus status = checkStatus();
             if (status.HasChanges)
@@ -102,8 +102,8 @@ namespace LibraryDisplay.UserControls
                         switch (status.Table)
                         {
                             case DbTable.Book:
-                                //SaveBookChanges(tempBook);
-                                parentForm.bookControl.openBookPanel(tempBook.id.ToString());
+                                await PutRequests.SaveBookChanges(tempBook);
+                                await parentForm.bookControl.openBookPanel(tempBook.id.ToString());
                                 break;
                             case DbTable.Author:
                                 //SaveAuthorChanges(tempAuthor);
@@ -298,6 +298,28 @@ namespace LibraryDisplay.UserControls
             }
         }
 
+        private void genreComboBoxEditBookPanel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxItem? selection = genreComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
+
+            List<string> list = new List<string>();
+            foreach (RemovableLabel l in genreFlowBookEditPanel.Controls.OfType<RemovableLabel>())
+            {
+                list.Add(l.id);
+            }
+
+            if (selection!.Id == "-1")
+            {
+
+            }
+            else if (!list.Contains(selection!.Id))
+            {
+                RemovableLabel label = new RemovableLabel(selection!.Id, DbTable.Genre, parentForm, genreFlowBookEditPanel);
+                label.Text = selection!.Text;
+                genreFlowBookEditPanel.Controls.Add(label);
+            }
+        }
+
         private void createTempBook()
         {
             tempBook.id = referencedBook.id;
@@ -336,5 +358,6 @@ namespace LibraryDisplay.UserControls
 
         }
 
+        
     }
 }

@@ -12,9 +12,9 @@ namespace LibraryDisplay.Utils.Converters
 {
     internal class BookConverter
     {
-        public static JObject EntityToJson()
+        public static string EntityToJson(Book book)
         {
-            return null;
+            return JsonConvert.SerializeObject(book);
         }
 
         public static Book? JsonToEntity(JObject json)
