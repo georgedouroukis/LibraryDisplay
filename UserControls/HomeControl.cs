@@ -26,11 +26,6 @@ namespace LibraryDisplay.UserControls
             genreTreeViewPopulate();
         }
 
-        private void createButtonHomePanel_Click(object sender, EventArgs e)
-        {
-            parentForm.createControl.BringToFront();
-        }
-
         private async void searchButton_Click(object sender, EventArgs e)
         {
             searchListView.Items.Clear();
@@ -130,6 +125,11 @@ namespace LibraryDisplay.UserControls
         private void collectionButtonHomePanel_Click(object sender, EventArgs e)
         {
             parentForm.collectionControl.BringToFront();
+        }
+
+        private void createButtonHomePanel_Click(object sender, EventArgs e)
+        {
+            parentForm.createControl.BringToFront();
         }
     }
 }

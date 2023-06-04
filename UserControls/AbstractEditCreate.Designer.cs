@@ -1,6 +1,6 @@
 ﻿namespace LibraryDisplay.UserControls
 {
-    partial class EditControl
+    abstract partial class AbstractEditCreate
     {
         /// <summary> 
         /// Required designer variable.

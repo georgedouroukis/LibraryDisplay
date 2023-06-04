@@ -15,8 +15,8 @@ namespace LibraryDisplay
         public PublisherControl publisherControl;
         public GenreControl genreControl;
         public CollectionControl collectionControl;
-        public CreateControl createControl;
-        public EditControl editControl;
+        public AbstractEditCreate editControl;
+        public AbstractEditCreate createControl;
         public LibraryForm()
         {
             InitializeComponent();
@@ -26,8 +26,8 @@ namespace LibraryDisplay
             publisherControl = new PublisherControl(this);
             genreControl = new GenreControl(this);
             collectionControl = new CollectionControl(this);
-            createControl = new CreateControl(this);
             editControl = new EditControl(this);
+            createControl = new CreateControl(this);
 
             this.Controls.Add(homeControl);
             this.Controls.Add(bookControl);
@@ -35,8 +35,8 @@ namespace LibraryDisplay
             this.Controls.Add(publisherControl);
             this.Controls.Add(genreControl);
             this.Controls.Add(collectionControl);
-            this.Controls.Add(createControl);
             this.Controls.Add(editControl);
+            this.Controls.Add(createControl);
         }
 
         private void LibraryForm_Load(object sender, EventArgs e)
@@ -49,8 +49,8 @@ namespace LibraryDisplay
             publisherControl.Visible = true;
             genreControl.Visible = true;
             collectionControl.Visible = true;
-            createControl.Visible = true;
             editControl.Visible = true;
+            createControl.Visible = true;
 
             homeControl.Dock = DockStyle.Fill;
             bookControl.Dock = DockStyle.Fill;
@@ -58,8 +58,8 @@ namespace LibraryDisplay
             publisherControl.Dock = DockStyle.Fill;
             genreControl.Dock = DockStyle.Fill;
             collectionControl.Dock = DockStyle.Fill;
-            createControl.Dock = DockStyle.Fill;
             editControl.Dock = DockStyle.Fill;
+            createControl.Dock = DockStyle.Fill;
 
 
             homeControl.BringToFront();
