@@ -38,10 +38,17 @@ namespace LibraryDisplay.Network
 
         private static Image ByteArrayToImage(byte[] byteArray)
         {
-            using (MemoryStream ms = new MemoryStream(byteArray))
+            try
             {
-                Image image = Image.FromStream(ms);
-                return image;
+                using (MemoryStream ms = new MemoryStream(byteArray))
+                {
+                    Image image = Image.FromStream(ms);
+                    return image;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
     }

@@ -102,23 +102,22 @@ namespace LibraryDisplay.UserControls
                         switch (status.Table)
                         {
                             case DbTable.Book:
-                                await PutRequests.SaveBookChanges(tempBook);
+                                await PutRequests.UpdateEntity<Book>(tempBook);
                                 await parentForm.bookControl.openBookPanel(tempBook.id.ToString());
                                 break;
                             case DbTable.Author:
-                                //SaveAuthorChanges(tempAuthor);
-                                parentForm.authorControl.openAuthorPanel(tempAuthor.id.ToString());
+                                await PutRequests.UpdateEntity<Author>(tempAuthor);
+                                await parentForm.authorControl.openAuthorPanel(tempAuthor.id.ToString());
                                 break;
                             case DbTable.Publisher:
-                                //SavePublisherChanges(tempPublisher);
-                                parentForm.publisherControl.openPublisherPanel(tempPublisher.id.ToString());
+                                await PutRequests.UpdateEntity<Publisher>(tempPublisher);
+                                await parentForm.publisherControl.openPublisherPanel(tempPublisher.id.ToString());
                                 break;
                             case DbTable.Genre:
-                                //SaveGenreChanges(tempGenre);
-                                parentForm.genreControl.openGenrePanel(tempGenre.id.ToString());
+                                await PutRequests.UpdateEntity<Genre>(tempGenre);
+                                await parentForm.genreControl.openGenrePanel(tempGenre.id.ToString());
                                 break;
                         }
-                        Console.WriteLine("saving");
                         break;
                     case DialogResult.No:
                         break;
@@ -224,16 +223,127 @@ namespace LibraryDisplay.UserControls
                 }
             }
 
-            ////////////////////////////////disable othe tabs
+            ////////////////////////////////disable other tabs
+            bookEditTab.Enabled = true;
             editTabs.SelectedTab = bookEditTab;
             authorEditTab.Enabled = false;
             publisherEditTab.Enabled = false;
             genreEditTab.Enabled = false;
-            parentForm.editControl.BringToFront();
+            this.BringToFront();
+        }
+
+        public void openEditAuthorPanel(Author author)
+        {
+            referencedAuthor = author;
+            ////////////////////////////////populate Info
+            firstNameTextBoxEditAuthorPanel.Text = author.firstName;
+            lastNameTextBoxEditAuthorPanel.Text = author.lastName;
+            middleNameTextBoxEditAuthorPanel.Text = author.middleName;
+            descriptionTextBoxEditAuthorPanel.Text = author.description;
+
+
+            ////////////////////////////////disable other tabs
+            authorEditTab.Enabled = true;
+            editTabs.SelectedTab = authorEditTab;
+            bookEditTab.Enabled = false;
+            publisherEditTab.Enabled = false;
+            genreEditTab.Enabled = false;
+            this.BringToFront();
+        }
+
+        public void openEditPublisherPanel(Publisher publisher)
+        {
+            referencedPublisher = publisher;
+            nameTextBoxEditPublisherPanel.Text = publisher.name;
+            emailTextBoxEditPublisherPanel.Text = publisher.email;
+            phoneTextBoxEditPublisherPanel.Text = publisher.phone;
+
+            ////////////////////////////////disable other tabs
+            publisherEditTab.Enabled = true;
+            editTabs.SelectedTab = publisherEditTab;
+            bookEditTab.Enabled = false;
+            authorEditTab.Enabled = false;
+            genreEditTab.Enabled = false;
+            this.BringToFront();
+        }
+
+        public async void openEditGenrePanel(Genre genre)
+        {
+            referencedGenre = genre;
+            genreTextBoxEditGenrePanel.Text = genre.genre;
+
+
+
+            ////////////////////////////////populate Parent
+            HashSet<Genre> parents = await GetRequests.GetGenres();
+            parentGenreComboBoxEditGenrePanel.Items.Clear();
+
+            //create new genreParent item 
+            ComboBoxItem createParent = new ComboBoxItem();
+            createParent.Text = "Create New Parent Genre...";
+            createParent.Id = "-1";
+            parentGenreComboBoxEditGenrePanel.Items.Add(createParent);
+
+            //create noParent item 
+            ComboBoxItem noParent = new ComboBoxItem();
+            noParent.Text = "--";
+            noParent.Id = "0";
+            parentGenreComboBoxEditGenrePanel.Items.Add(noParent);
+
+            //populate combobox and selected
+            foreach (Genre g in parents)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = g.genre;
+                item.Id = g.id.ToString();
+                parentGenreComboBoxEditGenrePanel.Items.Add(item);
+                if (genre.parentGenre == Int32.Parse(item.Id))
+                {
+                    parentGenreComboBoxEditGenrePanel.SelectedItem = item;
+                }
+            }
+            if (genre.parentGenre == null)
+            {
+                parentGenreComboBoxEditGenrePanel.SelectedItem = noParent;
+            }
+
+            ////////////////////////////////populate sub genres
+            HashSet<Genre> subs = await GetRequests.GetGenres();
+            subComboBoxEditGenrePanel.Items.Clear();
+
+            //create new sub genre item 
+            ComboBoxItem createSub = new ComboBoxItem();
+            createSub.Text = "Create New Sub Genre...";
+            createSub.Id = "-1";
+            subComboBoxEditGenrePanel.Items.Add(createSub);
+
+            //populate combobox and flowpanel
+            subFlowEditGenrePanel.Controls.Clear();
+            foreach (Genre s in subs)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = s.genre;
+                item.Id = s.id.ToString();
+                subComboBoxEditGenrePanel.Items.Add(item);
+                if (genre.subGenres.Contains(Int32.Parse(item.Id)))
+                {
+                    RemovableLabel label = new RemovableLabel(item.Id, DbTable.Genre, parentForm, subFlowEditGenrePanel);
+                    label.Text = item.Text;
+                    subFlowEditGenrePanel.Controls.Add(label);
+                }
+            }
+            ////////////////////////////////disable other tabs
+            genreEditTab.Enabled = true;
+            editTabs.SelectedTab = genreEditTab;
+            bookEditTab.Enabled = false;
+            authorEditTab.Enabled = false;
+            publisherEditTab.Enabled = false;
+            this.BringToFront();
         }
 
         private void editTabs_Selecting(object sender, TabControlCancelEventArgs e)
         {
+            //to not navigate to disabled tabs
             if (e.TabPage.Enabled == false)
                 e.Cancel = true;
         }
@@ -273,6 +383,24 @@ namespace LibraryDisplay.UserControls
             {
                 genreFlowBookEditPanel.Visible = true;
                 genreComboBoxEditBookPanel.Margin = new System.Windows.Forms.Padding(3);
+            }
+        }
+        private void subComboBoxEditGenrePanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (subFlowEditGenrePanel.Controls.Count == 1)
+            {
+                subFlowEditGenrePanel.Visible = true;
+                subComboBoxEditGenrePanel.Margin = new System.Windows.Forms.Padding(3);
+            }
+        }
+
+        private void subComboBoxEditGenrePanel_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (subFlowEditGenrePanel.Controls.Count == 0)
+            {
+
+                subComboBoxEditGenrePanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
+                subFlowEditGenrePanel.Visible = false;
             }
         }
 
@@ -319,6 +447,27 @@ namespace LibraryDisplay.UserControls
                 genreFlowBookEditPanel.Controls.Add(label);
             }
         }
+        private void subComboBoxEditGenrePanel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxItem? selection = subComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
+
+            List<string> list = new List<string>();
+            foreach (RemovableLabel l in subFlowEditGenrePanel.Controls.OfType<RemovableLabel>())
+            {
+                list.Add(l.id);
+            }
+
+            if (selection!.Id == "-1")
+            {
+
+            }
+            else if (!list.Contains(selection!.Id))
+            {
+                RemovableLabel label = new RemovableLabel(selection!.Id, DbTable.Genre, parentForm, subFlowEditGenrePanel);
+                label.Text = selection!.Text;
+                subFlowEditGenrePanel.Controls.Add(label);
+            }
+        }
 
         private void createTempBook()
         {
@@ -347,14 +496,35 @@ namespace LibraryDisplay.UserControls
         }
         private void createTempAuthor()
         {
-
+            tempAuthor.id = referencedAuthor.id;
+            tempAuthor.firstName = firstNameTextBoxEditAuthorPanel.Text;
+            tempAuthor.lastName = lastNameTextBoxEditAuthorPanel.Text;
+            tempAuthor.middleName = middleNameTextBoxEditAuthorPanel.Text;
+            tempAuthor.description = descriptionTextBoxEditAuthorPanel.Text;
+            tempAuthor.books = referencedAuthor.books;
         }
         private void createTempPublisher()
         {
+            tempPublisher.id = referencedPublisher.id;
+            tempPublisher.name = nameTextBoxEditPublisherPanel.Text;
+            tempPublisher.email = emailTextBoxEditPublisherPanel.Text;
+            tempPublisher.phone = phoneTextBoxEditPublisherPanel.Text;
+            tempPublisher.books = referencedPublisher.books;
 
         }
         private void createTempGenre()
         {
+            tempGenre.id = referencedGenre.id;
+            tempGenre.genre = genreTextBoxEditGenrePanel.Text;
+            ComboBoxItem? p = parentGenreComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
+            tempGenre.parentGenre = Int32.Parse(p!.Id)==0?null: Int32.Parse(p!.Id);
+            HashSet<int> s = new HashSet<int>();
+            foreach (RemovableLabel l in subFlowEditGenrePanel.Controls.OfType<RemovableLabel>())
+            {
+                s.Add(Int32.Parse(l.id));
+            }
+            tempGenre.subGenres = s;
+            tempGenre.books = referencedGenre.books;
 
         }
 

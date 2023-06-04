@@ -41,8 +41,7 @@ namespace LibraryDisplay.UserControls
             genreFlowBookPanel.Controls.Clear();
             genreFlowBookPanel.Controls.Add(new Label() { Text = "Genre: ", AutoSize = true });
             pictureBoxBookPanel.Image = null;
-
-
+            
             //get book
             Book book = await GetRequests.GetBookById(id);
             referencedBook = book;
@@ -52,10 +51,6 @@ namespace LibraryDisplay.UserControls
             isbnLabelBookPanel.Text = book.isbn;
             publicationDateLabelBookPanel.Text = book.publicationDate;
             descriptionLabelBookPanel.Text = book.description;
-
-            //get picture
-            pictureBoxBookPanel.Image = await ImageHandler.GetImageFromUrl(book.imageUrl);
-            //pictureBoxBookPanel.LoadAsync(data["imageUrl"]!.ToString());
 
             //get authors
             foreach (var item in book.authors)
@@ -80,9 +75,12 @@ namespace LibraryDisplay.UserControls
                 label.Text = genre.genre;
                 genreFlowBookPanel.Controls.Add(label);
             }
-            this.BringToFront();
-            
 
+            this.BringToFront();
+
+            //get picture
+            pictureBoxBookPanel.Image = await ImageHandler.GetImageFromUrl(book.imageUrl);
+            //pictureBoxBookPanel.LoadAsync(data["imageUrl"]!.ToString());
         }
 
         private void editButtonBookPanel_Click(object sender, EventArgs e)

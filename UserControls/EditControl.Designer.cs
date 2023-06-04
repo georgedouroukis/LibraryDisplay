@@ -68,37 +68,37 @@
             flowLayoutPanel53 = new FlowLayoutPanel();
             flowLayoutPanel54 = new FlowLayoutPanel();
             label34 = new Label();
-            textBox26 = new TextBox();
+            firstNameTextBoxEditAuthorPanel = new TextBox();
             flowLayoutPanel55 = new FlowLayoutPanel();
             label35 = new Label();
-            textBox27 = new TextBox();
+            lastNameTextBoxEditAuthorPanel = new TextBox();
             flowLayoutPanel56 = new FlowLayoutPanel();
             label36 = new Label();
-            textBox28 = new TextBox();
-            textBox29 = new TextBox();
+            middleNameTextBoxEditAuthorPanel = new TextBox();
+            descriptionTextBoxEditAuthorPanel = new TextBox();
             publisherEditTab = new TabPage();
             flowLayoutPanel57 = new FlowLayoutPanel();
             flowLayoutPanel58 = new FlowLayoutPanel();
             label37 = new Label();
-            textBox30 = new TextBox();
+            nameTextBoxEditPublisherPanel = new TextBox();
             flowLayoutPanel59 = new FlowLayoutPanel();
             label38 = new Label();
-            textBox31 = new TextBox();
+            emailTextBoxEditPublisherPanel = new TextBox();
             flowLayoutPanel60 = new FlowLayoutPanel();
             label39 = new Label();
-            textBox32 = new TextBox();
+            phoneTextBoxEditPublisherPanel = new TextBox();
             genreEditTab = new TabPage();
             flowLayoutPanel61 = new FlowLayoutPanel();
             flowLayoutPanel67 = new FlowLayoutPanel();
             label43 = new Label();
-            textBox34 = new TextBox();
-            flowLayoutPanel68 = new FlowLayoutPanel();
-            label44 = new Label();
-            comboBox9 = new ComboBox();
-            flowLayoutPanel69 = new FlowLayoutPanel();
-            label45 = new Label();
-            comboBox10 = new ComboBox();
-            flowLayoutPanel70 = new FlowLayoutPanel();
+            genreTextBoxEditGenrePanel = new TextBox();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            label3 = new Label();
+            parentGenreComboBoxEditGenrePanel = new ComboBox();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            label2 = new Label();
+            subComboBoxEditGenrePanel = new ComboBox();
+            subFlowEditGenrePanel = new FlowLayoutPanel();
             flowLayoutPanel62 = new FlowLayoutPanel();
             homeButtonEditPanel = new Button();
             ((System.ComponentModel.ISupportInitialize)editPanel).BeginInit();
@@ -134,8 +134,8 @@
             genreEditTab.SuspendLayout();
             flowLayoutPanel61.SuspendLayout();
             flowLayoutPanel67.SuspendLayout();
-            flowLayoutPanel68.SuspendLayout();
-            flowLayoutPanel69.SuspendLayout();
+            flowLayoutPanel4.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             flowLayoutPanel62.SuspendLayout();
             SuspendLayout();
             // 
@@ -540,7 +540,7 @@
             flowLayoutPanel53.Controls.Add(flowLayoutPanel54);
             flowLayoutPanel53.Controls.Add(flowLayoutPanel55);
             flowLayoutPanel53.Controls.Add(flowLayoutPanel56);
-            flowLayoutPanel53.Controls.Add(textBox29);
+            flowLayoutPanel53.Controls.Add(descriptionTextBoxEditAuthorPanel);
             flowLayoutPanel53.Dock = DockStyle.Fill;
             flowLayoutPanel53.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel53.Location = new Point(3, 3);
@@ -553,7 +553,7 @@
             // 
             flowLayoutPanel54.AutoSize = true;
             flowLayoutPanel54.Controls.Add(label34);
-            flowLayoutPanel54.Controls.Add(textBox26);
+            flowLayoutPanel54.Controls.Add(firstNameTextBoxEditAuthorPanel);
             flowLayoutPanel54.Location = new Point(23, 23);
             flowLayoutPanel54.Name = "flowLayoutPanel54";
             flowLayoutPanel54.Size = new Size(651, 37);
@@ -568,18 +568,18 @@
             label34.TabIndex = 6;
             label34.Text = "First Name:";
             // 
-            // textBox26
+            // firstNameTextBoxEditAuthorPanel
             // 
-            textBox26.Location = new Point(110, 3);
-            textBox26.Name = "textBox26";
-            textBox26.Size = new Size(538, 31);
-            textBox26.TabIndex = 7;
+            firstNameTextBoxEditAuthorPanel.Location = new Point(110, 3);
+            firstNameTextBoxEditAuthorPanel.Name = "firstNameTextBoxEditAuthorPanel";
+            firstNameTextBoxEditAuthorPanel.Size = new Size(538, 31);
+            firstNameTextBoxEditAuthorPanel.TabIndex = 7;
             // 
             // flowLayoutPanel55
             // 
             flowLayoutPanel55.AutoSize = true;
             flowLayoutPanel55.Controls.Add(label35);
-            flowLayoutPanel55.Controls.Add(textBox27);
+            flowLayoutPanel55.Controls.Add(lastNameTextBoxEditAuthorPanel);
             flowLayoutPanel55.Location = new Point(23, 66);
             flowLayoutPanel55.Name = "flowLayoutPanel55";
             flowLayoutPanel55.Size = new Size(651, 37);
@@ -594,18 +594,18 @@
             label35.TabIndex = 6;
             label35.Text = "Last Name:";
             // 
-            // textBox27
+            // lastNameTextBoxEditAuthorPanel
             // 
-            textBox27.Location = new Point(108, 3);
-            textBox27.Name = "textBox27";
-            textBox27.Size = new Size(540, 31);
-            textBox27.TabIndex = 7;
+            lastNameTextBoxEditAuthorPanel.Location = new Point(108, 3);
+            lastNameTextBoxEditAuthorPanel.Name = "lastNameTextBoxEditAuthorPanel";
+            lastNameTextBoxEditAuthorPanel.Size = new Size(540, 31);
+            lastNameTextBoxEditAuthorPanel.TabIndex = 7;
             // 
             // flowLayoutPanel56
             // 
             flowLayoutPanel56.AutoSize = true;
             flowLayoutPanel56.Controls.Add(label36);
-            flowLayoutPanel56.Controls.Add(textBox28);
+            flowLayoutPanel56.Controls.Add(middleNameTextBoxEditAuthorPanel);
             flowLayoutPanel56.Location = new Point(23, 109);
             flowLayoutPanel56.Name = "flowLayoutPanel56";
             flowLayoutPanel56.Size = new Size(651, 37);
@@ -620,22 +620,22 @@
             label36.TabIndex = 6;
             label36.Text = "Middle Name:";
             // 
-            // textBox28
+            // middleNameTextBoxEditAuthorPanel
             // 
-            textBox28.Location = new Point(132, 3);
-            textBox28.Name = "textBox28";
-            textBox28.Size = new Size(516, 31);
-            textBox28.TabIndex = 7;
+            middleNameTextBoxEditAuthorPanel.Location = new Point(132, 3);
+            middleNameTextBoxEditAuthorPanel.Name = "middleNameTextBoxEditAuthorPanel";
+            middleNameTextBoxEditAuthorPanel.Size = new Size(516, 31);
+            middleNameTextBoxEditAuthorPanel.TabIndex = 7;
             // 
-            // textBox29
+            // descriptionTextBoxEditAuthorPanel
             // 
-            textBox29.Location = new Point(23, 152);
-            textBox29.Multiline = true;
-            textBox29.Name = "textBox29";
-            textBox29.PlaceholderText = "Description";
-            textBox29.ScrollBars = ScrollBars.Vertical;
-            textBox29.Size = new Size(651, 330);
-            textBox29.TabIndex = 23;
+            descriptionTextBoxEditAuthorPanel.Location = new Point(23, 152);
+            descriptionTextBoxEditAuthorPanel.Multiline = true;
+            descriptionTextBoxEditAuthorPanel.Name = "descriptionTextBoxEditAuthorPanel";
+            descriptionTextBoxEditAuthorPanel.PlaceholderText = "Description";
+            descriptionTextBoxEditAuthorPanel.ScrollBars = ScrollBars.Vertical;
+            descriptionTextBoxEditAuthorPanel.Size = new Size(651, 330);
+            descriptionTextBoxEditAuthorPanel.TabIndex = 23;
             // 
             // publisherEditTab
             // 
@@ -665,7 +665,7 @@
             // 
             flowLayoutPanel58.AutoSize = true;
             flowLayoutPanel58.Controls.Add(label37);
-            flowLayoutPanel58.Controls.Add(textBox30);
+            flowLayoutPanel58.Controls.Add(nameTextBoxEditPublisherPanel);
             flowLayoutPanel58.Location = new Point(23, 23);
             flowLayoutPanel58.Name = "flowLayoutPanel58";
             flowLayoutPanel58.Size = new Size(618, 37);
@@ -680,18 +680,18 @@
             label37.TabIndex = 6;
             label37.Text = "Name:";
             // 
-            // textBox30
+            // nameTextBoxEditPublisherPanel
             // 
-            textBox30.Location = new Point(72, 3);
-            textBox30.Name = "textBox30";
-            textBox30.Size = new Size(543, 31);
-            textBox30.TabIndex = 7;
+            nameTextBoxEditPublisherPanel.Location = new Point(72, 3);
+            nameTextBoxEditPublisherPanel.Name = "nameTextBoxEditPublisherPanel";
+            nameTextBoxEditPublisherPanel.Size = new Size(543, 31);
+            nameTextBoxEditPublisherPanel.TabIndex = 7;
             // 
             // flowLayoutPanel59
             // 
             flowLayoutPanel59.AutoSize = true;
             flowLayoutPanel59.Controls.Add(label38);
-            flowLayoutPanel59.Controls.Add(textBox31);
+            flowLayoutPanel59.Controls.Add(emailTextBoxEditPublisherPanel);
             flowLayoutPanel59.Location = new Point(23, 66);
             flowLayoutPanel59.Name = "flowLayoutPanel59";
             flowLayoutPanel59.Size = new Size(618, 37);
@@ -706,18 +706,18 @@
             label38.TabIndex = 6;
             label38.Text = "Email:";
             // 
-            // textBox31
+            // emailTextBoxEditPublisherPanel
             // 
-            textBox31.Location = new Point(67, 3);
-            textBox31.Name = "textBox31";
-            textBox31.Size = new Size(548, 31);
-            textBox31.TabIndex = 7;
+            emailTextBoxEditPublisherPanel.Location = new Point(67, 3);
+            emailTextBoxEditPublisherPanel.Name = "emailTextBoxEditPublisherPanel";
+            emailTextBoxEditPublisherPanel.Size = new Size(548, 31);
+            emailTextBoxEditPublisherPanel.TabIndex = 7;
             // 
             // flowLayoutPanel60
             // 
             flowLayoutPanel60.AutoSize = true;
             flowLayoutPanel60.Controls.Add(label39);
-            flowLayoutPanel60.Controls.Add(textBox32);
+            flowLayoutPanel60.Controls.Add(phoneTextBoxEditPublisherPanel);
             flowLayoutPanel60.Location = new Point(23, 109);
             flowLayoutPanel60.Name = "flowLayoutPanel60";
             flowLayoutPanel60.Size = new Size(618, 37);
@@ -732,12 +732,12 @@
             label39.TabIndex = 6;
             label39.Text = "PhoneNo:";
             // 
-            // textBox32
+            // phoneTextBoxEditPublisherPanel
             // 
-            textBox32.Location = new Point(99, 3);
-            textBox32.Name = "textBox32";
-            textBox32.Size = new Size(516, 31);
-            textBox32.TabIndex = 7;
+            phoneTextBoxEditPublisherPanel.Location = new Point(99, 3);
+            phoneTextBoxEditPublisherPanel.Name = "phoneTextBoxEditPublisherPanel";
+            phoneTextBoxEditPublisherPanel.Size = new Size(516, 31);
+            phoneTextBoxEditPublisherPanel.TabIndex = 7;
             // 
             // genreEditTab
             // 
@@ -753,9 +753,9 @@
             // flowLayoutPanel61
             // 
             flowLayoutPanel61.Controls.Add(flowLayoutPanel67);
-            flowLayoutPanel61.Controls.Add(flowLayoutPanel68);
-            flowLayoutPanel61.Controls.Add(flowLayoutPanel69);
-            flowLayoutPanel61.Controls.Add(flowLayoutPanel70);
+            flowLayoutPanel61.Controls.Add(flowLayoutPanel4);
+            flowLayoutPanel61.Controls.Add(flowLayoutPanel2);
+            flowLayoutPanel61.Controls.Add(subFlowEditGenrePanel);
             flowLayoutPanel61.Dock = DockStyle.Fill;
             flowLayoutPanel61.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel61.Location = new Point(3, 3);
@@ -768,7 +768,7 @@
             // 
             flowLayoutPanel67.AutoSize = true;
             flowLayoutPanel67.Controls.Add(label43);
-            flowLayoutPanel67.Controls.Add(textBox34);
+            flowLayoutPanel67.Controls.Add(genreTextBoxEditGenrePanel);
             flowLayoutPanel67.Location = new Point(23, 23);
             flowLayoutPanel67.Name = "flowLayoutPanel67";
             flowLayoutPanel67.Size = new Size(647, 37);
@@ -783,73 +783,84 @@
             label43.TabIndex = 6;
             label43.Text = "Genre:";
             // 
-            // textBox34
+            // genreTextBoxEditGenrePanel
             // 
-            textBox34.Location = new Point(71, 3);
-            textBox34.Name = "textBox34";
-            textBox34.Size = new Size(573, 31);
-            textBox34.TabIndex = 7;
+            genreTextBoxEditGenrePanel.Location = new Point(71, 3);
+            genreTextBoxEditGenrePanel.Name = "genreTextBoxEditGenrePanel";
+            genreTextBoxEditGenrePanel.Size = new Size(573, 31);
+            genreTextBoxEditGenrePanel.TabIndex = 7;
             // 
-            // flowLayoutPanel68
+            // flowLayoutPanel4
             // 
-            flowLayoutPanel68.AutoSize = true;
-            flowLayoutPanel68.Controls.Add(label44);
-            flowLayoutPanel68.Controls.Add(comboBox9);
-            flowLayoutPanel68.Location = new Point(23, 66);
-            flowLayoutPanel68.Name = "flowLayoutPanel68";
-            flowLayoutPanel68.Size = new Size(647, 39);
-            flowLayoutPanel68.TabIndex = 21;
+            flowLayoutPanel4.AutoSize = true;
+            flowLayoutPanel4.Controls.Add(label3);
+            flowLayoutPanel4.Controls.Add(parentGenreComboBoxEditGenrePanel);
+            flowLayoutPanel4.Location = new Point(23, 66);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(636, 39);
+            flowLayoutPanel4.TabIndex = 24;
             // 
-            // label44
+            // label3
             // 
-            label44.AutoSize = true;
-            label44.Location = new Point(3, 0);
-            label44.Name = "label44";
-            label44.Size = new Size(116, 25);
-            label44.TabIndex = 6;
-            label44.Text = "Parent Genre:";
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(116, 25);
+            label3.TabIndex = 6;
+            label3.Text = "Parent Genre:";
             // 
-            // comboBox9
+            // parentGenreComboBoxEditGenrePanel
             // 
-            comboBox9.FormattingEnabled = true;
-            comboBox9.Location = new Point(125, 3);
-            comboBox9.Name = "comboBox9";
-            comboBox9.Size = new Size(519, 33);
-            comboBox9.TabIndex = 7;
+            parentGenreComboBoxEditGenrePanel.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            parentGenreComboBoxEditGenrePanel.AutoCompleteSource = AutoCompleteSource.ListItems;
+            parentGenreComboBoxEditGenrePanel.FormattingEnabled = true;
+            parentGenreComboBoxEditGenrePanel.Location = new Point(125, 3);
+            parentGenreComboBoxEditGenrePanel.Name = "parentGenreComboBoxEditGenrePanel";
+            parentGenreComboBoxEditGenrePanel.Size = new Size(508, 33);
+            parentGenreComboBoxEditGenrePanel.TabIndex = 7;
             // 
-            // flowLayoutPanel69
+            // flowLayoutPanel2
             // 
-            flowLayoutPanel69.AutoSize = true;
-            flowLayoutPanel69.Controls.Add(label45);
-            flowLayoutPanel69.Controls.Add(comboBox10);
-            flowLayoutPanel69.Location = new Point(23, 111);
-            flowLayoutPanel69.Name = "flowLayoutPanel69";
-            flowLayoutPanel69.Size = new Size(647, 39);
-            flowLayoutPanel69.TabIndex = 22;
+            flowLayoutPanel2.AutoSize = true;
+            flowLayoutPanel2.Controls.Add(label2);
+            flowLayoutPanel2.Controls.Add(subComboBoxEditGenrePanel);
+            flowLayoutPanel2.Location = new Point(20, 123);
+            flowLayoutPanel2.Margin = new Padding(0, 15, 0, 0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(665, 39);
+            flowLayoutPanel2.TabIndex = 22;
             // 
-            // label45
+            // label2
             // 
-            label45.AutoSize = true;
-            label45.Location = new Point(3, 0);
-            label45.Name = "label45";
-            label45.Size = new Size(101, 25);
-            label45.TabIndex = 6;
-            label45.Text = "SubGenres:";
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(128, 25);
+            label2.TabIndex = 6;
+            label2.Text = "Subcategories:";
             // 
-            // comboBox10
+            // subComboBoxEditGenrePanel
             // 
-            comboBox10.FormattingEnabled = true;
-            comboBox10.Location = new Point(110, 3);
-            comboBox10.Name = "comboBox10";
-            comboBox10.Size = new Size(534, 33);
-            comboBox10.TabIndex = 7;
+            subComboBoxEditGenrePanel.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            subComboBoxEditGenrePanel.AutoCompleteSource = AutoCompleteSource.ListItems;
+            subComboBoxEditGenrePanel.FormattingEnabled = true;
+            subComboBoxEditGenrePanel.Location = new Point(137, 3);
+            subComboBoxEditGenrePanel.Name = "subComboBoxEditGenrePanel";
+            subComboBoxEditGenrePanel.Size = new Size(525, 33);
+            subComboBoxEditGenrePanel.TabIndex = 7;
+            subComboBoxEditGenrePanel.SelectedIndexChanged += subComboBoxEditGenrePanel_SelectedIndexChanged;
+            subComboBoxEditGenrePanel.ControlAdded += subComboBoxEditGenrePanel_ControlAdded;
+            subComboBoxEditGenrePanel.ControlRemoved += subComboBoxEditGenrePanel_ControlRemoved;
             // 
-            // flowLayoutPanel70
+            // subFlowEditGenrePanel
             // 
-            flowLayoutPanel70.Location = new Point(23, 156);
-            flowLayoutPanel70.Name = "flowLayoutPanel70";
-            flowLayoutPanel70.Size = new Size(644, 37);
-            flowLayoutPanel70.TabIndex = 23;
+            subFlowEditGenrePanel.AutoSize = true;
+            subFlowEditGenrePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            subFlowEditGenrePanel.Location = new Point(23, 165);
+            subFlowEditGenrePanel.Margin = new Padding(3, 3, 3, 15);
+            subFlowEditGenrePanel.Name = "subFlowEditGenrePanel";
+            subFlowEditGenrePanel.Size = new Size(0, 0);
+            subFlowEditGenrePanel.TabIndex = 23;
             // 
             // flowLayoutPanel62
             // 
@@ -931,10 +942,10 @@
             flowLayoutPanel61.PerformLayout();
             flowLayoutPanel67.ResumeLayout(false);
             flowLayoutPanel67.PerformLayout();
-            flowLayoutPanel68.ResumeLayout(false);
-            flowLayoutPanel68.PerformLayout();
-            flowLayoutPanel69.ResumeLayout(false);
-            flowLayoutPanel69.PerformLayout();
+            flowLayoutPanel4.ResumeLayout(false);
+            flowLayoutPanel4.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
             flowLayoutPanel62.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -946,6 +957,8 @@
         private Button saveButtonEditPanel;
         private Label label25;
         private SplitContainer splitContainer10;
+        private FlowLayoutPanel flowLayoutPanel62;
+        private Button homeButtonEditPanel;
         private TabControl editTabs;
         private TabPage bookEditTab;
         private FlowLayoutPanel flowLayoutPanel42;
@@ -973,46 +986,44 @@
         private ComboBox genreComboBoxEditBookPanel;
         private FlowLayoutPanel genreFlowBookEditPanel;
         private TextBox descriptionTextBoxEditBookPanel;
-        private TabPage authorEditTab;
-        private FlowLayoutPanel flowLayoutPanel53;
-        private FlowLayoutPanel flowLayoutPanel54;
-        private Label label34;
-        private TextBox textBox26;
-        private FlowLayoutPanel flowLayoutPanel55;
-        private Label label35;
-        private TextBox textBox27;
-        private FlowLayoutPanel flowLayoutPanel56;
-        private Label label36;
-        private TextBox textBox28;
-        private TextBox textBox29;
-        private TabPage publisherEditTab;
-        private FlowLayoutPanel flowLayoutPanel57;
-        private FlowLayoutPanel flowLayoutPanel58;
-        private Label label37;
-        private TextBox textBox30;
-        private FlowLayoutPanel flowLayoutPanel59;
-        private Label label38;
-        private TextBox textBox31;
-        private FlowLayoutPanel flowLayoutPanel60;
-        private Label label39;
-        private TextBox textBox32;
-        private TabPage genreEditTab;
-        private FlowLayoutPanel flowLayoutPanel61;
-        private FlowLayoutPanel flowLayoutPanel67;
-        private Label label43;
-        private TextBox textBox34;
-        private FlowLayoutPanel flowLayoutPanel68;
-        private Label label44;
-        private ComboBox comboBox9;
-        private FlowLayoutPanel flowLayoutPanel69;
-        private Label label45;
-        private ComboBox comboBox10;
-        private FlowLayoutPanel flowLayoutPanel70;
-        private FlowLayoutPanel flowLayoutPanel62;
-        private Button homeButtonEditPanel;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label1;
         private TextBox imageURLTextBoxEditBookPanel;
         private Button imageCheckButonEditBookPanel;
+        private TabPage authorEditTab;
+        private FlowLayoutPanel flowLayoutPanel53;
+        private FlowLayoutPanel flowLayoutPanel54;
+        private Label label34;
+        private TextBox firstNameTextBoxEditAuthorPanel;
+        private FlowLayoutPanel flowLayoutPanel55;
+        private Label label35;
+        private TextBox lastNameTextBoxEditAuthorPanel;
+        private FlowLayoutPanel flowLayoutPanel56;
+        private Label label36;
+        private TextBox middleNameTextBoxEditAuthorPanel;
+        private TextBox descriptionTextBoxEditAuthorPanel;
+        private TabPage publisherEditTab;
+        private FlowLayoutPanel flowLayoutPanel57;
+        private FlowLayoutPanel flowLayoutPanel58;
+        private Label label37;
+        private TextBox nameTextBoxEditPublisherPanel;
+        private FlowLayoutPanel flowLayoutPanel59;
+        private Label label38;
+        private TextBox emailTextBoxEditPublisherPanel;
+        private FlowLayoutPanel flowLayoutPanel60;
+        private Label label39;
+        private TextBox phoneTextBoxEditPublisherPanel;
+        private TabPage genreEditTab;
+        private FlowLayoutPanel flowLayoutPanel61;
+        private FlowLayoutPanel flowLayoutPanel67;
+        private Label label43;
+        private TextBox genreTextBoxEditGenrePanel;
+        private FlowLayoutPanel flowLayoutPanel4;
+        private Label label3;
+        private ComboBox parentGenreComboBoxEditGenrePanel;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Label label2;
+        private ComboBox subComboBoxEditGenrePanel;
+        private FlowLayoutPanel subFlowEditGenrePanel;
     }
 }

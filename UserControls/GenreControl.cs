@@ -17,6 +17,7 @@ namespace LibraryDisplay.UserControls
     public partial class GenreControl : UserControl
     {
         private LibraryForm parentForm;
+        private Genre referencedGenre;
         public GenreControl(LibraryForm parentForm)
         {
             InitializeComponent();
@@ -37,14 +38,21 @@ namespace LibraryDisplay.UserControls
         {
             genreBookFlow.Controls.Clear();
             Genre genre = await GetRequests.GetGenreById(id);
+            referencedGenre = genre;
+
             genreLabelGenrePanel.Text = genre.genre;
-            
 
             foreach (var item in genre.books)
             {
                 ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, genreBookFlow);
                 genreBookFlow.Controls.Add(book);
             }
+            this.BringToFront();
+        }
+
+        private void editButtonGenrePanel_Click(object sender, EventArgs e)
+        {
+            parentForm.editControl.openEditGenrePanel(referencedGenre);
         }
     }
 }

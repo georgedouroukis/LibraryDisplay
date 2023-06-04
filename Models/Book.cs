@@ -2,7 +2,7 @@
 
 namespace LibraryDisplay.Models
 {
-    public class Book
+    public class Book:IRoutable
     {
         public int id { get; set; }
         public string isbn { get; set; }
@@ -14,6 +14,8 @@ namespace LibraryDisplay.Models
         public int publisher { get; set; }
         public HashSet<int> genres { get; set; }
         public HashSet<int> authors { get; set; }
+        [JsonIgnore] public string route { get; set; } = "books";
+
 
         public override bool Equals(object? obj)
         {

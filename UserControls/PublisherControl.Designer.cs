@@ -121,6 +121,7 @@
             editButtonPublisherPanel.TabIndex = 6;
             editButtonPublisherPanel.Text = "Edit";
             editButtonPublisherPanel.UseVisualStyleBackColor = true;
+            editButtonPublisherPanel.Click += editButtonPublisherPanel_Click;
             // 
             // publisherLabelPublisherPanel
             // 

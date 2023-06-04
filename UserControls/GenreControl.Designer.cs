@@ -116,6 +116,7 @@
             editButtonGenrePanel.TabIndex = 6;
             editButtonGenrePanel.Text = "Edit";
             editButtonGenrePanel.UseVisualStyleBackColor = true;
+            editButtonGenrePanel.Click += editButtonGenrePanel_Click;
             // 
             // genreLabelGenrePanel
             // 

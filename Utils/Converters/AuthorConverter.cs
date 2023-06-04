@@ -12,9 +12,9 @@ namespace LibraryDisplay.Utils.Converters
 {
     internal class AuthorConverter
     {
-        public static JObject EntityToJson()
+        public static string EntityToJson(Author author)
         {
-            return null;
+            return JsonConvert.SerializeObject(author);
         }
 
         public static Author? JsonToEntity(JObject json)

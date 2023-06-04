@@ -17,6 +17,7 @@ namespace LibraryDisplay.UserControls
     public partial class AuthorControl : UserControl
     {
         private LibraryForm parentForm;
+        private Author referencedAuthor;
         public AuthorControl(LibraryForm parentForm)
         {
             InitializeComponent();
@@ -36,19 +37,24 @@ namespace LibraryDisplay.UserControls
 
         public async Task openAuthorPanel(string id)
         {
-
             authorBookFlow.Controls.Clear();
             Author author = await GetRequests.GetAuthorById(id);
+            referencedAuthor = author;
+
             authorLabelAuthorPanel.Text = author.firstName + " " + author.lastName + " " + author.middleName;
             descriptionLabelAuthorPanel.Text = author.description;
-            
-
 
             foreach (var item in author.books)
             {
                 ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, authorBookFlow);
                 authorBookFlow.Controls.Add(book);
             }
+            this.BringToFront();
+        }
+
+        private void editButtonAuthorPanel_Click(object sender, EventArgs e)
+        {
+            parentForm.editControl.openEditAuthorPanel(referencedAuthor);
         }
     }
 }

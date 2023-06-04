@@ -12,9 +12,9 @@ namespace LibraryDisplay.Utils.Converters
 {
     internal class GenreConverter
     {
-        public static JObject EntityToJson()
+        public static string EntityToJson(Genre genre)
         {
-            return null;
+            return JsonConvert.SerializeObject(genre);
         }
 
         public static Genre? JsonToEntity(JObject json)

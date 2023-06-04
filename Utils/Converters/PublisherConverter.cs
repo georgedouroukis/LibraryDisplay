@@ -12,9 +12,9 @@ namespace LibraryDisplay.Utils.Converters
 {
     internal class PublisherConverter
     {
-        public static JObject EntityToJson()
+        public static string EntityToJson(Publisher publisher)
         {
-            return null;
+            return JsonConvert.SerializeObject(publisher);
         }
 
         public static Publisher? JsonToEntity(JObject json)

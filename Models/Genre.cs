@@ -2,13 +2,15 @@
 
 namespace LibraryDisplay.Models
 {
-    public class Genre
+    public class Genre:IRoutable
     {
         public int id { get; set; }
         public string genre { get; set; }
         public int? parentGenre { get; set; }
         public HashSet<int> subGenres { get; set; }
         public HashSet<int> books { get; set; }
+        [JsonIgnore] public string route { get; set; } = "genres";
+
 
         public override bool Equals(object? obj)
         {

@@ -69,11 +69,9 @@ namespace LibraryDisplay.UserControls
                     break;
                 case "Author":
                     await parentForm.authorControl.openAuthorPanel(firstSelectedItem.SubItems[2].Text);
-                    parentForm.authorControl.BringToFront();
                     break;
                 case "Publisher":
                     await parentForm.publisherControl.openPublisherPanel(firstSelectedItem.SubItems[2].Text);
-                    parentForm.publisherControl.BringToFront();
                     break;
             }
         }

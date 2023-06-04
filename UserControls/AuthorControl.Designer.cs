@@ -116,6 +116,7 @@
             editButtonAuthorPanel.TabIndex = 6;
             editButtonAuthorPanel.Text = "Edit";
             editButtonAuthorPanel.UseVisualStyleBackColor = true;
+            editButtonAuthorPanel.Click += editButtonAuthorPanel_Click;
             // 
             // authorLabelAuthorPanel
             // 

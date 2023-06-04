@@ -2,7 +2,7 @@
 
 namespace LibraryDisplay.Models
 {
-    public class Author
+    public class Author:IRoutable
     {
         public int id { get; set; }
         public string firstName { get; set; }
@@ -10,6 +10,7 @@ namespace LibraryDisplay.Models
         public string middleName { get; set; }
         public string description { get; set; }
         public HashSet<int> books { get; set; }
+        [JsonIgnore] public string route { get; set; } = "authors";
 
         public override bool Equals(object? obj)
         {

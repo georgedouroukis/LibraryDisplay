@@ -17,6 +17,7 @@ namespace LibraryDisplay.UserControls
     public partial class PublisherControl : UserControl
     {
         private LibraryForm parentForm;
+        private Publisher referencedPublisher;
         public PublisherControl(LibraryForm parentForm)
         {
             InitializeComponent();
@@ -33,16 +34,24 @@ namespace LibraryDisplay.UserControls
         {
             publisherBookFlow.Controls.Clear();
             Publisher publisher = await GetRequests.GetPublisherById(id);
+            referencedPublisher = publisher;
+
             publisherLabelPublisherPanel.Text = "Publisher " + publisher.name;
             emailLabelPublisherPanel.Text = publisher.email;
             phoneLabelPublisherPanel.Text = publisher.phone;
-            
+
 
             foreach (var item in publisher.books)
             {
                 ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, publisherBookFlow);
                 publisherBookFlow.Controls.Add(book);
             }
+            this.BringToFront();
+        }
+
+        private void editButtonPublisherPanel_Click(object sender, EventArgs e)
+        {
+            parentForm.editControl.openEditPublisherPanel(referencedPublisher);
         }
     }
 }
