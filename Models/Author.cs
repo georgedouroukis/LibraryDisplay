@@ -12,6 +12,15 @@ namespace LibraryDisplay.Models
         public HashSet<int> books { get; set; }
         [JsonIgnore] public string route { get; set; } = "authors";
 
+        public Author()
+        {
+            firstName = string.Empty;
+            lastName = string.Empty;
+            middleName = string.Empty;
+            description = string.Empty;
+            books = new HashSet<int>();
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is Author author &&

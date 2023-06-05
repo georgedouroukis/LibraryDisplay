@@ -31,7 +31,7 @@
             editPanel = new SplitContainer();
             tableLayoutPanel7 = new TableLayoutPanel();
             saveButtonEditPanel = new Button();
-            label25 = new Label();
+            pageTitle = new Label();
             splitContainer10 = new SplitContainer();
             editTabs = new TabControl();
             bookEditTab = new TabPage();
@@ -163,7 +163,7 @@
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel7.Controls.Add(saveButtonEditPanel, 2, 0);
-            tableLayoutPanel7.Controls.Add(label25, 1, 0);
+            tableLayoutPanel7.Controls.Add(pageTitle, 1, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
             tableLayoutPanel7.Location = new Point(0, 0);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -183,16 +183,16 @@
             saveButtonEditPanel.UseVisualStyleBackColor = true;
             saveButtonEditPanel.Click += saveButtonEditPanel_Click;
             // 
-            // label25
+            // pageTitle
             // 
-            label25.Dock = DockStyle.Fill;
-            label25.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label25.Location = new Point(115, 0);
-            label25.Name = "label25";
-            label25.Size = new Size(892, 83);
-            label25.TabIndex = 6;
-            label25.Text = "Edit...";
-            label25.TextAlign = ContentAlignment.MiddleCenter;
+            pageTitle.Dock = DockStyle.Fill;
+            pageTitle.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            pageTitle.Location = new Point(115, 0);
+            pageTitle.Name = "pageTitle";
+            pageTitle.Size = new Size(892, 83);
+            pageTitle.TabIndex = 6;
+            pageTitle.Text = "Create/Edit";
+            pageTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // splitContainer10
             // 
@@ -883,12 +883,12 @@
             homeButtonEditPanel.UseVisualStyleBackColor = true;
             homeButtonEditPanel.Click += homeButtonEditPanel_Click;
             // 
-            // EditControl
+            // AbstractEditCreate
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(editPanel);
-            Name = "EditControl";
+            Name = "AbstractEditCreate";
             Size = new Size(1263, 1222);
             editPanel.Panel1.ResumeLayout(false);
             editPanel.Panel2.ResumeLayout(false);
@@ -952,78 +952,78 @@
 
         #endregion
 
-        private SplitContainer editPanel;
-        private TableLayoutPanel tableLayoutPanel7;
-        private Button saveButtonEditPanel;
-        private Label label25;
-        private SplitContainer splitContainer10;
-        private FlowLayoutPanel flowLayoutPanel62;
-        private Button homeButtonEditPanel;
-        private TabControl editTabs;
-        private TabPage bookEditTab;
-        private FlowLayoutPanel flowLayoutPanel42;
-        private FlowLayoutPanel flowLayoutPanel43;
-        private Label label26;
-        private TextBox titleTextBoxEditBookPanel;
-        private FlowLayoutPanel flowLayoutPanel44;
-        private Label label27;
-        private ComboBox authorComboBoxEditBookPanel;
-        private FlowLayoutPanel authorFlowBookEditPanel;
-        private FlowLayoutPanel flowLayoutPanel46;
-        private Label label28;
-        private ComboBox publisherComboBoxEditBookPanel;
-        private FlowLayoutPanel flowLayoutPanel47;
-        private Label label29;
-        private TextBox pagesTextBoxEditBookPanel;
-        private FlowLayoutPanel flowLayoutPanel48;
-        private Label label30;
-        private TextBox dateTextBoxEditBookPanel;
-        private FlowLayoutPanel flowLayoutPanel49;
-        private Label label31;
-        private TextBox isbnTextBoxEditBookPanel;
-        private FlowLayoutPanel flowLayoutPanel50;
-        private Label label32;
-        private ComboBox genreComboBoxEditBookPanel;
-        private FlowLayoutPanel genreFlowBookEditPanel;
-        private TextBox descriptionTextBoxEditBookPanel;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label label1;
-        private TextBox imageURLTextBoxEditBookPanel;
-        private Button imageCheckButonEditBookPanel;
-        private TabPage authorEditTab;
-        private FlowLayoutPanel flowLayoutPanel53;
-        private FlowLayoutPanel flowLayoutPanel54;
-        private Label label34;
-        private TextBox firstNameTextBoxEditAuthorPanel;
-        private FlowLayoutPanel flowLayoutPanel55;
-        private Label label35;
-        private TextBox lastNameTextBoxEditAuthorPanel;
-        private FlowLayoutPanel flowLayoutPanel56;
-        private Label label36;
-        private TextBox middleNameTextBoxEditAuthorPanel;
-        private TextBox descriptionTextBoxEditAuthorPanel;
-        private TabPage publisherEditTab;
-        private FlowLayoutPanel flowLayoutPanel57;
-        private FlowLayoutPanel flowLayoutPanel58;
-        private Label label37;
-        private TextBox nameTextBoxEditPublisherPanel;
-        private FlowLayoutPanel flowLayoutPanel59;
-        private Label label38;
-        private TextBox emailTextBoxEditPublisherPanel;
-        private FlowLayoutPanel flowLayoutPanel60;
-        private Label label39;
-        private TextBox phoneTextBoxEditPublisherPanel;
-        private TabPage genreEditTab;
-        private FlowLayoutPanel flowLayoutPanel61;
-        private FlowLayoutPanel flowLayoutPanel67;
-        private Label label43;
-        private TextBox genreTextBoxEditGenrePanel;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private Label label3;
-        private ComboBox parentGenreComboBoxEditGenrePanel;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private Label label2;
-        private ComboBox subComboBoxEditGenrePanel;
-        private FlowLayoutPanel subFlowEditGenrePanel;
+        protected SplitContainer editPanel;
+        protected TableLayoutPanel tableLayoutPanel7;
+        protected Button saveButtonEditPanel;
+        protected Label pageTitle;
+        protected SplitContainer splitContainer10;
+        protected FlowLayoutPanel flowLayoutPanel62;
+        protected Button homeButtonEditPanel;
+        protected TabControl editTabs;
+        protected TabPage bookEditTab;
+        protected FlowLayoutPanel flowLayoutPanel42;
+        protected FlowLayoutPanel flowLayoutPanel43;
+        protected Label label26;
+        protected TextBox titleTextBoxEditBookPanel;
+        protected FlowLayoutPanel flowLayoutPanel44;
+        protected Label label27;
+        protected ComboBox authorComboBoxEditBookPanel;
+        protected FlowLayoutPanel authorFlowBookEditPanel;
+        protected FlowLayoutPanel flowLayoutPanel46;
+        protected Label label28;
+        protected ComboBox publisherComboBoxEditBookPanel;
+        protected FlowLayoutPanel flowLayoutPanel47;
+        protected Label label29;
+        protected TextBox pagesTextBoxEditBookPanel;
+        protected FlowLayoutPanel flowLayoutPanel48;
+        protected Label label30;
+        protected TextBox dateTextBoxEditBookPanel;
+        protected FlowLayoutPanel flowLayoutPanel49;
+        protected Label label31;
+        protected TextBox isbnTextBoxEditBookPanel;
+        protected FlowLayoutPanel flowLayoutPanel50;
+        protected Label label32;
+        protected ComboBox genreComboBoxEditBookPanel;
+        protected FlowLayoutPanel genreFlowBookEditPanel;
+        protected TextBox descriptionTextBoxEditBookPanel;
+        protected FlowLayoutPanel flowLayoutPanel1;
+        protected Label label1;
+        protected TextBox imageURLTextBoxEditBookPanel;
+        protected Button imageCheckButonEditBookPanel;
+        protected TabPage authorEditTab;
+        protected FlowLayoutPanel flowLayoutPanel53;
+        protected FlowLayoutPanel flowLayoutPanel54;
+        protected Label label34;
+        protected TextBox firstNameTextBoxEditAuthorPanel;
+        protected FlowLayoutPanel flowLayoutPanel55;
+        protected Label label35;
+        protected TextBox lastNameTextBoxEditAuthorPanel;
+        protected FlowLayoutPanel flowLayoutPanel56;
+        protected Label label36;
+        protected TextBox middleNameTextBoxEditAuthorPanel;
+        protected TextBox descriptionTextBoxEditAuthorPanel;
+        protected TabPage publisherEditTab;
+        protected FlowLayoutPanel flowLayoutPanel57;
+        protected FlowLayoutPanel flowLayoutPanel58;
+        protected Label label37;
+        protected TextBox nameTextBoxEditPublisherPanel;
+        protected FlowLayoutPanel flowLayoutPanel59;
+        protected Label label38;
+        protected TextBox emailTextBoxEditPublisherPanel;
+        protected FlowLayoutPanel flowLayoutPanel60;
+        protected Label label39;
+        protected TextBox phoneTextBoxEditPublisherPanel;
+        protected TabPage genreEditTab;
+        protected FlowLayoutPanel flowLayoutPanel61;
+        protected FlowLayoutPanel flowLayoutPanel67;
+        protected Label label43;
+        protected TextBox genreTextBoxEditGenrePanel;
+        protected FlowLayoutPanel flowLayoutPanel4;
+        protected Label label3;
+        protected ComboBox parentGenreComboBoxEditGenrePanel;
+        protected FlowLayoutPanel flowLayoutPanel2;
+        protected Label label2;
+        protected ComboBox subComboBoxEditGenrePanel;
+        protected FlowLayoutPanel subFlowEditGenrePanel;
     }
 }

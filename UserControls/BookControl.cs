@@ -85,6 +85,7 @@ namespace LibraryDisplay.UserControls
 
         private void editButtonBookPanel_Click(object sender, EventArgs e)
         {
+            parentForm.editControl.BringToFront();
             parentForm.editControl.openEditBookPanel(referencedBook);
         }
     }

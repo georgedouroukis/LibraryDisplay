@@ -73,8 +73,9 @@ namespace LibraryDisplay.UserControls
 
 
 
-        private async void genreTreeViewPopulate()
+        public async void genreTreeViewPopulate()
         {
+            genreTreeView.Nodes.Clear();
             HashSet<Genre> genres = await GetRequests.GetGenres();
 
             Dictionary<int, Genre> genreDictionary = new Dictionary<int, Genre>();

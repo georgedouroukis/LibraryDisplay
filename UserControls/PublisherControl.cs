@@ -51,6 +51,7 @@ namespace LibraryDisplay.UserControls
 
         private void editButtonPublisherPanel_Click(object sender, EventArgs e)
         {
+            parentForm.editControl.BringToFront();
             parentForm.editControl.openEditPublisherPanel(referencedPublisher);
         }
     }

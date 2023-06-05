@@ -10,23 +10,25 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Publisher = LibraryDisplay.Models.Publisher;
 
 namespace LibraryDisplay.UserControls
 {
     public abstract partial class AbstractEditCreate : UserControl
     {
-        private LibraryForm parentForm;
-        private Book tempBook;
-        private Author tempAuthor;
-        private Publisher tempPublisher;
-        private Genre tempGenre;
-        private Book? referencedBook;
-        private Author? referencedAuthor;
-        private Publisher? referencedPublisher;
-        private Genre? referencedGenre;
+        protected LibraryForm parentForm;
+        protected Book tempBook;
+        protected Author tempAuthor;
+        protected Publisher tempPublisher;
+        protected Genre tempGenre;
+        protected Book? referencedBook;
+        protected Author? referencedAuthor;
+        protected Publisher? referencedPublisher;
+        protected Genre? referencedGenre;
 
         public AbstractEditCreate(LibraryForm parentForm)
         {
@@ -39,23 +41,27 @@ namespace LibraryDisplay.UserControls
             tempGenre = new Genre();
         }
 
-        private EditStatus checkStatus()
+        protected abstract void saveButtonEditPanel_Click(object sender, EventArgs e);
+
+        protected abstract void editTabs_Selecting(object sender, TabControlCancelEventArgs e);
+
+        protected EditStatus checkStatus()
         {
             bool checkChanges = true;
             DbTable table;
-            if (bookEditTab.Enabled == true)
+            if (editTabs.SelectedTab==bookEditTab)
             {
                 createTempBook();
                 checkChanges = !referencedBook!.Equals(tempBook);
                 table = DbTable.Book;
             }
-            else if (authorEditTab.Enabled == true)
+            else if (editTabs.SelectedTab==authorEditTab)
             {
                 createTempAuthor();
                 checkChanges = !referencedAuthor!.Equals(tempAuthor);
                 table = DbTable.Author;
             }
-            else if (publisherEditTab.Enabled == true)
+            else if (editTabs.SelectedTab == publisherEditTab)
             {
                 createTempPublisher();
                 checkChanges = !referencedPublisher!.Equals(tempAuthor);
@@ -90,48 +96,12 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        private async void saveButtonEditPanel_Click(object sender, EventArgs e)
+        public async void openEditBookPanel(Book? book)
         {
-            EditStatus status = checkStatus();
-            if (status.HasChanges)
-            {
-                DialogResult dr = MessageBox.Show("Are you sure?", "Save Changes", MessageBoxButtons.YesNo);
-                switch (dr)
-                {
-                    case DialogResult.Yes:
-                        switch (status.Table)
-                        {
-                            case DbTable.Book:
-                                await PutRequests.UpdateEntity<Book>(tempBook);
-                                await parentForm.bookControl.openBookPanel(tempBook.id.ToString());
-                                break;
-                            case DbTable.Author:
-                                await PutRequests.UpdateEntity<Author>(tempAuthor);
-                                await parentForm.authorControl.openAuthorPanel(tempAuthor.id.ToString());
-                                break;
-                            case DbTable.Publisher:
-                                await PutRequests.UpdateEntity<Publisher>(tempPublisher);
-                                await parentForm.publisherControl.openPublisherPanel(tempPublisher.id.ToString());
-                                break;
-                            case DbTable.Genre:
-                                await PutRequests.UpdateEntity<Genre>(tempGenre);
-                                await parentForm.genreControl.openGenrePanel(tempGenre.id.ToString());
-                                break;
-                        }
-                        break;
-                    case DialogResult.No:
-                        break;
-                }
-            }
+            if (book != null)
+                referencedBook = book;
             else
-            {
-                Console.WriteLine("no changes found");
-            }
-        }
-
-        public async void openEditBookPanel(Book book)
-        {
-            referencedBook = book;
+                book = referencedBook!;
             ////////////////////////////////populate Info
             titleTextBoxEditBookPanel.Text = book.title;
             pagesTextBoxEditBookPanel.Text = book.pageNumber.ToString();
@@ -150,7 +120,6 @@ namespace LibraryDisplay.UserControls
             createAuthor.Id = "-1";
             authorComboBoxEditBookPanel.Items.Add(createAuthor);
 
-
             //populate combobox and flowpanel
             authorFlowBookEditPanel.Controls.Clear();
             foreach (Author author in authors)
@@ -159,13 +128,14 @@ namespace LibraryDisplay.UserControls
                 item.Text = author.lastName + " " + author.firstName + " " + author.middleName;
                 item.Id = author.id!.ToString();
                 authorComboBoxEditBookPanel.Items.Add(item);
-                if (book.authors.Contains(Int32.Parse(item.Id)))
-                {
-                    RemovableLabel label = new RemovableLabel(item.Id, DbTable.Author, parentForm, authorFlowBookEditPanel);
-                    label.Text = item.Text;
-                    label.Tag = item.Id;
-                    authorFlowBookEditPanel.Controls.Add(label);
-                }
+                if (book.authors!=null)
+                    if(book.authors.Contains(Int32.Parse(item.Id)))
+                    {
+                        RemovableLabel label = new RemovableLabel(item.Id, DbTable.Author, parentForm, authorFlowBookEditPanel);
+                        label.Text = item.Text;
+                        label.Tag = item.Id;
+                        authorFlowBookEditPanel.Controls.Add(label);
+                    }
             }
 
             ////////////////////////////////populate Publishers
@@ -215,65 +185,55 @@ namespace LibraryDisplay.UserControls
                 item.Text = genre.genre;
                 item.Id = genre.id.ToString();
                 genreComboBoxEditBookPanel.Items.Add(item);
-                if (book.genres.Contains(Int32.Parse(item.Id)))
-                {
-                    RemovableLabel label = new RemovableLabel(item.Id, DbTable.Genre, parentForm, genreFlowBookEditPanel);
-                    label.Text = item.Text;
-                    genreFlowBookEditPanel.Controls.Add(label);
-                }
+                if(book.genres!=null)
+                    if (book.genres.Contains(Int32.Parse(item.Id)))
+                    {
+                        RemovableLabel label = new RemovableLabel(item.Id, DbTable.Genre, parentForm, genreFlowBookEditPanel);
+                        label.Text = item.Text;
+                        genreFlowBookEditPanel.Controls.Add(label);
+                    }
             }
-
-            ////////////////////////////////disable other tabs
             bookEditTab.Enabled = true;
             editTabs.SelectedTab = bookEditTab;
-            authorEditTab.Enabled = false;
-            publisherEditTab.Enabled = false;
-            genreEditTab.Enabled = false;
-            this.BringToFront();
         }
 
-        public void openEditAuthorPanel(Author author)
+        public void openEditAuthorPanel(Author? author)
         {
-            referencedAuthor = author;
+            if (author != null)
+                referencedAuthor = author;
+            else
+                author = referencedAuthor!;
             ////////////////////////////////populate Info
             firstNameTextBoxEditAuthorPanel.Text = author.firstName;
             lastNameTextBoxEditAuthorPanel.Text = author.lastName;
             middleNameTextBoxEditAuthorPanel.Text = author.middleName;
             descriptionTextBoxEditAuthorPanel.Text = author.description;
 
-
-            ////////////////////////////////disable other tabs
             authorEditTab.Enabled = true;
             editTabs.SelectedTab = authorEditTab;
-            bookEditTab.Enabled = false;
-            publisherEditTab.Enabled = false;
-            genreEditTab.Enabled = false;
-            this.BringToFront();
         }
 
-        public void openEditPublisherPanel(Publisher publisher)
+        public void openEditPublisherPanel(Publisher? publisher)
         {
-            referencedPublisher = publisher;
+            if (publisher != null)
+                referencedPublisher = publisher;
+            else
+                publisher = referencedPublisher!;
             nameTextBoxEditPublisherPanel.Text = publisher.name;
             emailTextBoxEditPublisherPanel.Text = publisher.email;
             phoneTextBoxEditPublisherPanel.Text = publisher.phone;
 
-            ////////////////////////////////disable other tabs
             publisherEditTab.Enabled = true;
             editTabs.SelectedTab = publisherEditTab;
-            bookEditTab.Enabled = false;
-            authorEditTab.Enabled = false;
-            genreEditTab.Enabled = false;
-            this.BringToFront();
         }
 
-        public async void openEditGenrePanel(Genre genre)
+        public async void openEditGenrePanel(Genre? genre)
         {
-            referencedGenre = genre;
+            if (genre != null)
+                referencedGenre = genre;
+            else
+                genre = referencedGenre!;
             genreTextBoxEditGenrePanel.Text = genre.genre;
-
-
-
             ////////////////////////////////populate Parent
             HashSet<Genre> parents = await GetRequests.GetGenres();
             parentGenreComboBoxEditGenrePanel.Items.Clear();
@@ -332,20 +292,9 @@ namespace LibraryDisplay.UserControls
                     subFlowEditGenrePanel.Controls.Add(label);
                 }
             }
-            ////////////////////////////////disable other tabs
+
             genreEditTab.Enabled = true;
             editTabs.SelectedTab = genreEditTab;
-            bookEditTab.Enabled = false;
-            authorEditTab.Enabled = false;
-            publisherEditTab.Enabled = false;
-            this.BringToFront();
-        }
-
-        private void editTabs_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            //to not navigate to disabled tabs
-            if (e.TabPage.Enabled == false)
-                e.Cancel = true;
         }
 
         private void authorFlowBookEditPanel_ControlRemoved(object sender, ControlEventArgs e)
@@ -469,7 +418,7 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        private void createTempBook()
+        protected void createTempBook()
         {
             tempBook.id = referencedBook.id;
             tempBook.title = titleTextBoxEditBookPanel.Text;
@@ -479,7 +428,7 @@ namespace LibraryDisplay.UserControls
             tempBook.publicationDate = dateTextBoxEditBookPanel.Text;
             tempBook.description = descriptionTextBoxEditBookPanel.Text;
             ComboBoxItem? p = publisherComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
-            tempBook.publisher = Int32.Parse(p!.Id);
+            tempBook.publisher = p==null ? 0 : Int32.Parse(p!.Id);
             HashSet<int> a = new HashSet<int>();
             foreach (RemovableLabel l in authorFlowBookEditPanel.Controls.OfType<RemovableLabel>())
             {
@@ -494,7 +443,7 @@ namespace LibraryDisplay.UserControls
             tempBook.genres = g;
 
         }
-        private void createTempAuthor()
+        protected void createTempAuthor()
         {
             tempAuthor.id = referencedAuthor.id;
             tempAuthor.firstName = firstNameTextBoxEditAuthorPanel.Text;
@@ -503,7 +452,7 @@ namespace LibraryDisplay.UserControls
             tempAuthor.description = descriptionTextBoxEditAuthorPanel.Text;
             tempAuthor.books = referencedAuthor.books;
         }
-        private void createTempPublisher()
+        protected void createTempPublisher()
         {
             tempPublisher.id = referencedPublisher.id;
             tempPublisher.name = nameTextBoxEditPublisherPanel.Text;
@@ -512,12 +461,12 @@ namespace LibraryDisplay.UserControls
             tempPublisher.books = referencedPublisher.books;
 
         }
-        private void createTempGenre()
+        protected void createTempGenre()
         {
             tempGenre.id = referencedGenre.id;
             tempGenre.genre = genreTextBoxEditGenrePanel.Text;
             ComboBoxItem? p = parentGenreComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
-            tempGenre.parentGenre = Int32.Parse(p!.Id)==0?null: Int32.Parse(p!.Id);
+            tempGenre.parentGenre = p==null||p.Id==""||p.Id == "0" ? null : Int32.Parse(p!.Id);
             HashSet<int> s = new HashSet<int>();
             foreach (RemovableLabel l in subFlowEditGenrePanel.Controls.OfType<RemovableLabel>())
             {
@@ -527,7 +476,5 @@ namespace LibraryDisplay.UserControls
             tempGenre.books = referencedGenre.books;
 
         }
-
-        
     }
 }
