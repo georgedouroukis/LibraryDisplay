@@ -27,6 +27,20 @@ namespace LibraryDisplay.Models
             genres = new HashSet<int>();
 
         }
+        public Book(Book other) //Clone Constructor
+        {
+            id = other.id;
+            isbn = other.isbn;
+            title = other.title;
+            pageNumber = other.pageNumber;
+            publicationDate = other.publicationDate;
+            imageUrl = other.imageUrl;
+            description = other.description;
+            publisher = other.publisher;
+            authors = other.authors;
+            genres = other.genres;
+
+        }
         public override bool Equals(object? obj)
         {
             return obj is Book book &&
@@ -46,6 +60,8 @@ namespace LibraryDisplay.Models
         {
             return JsonConvert.SerializeObject(this);
         }
+
+        
     }
 
 

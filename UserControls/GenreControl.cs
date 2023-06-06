@@ -53,7 +53,7 @@ namespace LibraryDisplay.UserControls
         private void editButtonGenrePanel_Click(object sender, EventArgs e)
         {
             parentForm.editControl.BringToFront();
-            parentForm.editControl.openEditGenrePanel(referencedGenre);
+            parentForm.editControl.populateEditGenrePanel(referencedGenre, CallFrom.None);
         }
     }
 }

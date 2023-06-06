@@ -21,14 +21,16 @@ namespace LibraryDisplay.UserControls
     public abstract partial class AbstractEditCreate : UserControl
     {
         protected LibraryForm parentForm;
-        protected Book tempBook;
-        protected Author tempAuthor;
-        protected Publisher tempPublisher;
-        protected Genre tempGenre;
+        public Book tempBook;
+        public Author tempAuthor;
+        public Publisher tempPublisher;
+        public Genre tempGenre;
         protected Book? referencedBook;
         protected Author? referencedAuthor;
         protected Publisher? referencedPublisher;
         protected Genre? referencedGenre;
+        public CallFrom calledFrom;
+
 
         public AbstractEditCreate(LibraryForm parentForm)
         {
@@ -96,12 +98,11 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        public async void openEditBookPanel(Book? book)
+        public async void populateEditBookPanel(Book book)
         {
-            if (book != null)
-                referencedBook = book;
-            else
-                book = referencedBook!;
+
+            referencedBook = book;
+
             ////////////////////////////////populate Info
             titleTextBoxEditBookPanel.Text = book.title;
             pagesTextBoxEditBookPanel.Text = book.pageNumber.ToString();
@@ -197,12 +198,11 @@ namespace LibraryDisplay.UserControls
             editTabs.SelectedTab = bookEditTab;
         }
 
-        public void openEditAuthorPanel(Author? author)
+        public void populateEditAuthorPanel(Author author, CallFrom openedFrom)
         {
-            if (author != null)
-                referencedAuthor = author;
-            else
-                author = referencedAuthor!;
+            calledFrom = openedFrom;
+            referencedAuthor = author;
+            
             ////////////////////////////////populate Info
             firstNameTextBoxEditAuthorPanel.Text = author.firstName;
             lastNameTextBoxEditAuthorPanel.Text = author.lastName;
@@ -213,12 +213,12 @@ namespace LibraryDisplay.UserControls
             editTabs.SelectedTab = authorEditTab;
         }
 
-        public void openEditPublisherPanel(Publisher? publisher)
+        public void populateEditPublisherPanel(Publisher publisher, CallFrom openedFrom)
         {
-            if (publisher != null)
-                referencedPublisher = publisher;
-            else
-                publisher = referencedPublisher!;
+            calledFrom = openedFrom;
+
+            referencedPublisher = publisher;
+            
             nameTextBoxEditPublisherPanel.Text = publisher.name;
             emailTextBoxEditPublisherPanel.Text = publisher.email;
             phoneTextBoxEditPublisherPanel.Text = publisher.phone;
@@ -227,12 +227,12 @@ namespace LibraryDisplay.UserControls
             editTabs.SelectedTab = publisherEditTab;
         }
 
-        public async void openEditGenrePanel(Genre? genre)
+        public async void populateEditGenrePanel(Genre genre, CallFrom openedFrom)
         {
-            if (genre != null)
-                referencedGenre = genre;
-            else
-                genre = referencedGenre!;
+            calledFrom = openedFrom;
+            
+            referencedGenre = genre;
+
             genreTextBoxEditGenrePanel.Text = genre.genre;
             ////////////////////////////////populate Parent
             HashSet<Genre> parents = await GetRequests.GetGenres();
@@ -365,7 +365,16 @@ namespace LibraryDisplay.UserControls
 
             if (selection!.Id == "-1")
             {
-
+                createTempBook();
+                Console.WriteLine(this.GetType());
+                Console.WriteLine(typeof(CreateControl));
+                Console.WriteLine(typeof(EditControl));
+                
+                if (this.GetType()==typeof(CreateControl))
+                    parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.CreateBook);
+                if (this.GetType() == typeof(EditControl))
+                    parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.EditBook);
+                parentForm.createControl.BringToFront();
             }
             else if (!list.Contains(selection!.Id))
             {
@@ -387,7 +396,12 @@ namespace LibraryDisplay.UserControls
 
             if (selection!.Id == "-1")
             {
-
+                createTempBook();
+                if (this.GetType() == typeof(CreateControl))
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateBook);
+                if (this.GetType() == typeof(EditControl))
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditBook);
+                parentForm.createControl.BringToFront();
             }
             else if (!list.Contains(selection!.Id))
             {
@@ -408,7 +422,12 @@ namespace LibraryDisplay.UserControls
 
             if (selection!.Id == "-1")
             {
-
+                createTempGenre();
+                if (this.GetType() == typeof(CreateControl))
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenre);
+                if (this.GetType() == typeof(EditControl))
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenre);
+                parentForm.createControl.BringToFront();
             }
             else if (!list.Contains(selection!.Id))
             {

@@ -45,6 +45,7 @@ namespace LibraryDisplay.UserControls
             //get book
             Book book = await GetRequests.GetBookById(id);
             referencedBook = book;
+            
 
             bookLabelBookPanel.Text = book.title;
             pagesLabelBookPanel.Text = book.pageNumber.ToString();
@@ -86,7 +87,7 @@ namespace LibraryDisplay.UserControls
         private void editButtonBookPanel_Click(object sender, EventArgs e)
         {
             parentForm.editControl.BringToFront();
-            parentForm.editControl.openEditBookPanel(referencedBook);
+            parentForm.editControl.populateEditBookPanel(referencedBook);
         }
     }
 }
