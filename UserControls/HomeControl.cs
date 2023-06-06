@@ -130,6 +130,7 @@ namespace LibraryDisplay.UserControls
 
         private void createButtonHomePanel_Click(object sender, EventArgs e)
         {
+            parentForm.createControl.populateEditBookPanel(new Book());
             parentForm.createControl.BringToFront();
         }
     }

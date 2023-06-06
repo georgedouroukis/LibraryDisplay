@@ -27,7 +27,7 @@ namespace LibraryDisplay.Models
             genres = new HashSet<int>();
 
         }
-        public Book(Book other) //Clone Constructor
+        public Book(Book other) //Copy Constructor
         {
             id = other.id;
             isbn = other.isbn;

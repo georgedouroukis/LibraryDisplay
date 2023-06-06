@@ -21,6 +21,14 @@ namespace LibraryDisplay.Models
             books = new HashSet<int>();
         }
 
+        public Author(Author other)
+        {
+            firstName = other.firstName;
+            lastName = other.lastName;
+            middleName = other.middleName;
+            description = other.description;
+            books = other.books;
+        }
         public override bool Equals(object? obj)
         {
             return obj is Author author &&

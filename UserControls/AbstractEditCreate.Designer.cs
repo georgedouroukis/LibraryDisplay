@@ -381,6 +381,7 @@
             pagesTextBoxEditBookPanel.Name = "pagesTextBoxEditBookPanel";
             pagesTextBoxEditBookPanel.Size = new Size(534, 31);
             pagesTextBoxEditBookPanel.TabIndex = 7;
+            pagesTextBoxEditBookPanel.TextChanged += pagesTextBoxEditBookPanel_TextChanged;
             // 
             // flowLayoutPanel48
             // 

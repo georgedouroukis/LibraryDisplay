@@ -18,6 +18,14 @@ namespace LibraryDisplay.Models
             email = string.Empty;
             books = new HashSet<int>();
         }
+
+        public Publisher(Publisher other)
+        {
+            name = other.name;
+            phone = other.phone;
+            email = other.email;
+            books = other.books;
+        }
         public override bool Equals(object? obj)
         {
             return obj is Publisher publisher &&

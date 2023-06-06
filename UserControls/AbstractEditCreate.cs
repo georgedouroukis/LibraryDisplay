@@ -14,6 +14,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Publisher = LibraryDisplay.Models.Publisher;
 
 namespace LibraryDisplay.UserControls
@@ -51,13 +52,13 @@ namespace LibraryDisplay.UserControls
         {
             bool checkChanges = true;
             DbTable table;
-            if (editTabs.SelectedTab==bookEditTab)
+            if (editTabs.SelectedTab == bookEditTab)
             {
                 createTempBook();
                 checkChanges = !referencedBook!.Equals(tempBook);
                 table = DbTable.Book;
             }
-            else if (editTabs.SelectedTab==authorEditTab)
+            else if (editTabs.SelectedTab == authorEditTab)
             {
                 createTempAuthor();
                 checkChanges = !referencedAuthor!.Equals(tempAuthor);
@@ -105,7 +106,7 @@ namespace LibraryDisplay.UserControls
 
             ////////////////////////////////populate Info
             titleTextBoxEditBookPanel.Text = book.title;
-            pagesTextBoxEditBookPanel.Text = book.pageNumber.ToString();
+            pagesTextBoxEditBookPanel.Text = book.pageNumber==0? string.Empty : book.pageNumber.ToString();
             dateTextBoxEditBookPanel.Text = book.publicationDate;
             isbnTextBoxEditBookPanel.Text = book.isbn;
             descriptionTextBoxEditBookPanel.Text = book.description;
@@ -114,7 +115,7 @@ namespace LibraryDisplay.UserControls
             ////////////////////////////////populate Authors
             HashSet<Author> authors = await GetRequests.GetAuthors();
             authorComboBoxEditBookPanel.Items.Clear();
-
+            authorComboBoxEditBookPanel.Text = string.Empty;
             //create new author item 
             ComboBoxItem createAuthor = new ComboBoxItem();
             createAuthor.Text = "Create New Author...";
@@ -129,8 +130,8 @@ namespace LibraryDisplay.UserControls
                 item.Text = author.lastName + " " + author.firstName + " " + author.middleName;
                 item.Id = author.id!.ToString();
                 authorComboBoxEditBookPanel.Items.Add(item);
-                if (book.authors!=null)
-                    if(book.authors.Contains(Int32.Parse(item.Id)))
+                if (book.authors != null)
+                    if (book.authors.Contains(Int32.Parse(item.Id)))
                     {
                         RemovableLabel label = new RemovableLabel(item.Id, DbTable.Author, parentForm, authorFlowBookEditPanel);
                         label.Text = item.Text;
@@ -138,6 +139,7 @@ namespace LibraryDisplay.UserControls
                         authorFlowBookEditPanel.Controls.Add(label);
                     }
             }
+            authorComboBoxEditBookPanel.Text = string.Empty;
 
             ////////////////////////////////populate Publishers
             HashSet<Publisher> publishers = await GetRequests.GetPublishers();
@@ -186,7 +188,7 @@ namespace LibraryDisplay.UserControls
                 item.Text = genre.genre;
                 item.Id = genre.id.ToString();
                 genreComboBoxEditBookPanel.Items.Add(item);
-                if(book.genres!=null)
+                if (book.genres != null)
                     if (book.genres.Contains(Int32.Parse(item.Id)))
                     {
                         RemovableLabel label = new RemovableLabel(item.Id, DbTable.Genre, parentForm, genreFlowBookEditPanel);
@@ -194,6 +196,8 @@ namespace LibraryDisplay.UserControls
                         genreFlowBookEditPanel.Controls.Add(label);
                     }
             }
+            genreComboBoxEditBookPanel.Text = string.Empty;
+
             bookEditTab.Enabled = true;
             editTabs.SelectedTab = bookEditTab;
         }
@@ -202,7 +206,7 @@ namespace LibraryDisplay.UserControls
         {
             calledFrom = openedFrom;
             referencedAuthor = author;
-            
+
             ////////////////////////////////populate Info
             firstNameTextBoxEditAuthorPanel.Text = author.firstName;
             lastNameTextBoxEditAuthorPanel.Text = author.lastName;
@@ -218,7 +222,7 @@ namespace LibraryDisplay.UserControls
             calledFrom = openedFrom;
 
             referencedPublisher = publisher;
-            
+
             nameTextBoxEditPublisherPanel.Text = publisher.name;
             emailTextBoxEditPublisherPanel.Text = publisher.email;
             phoneTextBoxEditPublisherPanel.Text = publisher.phone;
@@ -230,7 +234,7 @@ namespace LibraryDisplay.UserControls
         public async void populateEditGenrePanel(Genre genre, CallFrom openedFrom)
         {
             calledFrom = openedFrom;
-            
+
             referencedGenre = genre;
 
             genreTextBoxEditGenrePanel.Text = genre.genre;
@@ -262,6 +266,7 @@ namespace LibraryDisplay.UserControls
                     parentGenreComboBoxEditGenrePanel.SelectedItem = item;
                 }
             }
+            parentGenreComboBoxEditGenrePanel.Text = string.Empty;
             if (genre.parentGenre == null)
             {
                 parentGenreComboBoxEditGenrePanel.SelectedItem = noParent;
@@ -292,6 +297,7 @@ namespace LibraryDisplay.UserControls
                     subFlowEditGenrePanel.Controls.Add(label);
                 }
             }
+            subComboBoxEditGenrePanel.Text = string.Empty;
 
             genreEditTab.Enabled = true;
             editTabs.SelectedTab = genreEditTab;
@@ -369,8 +375,8 @@ namespace LibraryDisplay.UserControls
                 Console.WriteLine(this.GetType());
                 Console.WriteLine(typeof(CreateControl));
                 Console.WriteLine(typeof(EditControl));
-                
-                if (this.GetType()==typeof(CreateControl))
+
+                if (this.GetType() == typeof(CreateControl))
                     parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.CreateBook);
                 if (this.GetType() == typeof(EditControl))
                     parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.EditBook);
@@ -442,12 +448,12 @@ namespace LibraryDisplay.UserControls
             tempBook.id = referencedBook.id;
             tempBook.title = titleTextBoxEditBookPanel.Text;
             tempBook.isbn = isbnTextBoxEditBookPanel.Text;
-            tempBook.pageNumber = Int32.Parse(pagesTextBoxEditBookPanel.Text);
+            tempBook.pageNumber = pagesTextBoxEditBookPanel.Text==string.Empty? 0 : Int32.Parse(pagesTextBoxEditBookPanel.Text);
             tempBook.imageUrl = imageURLTextBoxEditBookPanel.Text;
             tempBook.publicationDate = dateTextBoxEditBookPanel.Text;
             tempBook.description = descriptionTextBoxEditBookPanel.Text;
             ComboBoxItem? p = publisherComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
-            tempBook.publisher = p==null ? 0 : Int32.Parse(p!.Id);
+            tempBook.publisher = p == null ? 0 : Int32.Parse(p!.Id);
             HashSet<int> a = new HashSet<int>();
             foreach (RemovableLabel l in authorFlowBookEditPanel.Controls.OfType<RemovableLabel>())
             {
@@ -485,7 +491,7 @@ namespace LibraryDisplay.UserControls
             tempGenre.id = referencedGenre.id;
             tempGenre.genre = genreTextBoxEditGenrePanel.Text;
             ComboBoxItem? p = parentGenreComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
-            tempGenre.parentGenre = p==null||p.Id==""||p.Id == "0" ? null : Int32.Parse(p!.Id);
+            tempGenre.parentGenre = p == null || p.Id == "" || p.Id == "0" ? null : Int32.Parse(p!.Id);
             HashSet<int> s = new HashSet<int>();
             foreach (RemovableLabel l in subFlowEditGenrePanel.Controls.OfType<RemovableLabel>())
             {
@@ -494,6 +500,19 @@ namespace LibraryDisplay.UserControls
             tempGenre.subGenres = s;
             tempGenre.books = referencedGenre.books;
 
+        }
+
+        private void pagesTextBoxEditBookPanel_TextChanged(object sender, EventArgs e)
+        {
+            string original = pagesTextBoxEditBookPanel.Text;
+            string formated = string.Concat(original.Where(c => (c >= '0' && c <= '9')));
+            if (formated != original)
+            {
+                int s = pagesTextBoxEditBookPanel.SelectionStart;
+                if (s > 0 && formated.Length > s && original[s - 1] != formated[s - 1]) s--;
+                pagesTextBoxEditBookPanel.Text = formated;
+                pagesTextBoxEditBookPanel.SelectionStart = s;
+            }
         }
     }
 }

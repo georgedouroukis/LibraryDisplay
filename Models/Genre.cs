@@ -17,6 +17,13 @@ namespace LibraryDisplay.Models
             subGenres = new HashSet<int>();
             books = new HashSet<int>();
         }
+
+        public Genre(Genre other)
+        {
+            genre = other.genre;
+            subGenres = other.subGenres;
+            books = other.books;
+        }
         public override bool Equals(object? obj)
         {
             return obj is Genre genre &&
