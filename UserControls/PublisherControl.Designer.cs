@@ -102,7 +102,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
-            tableLayoutPanel2.Controls.Add(editButtonPublisherPanel, 2, 0);
+            tableLayoutPanel2.Controls.Add(homeButtonPublisherPanel, 2, 0);
             tableLayoutPanel2.Controls.Add(publisherLabelPublisherPanel, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
@@ -115,7 +115,7 @@
             // editButtonPublisherPanel
             // 
             editButtonPublisherPanel.Anchor = AnchorStyles.Right;
-            editButtonPublisherPanel.Location = new Point(636, 26);
+            editButtonPublisherPanel.Location = new Point(636, 3);
             editButtonPublisherPanel.Name = "editButtonPublisherPanel";
             editButtonPublisherPanel.Size = new Size(106, 34);
             editButtonPublisherPanel.TabIndex = 6;
@@ -209,7 +209,7 @@
             // 
             // flowLayoutPanel7
             // 
-            flowLayoutPanel7.Controls.Add(homeButtonPublisherPanel);
+            flowLayoutPanel7.Controls.Add(editButtonPublisherPanel);
             flowLayoutPanel7.Dock = DockStyle.Fill;
             flowLayoutPanel7.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel7.Location = new Point(0, 0);
@@ -220,9 +220,9 @@
             // homeButtonPublisherPanel
             // 
             homeButtonPublisherPanel.Anchor = AnchorStyles.Right;
-            homeButtonPublisherPanel.Location = new Point(630, 3);
+            homeButtonPublisherPanel.Location = new Point(636, 26);
             homeButtonPublisherPanel.Name = "homeButtonPublisherPanel";
-            homeButtonPublisherPanel.Size = new Size(112, 34);
+            homeButtonPublisherPanel.Size = new Size(106, 34);
             homeButtonPublisherPanel.TabIndex = 8;
             homeButtonPublisherPanel.Text = "Home";
             homeButtonPublisherPanel.UseVisualStyleBackColor = true;

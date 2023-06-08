@@ -41,11 +41,11 @@ namespace LibraryDisplay.UserControls
             genreFlowBookPanel.Controls.Clear();
             genreFlowBookPanel.Controls.Add(new Label() { Text = "Genre: ", AutoSize = true });
             pictureBoxBookPanel.Image = null;
-            
+
             //get book
             Book book = await GetRequests.GetBookById(id);
             referencedBook = book;
-            
+
 
             bookLabelBookPanel.Text = book.title;
             pagesLabelBookPanel.Text = book.pageNumber == 0 ? string.Empty : book.pageNumber.ToString();

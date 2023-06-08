@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LibraryDisplay.Models;
+using LibraryDisplay.Network;
+using LibraryDisplay.UserControls.GenericItems;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +26,19 @@ namespace LibraryDisplay.UserControls
         private void homeButtonCollectionPanel_Click(object sender, EventArgs e)
         {
             parentForm.homeControl.BringToFront();
+        }
+
+        public async Task openCollectionPanel()
+        {
+            collectionBookFlow.Controls.Clear();
+            HashSet<Book> set = await GetRequests.GetBooks();
+
+            foreach (var book in set)
+            {
+                ClickableBookItem item = new ClickableBookItem(book.id.ToString(), DbTable.Book, parentForm, collectionBookFlow);
+                collectionBookFlow.Controls.Add(item);
+            }
+            this.BringToFront();
         }
     }
 }

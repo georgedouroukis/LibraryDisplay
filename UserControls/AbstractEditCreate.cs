@@ -222,7 +222,7 @@ namespace LibraryDisplay.UserControls
         public void populateEditPublisherPanel(Publisher publisher, CallFrom openedFrom, bool firstCall)
         {
             calledFrom = openedFrom;
-            if(firstCall)
+            if (firstCall)
                 referencedPublisher = publisher;
 
             nameTextBoxEditPublisherPanel.Text = publisher.name;
@@ -236,7 +236,7 @@ namespace LibraryDisplay.UserControls
         public async void populateEditGenrePanel(Genre genre, CallFrom openedFrom, bool firstCall)
         {
             calledFrom = openedFrom;
-            if(firstCall)
+            if (firstCall)
                 referencedGenre = genre;
 
             genreTextBoxEditGenrePanel.Text = genre.genre;
@@ -463,7 +463,7 @@ namespace LibraryDisplay.UserControls
             ComboBoxItem? selection = parentGenreComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
             if (selection!.Id == "-1")
             {
-                createTempGenre(); 
+                createTempGenre();
 
                 if (this.GetType() == typeof(CreateControl))
                     parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreParent, true);
@@ -546,6 +546,6 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        
+
     }
 }

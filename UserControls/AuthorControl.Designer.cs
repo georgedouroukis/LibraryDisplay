@@ -97,7 +97,7 @@
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
-            tableLayoutPanel9.Controls.Add(editButtonAuthorPanel, 2, 0);
+            tableLayoutPanel9.Controls.Add(homeButtonAuthorPanel, 2, 0);
             tableLayoutPanel9.Controls.Add(authorLabelAuthorPanel, 1, 0);
             tableLayoutPanel9.Dock = DockStyle.Fill;
             tableLayoutPanel9.Location = new Point(0, 0);
@@ -110,7 +110,7 @@
             // editButtonAuthorPanel
             // 
             editButtonAuthorPanel.Anchor = AnchorStyles.Right;
-            editButtonAuthorPanel.Location = new Point(636, 6);
+            editButtonAuthorPanel.Location = new Point(636, 3);
             editButtonAuthorPanel.Name = "editButtonAuthorPanel";
             editButtonAuthorPanel.Size = new Size(106, 31);
             editButtonAuthorPanel.TabIndex = 6;
@@ -170,7 +170,7 @@
             // 
             // flowLayoutPanel22
             // 
-            flowLayoutPanel22.Controls.Add(homeButtonAuthorPanel);
+            flowLayoutPanel22.Controls.Add(editButtonAuthorPanel);
             flowLayoutPanel22.Dock = DockStyle.Fill;
             flowLayoutPanel22.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel22.Location = new Point(0, 0);
@@ -181,9 +181,9 @@
             // homeButtonAuthorPanel
             // 
             homeButtonAuthorPanel.Anchor = AnchorStyles.Right;
-            homeButtonAuthorPanel.Location = new Point(630, 3);
+            homeButtonAuthorPanel.Location = new Point(636, 5);
             homeButtonAuthorPanel.Name = "homeButtonAuthorPanel";
-            homeButtonAuthorPanel.Size = new Size(112, 34);
+            homeButtonAuthorPanel.Size = new Size(106, 34);
             homeButtonAuthorPanel.TabIndex = 8;
             homeButtonAuthorPanel.Text = "Home";
             homeButtonAuthorPanel.UseVisualStyleBackColor = true;

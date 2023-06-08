@@ -123,9 +123,9 @@ namespace LibraryDisplay.UserControls
             parentForm.genreControl.BringToFront();
         }
 
-        private void collectionButtonHomePanel_Click(object sender, EventArgs e)
+        private async void collectionButtonHomePanel_Click(object sender, EventArgs e)
         {
-            parentForm.collectionControl.BringToFront();
+            await parentForm.collectionControl.openCollectionPanel();
         }
 
         private void createButtonHomePanel_Click(object sender, EventArgs e)

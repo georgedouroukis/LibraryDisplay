@@ -162,8 +162,8 @@
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
-            tableLayoutPanel7.Controls.Add(saveButtonEditPanel, 2, 0);
             tableLayoutPanel7.Controls.Add(pageTitle, 1, 0);
+            tableLayoutPanel7.Controls.Add(homeButtonEditPanel, 2, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
             tableLayoutPanel7.Location = new Point(0, 0);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -175,7 +175,7 @@
             // saveButtonEditPanel
             // 
             saveButtonEditPanel.Anchor = AnchorStyles.None;
-            saveButtonEditPanel.Location = new Point(1013, 24);
+            saveButtonEditPanel.Location = new Point(1013, 3);
             saveButtonEditPanel.Name = "saveButtonEditPanel";
             saveButtonEditPanel.Size = new Size(106, 34);
             saveButtonEditPanel.TabIndex = 4;
@@ -867,7 +867,7 @@
             // 
             // flowLayoutPanel62
             // 
-            flowLayoutPanel62.Controls.Add(homeButtonEditPanel);
+            flowLayoutPanel62.Controls.Add(saveButtonEditPanel);
             flowLayoutPanel62.Dock = DockStyle.Fill;
             flowLayoutPanel62.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel62.Location = new Point(0, 0);
@@ -878,9 +878,9 @@
             // homeButtonEditPanel
             // 
             homeButtonEditPanel.Anchor = AnchorStyles.Right;
-            homeButtonEditPanel.Location = new Point(1007, 3);
+            homeButtonEditPanel.Location = new Point(1013, 24);
             homeButtonEditPanel.Name = "homeButtonEditPanel";
-            homeButtonEditPanel.Size = new Size(112, 34);
+            homeButtonEditPanel.Size = new Size(106, 34);
             homeButtonEditPanel.TabIndex = 7;
             homeButtonEditPanel.Text = "Home";
             homeButtonEditPanel.UseVisualStyleBackColor = true;
@@ -961,7 +961,6 @@
         protected Label pageTitle;
         protected SplitContainer splitContainer10;
         protected FlowLayoutPanel flowLayoutPanel62;
-        protected Button homeButtonEditPanel;
         protected TabControl editTabs;
         protected TabPage bookEditTab;
         protected FlowLayoutPanel flowLayoutPanel42;
@@ -1028,5 +1027,6 @@
         protected Label label2;
         protected ComboBox subComboBoxEditGenrePanel;
         protected FlowLayoutPanel subFlowEditGenrePanel;
+        protected Button homeButtonEditPanel;
     }
 }

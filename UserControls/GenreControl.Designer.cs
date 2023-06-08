@@ -97,7 +97,7 @@
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
-            tableLayoutPanel9.Controls.Add(editButtonGenrePanel, 2, 0);
+            tableLayoutPanel9.Controls.Add(homeButtonGenrePanel, 2, 0);
             tableLayoutPanel9.Controls.Add(genreLabelGenrePanel, 1, 0);
             tableLayoutPanel9.Dock = DockStyle.Fill;
             tableLayoutPanel9.Location = new Point(0, 0);
@@ -166,7 +166,7 @@
             // 
             // flowLayoutPanel22
             // 
-            flowLayoutPanel22.Controls.Add(homeButtonGenrePanel);
+            flowLayoutPanel22.Controls.Add(editButtonGenrePanel);
             flowLayoutPanel22.Dock = DockStyle.Fill;
             flowLayoutPanel22.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel22.Location = new Point(0, 0);
@@ -177,9 +177,9 @@
             // homeButtonGenrePanel
             // 
             homeButtonGenrePanel.Anchor = AnchorStyles.Right;
-            homeButtonGenrePanel.Location = new Point(630, 3);
+            homeButtonGenrePanel.Location = new Point(636, 3);
             homeButtonGenrePanel.Name = "homeButtonGenrePanel";
-            homeButtonGenrePanel.Size = new Size(112, 34);
+            homeButtonGenrePanel.Size = new Size(106, 31);
             homeButtonGenrePanel.TabIndex = 8;
             homeButtonGenrePanel.Text = "Home";
             homeButtonGenrePanel.UseVisualStyleBackColor = true;

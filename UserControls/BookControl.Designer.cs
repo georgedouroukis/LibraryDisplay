@@ -98,8 +98,8 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
-            tableLayoutPanel3.Controls.Add(editButtonBookPanel, 2, 0);
             tableLayoutPanel3.Controls.Add(bookLabelBookPanel, 1, 0);
+            tableLayoutPanel3.Controls.Add(homeButtonBookPanel, 2, 0);
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
@@ -110,7 +110,7 @@
             // editButtonBookPanel
             // 
             editButtonBookPanel.Anchor = AnchorStyles.None;
-            editButtonBookPanel.Location = new Point(543, 25);
+            editButtonBookPanel.Location = new Point(543, 3);
             editButtonBookPanel.Name = "editButtonBookPanel";
             editButtonBookPanel.Size = new Size(106, 34);
             editButtonBookPanel.TabIndex = 4;
@@ -131,7 +131,7 @@
             // 
             // flowLayoutPanel13
             // 
-            flowLayoutPanel13.Controls.Add(homeButtonBookPanel);
+            flowLayoutPanel13.Controls.Add(editButtonBookPanel);
             flowLayoutPanel13.Dock = DockStyle.Fill;
             flowLayoutPanel13.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel13.Location = new Point(3, 541);
@@ -141,9 +141,10 @@
             // 
             // homeButtonBookPanel
             // 
-            homeButtonBookPanel.Location = new Point(537, 3);
+            homeButtonBookPanel.Anchor = AnchorStyles.Right;
+            homeButtonBookPanel.Location = new Point(543, 25);
             homeButtonBookPanel.Name = "homeButtonBookPanel";
-            homeButtonBookPanel.Size = new Size(112, 34);
+            homeButtonBookPanel.Size = new Size(106, 34);
             homeButtonBookPanel.TabIndex = 0;
             homeButtonBookPanel.Text = "Home";
             homeButtonBookPanel.UseVisualStyleBackColor = true;
