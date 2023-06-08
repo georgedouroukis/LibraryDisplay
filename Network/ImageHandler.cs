@@ -24,15 +24,16 @@ namespace LibraryDisplay.Network
                     }
                     else
                     {
-                        MessageBox.Show("Status Code: " + responce.StatusCode.ToString());
+                        //MessageBox.Show("Status Code: " + responce.StatusCode.ToString());
                     }
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, e.GetType().ToString());
+                //MessageBox.Show(e.Message, e.GetType().ToString());
             }
-            Image image = ByteArrayToImage(responceData);
+            Image placeholder =Image.FromFile(new Uri(@"Resourses\placeholder.png", UriKind.Relative).ToString());
+            Image image = responceData == null ? placeholder : ByteArrayToImage(responceData);
             return image;
         }
 

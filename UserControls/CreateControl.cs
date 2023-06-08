@@ -22,7 +22,7 @@ namespace LibraryDisplay.UserControls
             authorEditTab.Enabled = true;
             publisherEditTab.Enabled = true;
             genreEditTab.Enabled = true;
-            populateEditBookPanel(new Book());
+            populateEditBookPanel(new Book(), true);
         }
 
         protected override void editTabs_Selecting(object sender, TabControlCancelEventArgs e) 
@@ -63,20 +63,25 @@ namespace LibraryDisplay.UserControls
 
                                 if (calledFrom == CallFrom.None)
                                 {
-                                    parentForm.createControl.populateEditBookPanel(new Book());
+                                    parentForm.createControl.populateEditBookPanel(new Book(), true);
                                     await parentForm.authorControl.openAuthorPanel(id);
                                 }
                                 else if (calledFrom == CallFrom.CreateBook)
                                 {
-                                    parentForm.createControl.populateEditBookPanel(new Book(parentForm.createControl.tempBook));
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.createControl.tempBook.authors.Add(Int32.Parse(id));
+                                    parentForm.createControl.populateEditBookPanel(new Book(parentForm.createControl.tempBook), false);
                                     calledFrom = CallFrom.None;
                                 }
                                 else if (calledFrom == CallFrom.EditBook)
                                 {
-                                    parentForm.editControl.populateEditBookPanel(new Book(parentForm.editControl.tempBook));
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.editControl.tempBook.authors.Add(Int32.Parse(id));
+                                    parentForm.editControl.populateEditBookPanel(new Book(parentForm.editControl.tempBook), false);
                                     calledFrom = CallFrom.None;
+                                    parentForm.editControl.BringToFront();
                                 }
-
+                                parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.None, true); //refresh
                                 break;
 
                             case DbTable.Genre:
@@ -85,34 +90,60 @@ namespace LibraryDisplay.UserControls
 
                                 if (calledFrom == CallFrom.None)
                                 {
-                                    parentForm.createControl.populateEditBookPanel(new Book());
+                                    parentForm.createControl.populateEditBookPanel(new Book(), true);
                                     await parentForm.genreControl.openGenrePanel(id);
                                 }
 
                                 else if (calledFrom == CallFrom.CreateBook)
                                 {
-                                    parentForm.createControl.populateEditBookPanel(new Book(parentForm.createControl.tempBook));
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.createControl.tempBook.genres.Add(Int32.Parse(id));
+                                    parentForm.createControl.populateEditBookPanel(new Book(parentForm.createControl.tempBook), false);
                                     calledFrom = CallFrom.None;
                                     
                                 }
                                 else if (calledFrom == CallFrom.EditBook)
                                 {
-                                    parentForm.editControl.populateEditBookPanel(new Book(parentForm.editControl.tempBook));
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.editControl.tempBook.genres.Add(Int32.Parse(id));
+                                    parentForm.editControl.populateEditBookPanel(new Book(parentForm.editControl.tempBook), false);
                                     calledFrom = CallFrom.None;
+                                    parentForm.editControl.BringToFront();
                                 }
-                                else if (calledFrom == CallFrom.CreateGenre)
+                                else if (calledFrom == CallFrom.CreateGenreSub)
                                 {
-                                    parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, CallFrom.None);
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.createControl.tempGenre.subGenres.Add(Int32.Parse(id));
+                                    parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, CallFrom.None, false);
                                     calledFrom = CallFrom.None;
 
                                 }
-                                else if (calledFrom == CallFrom.EditGenre)
+                                else if (calledFrom == CallFrom.EditGenreSub)
                                 {
-                                    parentForm.editControl.populateEditGenrePanel(parentForm.editControl.tempGenre, CallFrom.None);
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.editControl.tempGenre.subGenres.Add(Int32.Parse(id));
+                                    parentForm.editControl.populateEditGenrePanel(parentForm.editControl.tempGenre, CallFrom.None, false);
                                     calledFrom = CallFrom.None;
+                                    parentForm.editControl.BringToFront();
+                                }
+                                else if (calledFrom == CallFrom.CreateGenreParent)
+                                {
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.createControl.tempGenre.parentGenre = Int32.Parse(id);
+                                    parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, CallFrom.None, false);
+                                    calledFrom = CallFrom.None;
+
+                                }
+                                else if (calledFrom == CallFrom.EditGenreParent)
+                                {
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.editControl.tempGenre.parentGenre = Int32.Parse(id);
+                                    parentForm.editControl.populateEditGenrePanel(parentForm.editControl.tempGenre, CallFrom.None, false);
+                                    calledFrom = CallFrom.None;
+                                    parentForm.editControl.BringToFront();
                                 }
 
-                                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None); //refresh
+                                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None, true); //refresh
 
                                 break;
 
@@ -122,21 +153,28 @@ namespace LibraryDisplay.UserControls
 
                                 if (calledFrom == CallFrom.None)
                                 {
-                                    parentForm.createControl.populateEditBookPanel(new Book());
+                                    parentForm.createControl.populateEditBookPanel(new Book(), true);
                                     await parentForm.publisherControl.openPublisherPanel(id);
                                 }
 
                                 else if (calledFrom == CallFrom.CreateBook)
                                 {
-                                    parentForm.createControl.populateEditBookPanel(parentForm.createControl.tempBook);
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.createControl.tempBook.publisher = Int32.Parse(id);
+                                    parentForm.createControl.populateEditBookPanel(parentForm.createControl.tempBook, false);
                                     calledFrom = CallFrom.None;
                                 }
                                 else if (calledFrom == CallFrom.EditBook)
                                 {
-                                    parentForm.editControl.populateEditBookPanel(parentForm.editControl.tempBook);
+                                    if (!string.IsNullOrEmpty(id))
+                                        parentForm.editControl.tempBook.publisher = Int32.Parse(id);
+                                    parentForm.editControl.populateEditBookPanel(parentForm.editControl.tempBook, false);
                                     calledFrom = CallFrom.None;
+                                    parentForm.editControl.BringToFront();
                                 }
-                                
+
+                                parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.None, true); //refresh
+
                                 break;
 
 

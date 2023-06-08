@@ -64,7 +64,10 @@ namespace LibraryDisplay.UserControls.GenericItems
             Book book = await GetRequests.GetBookById(id);
 
             label.Text = book.title;
-            pictureBox.LoadAsync(book.imageUrl);
+            if (book.imageUrl != string.Empty)
+                pictureBox.LoadAsync(book.imageUrl);
+            else
+                pictureBox.LoadAsync(new Uri(@"Resourses\placeholder.png", UriKind.Relative).ToString());
 
             Controls.Add(pictureBox);
             Controls.Add(label);

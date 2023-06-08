@@ -52,7 +52,7 @@ namespace LibraryDisplay.UserControls
         private void editButtonPublisherPanel_Click(object sender, EventArgs e)
         {
             parentForm.editControl.BringToFront();
-            parentForm.editControl.populateEditPublisherPanel(referencedPublisher, CallFrom.None);
+            parentForm.editControl.populateEditPublisherPanel(referencedPublisher, CallFrom.None, true);
         }
     }
 }

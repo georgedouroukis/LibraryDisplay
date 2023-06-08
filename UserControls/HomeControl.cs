@@ -130,7 +130,10 @@ namespace LibraryDisplay.UserControls
 
         private void createButtonHomePanel_Click(object sender, EventArgs e)
         {
-            parentForm.createControl.populateEditBookPanel(new Book());
+            parentForm.createControl.populateEditBookPanel(new Book(), true);
+            parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.None, true);
+            parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.None, true);
+            parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None, true);
             parentForm.createControl.BringToFront();
         }
     }

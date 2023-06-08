@@ -99,14 +99,15 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        public async void populateEditBookPanel(Book book)
+        public async void populateEditBookPanel(Book book, bool firstCall)
         {
 
-            referencedBook = book;
+            if (firstCall)
+                referencedBook = book;
 
             ////////////////////////////////populate Info
             titleTextBoxEditBookPanel.Text = book.title;
-            pagesTextBoxEditBookPanel.Text = book.pageNumber==0? string.Empty : book.pageNumber.ToString();
+            pagesTextBoxEditBookPanel.Text = book.pageNumber == 0 ? string.Empty : book.pageNumber.ToString();
             dateTextBoxEditBookPanel.Text = book.publicationDate;
             isbnTextBoxEditBookPanel.Text = book.isbn;
             descriptionTextBoxEditBookPanel.Text = book.description;
@@ -202,10 +203,11 @@ namespace LibraryDisplay.UserControls
             editTabs.SelectedTab = bookEditTab;
         }
 
-        public void populateEditAuthorPanel(Author author, CallFrom openedFrom)
+        public void populateEditAuthorPanel(Author author, CallFrom openedFrom, bool firstCall)
         {
             calledFrom = openedFrom;
-            referencedAuthor = author;
+            if (firstCall)
+                referencedAuthor = author;
 
             ////////////////////////////////populate Info
             firstNameTextBoxEditAuthorPanel.Text = author.firstName;
@@ -217,11 +219,11 @@ namespace LibraryDisplay.UserControls
             editTabs.SelectedTab = authorEditTab;
         }
 
-        public void populateEditPublisherPanel(Publisher publisher, CallFrom openedFrom)
+        public void populateEditPublisherPanel(Publisher publisher, CallFrom openedFrom, bool firstCall)
         {
             calledFrom = openedFrom;
-
-            referencedPublisher = publisher;
+            if(firstCall)
+                referencedPublisher = publisher;
 
             nameTextBoxEditPublisherPanel.Text = publisher.name;
             emailTextBoxEditPublisherPanel.Text = publisher.email;
@@ -231,11 +233,11 @@ namespace LibraryDisplay.UserControls
             editTabs.SelectedTab = publisherEditTab;
         }
 
-        public async void populateEditGenrePanel(Genre genre, CallFrom openedFrom)
+        public async void populateEditGenrePanel(Genre genre, CallFrom openedFrom, bool firstCall)
         {
             calledFrom = openedFrom;
-
-            referencedGenre = genre;
+            if(firstCall)
+                referencedGenre = genre;
 
             genreTextBoxEditGenrePanel.Text = genre.genre;
             ////////////////////////////////populate Parent
@@ -372,14 +374,11 @@ namespace LibraryDisplay.UserControls
             if (selection!.Id == "-1")
             {
                 createTempBook();
-                Console.WriteLine(this.GetType());
-                Console.WriteLine(typeof(CreateControl));
-                Console.WriteLine(typeof(EditControl));
 
                 if (this.GetType() == typeof(CreateControl))
-                    parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.CreateBook);
+                    parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.CreateBook, true);
                 if (this.GetType() == typeof(EditControl))
-                    parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.EditBook);
+                    parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.EditBook, true);
                 parentForm.createControl.BringToFront();
             }
             else if (!list.Contains(selection!.Id))
@@ -404,9 +403,9 @@ namespace LibraryDisplay.UserControls
             {
                 createTempBook();
                 if (this.GetType() == typeof(CreateControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateBook);
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateBook, true);
                 if (this.GetType() == typeof(EditControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditBook);
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditBook, true);
                 parentForm.createControl.BringToFront();
             }
             else if (!list.Contains(selection!.Id))
@@ -416,6 +415,22 @@ namespace LibraryDisplay.UserControls
                 genreFlowBookEditPanel.Controls.Add(label);
             }
         }
+
+        private void publisherComboBoxEditBookPanel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxItem? selection = publisherComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
+            if (selection!.Id == "-1")
+            {
+                createTempBook();
+
+                if (this.GetType() == typeof(CreateControl))
+                    parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.CreateBook, true);
+                if (this.GetType() == typeof(EditControl))
+                    parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.EditBook, true);
+                parentForm.createControl.BringToFront();
+            }
+        }
+
         private void subComboBoxEditGenrePanel_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBoxItem? selection = subComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
@@ -430,9 +445,9 @@ namespace LibraryDisplay.UserControls
             {
                 createTempGenre();
                 if (this.GetType() == typeof(CreateControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenre);
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreSub, true);
                 if (this.GetType() == typeof(EditControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenre);
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreSub, true);
                 parentForm.createControl.BringToFront();
             }
             else if (!list.Contains(selection!.Id))
@@ -443,12 +458,28 @@ namespace LibraryDisplay.UserControls
             }
         }
 
+        private void parentGenreComboBoxEditGenrePanel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxItem? selection = parentGenreComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
+            if (selection!.Id == "-1")
+            {
+                createTempGenre(); 
+
+                if (this.GetType() == typeof(CreateControl))
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreParent, true);
+                if (this.GetType() == typeof(EditControl))
+                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreParent, true);
+                parentForm.createControl.BringToFront();
+            }
+        }
+
+
         protected void createTempBook()
         {
             tempBook.id = referencedBook.id;
             tempBook.title = titleTextBoxEditBookPanel.Text;
             tempBook.isbn = isbnTextBoxEditBookPanel.Text;
-            tempBook.pageNumber = pagesTextBoxEditBookPanel.Text==string.Empty? 0 : Int32.Parse(pagesTextBoxEditBookPanel.Text);
+            tempBook.pageNumber = pagesTextBoxEditBookPanel.Text == string.Empty ? 0 : Int32.Parse(pagesTextBoxEditBookPanel.Text);
             tempBook.imageUrl = imageURLTextBoxEditBookPanel.Text;
             tempBook.publicationDate = dateTextBoxEditBookPanel.Text;
             tempBook.description = descriptionTextBoxEditBookPanel.Text;
@@ -514,5 +545,7 @@ namespace LibraryDisplay.UserControls
                 pagesTextBoxEditBookPanel.SelectionStart = s;
             }
         }
+
+        
     }
 }

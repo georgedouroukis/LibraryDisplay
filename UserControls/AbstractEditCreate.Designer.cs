@@ -355,6 +355,7 @@
             publisherComboBoxEditBookPanel.Name = "publisherComboBoxEditBookPanel";
             publisherComboBoxEditBookPanel.Size = new Size(508, 33);
             publisherComboBoxEditBookPanel.TabIndex = 7;
+            publisherComboBoxEditBookPanel.SelectedIndexChanged += publisherComboBoxEditBookPanel_SelectedIndexChanged;
             // 
             // flowLayoutPanel47
             // 
@@ -819,6 +820,7 @@
             parentGenreComboBoxEditGenrePanel.Name = "parentGenreComboBoxEditGenrePanel";
             parentGenreComboBoxEditGenrePanel.Size = new Size(508, 33);
             parentGenreComboBoxEditGenrePanel.TabIndex = 7;
+            parentGenreComboBoxEditGenrePanel.SelectedIndexChanged += parentGenreComboBoxEditGenrePanel_SelectedIndexChanged;
             // 
             // flowLayoutPanel2
             // 

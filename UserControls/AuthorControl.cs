@@ -55,7 +55,7 @@ namespace LibraryDisplay.UserControls
         private void editButtonAuthorPanel_Click(object sender, EventArgs e)
         {
             parentForm.editControl.BringToFront();
-            parentForm.editControl.populateEditAuthorPanel(referencedAuthor, CallFrom.None);
+            parentForm.editControl.populateEditAuthorPanel(referencedAuthor, CallFrom.None, true);
         }
     }
 }

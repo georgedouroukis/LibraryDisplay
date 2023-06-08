@@ -9,6 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resourses\placeholder.jpg" />
+    <None Remove="Resourses\placeholder.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resourses\placeholder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

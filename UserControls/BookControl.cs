@@ -48,7 +48,7 @@ namespace LibraryDisplay.UserControls
             
 
             bookLabelBookPanel.Text = book.title;
-            pagesLabelBookPanel.Text = book.pageNumber.ToString();
+            pagesLabelBookPanel.Text = book.pageNumber == 0 ? string.Empty : book.pageNumber.ToString();
             isbnLabelBookPanel.Text = book.isbn;
             publicationDateLabelBookPanel.Text = book.publicationDate;
             descriptionLabelBookPanel.Text = book.description;
@@ -87,7 +87,7 @@ namespace LibraryDisplay.UserControls
         private void editButtonBookPanel_Click(object sender, EventArgs e)
         {
             parentForm.editControl.BringToFront();
-            parentForm.editControl.populateEditBookPanel(referencedBook);
+            parentForm.editControl.populateEditBookPanel(referencedBook, true);
         }
     }
 }

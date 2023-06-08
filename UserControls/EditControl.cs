@@ -38,18 +38,18 @@ namespace LibraryDisplay.UserControls
                                 break;
                             case DbTable.Author:
                                 await PutRequests.UpdateEntity<Author>(tempAuthor);
-                                parentForm.createControl.populateEditBookPanel(null); //regenerate panels
+                                parentForm.createControl.populateEditBookPanel(new Book(), true); //regenerate panels
                                 await parentForm.authorControl.openAuthorPanel(tempAuthor.id.ToString());
                                 break;
                             case DbTable.Publisher:
                                 await PutRequests.UpdateEntity<Publisher>(tempPublisher);
-                                parentForm.createControl.populateEditBookPanel(null); //regenerate panels
+                                parentForm.createControl.populateEditBookPanel(new Book(), true); //regenerate panels
                                 await parentForm.publisherControl.openPublisherPanel(tempPublisher.id.ToString());
                                 break;
                             case DbTable.Genre:
                                 await PutRequests.UpdateEntity<Genre>(tempGenre);
-                                parentForm.createControl.populateEditBookPanel(null); //regenerate panels
-                                parentForm.createControl.populateEditGenrePanel(null, CallFrom.None);
+                                parentForm.createControl.populateEditBookPanel(new Book(), true); //regenerate panels
+                                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None, true);
                                 parentForm.homeControl.genreTreeViewPopulate();
                                 await parentForm.genreControl.openGenrePanel(tempGenre.id.ToString());
                                 break;
