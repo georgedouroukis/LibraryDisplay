@@ -161,6 +161,7 @@ namespace LibraryDisplay.UserControls
             publisherComboBoxEditBookPanel.Items.Add(noPublisher);
 
             //populate combobox and selected
+            publisherComboBoxEditBookPanel.Text = string.Empty;
             foreach (Publisher publisher in publishers)
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -548,6 +549,14 @@ namespace LibraryDisplay.UserControls
             }
         }
 
+        private void imageCheckButonEditBookPanel_Click(object sender, EventArgs e)
+        {
+            string url = imageURLTextBoxEditBookPanel.Text.Trim();
+            if (!string.IsNullOrEmpty(url))
+            {
+                Form checkImageForm = new CheckImage(url);
+            }
 
+        }
     }
 }

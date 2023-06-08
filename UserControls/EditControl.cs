@@ -29,28 +29,40 @@ namespace LibraryDisplay.UserControls
             switch (status.Table)
             {
                 case DbTable.Book:
-                    dr = MessageBox.Show("This book will not be deleted if it is associated with another entry. \nAre you sure?", "Delete Book", MessageBoxButtons.YesNo);
+                    dr = MessageBox.Show("This action will delete only the selected book.\nAny associated authors, publishers or genres will not be affected.\nAre you sure?", "Delete Book", MessageBoxButtons.YesNo);
                     if (dr == DialogResult.Yes)
+                    {
                         await DeleteRequests.DeleteEntity<Book>(referencedBook!);
-                    break;
+                        parentForm.homeControl.BringToFront();
+                    }
+                        break;
                 case DbTable.Author:
-                    dr = MessageBox.Show("This author will not be deleted if it is associated with another entry. \nAre you sure?", "Delete Author", MessageBoxButtons.YesNo);
+                    dr = MessageBox.Show("This author will not be deleted if they are associated with any books. \nAre you sure?", "Delete Author", MessageBoxButtons.YesNo);
                     if (dr == DialogResult.Yes)
+                    {
                         await DeleteRequests.DeleteEntity<Author>(referencedAuthor!);
-                    break;
+                        parentForm.homeControl.BringToFront();
+                    }
+                        break;
                 case DbTable.Publisher:
-                    dr = MessageBox.Show("This publisher will not be deleted if it is associated with another entry. \nAre you sure?", "Delete Publisher", MessageBoxButtons.YesNo);
+                    dr = MessageBox.Show("This publisher will not be deleted if they are associated with any books. \nAre you sure?", "Delete Publisher", MessageBoxButtons.YesNo);
                     if (dr == DialogResult.Yes)
+                    {
                         await DeleteRequests.DeleteEntity<Publisher>(referencedPublisher!);
-                    break;
+                        parentForm.homeControl.BringToFront();
+                    }
+                        break;
                 case DbTable.Genre:
-                    dr = MessageBox.Show("This genre will not be deleted if it is associated with another entry. \nAre you sure?", "Delete Genre", MessageBoxButtons.YesNo);
+                    dr = MessageBox.Show("This genre will not be deleted if it is associated with any books. \nAre you sure?", "Delete Genre", MessageBoxButtons.YesNo);
                     if (dr == DialogResult.Yes)
+                    {
                         await DeleteRequests.DeleteEntity<Genre>(referencedGenre!);
-                    break;
+                        parentForm.homeControl.BringToFront();
+                    }
+                        break;
             }
             // refresh not implementet yet
-            parentForm.homeControl.BringToFront();
+            
         }
 
         protected override async void saveButtonEditPanel_Click(object sender, EventArgs e)

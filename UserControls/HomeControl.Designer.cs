@@ -277,6 +277,7 @@
             searchListView.Columns.AddRange(new ColumnHeader[] { result, category });
             searchListView.Cursor = Cursors.Hand;
             searchListView.Dock = DockStyle.Fill;
+            searchListView.FullRowSelect = true;
             searchListView.Location = new Point(0, 0);
             searchListView.MultiSelect = false;
             searchListView.Name = "searchListView";

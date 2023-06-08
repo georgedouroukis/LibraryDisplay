@@ -320,6 +320,7 @@
             authorComboBoxEditBookPanel.Location = new Point(80, 3);
             authorComboBoxEditBookPanel.Name = "authorComboBoxEditBookPanel";
             authorComboBoxEditBookPanel.Size = new Size(525, 33);
+            authorComboBoxEditBookPanel.Sorted = true;
             authorComboBoxEditBookPanel.TabIndex = 7;
             authorComboBoxEditBookPanel.SelectedIndexChanged += authorComboBoxEditBookPanel_SelectedIndexChanged;
             // 
@@ -471,6 +472,7 @@
             genreComboBoxEditBookPanel.Location = new Point(71, 3);
             genreComboBoxEditBookPanel.Name = "genreComboBoxEditBookPanel";
             genreComboBoxEditBookPanel.Size = new Size(534, 33);
+            genreComboBoxEditBookPanel.Sorted = true;
             genreComboBoxEditBookPanel.TabIndex = 7;
             genreComboBoxEditBookPanel.SelectedIndexChanged += genreComboBoxEditBookPanel_SelectedIndexChanged;
             // 
@@ -533,6 +535,7 @@
             imageCheckButonEditBookPanel.TabIndex = 19;
             imageCheckButonEditBookPanel.Text = "Check";
             imageCheckButonEditBookPanel.UseVisualStyleBackColor = true;
+            imageCheckButonEditBookPanel.Click += imageCheckButonEditBookPanel_Click;
             // 
             // authorEditTab
             // 

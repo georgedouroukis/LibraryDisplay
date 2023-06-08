@@ -192,6 +192,7 @@
             // 
             // pictureBoxBookPanel
             // 
+            pictureBoxBookPanel.Cursor = Cursors.Hand;
             pictureBoxBookPanel.Dock = DockStyle.Fill;
             pictureBoxBookPanel.Location = new Point(0, 0);
             pictureBoxBookPanel.Name = "pictureBoxBookPanel";
@@ -199,6 +200,7 @@
             pictureBoxBookPanel.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxBookPanel.TabIndex = 0;
             pictureBoxBookPanel.TabStop = false;
+            pictureBoxBookPanel.Click += pictureBoxBookPanel_Click;
             // 
             // flowLayoutPanel15
             // 

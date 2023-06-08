@@ -89,5 +89,14 @@ namespace LibraryDisplay.UserControls
             parentForm.editControl.BringToFront();
             parentForm.editControl.populateEditBookPanel(referencedBook, true);
         }
+
+        private void pictureBoxBookPanel_Click(object sender, EventArgs e)
+        {
+            string url = referencedBook.imageUrl;
+            if (!string.IsNullOrEmpty(url))
+            {
+                Form checkImageForm = new CheckImage(url);
+            }
+        }
     }
 }
