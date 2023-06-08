@@ -48,6 +48,8 @@ namespace LibraryDisplay.UserControls
 
         protected abstract void editTabs_Selecting(object sender, TabControlCancelEventArgs e);
 
+        protected abstract void deleteButtonEditPanel_Click(object sender, EventArgs e);
+
         protected EditStatus checkStatus()
         {
             bool checkChanges = true;

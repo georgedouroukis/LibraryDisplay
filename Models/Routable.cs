@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace LibraryDisplay.Models
 {
-    internal interface IRoutable
+    public class Routable
     {
-        public int id { get; set; }
-        string route { get; set; }
-
+        static string? route { get; set; }
     }
 }

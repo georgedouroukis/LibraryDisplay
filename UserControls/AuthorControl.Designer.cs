@@ -31,13 +31,13 @@
             authorPanel = new SplitContainer();
             splitContainer13 = new SplitContainer();
             tableLayoutPanel9 = new TableLayoutPanel();
-            editButtonAuthorPanel = new Button();
+            homeButtonAuthorPanel = new Button();
             authorLabelAuthorPanel = new Label();
             descriptionLabelAuthorPanel = new TextBox();
             splitContainer14 = new SplitContainer();
             authorBookFlow = new FlowLayoutPanel();
             flowLayoutPanel22 = new FlowLayoutPanel();
-            homeButtonAuthorPanel = new Button();
+            editButtonAuthorPanel = new Button();
             ((System.ComponentModel.ISupportInitialize)authorPanel).BeginInit();
             authorPanel.Panel1.SuspendLayout();
             authorPanel.Panel2.SuspendLayout();
@@ -67,8 +67,8 @@
             // authorPanel.Panel2
             // 
             authorPanel.Panel2.Controls.Add(splitContainer14);
-            authorPanel.Size = new Size(745, 469);
-            authorPanel.SplitterDistance = 145;
+            authorPanel.Size = new Size(782, 523);
+            authorPanel.SplitterDistance = 161;
             authorPanel.TabIndex = 8;
             // 
             // splitContainer13
@@ -87,8 +87,8 @@
             splitContainer13.Panel2.AutoScroll = true;
             splitContainer13.Panel2.Controls.Add(descriptionLabelAuthorPanel);
             splitContainer13.Panel2.Margin = new Padding(20);
-            splitContainer13.Size = new Size(745, 145);
-            splitContainer13.SplitterDistance = 44;
+            splitContainer13.Size = new Size(782, 161);
+            splitContainer13.SplitterDistance = 48;
             splitContainer13.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -104,19 +104,19 @@
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 1;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(745, 44);
+            tableLayoutPanel9.Size = new Size(782, 48);
             tableLayoutPanel9.TabIndex = 0;
             // 
-            // editButtonAuthorPanel
+            // homeButtonAuthorPanel
             // 
-            editButtonAuthorPanel.Anchor = AnchorStyles.Right;
-            editButtonAuthorPanel.Location = new Point(636, 3);
-            editButtonAuthorPanel.Name = "editButtonAuthorPanel";
-            editButtonAuthorPanel.Size = new Size(106, 31);
-            editButtonAuthorPanel.TabIndex = 6;
-            editButtonAuthorPanel.Text = "Edit";
-            editButtonAuthorPanel.UseVisualStyleBackColor = true;
-            editButtonAuthorPanel.Click += editButtonAuthorPanel_Click;
+            homeButtonAuthorPanel.Anchor = AnchorStyles.Right;
+            homeButtonAuthorPanel.Location = new Point(673, 7);
+            homeButtonAuthorPanel.Name = "homeButtonAuthorPanel";
+            homeButtonAuthorPanel.Size = new Size(106, 34);
+            homeButtonAuthorPanel.TabIndex = 8;
+            homeButtonAuthorPanel.Text = "Home";
+            homeButtonAuthorPanel.UseVisualStyleBackColor = true;
+            homeButtonAuthorPanel.Click += homeButtonAuthorPanel_Click;
             // 
             // authorLabelAuthorPanel
             // 
@@ -124,7 +124,7 @@
             authorLabelAuthorPanel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             authorLabelAuthorPanel.Location = new Point(115, 0);
             authorLabelAuthorPanel.Name = "authorLabelAuthorPanel";
-            authorLabelAuthorPanel.Size = new Size(515, 44);
+            authorLabelAuthorPanel.Size = new Size(552, 48);
             authorLabelAuthorPanel.TabIndex = 4;
             authorLabelAuthorPanel.Text = "Author";
             authorLabelAuthorPanel.TextAlign = ContentAlignment.MiddleCenter;
@@ -137,7 +137,7 @@
             descriptionLabelAuthorPanel.Name = "descriptionLabelAuthorPanel";
             descriptionLabelAuthorPanel.ReadOnly = true;
             descriptionLabelAuthorPanel.ScrollBars = ScrollBars.Vertical;
-            descriptionLabelAuthorPanel.Size = new Size(745, 97);
+            descriptionLabelAuthorPanel.Size = new Size(782, 109);
             descriptionLabelAuthorPanel.TabIndex = 4;
             descriptionLabelAuthorPanel.Text = "Description";
             // 
@@ -155,8 +155,8 @@
             // splitContainer14.Panel2
             // 
             splitContainer14.Panel2.Controls.Add(flowLayoutPanel22);
-            splitContainer14.Size = new Size(745, 320);
-            splitContainer14.SplitterDistance = 266;
+            splitContainer14.Size = new Size(782, 358);
+            splitContainer14.SplitterDistance = 297;
             splitContainer14.TabIndex = 0;
             // 
             // authorBookFlow
@@ -165,7 +165,7 @@
             authorBookFlow.Dock = DockStyle.Fill;
             authorBookFlow.Location = new Point(0, 0);
             authorBookFlow.Name = "authorBookFlow";
-            authorBookFlow.Size = new Size(745, 266);
+            authorBookFlow.Size = new Size(782, 297);
             authorBookFlow.TabIndex = 1;
             // 
             // flowLayoutPanel22
@@ -175,19 +175,20 @@
             flowLayoutPanel22.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel22.Location = new Point(0, 0);
             flowLayoutPanel22.Name = "flowLayoutPanel22";
-            flowLayoutPanel22.Size = new Size(745, 50);
+            flowLayoutPanel22.Size = new Size(782, 57);
             flowLayoutPanel22.TabIndex = 1;
             // 
-            // homeButtonAuthorPanel
+            // editButtonAuthorPanel
             // 
-            homeButtonAuthorPanel.Anchor = AnchorStyles.Right;
-            homeButtonAuthorPanel.Location = new Point(636, 5);
-            homeButtonAuthorPanel.Name = "homeButtonAuthorPanel";
-            homeButtonAuthorPanel.Size = new Size(106, 34);
-            homeButtonAuthorPanel.TabIndex = 8;
-            homeButtonAuthorPanel.Text = "Home";
-            homeButtonAuthorPanel.UseVisualStyleBackColor = true;
-            homeButtonAuthorPanel.Click += homeButtonAuthorPanel_Click;
+            editButtonAuthorPanel.Anchor = AnchorStyles.Right;
+            editButtonAuthorPanel.Location = new Point(656, 20);
+            editButtonAuthorPanel.Margin = new Padding(20);
+            editButtonAuthorPanel.Name = "editButtonAuthorPanel";
+            editButtonAuthorPanel.Size = new Size(106, 31);
+            editButtonAuthorPanel.TabIndex = 6;
+            editButtonAuthorPanel.Text = "Edit";
+            editButtonAuthorPanel.UseVisualStyleBackColor = true;
+            editButtonAuthorPanel.Click += editButtonAuthorPanel_Click;
             // 
             // AuthorControl
             // 

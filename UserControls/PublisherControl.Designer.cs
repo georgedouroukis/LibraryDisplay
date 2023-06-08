@@ -31,7 +31,7 @@
             publisherPanel = new SplitContainer();
             splitContainer4 = new SplitContainer();
             tableLayoutPanel2 = new TableLayoutPanel();
-            editButtonPublisherPanel = new Button();
+            homeButtonPublisherPanel = new Button();
             publisherLabelPublisherPanel = new Label();
             flowLayoutPanel6 = new FlowLayoutPanel();
             label3 = new Label();
@@ -41,7 +41,7 @@
             splitContainer5 = new SplitContainer();
             publisherBookFlow = new FlowLayoutPanel();
             flowLayoutPanel7 = new FlowLayoutPanel();
-            homeButtonPublisherPanel = new Button();
+            editButtonPublisherPanel = new Button();
             ((System.ComponentModel.ISupportInitialize)publisherPanel).BeginInit();
             publisherPanel.Panel1.SuspendLayout();
             publisherPanel.Panel2.SuspendLayout();
@@ -61,7 +61,7 @@
             // 
             // publisherPanel
             // 
-            publisherPanel.Location = new Point(28, 33);
+            publisherPanel.Location = new Point(13, 3);
             publisherPanel.Name = "publisherPanel";
             publisherPanel.Orientation = Orientation.Horizontal;
             // 
@@ -72,8 +72,8 @@
             // publisherPanel.Panel2
             // 
             publisherPanel.Panel2.Controls.Add(splitContainer5);
-            publisherPanel.Size = new Size(745, 542);
-            publisherPanel.SplitterDistance = 190;
+            publisherPanel.Size = new Size(781, 592);
+            publisherPanel.SplitterDistance = 207;
             publisherPanel.TabIndex = 2;
             // 
             // splitContainer4
@@ -92,8 +92,8 @@
             splitContainer4.Panel2.AutoScroll = true;
             splitContainer4.Panel2.Controls.Add(flowLayoutPanel6);
             splitContainer4.Panel2.Margin = new Padding(20);
-            splitContainer4.Size = new Size(745, 190);
-            splitContainer4.SplitterDistance = 86;
+            splitContainer4.Size = new Size(781, 207);
+            splitContainer4.SplitterDistance = 93;
             splitContainer4.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -109,19 +109,19 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(745, 86);
+            tableLayoutPanel2.Size = new Size(781, 93);
             tableLayoutPanel2.TabIndex = 0;
             // 
-            // editButtonPublisherPanel
+            // homeButtonPublisherPanel
             // 
-            editButtonPublisherPanel.Anchor = AnchorStyles.Right;
-            editButtonPublisherPanel.Location = new Point(636, 3);
-            editButtonPublisherPanel.Name = "editButtonPublisherPanel";
-            editButtonPublisherPanel.Size = new Size(106, 34);
-            editButtonPublisherPanel.TabIndex = 6;
-            editButtonPublisherPanel.Text = "Edit";
-            editButtonPublisherPanel.UseVisualStyleBackColor = true;
-            editButtonPublisherPanel.Click += editButtonPublisherPanel_Click;
+            homeButtonPublisherPanel.Anchor = AnchorStyles.Right;
+            homeButtonPublisherPanel.Location = new Point(672, 29);
+            homeButtonPublisherPanel.Name = "homeButtonPublisherPanel";
+            homeButtonPublisherPanel.Size = new Size(106, 34);
+            homeButtonPublisherPanel.TabIndex = 8;
+            homeButtonPublisherPanel.Text = "Home";
+            homeButtonPublisherPanel.UseVisualStyleBackColor = true;
+            homeButtonPublisherPanel.Click += homeButtonPublisherPanel_Click;
             // 
             // publisherLabelPublisherPanel
             // 
@@ -129,7 +129,7 @@
             publisherLabelPublisherPanel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             publisherLabelPublisherPanel.Location = new Point(115, 0);
             publisherLabelPublisherPanel.Name = "publisherLabelPublisherPanel";
-            publisherLabelPublisherPanel.Size = new Size(515, 86);
+            publisherLabelPublisherPanel.Size = new Size(551, 93);
             publisherLabelPublisherPanel.TabIndex = 4;
             publisherLabelPublisherPanel.Text = "Publisher Name";
             publisherLabelPublisherPanel.TextAlign = ContentAlignment.MiddleCenter;
@@ -143,7 +143,7 @@
             flowLayoutPanel6.Dock = DockStyle.Fill;
             flowLayoutPanel6.Location = new Point(0, 0);
             flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Size = new Size(745, 100);
+            flowLayoutPanel6.Size = new Size(781, 110);
             flowLayoutPanel6.TabIndex = 0;
             // 
             // label3
@@ -194,8 +194,8 @@
             // splitContainer5.Panel2
             // 
             splitContainer5.Panel2.Controls.Add(flowLayoutPanel7);
-            splitContainer5.Size = new Size(745, 348);
-            splitContainer5.SplitterDistance = 291;
+            splitContainer5.Size = new Size(781, 381);
+            splitContainer5.SplitterDistance = 318;
             splitContainer5.TabIndex = 0;
             // 
             // publisherBookFlow
@@ -204,7 +204,7 @@
             publisherBookFlow.Dock = DockStyle.Fill;
             publisherBookFlow.Location = new Point(0, 0);
             publisherBookFlow.Name = "publisherBookFlow";
-            publisherBookFlow.Size = new Size(745, 291);
+            publisherBookFlow.Size = new Size(781, 318);
             publisherBookFlow.TabIndex = 1;
             // 
             // flowLayoutPanel7
@@ -214,19 +214,20 @@
             flowLayoutPanel7.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel7.Location = new Point(0, 0);
             flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Size = new Size(745, 53);
+            flowLayoutPanel7.Size = new Size(781, 59);
             flowLayoutPanel7.TabIndex = 1;
             // 
-            // homeButtonPublisherPanel
+            // editButtonPublisherPanel
             // 
-            homeButtonPublisherPanel.Anchor = AnchorStyles.Right;
-            homeButtonPublisherPanel.Location = new Point(636, 26);
-            homeButtonPublisherPanel.Name = "homeButtonPublisherPanel";
-            homeButtonPublisherPanel.Size = new Size(106, 34);
-            homeButtonPublisherPanel.TabIndex = 8;
-            homeButtonPublisherPanel.Text = "Home";
-            homeButtonPublisherPanel.UseVisualStyleBackColor = true;
-            homeButtonPublisherPanel.Click += homeButtonPublisherPanel_Click;
+            editButtonPublisherPanel.Anchor = AnchorStyles.Right;
+            editButtonPublisherPanel.Location = new Point(655, 20);
+            editButtonPublisherPanel.Margin = new Padding(20);
+            editButtonPublisherPanel.Name = "editButtonPublisherPanel";
+            editButtonPublisherPanel.Size = new Size(106, 34);
+            editButtonPublisherPanel.TabIndex = 6;
+            editButtonPublisherPanel.Text = "Edit";
+            editButtonPublisherPanel.UseVisualStyleBackColor = true;
+            editButtonPublisherPanel.Click += editButtonPublisherPanel_Click;
             // 
             // PublisherControl
             // 

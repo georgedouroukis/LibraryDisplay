@@ -22,8 +22,11 @@ namespace LibraryDisplay.UserControls
             authorEditTab.Enabled = true;
             publisherEditTab.Enabled = true;
             genreEditTab.Enabled = true;
+            deleteButtonEditPanel.Visible = false;
             populateEditBookPanel(new Book(), true);
         }
+
+        protected override void deleteButtonEditPanel_Click(object sender, EventArgs e){}
 
         protected override void editTabs_Selecting(object sender, TabControlCancelEventArgs e) 
         {

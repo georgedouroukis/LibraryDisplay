@@ -31,13 +31,13 @@
             genrePanel = new SplitContainer();
             splitContainer13 = new SplitContainer();
             tableLayoutPanel9 = new TableLayoutPanel();
-            editButtonGenrePanel = new Button();
+            homeButtonGenrePanel = new Button();
             genreLabelGenrePanel = new Label();
             flowLayoutPanel17 = new FlowLayoutPanel();
             splitContainer14 = new SplitContainer();
             genreBookFlow = new FlowLayoutPanel();
             flowLayoutPanel22 = new FlowLayoutPanel();
-            homeButtonGenrePanel = new Button();
+            editButtonGenrePanel = new Button();
             ((System.ComponentModel.ISupportInitialize)genrePanel).BeginInit();
             genrePanel.Panel1.SuspendLayout();
             genrePanel.Panel2.SuspendLayout();
@@ -67,8 +67,8 @@
             // genrePanel.Panel2
             // 
             genrePanel.Panel2.Controls.Add(splitContainer14);
-            genrePanel.Size = new Size(745, 469);
-            genrePanel.SplitterDistance = 78;
+            genrePanel.Size = new Size(754, 497);
+            genrePanel.SplitterDistance = 82;
             genrePanel.TabIndex = 7;
             // 
             // splitContainer13
@@ -87,8 +87,8 @@
             splitContainer13.Panel2.AutoScroll = true;
             splitContainer13.Panel2.Controls.Add(flowLayoutPanel17);
             splitContainer13.Panel2.Margin = new Padding(20);
-            splitContainer13.Size = new Size(745, 78);
-            splitContainer13.SplitterDistance = 37;
+            splitContainer13.Size = new Size(754, 82);
+            splitContainer13.SplitterDistance = 38;
             splitContainer13.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -104,19 +104,19 @@
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 1;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(745, 37);
+            tableLayoutPanel9.Size = new Size(754, 38);
             tableLayoutPanel9.TabIndex = 0;
             // 
-            // editButtonGenrePanel
+            // homeButtonGenrePanel
             // 
-            editButtonGenrePanel.Anchor = AnchorStyles.Right;
-            editButtonGenrePanel.Location = new Point(636, 3);
-            editButtonGenrePanel.Name = "editButtonGenrePanel";
-            editButtonGenrePanel.Size = new Size(106, 31);
-            editButtonGenrePanel.TabIndex = 6;
-            editButtonGenrePanel.Text = "Edit";
-            editButtonGenrePanel.UseVisualStyleBackColor = true;
-            editButtonGenrePanel.Click += editButtonGenrePanel_Click;
+            homeButtonGenrePanel.Anchor = AnchorStyles.Right;
+            homeButtonGenrePanel.Location = new Point(645, 3);
+            homeButtonGenrePanel.Name = "homeButtonGenrePanel";
+            homeButtonGenrePanel.Size = new Size(106, 31);
+            homeButtonGenrePanel.TabIndex = 8;
+            homeButtonGenrePanel.Text = "Home";
+            homeButtonGenrePanel.UseVisualStyleBackColor = true;
+            homeButtonGenrePanel.Click += homeButtonGenrePanel_Click;
             // 
             // genreLabelGenrePanel
             // 
@@ -124,7 +124,7 @@
             genreLabelGenrePanel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             genreLabelGenrePanel.Location = new Point(115, 0);
             genreLabelGenrePanel.Name = "genreLabelGenrePanel";
-            genreLabelGenrePanel.Size = new Size(515, 37);
+            genreLabelGenrePanel.Size = new Size(524, 38);
             genreLabelGenrePanel.TabIndex = 4;
             genreLabelGenrePanel.Text = "Genre";
             genreLabelGenrePanel.TextAlign = ContentAlignment.MiddleCenter;
@@ -134,7 +134,7 @@
             flowLayoutPanel17.Dock = DockStyle.Fill;
             flowLayoutPanel17.Location = new Point(0, 0);
             flowLayoutPanel17.Name = "flowLayoutPanel17";
-            flowLayoutPanel17.Size = new Size(745, 37);
+            flowLayoutPanel17.Size = new Size(754, 40);
             flowLayoutPanel17.TabIndex = 0;
             // 
             // splitContainer14
@@ -151,8 +151,8 @@
             // splitContainer14.Panel2
             // 
             splitContainer14.Panel2.Controls.Add(flowLayoutPanel22);
-            splitContainer14.Size = new Size(745, 387);
-            splitContainer14.SplitterDistance = 322;
+            splitContainer14.Size = new Size(754, 411);
+            splitContainer14.SplitterDistance = 341;
             splitContainer14.TabIndex = 0;
             // 
             // genreBookFlow
@@ -161,7 +161,7 @@
             genreBookFlow.Dock = DockStyle.Fill;
             genreBookFlow.Location = new Point(0, 0);
             genreBookFlow.Name = "genreBookFlow";
-            genreBookFlow.Size = new Size(745, 322);
+            genreBookFlow.Size = new Size(754, 341);
             genreBookFlow.TabIndex = 1;
             // 
             // flowLayoutPanel22
@@ -171,19 +171,20 @@
             flowLayoutPanel22.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel22.Location = new Point(0, 0);
             flowLayoutPanel22.Name = "flowLayoutPanel22";
-            flowLayoutPanel22.Size = new Size(745, 61);
+            flowLayoutPanel22.Size = new Size(754, 66);
             flowLayoutPanel22.TabIndex = 1;
             // 
-            // homeButtonGenrePanel
+            // editButtonGenrePanel
             // 
-            homeButtonGenrePanel.Anchor = AnchorStyles.Right;
-            homeButtonGenrePanel.Location = new Point(636, 3);
-            homeButtonGenrePanel.Name = "homeButtonGenrePanel";
-            homeButtonGenrePanel.Size = new Size(106, 31);
-            homeButtonGenrePanel.TabIndex = 8;
-            homeButtonGenrePanel.Text = "Home";
-            homeButtonGenrePanel.UseVisualStyleBackColor = true;
-            homeButtonGenrePanel.Click += homeButtonGenrePanel_Click;
+            editButtonGenrePanel.Anchor = AnchorStyles.Right;
+            editButtonGenrePanel.Location = new Point(628, 20);
+            editButtonGenrePanel.Margin = new Padding(20);
+            editButtonGenrePanel.Name = "editButtonGenrePanel";
+            editButtonGenrePanel.Size = new Size(106, 31);
+            editButtonGenrePanel.TabIndex = 6;
+            editButtonGenrePanel.Text = "Edit";
+            editButtonGenrePanel.UseVisualStyleBackColor = true;
+            editButtonGenrePanel.Click += editButtonGenrePanel_Click;
             // 
             // GenreControl
             // 

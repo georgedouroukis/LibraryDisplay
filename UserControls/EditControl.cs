@@ -19,6 +19,38 @@ namespace LibraryDisplay.UserControls
             authorEditTab.Enabled = false;
             publisherEditTab.Enabled = false;
             genreEditTab.Enabled = false;
+            deleteButtonEditPanel.Visible = true;
+        }
+
+        protected override async void deleteButtonEditPanel_Click(object sender, EventArgs e)
+        {
+            EditStatus status = checkStatus();
+            DialogResult dr;
+            switch (status.Table)
+            {
+                case DbTable.Book:
+                    dr = MessageBox.Show("This book will not be deleted if it is associated with another entry. \nAre you sure?", "Delete Book", MessageBoxButtons.YesNo);
+                    if (dr == DialogResult.Yes)
+                        await DeleteRequests.DeleteEntity<Book>(referencedBook!);
+                    break;
+                case DbTable.Author:
+                    dr = MessageBox.Show("This author will not be deleted if it is associated with another entry. \nAre you sure?", "Delete Author", MessageBoxButtons.YesNo);
+                    if (dr == DialogResult.Yes)
+                        await DeleteRequests.DeleteEntity<Author>(referencedAuthor!);
+                    break;
+                case DbTable.Publisher:
+                    dr = MessageBox.Show("This publisher will not be deleted if it is associated with another entry. \nAre you sure?", "Delete Publisher", MessageBoxButtons.YesNo);
+                    if (dr == DialogResult.Yes)
+                        await DeleteRequests.DeleteEntity<Publisher>(referencedPublisher!);
+                    break;
+                case DbTable.Genre:
+                    dr = MessageBox.Show("This genre will not be deleted if it is associated with another entry. \nAre you sure?", "Delete Genre", MessageBoxButtons.YesNo);
+                    if (dr == DialogResult.Yes)
+                        await DeleteRequests.DeleteEntity<Genre>(referencedGenre!);
+                    break;
+            }
+            // refresh not implementet yet
+            parentForm.homeControl.BringToFront();
         }
 
         protected override async void saveButtonEditPanel_Click(object sender, EventArgs e)
@@ -75,5 +107,7 @@ namespace LibraryDisplay.UserControls
             if (e.TabPage.Enabled == false)
                 e.Cancel = true;
         }
+
+        
     }
 }
