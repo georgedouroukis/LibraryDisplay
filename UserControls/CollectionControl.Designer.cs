@@ -113,7 +113,8 @@
             // homeButtonCollectionPanel
             // 
             homeButtonCollectionPanel.Anchor = AnchorStyles.Right;
-            homeButtonCollectionPanel.Location = new Point(744, 3);
+            homeButtonCollectionPanel.Location = new Point(727, 20);
+            homeButtonCollectionPanel.Margin = new Padding(20);
             homeButtonCollectionPanel.Name = "homeButtonCollectionPanel";
             homeButtonCollectionPanel.Size = new Size(112, 34);
             homeButtonCollectionPanel.TabIndex = 7;

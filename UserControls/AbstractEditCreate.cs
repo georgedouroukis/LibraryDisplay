@@ -360,6 +360,7 @@ namespace LibraryDisplay.UserControls
                 label.Text = selection!.Text;
                 authorFlowBookEditPanel.Controls.Add(label);
             }
+            authorComboBoxEditBookPanel.SelectedItem = null;
         }
 
         private void genreComboBoxEditBookPanel_SelectionChangeCommitted(object sender, EventArgs e)
@@ -377,6 +378,7 @@ namespace LibraryDisplay.UserControls
                 label.Text = selection!.Text;
                 genreFlowBookEditPanel.Controls.Add(label);
             }
+            genreComboBoxEditBookPanel.SelectedItem = null;
         }
 
         private void subComboBoxEditGenrePanel_SelectionChangeCommitted(object sender, EventArgs e)
@@ -394,6 +396,7 @@ namespace LibraryDisplay.UserControls
                 label.Text = selection!.Text;
                 subFlowEditGenrePanel.Controls.Add(label);
             }
+            subComboBoxEditGenrePanel.SelectedItem = null;
         }
 
         protected void createTempBook()
@@ -525,6 +528,31 @@ namespace LibraryDisplay.UserControls
             if (this.GetType() == typeof(EditControl))
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreSub, true);
             parentForm.createControl.BringToFront();
+        }
+
+        private void authorComboBoxEditBookPanel_Click(object sender, EventArgs e)
+        {
+            authorComboBoxEditBookPanel.DroppedDown = true;
+        }
+
+        private void publisherComboBoxEditBookPanel_Click(object sender, EventArgs e)
+        {
+            publisherComboBoxEditBookPanel.DroppedDown = true;
+        }
+
+        private void genreComboBoxEditBookPanel_Click(object sender, EventArgs e)
+        {
+            genreComboBoxEditBookPanel.DroppedDown = true;
+        }
+
+        private void parentGenreComboBoxEditGenrePanel_Click(object sender, EventArgs e)
+        {
+            parentGenreComboBoxEditGenrePanel.DroppedDown = true;
+        }
+
+        private void subComboBoxEditGenrePanel_Click(object sender, EventArgs e)
+        {
+            subComboBoxEditGenrePanel.DroppedDown = true;
         }
     }
 }
