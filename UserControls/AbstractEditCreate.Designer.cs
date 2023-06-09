@@ -332,7 +332,7 @@
             authorComboBoxEditBookPanel.Size = new Size(528, 33);
             authorComboBoxEditBookPanel.Sorted = true;
             authorComboBoxEditBookPanel.TabIndex = 7;
-            authorComboBoxEditBookPanel.SelectedIndexChanged += authorComboBoxEditBookPanel_SelectedIndexChanged;
+            authorComboBoxEditBookPanel.SelectionChangeCommitted += authorComboBoxEditBookPanel_SelectionChangeCommitted;
             // 
             // createAuthorButtonEditBookPanel
             // 
@@ -515,7 +515,7 @@
             genreComboBoxEditBookPanel.Size = new Size(534, 33);
             genreComboBoxEditBookPanel.Sorted = true;
             genreComboBoxEditBookPanel.TabIndex = 7;
-            genreComboBoxEditBookPanel.SelectedIndexChanged += genreComboBoxEditBookPanel_SelectedIndexChanged;
+            genreComboBoxEditBookPanel.SelectionChangeCommitted += genreComboBoxEditBookPanel_SelectionChangeCommitted;
             // 
             // createGenreButtonEditBookPanel
             // 
@@ -944,7 +944,7 @@
             subComboBoxEditGenrePanel.Name = "subComboBoxEditGenrePanel";
             subComboBoxEditGenrePanel.Size = new Size(499, 33);
             subComboBoxEditGenrePanel.TabIndex = 7;
-            subComboBoxEditGenrePanel.SelectedIndexChanged += subComboBoxEditGenrePanel_SelectedIndexChanged;
+            subComboBoxEditGenrePanel.SelectionChangeCommitted += subComboBoxEditGenrePanel_SelectionChangeCommitted;
             subComboBoxEditGenrePanel.ControlAdded += subComboBoxEditGenrePanel_ControlAdded;
             subComboBoxEditGenrePanel.ControlRemoved += subComboBoxEditGenrePanel_ControlRemoved;
             // 

@@ -48,10 +48,10 @@ namespace LibraryDisplay.UserControls
             new AutoCompleteBehavior(parentGenreComboBoxEditGenrePanel);
             new AutoCompleteBehavior(subComboBoxEditGenrePanel);
             authorComboBoxEditBookPanel.Sorted = true;
-            publisherComboBoxEditBookPanel.Sorted= true;
+            publisherComboBoxEditBookPanel.Sorted = true;
             genreComboBoxEditBookPanel.Sorted = true;
             parentGenreComboBoxEditGenrePanel.Sorted = true;
-            subComboBoxEditGenrePanel.Sorted= true;
+            subComboBoxEditGenrePanel.Sorted = true;
         }
 
         protected abstract void saveButtonEditPanel_Click(object sender, EventArgs e);
@@ -345,7 +345,7 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        private void authorComboBoxEditBookPanel_SelectedIndexChanged(object sender, EventArgs e)
+        private void authorComboBoxEditBookPanel_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ComboBoxItem? selection = authorComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
 
@@ -362,7 +362,7 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        private void genreComboBoxEditBookPanel_SelectedIndexChanged(object sender, EventArgs e)
+        private void genreComboBoxEditBookPanel_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ComboBoxItem? selection = genreComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
 
@@ -379,7 +379,7 @@ namespace LibraryDisplay.UserControls
             }
         }
 
-        private void subComboBoxEditGenrePanel_SelectedIndexChanged(object sender, EventArgs e)
+        private void subComboBoxEditGenrePanel_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ComboBoxItem? selection = subComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
 
