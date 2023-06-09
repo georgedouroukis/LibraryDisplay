@@ -42,6 +42,16 @@ namespace LibraryDisplay.UserControls
             tempAuthor = new Author();
             tempPublisher = new Publisher();
             tempGenre = new Genre();
+            new AutoCompleteBehavior(authorComboBoxEditBookPanel);
+            new AutoCompleteBehavior(publisherComboBoxEditBookPanel);
+            new AutoCompleteBehavior(genreComboBoxEditBookPanel);
+            new AutoCompleteBehavior(parentGenreComboBoxEditGenrePanel);
+            new AutoCompleteBehavior(subComboBoxEditGenrePanel);
+            authorComboBoxEditBookPanel.Sorted = true;
+            publisherComboBoxEditBookPanel.Sorted= true;
+            genreComboBoxEditBookPanel.Sorted = true;
+            parentGenreComboBoxEditGenrePanel.Sorted = true;
+            subComboBoxEditGenrePanel.Sorted= true;
         }
 
         protected abstract void saveButtonEditPanel_Click(object sender, EventArgs e);
@@ -119,11 +129,6 @@ namespace LibraryDisplay.UserControls
             HashSet<Author> authors = await GetRequests.GetAuthors();
             authorComboBoxEditBookPanel.Items.Clear();
             authorComboBoxEditBookPanel.Text = string.Empty;
-            //create new author item 
-            ComboBoxItem createAuthor = new ComboBoxItem();
-            createAuthor.Text = "Create New Author...";
-            createAuthor.Id = "-1";
-            authorComboBoxEditBookPanel.Items.Add(createAuthor);
 
             //populate combobox and flowpanel
             authorFlowBookEditPanel.Controls.Clear();
@@ -148,12 +153,6 @@ namespace LibraryDisplay.UserControls
             HashSet<Publisher> publishers = await GetRequests.GetPublishers();
             publisherComboBoxEditBookPanel.Items.Clear();
 
-            //create new publisher item 
-            ComboBoxItem createPublisher = new ComboBoxItem();
-            createPublisher.Text = "Create New Publisher...";
-            createPublisher.Id = "-1";
-            publisherComboBoxEditBookPanel.Items.Add(createPublisher);
-
             //create no publisher item 
             ComboBoxItem noPublisher = new ComboBoxItem();
             noPublisher.Text = "--";
@@ -177,12 +176,6 @@ namespace LibraryDisplay.UserControls
             ////////////////////////////////populate genres
             HashSet<Genre> genres = await GetRequests.GetGenres();
             genreComboBoxEditBookPanel.Items.Clear();
-
-            //create new genre item 
-            ComboBoxItem createGenre = new ComboBoxItem();
-            createGenre.Text = "Create New Genre...";
-            createGenre.Id = "-1";
-            genreComboBoxEditBookPanel.Items.Add(createGenre);
 
             //populate combobox and flowpanel
             genreFlowBookEditPanel.Controls.Clear();
@@ -247,12 +240,6 @@ namespace LibraryDisplay.UserControls
             HashSet<Genre> parents = await GetRequests.GetGenres();
             parentGenreComboBoxEditGenrePanel.Items.Clear();
 
-            //create new genreParent item 
-            ComboBoxItem createParent = new ComboBoxItem();
-            createParent.Text = "Create New Parent Genre...";
-            createParent.Id = "-1";
-            parentGenreComboBoxEditGenrePanel.Items.Add(createParent);
-
             //create noParent item 
             ComboBoxItem noParent = new ComboBoxItem();
             noParent.Text = "--";
@@ -280,12 +267,6 @@ namespace LibraryDisplay.UserControls
             ////////////////////////////////populate sub genres
             HashSet<Genre> subs = await GetRequests.GetGenres();
             subComboBoxEditGenrePanel.Items.Clear();
-
-            //create new sub genre item 
-            ComboBoxItem createSub = new ComboBoxItem();
-            createSub.Text = "Create New Sub Genre...";
-            createSub.Id = "-1";
-            subComboBoxEditGenrePanel.Items.Add(createSub);
 
             //populate combobox and flowpanel
             subFlowEditGenrePanel.Controls.Clear();
@@ -373,18 +354,7 @@ namespace LibraryDisplay.UserControls
             {
                 list.Add(l.id);
             }
-
-            if (selection!.Id == "-1")
-            {
-                createTempBook();
-
-                if (this.GetType() == typeof(CreateControl))
-                    parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.CreateBook, true);
-                if (this.GetType() == typeof(EditControl))
-                    parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.EditBook, true);
-                parentForm.createControl.BringToFront();
-            }
-            else if (!list.Contains(selection!.Id))
+            if (!list.Contains(selection!.Id))
             {
                 RemovableLabel label = new RemovableLabel(selection!.Id, DbTable.Author, parentForm, authorFlowBookEditPanel);
                 label.Text = selection!.Text;
@@ -401,36 +371,11 @@ namespace LibraryDisplay.UserControls
             {
                 list.Add(l.id);
             }
-
-            if (selection!.Id == "-1")
-            {
-                createTempBook();
-                if (this.GetType() == typeof(CreateControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateBook, true);
-                if (this.GetType() == typeof(EditControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditBook, true);
-                parentForm.createControl.BringToFront();
-            }
-            else if (!list.Contains(selection!.Id))
+            if (!list.Contains(selection!.Id))
             {
                 RemovableLabel label = new RemovableLabel(selection!.Id, DbTable.Genre, parentForm, genreFlowBookEditPanel);
                 label.Text = selection!.Text;
                 genreFlowBookEditPanel.Controls.Add(label);
-            }
-        }
-
-        private void publisherComboBoxEditBookPanel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBoxItem? selection = publisherComboBoxEditBookPanel.SelectedItem as ComboBoxItem;
-            if (selection!.Id == "-1")
-            {
-                createTempBook();
-
-                if (this.GetType() == typeof(CreateControl))
-                    parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.CreateBook, true);
-                if (this.GetType() == typeof(EditControl))
-                    parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.EditBook, true);
-                parentForm.createControl.BringToFront();
             }
         }
 
@@ -443,39 +388,13 @@ namespace LibraryDisplay.UserControls
             {
                 list.Add(l.id);
             }
-
-            if (selection!.Id == "-1")
-            {
-                createTempGenre();
-                if (this.GetType() == typeof(CreateControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreSub, true);
-                if (this.GetType() == typeof(EditControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreSub, true);
-                parentForm.createControl.BringToFront();
-            }
-            else if (!list.Contains(selection!.Id))
+            if (!list.Contains(selection!.Id))
             {
                 RemovableLabel label = new RemovableLabel(selection!.Id, DbTable.Genre, parentForm, subFlowEditGenrePanel);
                 label.Text = selection!.Text;
                 subFlowEditGenrePanel.Controls.Add(label);
             }
         }
-
-        private void parentGenreComboBoxEditGenrePanel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBoxItem? selection = parentGenreComboBoxEditGenrePanel.SelectedItem as ComboBoxItem;
-            if (selection!.Id == "-1")
-            {
-                createTempGenre();
-
-                if (this.GetType() == typeof(CreateControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreParent, true);
-                if (this.GetType() == typeof(EditControl))
-                    parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreParent, true);
-                parentForm.createControl.BringToFront();
-            }
-        }
-
 
         protected void createTempBook()
         {
@@ -556,7 +475,56 @@ namespace LibraryDisplay.UserControls
             {
                 Form checkImageForm = new CheckImage(url);
             }
+        }
 
+        private void createAuthorButtonEditBookPanel_Click(object sender, EventArgs e)
+        {
+            createTempBook();
+            if (this.GetType() == typeof(CreateControl))
+                parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.CreateBook, true);
+            if (this.GetType() == typeof(EditControl))
+                parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.EditBook, true);
+            parentForm.createControl.BringToFront();
+        }
+
+        private void createPublisherButtonEditBookPanel_Click(object sender, EventArgs e)
+        {
+            createTempBook();
+            if (this.GetType() == typeof(CreateControl))
+                parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.CreateBook, true);
+            if (this.GetType() == typeof(EditControl))
+                parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.EditBook, true);
+            parentForm.createControl.BringToFront();
+        }
+
+        private void createGenreButtonEditBookPanel_Click(object sender, EventArgs e)
+        {
+            createTempBook();
+            if (this.GetType() == typeof(CreateControl))
+                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateBook, true);
+            if (this.GetType() == typeof(EditControl))
+                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditBook, true);
+            parentForm.createControl.BringToFront();
+        }
+
+        private void createParentButtonEditGenrePanel_Click(object sender, EventArgs e)
+        {
+            createTempGenre();
+            if (this.GetType() == typeof(CreateControl))
+                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreParent, true);
+            if (this.GetType() == typeof(EditControl))
+                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreParent, true);
+            parentForm.createControl.BringToFront();
+        }
+
+        private void createSubButtonEditGenrePanel_Click(object sender, EventArgs e)
+        {
+            createTempGenre();
+            if (this.GetType() == typeof(CreateControl))
+                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreSub, true);
+            if (this.GetType() == typeof(EditControl))
+                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreSub, true);
+            parentForm.createControl.BringToFront();
         }
     }
 }

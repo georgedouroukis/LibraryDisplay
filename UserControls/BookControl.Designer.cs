@@ -230,11 +230,13 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.Dock = DockStyle.Fill;
             label7.Location = new Point(3, 0);
             label7.Name = "label7";
             label7.Size = new Size(71, 25);
             label7.TabIndex = 6;
             label7.Text = "Author:";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // publisherFlowBookPanel
             // 
@@ -248,11 +250,13 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.Dock = DockStyle.Fill;
             label11.Location = new Point(3, 0);
             label11.Name = "label11";
             label11.Size = new Size(88, 25);
             label11.TabIndex = 6;
             label11.Text = "Publisher:";
+            label11.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel19
             // 
@@ -267,11 +271,13 @@
             // label14
             // 
             label14.AutoSize = true;
+            label14.Dock = DockStyle.Fill;
             label14.Location = new Point(3, 0);
             label14.Name = "label14";
-            label14.Size = new Size(62, 25);
+            label14.Size = new Size(62, 37);
             label14.TabIndex = 6;
             label14.Text = "Pages:";
+            label14.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pagesLabelBookPanel
             // 
@@ -295,11 +301,13 @@
             // label15
             // 
             label15.AutoSize = true;
+            label15.Dock = DockStyle.Fill;
             label15.Location = new Point(3, 0);
             label15.Name = "label15";
-            label15.Size = new Size(145, 25);
+            label15.Size = new Size(145, 37);
             label15.TabIndex = 6;
             label15.Text = "Publication Date:";
+            label15.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // publicationDateLabelBookPanel
             // 
@@ -322,11 +330,13 @@
             // label16
             // 
             label16.AutoSize = true;
+            label16.Dock = DockStyle.Fill;
             label16.Location = new Point(3, 0);
             label16.Name = "label16";
-            label16.Size = new Size(54, 25);
+            label16.Size = new Size(54, 37);
             label16.TabIndex = 6;
             label16.Text = "ISBN:";
+            label16.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // isbnLabelBookPanel
             // 
@@ -348,11 +358,13 @@
             // label17
             // 
             label17.AutoSize = true;
+            label17.Dock = DockStyle.Fill;
             label17.Location = new Point(3, 0);
             label17.Name = "label17";
             label17.Size = new Size(62, 25);
             label17.TabIndex = 6;
             label17.Text = "Genre:";
+            label17.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // BookControl
             // 
