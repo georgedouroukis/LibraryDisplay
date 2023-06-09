@@ -1,7 +1,8 @@
 ﻿using LibraryDisplay.Models;
+using LibraryDisplay.Models.Enums;
 using LibraryDisplay.Network;
 using LibraryDisplay.UserControls.GenericItems;
-using LibraryDisplay.Utils;
+using LibraryDisplay.Utils.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;

@@ -1,6 +1,7 @@
 ﻿using LibraryDisplay.Models;
+using LibraryDisplay.Models.Enums;
 using LibraryDisplay.Network;
-using LibraryDisplay.Utils;
+using LibraryDisplay.Utils.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

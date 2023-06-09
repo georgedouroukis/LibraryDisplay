@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LibraryDisplay.Models;
+using LibraryDisplay.Models.Enums;
 
 namespace LibraryDisplay.UserControls.GenericItems
 {

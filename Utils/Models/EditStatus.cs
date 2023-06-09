@@ -1,6 +1,6 @@
-﻿using LibraryDisplay.Models;
+﻿using LibraryDisplay.Models.Enums;
 
-namespace LibraryDisplay.Utils
+namespace LibraryDisplay.Utils.Models
 {
     public class EditStatus
     {

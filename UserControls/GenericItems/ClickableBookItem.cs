@@ -1,4 +1,5 @@
 ﻿using LibraryDisplay.Models;
+using LibraryDisplay.Models.Enums;
 using LibraryDisplay.Network;
 using System;
 using System.Collections.Generic;
