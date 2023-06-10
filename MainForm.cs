@@ -4,6 +4,7 @@ using LibraryDisplay.UserControls.GenericItems;
 using LibraryDisplay.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics.Eventing.Reader;
 
 namespace LibraryDisplay
 {
@@ -67,68 +68,39 @@ namespace LibraryDisplay
 
         }
 
-        private void HandleMouseDown(object sender, MouseEventArgs e)
-        {
-            switch (e.Button)
-            {
-                case MouseButtons.XButton1:
-                    //NavigateBack(sender, e); // call the back button event handler
-                    Console.WriteLine("Mouse back");
-                    break;
-                case MouseButtons.XButton2:
-                    //NavigateForward(sender, e); // call the forward button event handler
-                    Console.WriteLine("Mouse Forward back");
-                    break;
-            }
-        }
-
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            Console.WriteLine($"Key '{keyData}' pressed!");
+            //Console.WriteLine(msg);
             if (keyData == Keys.XButton1)
             {
                 Console.WriteLine("keyboard back");
-                return false; 
             }
             else if (keyData == Keys.XButton2)
             {
                 Console.WriteLine("keyboard forward");
-                return false;
             }
             else if (keyData == Keys.Back)
             {
                 Console.WriteLine("keyboard BackSpace");
-                return false;
             }
-
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
         protected override void WndProc(ref Message m)
         {
-            const int WM_LBUTTONDOWN = 528;  // Left mouse button down message
-            const int WM_RBUTTONDOWN = 123;  // Right mouse button down message
-            switch (m.Msg)
+            //Console.WriteLine(m);
+            if (m.Msg==0x319) //793
             {
-                case WM_LBUTTONDOWN:
-                    // Handle left mouse button down event
-                    Console.WriteLine("Left mouse button down!");
-                    break;
-
-                case WM_RBUTTONDOWN:
-                    // Handle right mouse button down event
-                    Console.WriteLine("Right mouse button down!");
-                    break;
-
-                // Add additional cases for other mouse-related messages if needed
-
-                default:
-                    Console.WriteLine($"{m.Msg}");
-                    base.WndProc(ref m);  // Process other messages normally
-                    break;
+                if (m.LParam == 0x80010000)
+                {
+                    Console.WriteLine("Back Button Mouse");
+                }
+                else if (m.LParam == 0x80020000)
+                {
+                    Console.WriteLine("Forward Button Mouse");
+                }
             }
+            base.WndProc(ref m);  // Process other messages normally
         }
-
     }
 }
