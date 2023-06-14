@@ -30,8 +30,9 @@
         {
             editPanel = new SplitContainer();
             tableLayoutPanel7 = new TableLayoutPanel();
+            deleteButtonEditPanel = new Button();
+            saveButtonEditPanel = new Button();
             pageTitle = new Label();
-            homeButtonEditPanel = new Button();
             splitContainer10 = new SplitContainer();
             editTabs = new TabControl();
             bookEditTab = new TabPage();
@@ -104,11 +105,10 @@
             subComboBoxEditGenrePanel = new ComboBox();
             createSubButtonEditGenrePanel = new Button();
             subFlowEditGenrePanel = new FlowLayoutPanel();
-            deleteButtonEditPanel = new Button();
-            saveButtonEditPanel = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
-            button5 = new Button();
-            button4 = new Button();
+            bforwardButtonEditPanel = new Button();
+            backButtonEditPanel = new Button();
+            homeButtonEditPanel = new Button();
             ((System.ComponentModel.ISupportInitialize)editPanel).BeginInit();
             editPanel.Panel1.SuspendLayout();
             editPanel.Panel2.SuspendLayout();
@@ -181,6 +181,28 @@
             tableLayoutPanel7.Size = new Size(1122, 83);
             tableLayoutPanel7.TabIndex = 1;
             // 
+            // deleteButtonEditPanel
+            // 
+            deleteButtonEditPanel.Anchor = AnchorStyles.None;
+            deleteButtonEditPanel.Location = new Point(3, 24);
+            deleteButtonEditPanel.Name = "deleteButtonEditPanel";
+            deleteButtonEditPanel.Size = new Size(106, 34);
+            deleteButtonEditPanel.TabIndex = 2;
+            deleteButtonEditPanel.Text = "Delete";
+            deleteButtonEditPanel.UseVisualStyleBackColor = true;
+            deleteButtonEditPanel.Click += deleteButtonEditPanel_Click;
+            // 
+            // saveButtonEditPanel
+            // 
+            saveButtonEditPanel.Anchor = AnchorStyles.None;
+            saveButtonEditPanel.Location = new Point(1013, 24);
+            saveButtonEditPanel.Name = "saveButtonEditPanel";
+            saveButtonEditPanel.Size = new Size(106, 34);
+            saveButtonEditPanel.TabIndex = 1;
+            saveButtonEditPanel.Text = "Save";
+            saveButtonEditPanel.UseVisualStyleBackColor = true;
+            saveButtonEditPanel.Click += saveButtonEditPanel_Click;
+            // 
             // pageTitle
             // 
             pageTitle.Dock = DockStyle.Fill;
@@ -191,18 +213,6 @@
             pageTitle.TabIndex = 6;
             pageTitle.Text = "Create/Edit";
             pageTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // homeButtonEditPanel
-            // 
-            homeButtonEditPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            homeButtonEditPanel.Location = new Point(1013, 22);
-            homeButtonEditPanel.Margin = new Padding(3, 3, 3, 30);
-            homeButtonEditPanel.Name = "homeButtonEditPanel";
-            homeButtonEditPanel.Size = new Size(106, 34);
-            homeButtonEditPanel.TabIndex = 7;
-            homeButtonEditPanel.Text = "Home";
-            homeButtonEditPanel.UseVisualStyleBackColor = true;
-            homeButtonEditPanel.Click += homeButtonEditPanel_Click;
             // 
             // splitContainer10
             // 
@@ -976,36 +986,14 @@
             subFlowEditGenrePanel.Size = new Size(0, 0);
             subFlowEditGenrePanel.TabIndex = 23;
             // 
-            // deleteButtonEditPanel
-            // 
-            deleteButtonEditPanel.Anchor = AnchorStyles.None;
-            deleteButtonEditPanel.Location = new Point(3, 24);
-            deleteButtonEditPanel.Name = "deleteButtonEditPanel";
-            deleteButtonEditPanel.Size = new Size(106, 34);
-            deleteButtonEditPanel.TabIndex = 2;
-            deleteButtonEditPanel.Text = "Delete";
-            deleteButtonEditPanel.UseVisualStyleBackColor = true;
-            deleteButtonEditPanel.Click += deleteButtonEditPanel_Click;
-            // 
-            // saveButtonEditPanel
-            // 
-            saveButtonEditPanel.Anchor = AnchorStyles.None;
-            saveButtonEditPanel.Location = new Point(1013, 24);
-            saveButtonEditPanel.Name = "saveButtonEditPanel";
-            saveButtonEditPanel.Size = new Size(106, 34);
-            saveButtonEditPanel.TabIndex = 1;
-            saveButtonEditPanel.Text = "Save";
-            saveButtonEditPanel.UseVisualStyleBackColor = true;
-            saveButtonEditPanel.Click += saveButtonEditPanel_Click;
-            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel2.Controls.Add(button5, 0, 0);
-            tableLayoutPanel2.Controls.Add(button4, 0, 0);
+            tableLayoutPanel2.Controls.Add(bforwardButtonEditPanel, 0, 0);
+            tableLayoutPanel2.Controls.Add(backButtonEditPanel, 0, 0);
             tableLayoutPanel2.Controls.Add(homeButtonEditPanel, 2, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
@@ -1015,27 +1003,39 @@
             tableLayoutPanel2.Size = new Size(1122, 86);
             tableLayoutPanel2.TabIndex = 5;
             // 
-            // button5
+            // bforwardButtonEditPanel
             // 
-            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button5.Location = new Point(43, 22);
-            button5.Margin = new Padding(3, 3, 3, 30);
-            button5.Name = "button5";
-            button5.Size = new Size(34, 34);
-            button5.TabIndex = 2;
-            button5.Text = ">";
-            button5.UseVisualStyleBackColor = true;
+            bforwardButtonEditPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            bforwardButtonEditPanel.Location = new Point(43, 22);
+            bforwardButtonEditPanel.Margin = new Padding(3, 3, 3, 30);
+            bforwardButtonEditPanel.Name = "bforwardButtonEditPanel";
+            bforwardButtonEditPanel.Size = new Size(34, 34);
+            bforwardButtonEditPanel.TabIndex = 2;
+            bforwardButtonEditPanel.Text = ">";
+            bforwardButtonEditPanel.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // backButtonEditPanel
             // 
-            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button4.Location = new Point(3, 22);
-            button4.Margin = new Padding(3, 3, 3, 30);
-            button4.Name = "button4";
-            button4.Size = new Size(34, 34);
-            button4.TabIndex = 1;
-            button4.Text = "<";
-            button4.UseVisualStyleBackColor = true;
+            backButtonEditPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            backButtonEditPanel.Location = new Point(3, 22);
+            backButtonEditPanel.Margin = new Padding(3, 3, 3, 30);
+            backButtonEditPanel.Name = "backButtonEditPanel";
+            backButtonEditPanel.Size = new Size(34, 34);
+            backButtonEditPanel.TabIndex = 1;
+            backButtonEditPanel.Text = "<";
+            backButtonEditPanel.UseVisualStyleBackColor = true;
+            // 
+            // homeButtonEditPanel
+            // 
+            homeButtonEditPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            homeButtonEditPanel.Location = new Point(1013, 22);
+            homeButtonEditPanel.Margin = new Padding(3, 3, 3, 30);
+            homeButtonEditPanel.Name = "homeButtonEditPanel";
+            homeButtonEditPanel.Size = new Size(106, 34);
+            homeButtonEditPanel.TabIndex = 7;
+            homeButtonEditPanel.Text = "Home";
+            homeButtonEditPanel.UseVisualStyleBackColor = true;
+            homeButtonEditPanel.Click += homeButtonEditPanel_Click;
             // 
             // AbstractEditCreate
             // 
@@ -1185,7 +1185,7 @@
         private Button createParentButtonEditGenrePanel;
         private Button createSubButtonEditGenrePanel;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button button5;
-        private Button button4;
+        private Button bforwardButtonEditPanel;
+        private Button backButtonEditPanel;
     }
 }

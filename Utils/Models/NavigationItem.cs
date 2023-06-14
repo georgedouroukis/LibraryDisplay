@@ -15,11 +15,11 @@ namespace LibraryDisplay.Utils.Models
         public bool? authorCheckBox { get; set; }
         public bool? publisherCheckBox { get; set; }
         public string? searchString { get; set; }
-        public int? id { get; set; }
-        public Book? referencedBook { get; set; }
-        public Author? referencedAuthor { get; set; }
-        public Publisher? referencedPublisher { get; set; }
-        public Genre? referencedGenre { get; set; }
+        public string? referencedId { get; set; }
+        public Book? book { get; set; }
+        public Author? author { get; set; }
+        public Publisher? publisher { get; set; }
+        public Genre? genre { get; set; }
 
         public NavigationItem(PanelState panelState)
         {

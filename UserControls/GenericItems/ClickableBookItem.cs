@@ -1,6 +1,7 @@
 ﻿using LibraryDisplay.Models;
 using LibraryDisplay.Models.Enums;
 using LibraryDisplay.Network;
+using LibraryDisplay.Utils.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +19,11 @@ namespace LibraryDisplay.UserControls.GenericItems
     public partial class ClickableBookItem : UserControl
     {
         string id;
-        //DbTable table;
+        string callerId;
+        DbTable table;
         LibraryForm form;
         FlowLayoutPanel parentFlow;
-        public ClickableBookItem(string id, DbTable table, LibraryForm form, FlowLayoutPanel parentFlow) : base()
+        public ClickableBookItem(string id, string callerId, DbTable? table, LibraryForm form, FlowLayoutPanel parentFlow) : base()
         {
             InitializeComponent();
             Cursor = Cursors.Hand;
@@ -36,8 +38,10 @@ namespace LibraryDisplay.UserControls.GenericItems
             textBox.MouseLeave += disableBorder;
             pictureBox.MouseLeave += disableBorder;
             this.id = id;
+            this.callerId = callerId;
 
             this.form = form;
+            if (table!=null) this.table = table.Value;
             MouseClick += MouseClicked;
             textBox.MouseClick += MouseClicked;
             pictureBox.MouseClick += MouseClicked;
@@ -65,10 +69,28 @@ namespace LibraryDisplay.UserControls.GenericItems
             BorderStyle = BorderStyle.None;
         }
 
-        public async void MouseClicked(object sender, EventArgs e)
+        public async void MouseClicked(object sender, MouseEventArgs e)
         {
-            await form.bookControl.openBookPanel(id);
-            form.bookControl.BringToFront();
+            if (e.Button == MouseButtons.Left)
+            {
+                await form.bookControl.openBookPanel(id);
+                backNavigationPush();
+                form.bookControl.BringToFront();
+            }
+        }
+
+        private void backNavigationPush()
+        {
+            if (table == DbTable.Book)
+                form.navigationBackStack.Push(new NavigationItem(PanelState.BookControl) { referencedId = callerId });
+            else if (table == DbTable.Author)
+                form.navigationBackStack.Push(new NavigationItem(PanelState.AuthorControl) { referencedId = callerId });
+            else if (table == DbTable.Publisher)
+                form.navigationBackStack.Push(new NavigationItem(PanelState.PublisherControl) { referencedId = callerId });
+            else if (table == DbTable.Genre)
+                form.navigationBackStack.Push(new NavigationItem(PanelState.GenreControl) { referencedId = callerId });
+            else
+                form.navigationBackStack.Push(new NavigationItem(PanelState.CollectionContol));
         }
     }
 }

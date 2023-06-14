@@ -45,7 +45,7 @@ namespace LibraryDisplay.UserControls.GenericItems
 
         }
 
-        public  void MouseClicked(object sender, EventArgs e)
+        public void MouseClicked(object sender, MouseEventArgs e)
         {
             parentFlow.Controls.Remove(this);
         }

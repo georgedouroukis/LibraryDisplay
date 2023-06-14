@@ -2,6 +2,7 @@
 using LibraryDisplay.Models.Enums;
 using LibraryDisplay.Network;
 using LibraryDisplay.UserControls.GenericItems;
+using LibraryDisplay.Utils.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace LibraryDisplay.UserControls
 
         private void homeButtonPublisherPanel_Click(object sender, EventArgs e)
         {
+            parentForm.navigationBackStack.Push(new NavigationItem(PanelState.PublisherControl) { publisher = referencedPublisher});
             parentForm.homeControl.BringToFront();
         }
 
@@ -44,7 +46,7 @@ namespace LibraryDisplay.UserControls
 
             foreach (var item in publisher.books)
             {
-                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, publisherBookFlow);
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), id, DbTable.Author, parentForm, publisherBookFlow);
                 publisherBookFlow.Controls.Add(book);
             }
             this.BringToFront();
@@ -53,6 +55,7 @@ namespace LibraryDisplay.UserControls
         private void editButtonPublisherPanel_Click(object sender, EventArgs e)
         {
             parentForm.editControl.BringToFront();
+            parentForm.navigationBackStack.Push(new NavigationItem(PanelState.PublisherControl) { publisher = referencedPublisher });
             parentForm.editControl.populateEditPublisherPanel(referencedPublisher, CallFrom.None, true);
         }
     }

@@ -53,8 +53,8 @@
             genreFlowBookPanel = new FlowLayoutPanel();
             label17 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            button5 = new Button();
-            button4 = new Button();
+            bforwardButtonBookPanel = new Button();
+            backButtonBookPanel = new Button();
             button3 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
@@ -362,8 +362,8 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel2.Controls.Add(button5, 0, 0);
-            tableLayoutPanel2.Controls.Add(button4, 0, 0);
+            tableLayoutPanel2.Controls.Add(bforwardButtonBookPanel, 0, 0);
+            tableLayoutPanel2.Controls.Add(backButtonBookPanel, 0, 0);
             tableLayoutPanel2.Controls.Add(button3, 2, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 767);
@@ -373,27 +373,27 @@
             tableLayoutPanel2.Size = new Size(953, 82);
             tableLayoutPanel2.TabIndex = 4;
             // 
-            // button5
+            // bforwardButtonBookPanel
             // 
-            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button5.Location = new Point(43, 18);
-            button5.Margin = new Padding(3, 3, 3, 30);
-            button5.Name = "button5";
-            button5.Size = new Size(34, 34);
-            button5.TabIndex = 2;
-            button5.Text = ">";
-            button5.UseVisualStyleBackColor = true;
+            bforwardButtonBookPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            bforwardButtonBookPanel.Location = new Point(43, 18);
+            bforwardButtonBookPanel.Margin = new Padding(3, 3, 3, 30);
+            bforwardButtonBookPanel.Name = "bforwardButtonBookPanel";
+            bforwardButtonBookPanel.Size = new Size(34, 34);
+            bforwardButtonBookPanel.TabIndex = 2;
+            bforwardButtonBookPanel.Text = ">";
+            bforwardButtonBookPanel.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // backButtonBookPanel
             // 
-            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button4.Location = new Point(3, 18);
-            button4.Margin = new Padding(3, 3, 3, 30);
-            button4.Name = "button4";
-            button4.Size = new Size(34, 34);
-            button4.TabIndex = 1;
-            button4.Text = "<";
-            button4.UseVisualStyleBackColor = true;
+            backButtonBookPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            backButtonBookPanel.Location = new Point(3, 18);
+            backButtonBookPanel.Margin = new Padding(3, 3, 3, 30);
+            backButtonBookPanel.Name = "backButtonBookPanel";
+            backButtonBookPanel.Size = new Size(34, 34);
+            backButtonBookPanel.TabIndex = 1;
+            backButtonBookPanel.Text = "<";
+            backButtonBookPanel.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -405,6 +405,7 @@
             button3.TabIndex = 0;
             button3.Text = "Home";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += homeButtonBookPanel_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -541,7 +542,7 @@
         private Button button2;
         private FlowLayoutPanel flowLayoutPanel3;
         private Button homeButtonBookPanel;
-        private Button button4;
-        private Button button5;
+        private Button backButtonBookPanel;
+        private Button bforwardButtonBookPanel;
     }
 }

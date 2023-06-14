@@ -33,13 +33,13 @@
             label1 = new Label();
             splitContainer7 = new SplitContainer();
             collectionBookFlow = new FlowLayoutPanel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            forwardButtonCollectionPanel = new Button();
+            backButtonCollectionPanel = new Button();
+            button1 = new Button();
             tableLayoutPanel9 = new TableLayoutPanel();
             homeButtonAuthorPanel = new Button();
             authorLabelAuthorPanel = new Label();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            button5 = new Button();
-            button4 = new Button();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)collectionPanel).BeginInit();
             collectionPanel.Panel1.SuspendLayout();
             collectionPanel.Panel2.SuspendLayout();
@@ -49,8 +49,8 @@
             splitContainer7.Panel1.SuspendLayout();
             splitContainer7.Panel2.SuspendLayout();
             splitContainer7.SuspendLayout();
-            tableLayoutPanel9.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel9.SuspendLayout();
             SuspendLayout();
             // 
             // collectionPanel
@@ -123,6 +123,57 @@
             collectionBookFlow.Size = new Size(859, 546);
             collectionBookFlow.TabIndex = 1;
             // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.Controls.Add(forwardButtonCollectionPanel, 0, 0);
+            tableLayoutPanel2.Controls.Add(backButtonCollectionPanel, 0, 0);
+            tableLayoutPanel2.Controls.Add(button1, 2, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(859, 81);
+            tableLayoutPanel2.TabIndex = 5;
+            // 
+            // forwardButtonCollectionPanel
+            // 
+            forwardButtonCollectionPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            forwardButtonCollectionPanel.Location = new Point(43, 17);
+            forwardButtonCollectionPanel.Margin = new Padding(3, 3, 3, 30);
+            forwardButtonCollectionPanel.Name = "forwardButtonCollectionPanel";
+            forwardButtonCollectionPanel.Size = new Size(34, 34);
+            forwardButtonCollectionPanel.TabIndex = 2;
+            forwardButtonCollectionPanel.Text = ">";
+            forwardButtonCollectionPanel.UseVisualStyleBackColor = true;
+            // 
+            // backButtonCollectionPanel
+            // 
+            backButtonCollectionPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            backButtonCollectionPanel.Location = new Point(3, 17);
+            backButtonCollectionPanel.Margin = new Padding(3, 3, 3, 30);
+            backButtonCollectionPanel.Name = "backButtonCollectionPanel";
+            backButtonCollectionPanel.Size = new Size(34, 34);
+            backButtonCollectionPanel.TabIndex = 1;
+            backButtonCollectionPanel.Text = "<";
+            backButtonCollectionPanel.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Location = new Point(744, 17);
+            button1.Margin = new Padding(3, 3, 3, 30);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 0;
+            button1.Text = "Home";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += homeButtonCollectionPanel_Click;
+            // 
             // tableLayoutPanel9
             // 
             tableLayoutPanel9.ColumnCount = 3;
@@ -157,56 +208,6 @@
             authorLabelAuthorPanel.Text = "Author";
             authorLabelAuthorPanel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel2.Controls.Add(button5, 0, 0);
-            tableLayoutPanel2.Controls.Add(button4, 0, 0);
-            tableLayoutPanel2.Controls.Add(button1, 2, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(859, 81);
-            tableLayoutPanel2.TabIndex = 5;
-            // 
-            // button5
-            // 
-            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button5.Location = new Point(43, 17);
-            button5.Margin = new Padding(3, 3, 3, 30);
-            button5.Name = "button5";
-            button5.Size = new Size(34, 34);
-            button5.TabIndex = 2;
-            button5.Text = ">";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button4.Location = new Point(3, 17);
-            button4.Margin = new Padding(3, 3, 3, 30);
-            button4.Name = "button4";
-            button4.Size = new Size(34, 34);
-            button4.TabIndex = 1;
-            button4.Text = "<";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(744, 17);
-            button1.Margin = new Padding(3, 3, 3, 30);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 0;
-            button1.Text = "Home";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // CollectionControl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -214,7 +215,6 @@
             Controls.Add(collectionPanel);
             Name = "CollectionControl";
             Size = new Size(968, 802);
-            Load += CollectionControl_Load;
             collectionPanel.Panel1.ResumeLayout(false);
             collectionPanel.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)collectionPanel).EndInit();
@@ -224,8 +224,8 @@
             splitContainer7.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer7).EndInit();
             splitContainer7.ResumeLayout(false);
-            tableLayoutPanel9.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel9.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -240,8 +240,8 @@
         private Button homeButtonAuthorPanel;
         private Label authorLabelAuthorPanel;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button button5;
-        private Button button4;
+        private Button forwardButtonCollectionPanel;
+        private Button backButtonCollectionPanel;
         private Button button1;
     }
 }

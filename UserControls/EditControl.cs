@@ -80,16 +80,19 @@ namespace LibraryDisplay.UserControls
                             case DbTable.Book:
                                 await PutRequests.UpdateEntity<Book>(tempBook);
                                 await parentForm.bookControl.openBookPanel(tempBook.id.ToString());
+                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = tempBook });
                                 break;
                             case DbTable.Author:
                                 await PutRequests.UpdateEntity<Author>(tempAuthor);
                                 parentForm.createControl.populateEditBookPanel(new Book(), true); //regenerate panels
                                 await parentForm.authorControl.openAuthorPanel(tempAuthor.id.ToString());
+                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditAuthor) { author = tempAuthor });
                                 break;
                             case DbTable.Publisher:
                                 await PutRequests.UpdateEntity<Publisher>(tempPublisher);
                                 parentForm.createControl.populateEditBookPanel(new Book(), true); //regenerate panels
                                 await parentForm.publisherControl.openPublisherPanel(tempPublisher.id.ToString());
+                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditPublisher) { publisher = tempPublisher });
                                 break;
                             case DbTable.Genre:
                                 await PutRequests.UpdateEntity<Genre>(tempGenre);
@@ -97,6 +100,7 @@ namespace LibraryDisplay.UserControls
                                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None, true);
                                 parentForm.homeControl.genreTreeViewPopulate();
                                 await parentForm.genreControl.openGenrePanel(tempGenre.id.ToString());
+                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { genre = tempGenre });
                                 break;
                         }
                         bookEditTab.Enabled = false;
@@ -110,6 +114,7 @@ namespace LibraryDisplay.UserControls
             }
             else
             {
+                navigationHomePush();
                 Console.WriteLine("no changes found");
             }
         }
@@ -121,6 +126,38 @@ namespace LibraryDisplay.UserControls
                 e.Cancel = true;
         }
 
-        
+        protected override void homeButtonEditPanel_Click(object sender, EventArgs e)
+        {
+            if (checkStatus().HasChanges)
+            {
+                DialogResult dr = MessageBox.Show("Discard Changes?", "Unsaved Changes", MessageBoxButtons.YesNo);
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        navigationHomePush();
+                        parentForm.homeControl.BringToFront();
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+            }
+            else
+            {
+                navigationHomePush();
+                parentForm.homeControl.BringToFront();
+            }
+        }
+
+        private void navigationHomePush()
+        {
+            if (editTabs.SelectedTab == bookEditTab)
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = referencedBook });
+            else if (editTabs.SelectedTab == authorEditTab)
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditAuthor) { author = referencedAuthor });
+            else if (editTabs.SelectedTab == publisherEditTab)
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditPublisher) { publisher = referencedPublisher });
+            else
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { genre = referencedGenre });
+        }
     }
 }

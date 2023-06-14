@@ -41,6 +41,39 @@ namespace LibraryDisplay.UserControls
             //    populateEditGenrePanel(new Genre(), CallFrom.None);
         }
 
+        protected override void homeButtonEditPanel_Click(object sender, EventArgs e)
+        {
+            if (checkStatus().HasChanges)
+            {
+                DialogResult dr = MessageBox.Show("Discard Changes?", "Unsaved Changes", MessageBoxButtons.YesNo);
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        navigationHomePush();
+                        parentForm.homeControl.BringToFront();
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+            }
+            else
+            {
+                navigationHomePush();
+                parentForm.homeControl.BringToFront();
+            }
+        }
+        private void navigationHomePush()
+        {
+            if (editTabs.SelectedTab == bookEditTab)
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = new Book() });
+            else if (editTabs.SelectedTab == authorEditTab)
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateAuthor) { author = new Author() });
+            else if (editTabs.SelectedTab == publisherEditTab)
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreatePublisher) { publisher = new Publisher() });
+            else
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateGenre) { genre = new Genre() });
+        }
+
         protected override async void saveButtonEditPanel_Click(object sender, EventArgs e)
         {
             EditStatus status = checkStatus();
@@ -56,6 +89,7 @@ namespace LibraryDisplay.UserControls
                             case DbTable.Book:
 
                                 id = await PostRequests.CreateEntity<Book>(tempBook);
+                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = new Book() });
                                 await parentForm.bookControl.openBookPanel(id);
                                 break;
 
@@ -68,6 +102,7 @@ namespace LibraryDisplay.UserControls
                                 if (calledFrom == CallFrom.None)
                                 {
                                     parentForm.createControl.populateEditBookPanel(new Book(), true);
+                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateAuthor) { author = new Author()});
                                     await parentForm.authorControl.openAuthorPanel(id);
                                 }
                                 else if (calledFrom == CallFrom.CreateBook)
@@ -95,6 +130,7 @@ namespace LibraryDisplay.UserControls
                                 if (calledFrom == CallFrom.None)
                                 {
                                     parentForm.createControl.populateEditBookPanel(new Book(), true);
+                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateGenre) { genre = new Genre() });
                                     await parentForm.genreControl.openGenrePanel(id);
                                 }
 
@@ -158,6 +194,7 @@ namespace LibraryDisplay.UserControls
                                 if (calledFrom == CallFrom.None)
                                 {
                                     parentForm.createControl.populateEditBookPanel(new Book(), true);
+                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreatePublisher) { publisher = new Publisher() });
                                     await parentForm.publisherControl.openPublisherPanel(id);
                                 }
 

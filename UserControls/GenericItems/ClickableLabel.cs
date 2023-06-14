@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryDisplay.Models.Enums;
+using LibraryDisplay.Utils.Models;
 
 namespace LibraryDisplay.UserControls.GenericItems
 {
@@ -11,18 +12,20 @@ namespace LibraryDisplay.UserControls.GenericItems
     {
 
         string id;
+        string callerId;
         DbTable table;
         LibraryForm form;
         FlowLayoutPanel parentFlow;
 
 
-        public ClickableLabel(string id, DbTable table, LibraryForm form, FlowLayoutPanel parentFlow) : base()
+        public ClickableLabel(string id, string callerId, DbTable table, LibraryForm form, FlowLayoutPanel parentFlow) : base()
         {
             AutoSize = true;
             Cursor = Cursors.Hand;
             MouseEnter += changeColor;
             MouseLeave += changeColorback;
             this.id = id;
+            this.callerId = callerId;
             this.table = table;
             this.form = form;
             this.parentFlow = parentFlow;
@@ -42,8 +45,11 @@ namespace LibraryDisplay.UserControls.GenericItems
 
         }
 
-        public async void MouseClicked(object sender, EventArgs e)
+        public async void MouseClicked(object sender, MouseEventArgs e)
         {
+            form.navigationBackStack.Push(new NavigationItem(PanelState.BookControl) { referencedId = callerId });
+            NavigationItem temp = form.navigationBackStack.Peek();
+            Console.WriteLine(temp.referencedId);
             if (table == DbTable.Genre)
             {
                 await form.genreControl.openGenrePanel(id);

@@ -7,6 +7,7 @@ using LibraryDisplay.Utils.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics.Eventing.Reader;
+using System.Windows.Forms;
 
 namespace LibraryDisplay
 {
@@ -69,7 +70,7 @@ namespace LibraryDisplay
             editControl.Dock = DockStyle.Fill;
             createControl.Dock = DockStyle.Fill;
 
-            navigationBackStack.Push(new NavigationItem(PanelState.HomeControl) { bookCheckBox = true, publisherCheckBox = false, authorCheckBox = false, searchString = "" }) ;
+            navigationBackStack.Push(new NavigationItem(PanelState.HomeControl) { bookCheckBox = true, publisherCheckBox = false, authorCheckBox = false, searchString = "" });
             homeControl.BringToFront();
 
 
@@ -81,14 +82,17 @@ namespace LibraryDisplay
             if (keyData == Keys.XButton1)
             {
                 Console.WriteLine("keyboard back");
+                return true;
             }
             else if (keyData == Keys.XButton2)
             {
                 Console.WriteLine("keyboard forward");
+                return true;
             }
             else if (keyData == Keys.Back)
             {
                 Console.WriteLine("keyboard BackSpace");
+                return false;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -96,11 +100,12 @@ namespace LibraryDisplay
         protected override void WndProc(ref Message m)
         {
             //Console.WriteLine(m);
-            if (m.Msg==0x319) //793
+            if (m.Msg == 0x319) //793 // Cannot use e.Button == MouseButtons.XButton1 because every component consumes the event 
             {
                 if (m.LParam == 0x80010000)
                 {
                     Console.WriteLine("Back Button Mouse");
+                    navigateBack();
                 }
                 else if (m.LParam == 0x80020000)
                 {
@@ -109,5 +114,68 @@ namespace LibraryDisplay
             }
             base.WndProc(ref m);  // Process other messages normally
         }
+
+        //private void LibraryForm_MouseClick(object sender, MouseEventArgs e)
+        //{
+        //    if (e.Button == MouseButtons.XButton1) //doesnt work
+        //    {
+        //        Console.WriteLine("Back Button Mouse");
+        //    }
+        //    else if (e.Button == MouseButtons.XButton2)
+        //    {
+        //        Console.WriteLine("Forward Button Mouse");
+        //    }
+        //}
+
+        private async void navigateBack()
+        {
+            try
+            {
+                NavigationItem current = navigationBackStack.Pop();
+                switch (current.panelState)
+                {
+                    case PanelState.HomeControl:
+                        homeControl.BringToFront();
+                        break;
+
+                    case PanelState.CollectionContol:
+                        collectionControl.BringToFront();
+                        break;
+
+                    case PanelState.BookControl:
+                        if (current.book != null)
+                            current.referencedId = current.book.id.ToString();
+                        await bookControl.openBookPanel(current.referencedId!);
+                        break;
+
+                    case PanelState.AuthorControl:
+                        if (current.author != null)
+                            current.referencedId = current.author.id.ToString();
+                        await authorControl.openAuthorPanel(current.referencedId!);
+                        break;
+
+                    case PanelState.PublisherControl:
+                        if (current.publisher != null)
+                            current.referencedId = current.publisher.id.ToString();
+                        await publisherControl.openPublisherPanel(current.referencedId!);
+                        break;
+
+                    case PanelState.GenreControl:
+                        if (current.genre != null)
+                            current.referencedId = current.genre.id.ToString();
+                        await genreControl.openGenrePanel(current.referencedId!);
+                        break;
+
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{e.Message}");
+            }
+        }
+
+        
     }
 }

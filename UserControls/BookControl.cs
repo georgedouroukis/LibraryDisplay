@@ -30,6 +30,7 @@ namespace LibraryDisplay.UserControls
 
         private void homeButtonBookPanel_Click(object sender, EventArgs e)
         {
+            parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.BookControl) { book = referencedBook});
             parentForm.homeControl.BringToFront();
         }
 
@@ -58,7 +59,7 @@ namespace LibraryDisplay.UserControls
             //get authors
             foreach (var item in book.authors)
             {
-                ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Author, parentForm, authorFlowBookPanel); //this param is used for id
+                ClickableLabel label = new ClickableLabel(item.ToString(), id, DbTable.Author, parentForm, authorFlowBookPanel); //this param is used for id
                 Author author = await GetRequests.GetAuthorById(item.ToString());
                 label.Text = author.firstName + " " + author.lastName + " " + author.middleName;
                 authorFlowBookPanel.Controls.Add(label);
@@ -66,14 +67,14 @@ namespace LibraryDisplay.UserControls
 
             //get publisher
             Publisher publisher = await GetRequests.GetPublisherById(book.publisher.ToString());
-            ClickableLabel publisherLabel = new ClickableLabel(book.publisher.ToString(), DbTable.Publisher, parentForm, publisherFlowBookPanel);
+            ClickableLabel publisherLabel = new ClickableLabel(book.publisher.ToString(), id, DbTable.Publisher, parentForm, publisherFlowBookPanel);
             publisherLabel.Text = publisher.name;
             publisherFlowBookPanel.Controls.Add(publisherLabel);
 
             //get genres
             foreach (var item in book.genres)
             {
-                ClickableLabel label = new ClickableLabel(item.ToString(), DbTable.Genre, parentForm, genreFlowBookPanel);
+                ClickableLabel label = new ClickableLabel(item.ToString(), id, DbTable.Genre, parentForm, genreFlowBookPanel);
                 Genre genre = await GetRequests.GetGenreById(item.ToString());
                 label.Text = genre.genre;
                 genreFlowBookPanel.Controls.Add(label);
@@ -90,6 +91,7 @@ namespace LibraryDisplay.UserControls
         {
             parentForm.editControl.BringToFront();
             parentForm.editControl.populateEditBookPanel(referencedBook, true);
+            parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.BookControl) { book = referencedBook });
         }
 
         private void pictureBoxBookPanel_Click(object sender, EventArgs e)
@@ -99,11 +101,6 @@ namespace LibraryDisplay.UserControls
             {
                 Form checkImageForm = new CheckImage(url);
             }
-        }
-
-        private void homeButtonBookPanel_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

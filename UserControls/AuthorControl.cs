@@ -33,6 +33,7 @@ namespace LibraryDisplay.UserControls
 
         private void homeButtonAuthorPanel_Click(object sender, EventArgs e)
         {
+            parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.AuthorControl) { author = referencedAuthor});
             parentForm.homeControl.BringToFront();
         }
 
@@ -47,7 +48,7 @@ namespace LibraryDisplay.UserControls
 
             foreach (var item in author.books)
             {
-                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, authorBookFlow);
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), id, DbTable.Author, parentForm, authorBookFlow);
                 authorBookFlow.Controls.Add(book);
             }
             this.BringToFront();
@@ -56,6 +57,7 @@ namespace LibraryDisplay.UserControls
         private void editButtonAuthorPanel_Click(object sender, EventArgs e)
         {
             parentForm.editControl.BringToFront();
+            parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.AuthorControl) { author = referencedAuthor });
             parentForm.editControl.populateEditAuthorPanel(referencedAuthor, CallFrom.None, true);
         }
     }

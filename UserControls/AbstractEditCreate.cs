@@ -61,6 +61,9 @@ namespace LibraryDisplay.UserControls
 
         protected abstract void deleteButtonEditPanel_Click(object sender, EventArgs e);
 
+        protected abstract void homeButtonEditPanel_Click(object sender, EventArgs e);
+        
+
         protected EditStatus checkStatus()
         {
             bool checkChanges = true;
@@ -92,25 +95,7 @@ namespace LibraryDisplay.UserControls
             return new EditStatus(checkChanges, table);
         }
 
-        private void homeButtonEditPanel_Click(object sender, EventArgs e)
-        {
-            if (checkStatus().HasChanges)
-            {
-                DialogResult dr = MessageBox.Show("Discard Changes?", "Unsaved Changes", MessageBoxButtons.YesNo);
-                switch (dr)
-                {
-                    case DialogResult.Yes:
-                        parentForm.homeControl.BringToFront();
-                        break;
-                    case DialogResult.No:
-                        break;
-                }
-            }
-            else
-            {
-                parentForm.homeControl.BringToFront();
-            }
-        }
+        
 
         public async void populateEditBookPanel(Book book, bool firstCall)
         {

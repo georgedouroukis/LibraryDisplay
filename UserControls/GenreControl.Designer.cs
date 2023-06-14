@@ -38,8 +38,8 @@
             genreBookFlow = new FlowLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             homeButtonGenrePanel = new Button();
-            button5 = new Button();
-            button4 = new Button();
+            forwardButtonGenrePanel = new Button();
+            backButtonGenrePanel = new Button();
             ((System.ComponentModel.ISupportInitialize)genrePanel).BeginInit();
             genrePanel.Panel1.SuspendLayout();
             genrePanel.Panel2.SuspendLayout();
@@ -129,6 +129,7 @@
             editButtonGenrePanel.TabIndex = 7;
             editButtonGenrePanel.Text = "Edit";
             editButtonGenrePanel.UseVisualStyleBackColor = true;
+            editButtonGenrePanel.Click += editButtonGenrePanel_Click;
             // 
             // flowLayoutPanel17
             // 
@@ -172,8 +173,8 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel2.Controls.Add(homeButtonGenrePanel, 0, 0);
-            tableLayoutPanel2.Controls.Add(button5, 0, 0);
-            tableLayoutPanel2.Controls.Add(button4, 0, 0);
+            tableLayoutPanel2.Controls.Add(forwardButtonGenrePanel, 0, 0);
+            tableLayoutPanel2.Controls.Add(backButtonGenrePanel, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -192,28 +193,29 @@
             homeButtonGenrePanel.TabIndex = 9;
             homeButtonGenrePanel.Text = "Home";
             homeButtonGenrePanel.UseVisualStyleBackColor = true;
+            homeButtonGenrePanel.Click += homeButtonGenrePanel_Click;
             // 
-            // button5
+            // forwardButtonGenrePanel
             // 
-            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button5.Location = new Point(43, 18);
-            button5.Margin = new Padding(3, 3, 3, 30);
-            button5.Name = "button5";
-            button5.Size = new Size(34, 33);
-            button5.TabIndex = 2;
-            button5.Text = ">";
-            button5.UseVisualStyleBackColor = true;
+            forwardButtonGenrePanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            forwardButtonGenrePanel.Location = new Point(43, 18);
+            forwardButtonGenrePanel.Margin = new Padding(3, 3, 3, 30);
+            forwardButtonGenrePanel.Name = "forwardButtonGenrePanel";
+            forwardButtonGenrePanel.Size = new Size(34, 33);
+            forwardButtonGenrePanel.TabIndex = 2;
+            forwardButtonGenrePanel.Text = ">";
+            forwardButtonGenrePanel.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // backButtonGenrePanel
             // 
-            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button4.Location = new Point(3, 18);
-            button4.Margin = new Padding(3, 3, 3, 30);
-            button4.Name = "button4";
-            button4.Size = new Size(34, 33);
-            button4.TabIndex = 1;
-            button4.Text = "<";
-            button4.UseVisualStyleBackColor = true;
+            backButtonGenrePanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            backButtonGenrePanel.Location = new Point(3, 18);
+            backButtonGenrePanel.Margin = new Padding(3, 3, 3, 30);
+            backButtonGenrePanel.Name = "backButtonGenrePanel";
+            backButtonGenrePanel.Size = new Size(34, 33);
+            backButtonGenrePanel.TabIndex = 1;
+            backButtonGenrePanel.Text = "<";
+            backButtonGenrePanel.UseVisualStyleBackColor = true;
             // 
             // GenreControl
             // 
@@ -252,7 +254,7 @@
         private Button editButtonGenrePanel;
         private TableLayoutPanel tableLayoutPanel2;
         private Button homeButtonGenrePanel;
-        private Button button5;
-        private Button button4;
+        private Button forwardButtonGenrePanel;
+        private Button backButtonGenrePanel;
     }
 }

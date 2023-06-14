@@ -2,6 +2,7 @@
 using LibraryDisplay.Models.Enums;
 using LibraryDisplay.Network;
 using LibraryDisplay.UserControls.GenericItems;
+using LibraryDisplay.Utils.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,7 @@ namespace LibraryDisplay.UserControls
 
         private void homeButtonCollectionPanel_Click(object sender, EventArgs e)
         {
+            parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CollectionContol));
             parentForm.homeControl.BringToFront();
         }
 
@@ -36,15 +38,10 @@ namespace LibraryDisplay.UserControls
 
             foreach (var book in set)
             {
-                ClickableBookItem item = new ClickableBookItem(book.id.ToString(), DbTable.Book, parentForm, collectionBookFlow);
+                ClickableBookItem item = new ClickableBookItem(book.id.ToString(), string.Empty, null, parentForm, collectionBookFlow);
                 collectionBookFlow.Controls.Add(item);
             }
             this.BringToFront();
-        }
-
-        private void CollectionControl_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

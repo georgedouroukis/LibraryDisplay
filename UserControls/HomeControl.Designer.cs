@@ -39,8 +39,8 @@
             searchTextBox = new TextBox();
             searchButton = new Button();
             flowLayoutPanel12 = new FlowLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
+            backButtonHomePanel = new Button();
+            forwardButtonHomePanel = new Button();
             flowLayoutPanel8 = new FlowLayoutPanel();
             publishersCheckBox = new CheckBox();
             authorsCheckBox = new CheckBox();
@@ -184,34 +184,31 @@
             // 
             // flowLayoutPanel12
             // 
-            flowLayoutPanel12.Controls.Add(button1);
-            flowLayoutPanel12.Controls.Add(button2);
+            flowLayoutPanel12.Controls.Add(backButtonHomePanel);
+            flowLayoutPanel12.Controls.Add(forwardButtonHomePanel);
             flowLayoutPanel12.Dock = DockStyle.Fill;
             flowLayoutPanel12.Location = new Point(3, 3);
             flowLayoutPanel12.Name = "flowLayoutPanel12";
             flowLayoutPanel12.Size = new Size(367, 103);
             flowLayoutPanel12.TabIndex = 1;
-            flowLayoutPanel12.Paint += flowLayoutPanel12_Paint;
             // 
-            // button1
+            // backButtonHomePanel
             // 
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(34, 34);
-            button1.TabIndex = 0;
-            button1.Text = "<";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            backButtonHomePanel.Location = new Point(3, 3);
+            backButtonHomePanel.Name = "backButtonHomePanel";
+            backButtonHomePanel.Size = new Size(34, 34);
+            backButtonHomePanel.TabIndex = 0;
+            backButtonHomePanel.Text = "<";
+            backButtonHomePanel.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // forwardButtonHomePanel
             // 
-            button2.Location = new Point(43, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(34, 34);
-            button2.TabIndex = 1;
-            button2.Text = ">";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            forwardButtonHomePanel.Location = new Point(43, 3);
+            forwardButtonHomePanel.Name = "forwardButtonHomePanel";
+            forwardButtonHomePanel.Size = new Size(34, 34);
+            forwardButtonHomePanel.TabIndex = 1;
+            forwardButtonHomePanel.Text = ">";
+            forwardButtonHomePanel.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel8
             // 
@@ -371,7 +368,7 @@
         private ListView searchListView;
         private ColumnHeader result;
         private ColumnHeader category;
-        private Button button1;
-        private Button button2;
+        private Button backButtonHomePanel;
+        private Button forwardButtonHomePanel;
     }
 }

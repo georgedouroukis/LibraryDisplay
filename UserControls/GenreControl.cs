@@ -28,6 +28,7 @@ namespace LibraryDisplay.UserControls
 
         private void homeButtonGenrePanel_Click(object sender, EventArgs e)
         {
+            parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.GenreControl) { genre = referencedGenre });
             parentForm.homeControl.BringToFront();
         }
 
@@ -45,7 +46,7 @@ namespace LibraryDisplay.UserControls
 
             foreach (var item in genre.books)
             {
-                ClickableBookItem book = new ClickableBookItem(item.ToString(), DbTable.Author, parentForm, genreBookFlow);
+                ClickableBookItem book = new ClickableBookItem(item.ToString(), id, DbTable.Genre, parentForm, genreBookFlow);
                 genreBookFlow.Controls.Add(book);
             }
             this.BringToFront();
@@ -54,7 +55,10 @@ namespace LibraryDisplay.UserControls
         private void editButtonGenrePanel_Click(object sender, EventArgs e)
         {
             parentForm.editControl.BringToFront();
+            parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.GenreControl) { genre = referencedGenre });
             parentForm.editControl.populateEditGenrePanel(referencedGenre, CallFrom.None, true);
         }
+
+
     }
 }
