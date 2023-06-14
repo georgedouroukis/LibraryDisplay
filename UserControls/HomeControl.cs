@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryDisplay.Network;
 using LibraryDisplay.Models.Enums;
+using LibraryDisplay.Utils.Models;
 
 namespace LibraryDisplay.UserControls
 {
@@ -70,6 +71,13 @@ namespace LibraryDisplay.UserControls
                     await parentForm.publisherControl.openPublisherPanel(firstSelectedItem.SubItems[2].Text);
                     break;
             }
+            parentForm.navigationBackStack.Push(new NavigationItem(PanelState.HomeControl)
+            {
+                bookCheckBox = booksCheckBox.Checked,
+                publisherCheckBox = publishersCheckBox.Checked,
+                authorCheckBox = authorsCheckBox.Checked,
+                searchString = searchTextBox.Text
+            });
         }
 
 
@@ -121,12 +129,27 @@ namespace LibraryDisplay.UserControls
         private async void genreTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             await parentForm.genreControl.openGenrePanel(e.Node.Tag.ToString());
+            parentForm.navigationBackStack.Push(new NavigationItem(PanelState.HomeControl)
+            {
+                bookCheckBox = booksCheckBox.Checked,
+                publisherCheckBox = publishersCheckBox.Checked,
+                authorCheckBox = authorsCheckBox.Checked,
+                searchString = searchTextBox.Text
+            });
             parentForm.genreControl.BringToFront();
         }
 
         private async void collectionButtonHomePanel_Click(object sender, EventArgs e)
         {
+            parentForm.navigationBackStack.Push(new NavigationItem(PanelState.HomeControl)
+            {
+                bookCheckBox = booksCheckBox.Checked,
+                publisherCheckBox = publishersCheckBox.Checked,
+                authorCheckBox = authorsCheckBox.Checked,
+                searchString = searchTextBox.Text
+            });
             await parentForm.collectionControl.openCollectionPanel();
+
         }
 
         private void createButtonHomePanel_Click(object sender, EventArgs e)
@@ -135,7 +158,28 @@ namespace LibraryDisplay.UserControls
             parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.None, true);
             parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.None, true);
             parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None, true);
+
+            parentForm.navigationBackStack.Push(new NavigationItem(PanelState.HomeControl)
+            {
+                bookCheckBox = booksCheckBox.Checked,
+                publisherCheckBox = publishersCheckBox.Checked,
+                authorCheckBox = authorsCheckBox.Checked,
+                searchString = searchTextBox.Text
+            });
             parentForm.createControl.BringToFront();
+        }
+
+        private void flowLayoutPanel12_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
         }
     }
 }

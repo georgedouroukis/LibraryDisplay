@@ -41,5 +41,10 @@ namespace LibraryDisplay.UserControls
             }
             this.BringToFront();
         }
+
+        private void CollectionControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

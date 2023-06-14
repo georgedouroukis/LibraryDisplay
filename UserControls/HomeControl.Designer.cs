@@ -36,14 +36,16 @@
             collectionButtonHomePanel = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
             flowLayoutPanel9 = new FlowLayoutPanel();
+            searchTextBox = new TextBox();
             searchButton = new Button();
             flowLayoutPanel12 = new FlowLayoutPanel();
-            searchTextBox = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
             flowLayoutPanel8 = new FlowLayoutPanel();
-            allCheckBox = new CheckBox();
-            booksCheckBox = new CheckBox();
-            authorsCheckBox = new CheckBox();
             publishersCheckBox = new CheckBox();
+            authorsCheckBox = new CheckBox();
+            booksCheckBox = new CheckBox();
+            allCheckBox = new CheckBox();
             splitContainer8 = new SplitContainer();
             genreTreeView = new TreeView();
             searchListView = new ListView();
@@ -78,7 +80,7 @@
             homePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             homePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
             homePanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            homePanel.Size = new Size(635, 603);
+            homePanel.Size = new Size(1157, 1150);
             homePanel.TabIndex = 3;
             // 
             // tableLayoutPanel5
@@ -90,20 +92,20 @@
             tableLayoutPanel5.Controls.Add(flowLayoutPanel10, 2, 0);
             tableLayoutPanel5.Controls.Add(flowLayoutPanel11, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 545);
+            tableLayoutPanel5.Location = new Point(3, 1038);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(629, 55);
+            tableLayoutPanel5.Size = new Size(1151, 109);
             tableLayoutPanel5.TabIndex = 3;
             // 
             // flowLayoutPanel10
             // 
             flowLayoutPanel10.Controls.Add(createButtonHomePanel);
             flowLayoutPanel10.Dock = DockStyle.Fill;
-            flowLayoutPanel10.Location = new Point(474, 3);
+            flowLayoutPanel10.Location = new Point(865, 3);
             flowLayoutPanel10.Name = "flowLayoutPanel10";
-            flowLayoutPanel10.Size = new Size(152, 49);
+            flowLayoutPanel10.Size = new Size(283, 103);
             flowLayoutPanel10.TabIndex = 0;
             // 
             // createButtonHomePanel
@@ -124,13 +126,13 @@
             flowLayoutPanel11.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel11.Location = new Point(3, 3);
             flowLayoutPanel11.Name = "flowLayoutPanel11";
-            flowLayoutPanel11.Size = new Size(151, 49);
+            flowLayoutPanel11.Size = new Size(281, 103);
             flowLayoutPanel11.TabIndex = 1;
             // 
             // collectionButtonHomePanel
             // 
             collectionButtonHomePanel.AutoSize = true;
-            collectionButtonHomePanel.Location = new Point(18, 3);
+            collectionButtonHomePanel.Location = new Point(148, 3);
             collectionButtonHomePanel.Name = "collectionButtonHomePanel";
             collectionButtonHomePanel.Size = new Size(130, 35);
             collectionButtonHomePanel.TabIndex = 0;
@@ -141,8 +143,8 @@
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.45482F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 67.54518F));
             tableLayoutPanel4.Controls.Add(flowLayoutPanel9, 1, 0);
             tableLayoutPanel4.Controls.Add(flowLayoutPanel12, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
@@ -150,21 +152,29 @@
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(629, 54);
+            tableLayoutPanel4.Size = new Size(1151, 109);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // flowLayoutPanel9
             // 
+            flowLayoutPanel9.Controls.Add(searchTextBox);
             flowLayoutPanel9.Controls.Add(searchButton);
             flowLayoutPanel9.Dock = DockStyle.Fill;
-            flowLayoutPanel9.Location = new Point(474, 3);
+            flowLayoutPanel9.Location = new Point(376, 3);
             flowLayoutPanel9.Name = "flowLayoutPanel9";
-            flowLayoutPanel9.Size = new Size(152, 48);
+            flowLayoutPanel9.Size = new Size(772, 103);
             flowLayoutPanel9.TabIndex = 0;
+            // 
+            // searchTextBox
+            // 
+            searchTextBox.Location = new Point(3, 3);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(413, 31);
+            searchTextBox.TabIndex = 0;
             // 
             // searchButton
             // 
-            searchButton.Location = new Point(3, 3);
+            searchButton.Location = new Point(422, 3);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(112, 34);
             searchButton.TabIndex = 0;
@@ -174,38 +184,85 @@
             // 
             // flowLayoutPanel12
             // 
-            flowLayoutPanel12.Controls.Add(searchTextBox);
+            flowLayoutPanel12.Controls.Add(button1);
+            flowLayoutPanel12.Controls.Add(button2);
             flowLayoutPanel12.Dock = DockStyle.Fill;
-            flowLayoutPanel12.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel12.Location = new Point(3, 3);
             flowLayoutPanel12.Name = "flowLayoutPanel12";
-            flowLayoutPanel12.Size = new Size(465, 48);
+            flowLayoutPanel12.Size = new Size(367, 103);
             flowLayoutPanel12.TabIndex = 1;
+            flowLayoutPanel12.Paint += flowLayoutPanel12_Paint;
             // 
-            // searchTextBox
+            // button1
             // 
-            searchTextBox.Location = new Point(49, 3);
-            searchTextBox.Name = "searchTextBox";
-            searchTextBox.Size = new Size(413, 31);
-            searchTextBox.TabIndex = 0;
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(34, 34);
+            button1.TabIndex = 0;
+            button1.Text = "<";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(43, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(34, 34);
+            button2.TabIndex = 1;
+            button2.Text = ">";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // flowLayoutPanel8
             // 
-            flowLayoutPanel8.Controls.Add(allCheckBox);
-            flowLayoutPanel8.Controls.Add(booksCheckBox);
-            flowLayoutPanel8.Controls.Add(authorsCheckBox);
             flowLayoutPanel8.Controls.Add(publishersCheckBox);
+            flowLayoutPanel8.Controls.Add(authorsCheckBox);
+            flowLayoutPanel8.Controls.Add(booksCheckBox);
+            flowLayoutPanel8.Controls.Add(allCheckBox);
             flowLayoutPanel8.Dock = DockStyle.Fill;
-            flowLayoutPanel8.Location = new Point(3, 63);
+            flowLayoutPanel8.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel8.Location = new Point(3, 118);
             flowLayoutPanel8.Name = "flowLayoutPanel8";
-            flowLayoutPanel8.Padding = new Padding(100, 0, 0, 0);
-            flowLayoutPanel8.Size = new Size(629, 54);
+            flowLayoutPanel8.Padding = new Padding(450, 0, 0, 0);
+            flowLayoutPanel8.Size = new Size(1151, 109);
             flowLayoutPanel8.TabIndex = 1;
+            // 
+            // publishersCheckBox
+            // 
+            publishersCheckBox.AutoSize = true;
+            publishersCheckBox.Location = new Point(580, 3);
+            publishersCheckBox.Name = "publishersCheckBox";
+            publishersCheckBox.Size = new Size(118, 29);
+            publishersCheckBox.TabIndex = 3;
+            publishersCheckBox.Text = "Publishers";
+            publishersCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // authorsCheckBox
+            // 
+            authorsCheckBox.AutoSize = true;
+            authorsCheckBox.Location = new Point(473, 3);
+            authorsCheckBox.Name = "authorsCheckBox";
+            authorsCheckBox.Size = new Size(101, 29);
+            authorsCheckBox.TabIndex = 2;
+            authorsCheckBox.Text = "Authors";
+            authorsCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // booksCheckBox
+            // 
+            booksCheckBox.AutoSize = true;
+            booksCheckBox.Checked = true;
+            booksCheckBox.CheckState = CheckState.Checked;
+            booksCheckBox.Location = new Point(380, 3);
+            booksCheckBox.Name = "booksCheckBox";
+            booksCheckBox.Size = new Size(87, 29);
+            booksCheckBox.TabIndex = 1;
+            booksCheckBox.Text = "Books";
+            booksCheckBox.UseVisualStyleBackColor = true;
             // 
             // allCheckBox
             // 
             allCheckBox.AutoSize = true;
-            allCheckBox.Location = new Point(103, 3);
+            allCheckBox.Location = new Point(316, 3);
             allCheckBox.Name = "allCheckBox";
             allCheckBox.Size = new Size(58, 29);
             allCheckBox.TabIndex = 0;
@@ -213,42 +270,10 @@
             allCheckBox.UseVisualStyleBackColor = true;
             allCheckBox.CheckedChanged += allCheckBox_CheckedChanged;
             // 
-            // booksCheckBox
-            // 
-            booksCheckBox.AutoSize = true;
-            booksCheckBox.Checked = true;
-            booksCheckBox.CheckState = CheckState.Checked;
-            booksCheckBox.Location = new Point(167, 3);
-            booksCheckBox.Name = "booksCheckBox";
-            booksCheckBox.Size = new Size(87, 29);
-            booksCheckBox.TabIndex = 1;
-            booksCheckBox.Text = "Books";
-            booksCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // authorsCheckBox
-            // 
-            authorsCheckBox.AutoSize = true;
-            authorsCheckBox.Location = new Point(260, 3);
-            authorsCheckBox.Name = "authorsCheckBox";
-            authorsCheckBox.Size = new Size(101, 29);
-            authorsCheckBox.TabIndex = 2;
-            authorsCheckBox.Text = "Authors";
-            authorsCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // publishersCheckBox
-            // 
-            publishersCheckBox.AutoSize = true;
-            publishersCheckBox.Location = new Point(367, 3);
-            publishersCheckBox.Name = "publishersCheckBox";
-            publishersCheckBox.Size = new Size(118, 29);
-            publishersCheckBox.TabIndex = 3;
-            publishersCheckBox.Text = "Publishers";
-            publishersCheckBox.UseVisualStyleBackColor = true;
-            // 
             // splitContainer8
             // 
             splitContainer8.Dock = DockStyle.Fill;
-            splitContainer8.Location = new Point(3, 123);
+            splitContainer8.Location = new Point(3, 233);
             splitContainer8.Name = "splitContainer8";
             // 
             // splitContainer8.Panel1
@@ -258,8 +283,8 @@
             // splitContainer8.Panel2
             // 
             splitContainer8.Panel2.Controls.Add(searchListView);
-            splitContainer8.Size = new Size(629, 416);
-            splitContainer8.SplitterDistance = 209;
+            splitContainer8.Size = new Size(1151, 799);
+            splitContainer8.SplitterDistance = 382;
             splitContainer8.TabIndex = 2;
             // 
             // genreTreeView
@@ -268,7 +293,7 @@
             genreTreeView.Dock = DockStyle.Fill;
             genreTreeView.Location = new Point(0, 0);
             genreTreeView.Name = "genreTreeView";
-            genreTreeView.Size = new Size(209, 416);
+            genreTreeView.Size = new Size(382, 799);
             genreTreeView.TabIndex = 0;
             genreTreeView.NodeMouseClick += genreTreeView_NodeMouseClick;
             // 
@@ -281,7 +306,7 @@
             searchListView.Location = new Point(0, 0);
             searchListView.MultiSelect = false;
             searchListView.Name = "searchListView";
-            searchListView.Size = new Size(416, 416);
+            searchListView.Size = new Size(765, 799);
             searchListView.TabIndex = 0;
             searchListView.UseCompatibleStateImageBehavior = false;
             searchListView.View = View.Details;
@@ -303,7 +328,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(homePanel);
             Name = "HomeControl";
-            Size = new Size(712, 676);
+            Size = new Size(1423, 1233);
             homePanel.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
             flowLayoutPanel10.ResumeLayout(false);
@@ -312,8 +337,8 @@
             flowLayoutPanel11.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
             flowLayoutPanel9.ResumeLayout(false);
+            flowLayoutPanel9.PerformLayout();
             flowLayoutPanel12.ResumeLayout(false);
-            flowLayoutPanel12.PerformLayout();
             flowLayoutPanel8.ResumeLayout(false);
             flowLayoutPanel8.PerformLayout();
             splitContainer8.Panel1.ResumeLayout(false);
@@ -346,5 +371,7 @@
         private ListView searchListView;
         private ColumnHeader result;
         private ColumnHeader category;
+        private Button button1;
+        private Button button2;
     }
 }

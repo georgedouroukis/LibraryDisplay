@@ -1,7 +1,9 @@
 using LibraryDisplay.Models;
+using LibraryDisplay.Models.Enums;
 using LibraryDisplay.UserControls;
 using LibraryDisplay.UserControls.GenericItems;
 using LibraryDisplay.Utils;
+using LibraryDisplay.Utils.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics.Eventing.Reader;
@@ -10,6 +12,8 @@ namespace LibraryDisplay
 {
     public partial class LibraryForm : Form
     {
+        public Stack<NavigationItem> navigationBackStack;
+        public Stack<NavigationItem> navigationForwardStack;
         public HomeControl homeControl;
         public BookControl bookControl;
         public AuthorControl authorControl;
@@ -38,6 +42,9 @@ namespace LibraryDisplay
             this.Controls.Add(collectionControl);
             this.Controls.Add(editControl);
             this.Controls.Add(createControl);
+
+            this.navigationBackStack = new Stack<NavigationItem>();
+            this.navigationForwardStack = new Stack<NavigationItem>();
         }
 
         private void LibraryForm_Load(object sender, EventArgs e)
@@ -62,7 +69,7 @@ namespace LibraryDisplay
             editControl.Dock = DockStyle.Fill;
             createControl.Dock = DockStyle.Fill;
 
-
+            navigationBackStack.Push(new NavigationItem(PanelState.HomeControl) { bookCheckBox = true, publisherCheckBox = false, authorCheckBox = false, searchString = "" }) ;
             homeControl.BringToFront();
 
 

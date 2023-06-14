@@ -555,5 +555,10 @@ namespace LibraryDisplay.UserControls
         {
             subComboBoxEditGenrePanel.DroppedDown = true;
         }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

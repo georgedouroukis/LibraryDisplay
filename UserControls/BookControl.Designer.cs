@@ -30,10 +30,8 @@
         {
             bookPanel = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
-            bookLabelBookPanel = new Label();
-            homeButtonBookPanel = new Button();
-            flowLayoutPanel13 = new FlowLayoutPanel();
             editButtonBookPanel = new Button();
+            bookLabelBookPanel = new Label();
             panel1 = new Panel();
             descriptionLabelBookPanel = new TextBox();
             splitContainer1 = new SplitContainer();
@@ -54,9 +52,18 @@
             isbnLabelBookPanel = new TextBox();
             genreFlowBookPanel = new FlowLayoutPanel();
             label17 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            button1 = new Button();
+            button2 = new Button();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            homeButtonBookPanel = new Button();
             bookPanel.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            flowLayoutPanel13.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -70,6 +77,10 @@
             flowLayoutPanel20.SuspendLayout();
             flowLayoutPanel21.SuspendLayout();
             genreFlowBookPanel.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // bookPanel
@@ -77,18 +88,18 @@
             bookPanel.ColumnCount = 1;
             bookPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             bookPanel.Controls.Add(tableLayoutPanel3, 0, 0);
-            bookPanel.Controls.Add(flowLayoutPanel13, 0, 3);
             bookPanel.Controls.Add(panel1, 0, 2);
             bookPanel.Controls.Add(splitContainer1, 0, 1);
+            bookPanel.Controls.Add(tableLayoutPanel2, 0, 3);
             bookPanel.Location = new Point(36, 28);
             bookPanel.Name = "bookPanel";
             bookPanel.RowCount = 4;
             bookPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             bookPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 49.7373047F));
-            bookPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 25.0437832F));
-            bookPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            bookPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 25.487257F));
+            bookPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10.1949024F));
             bookPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            bookPanel.Size = new Size(703, 667);
+            bookPanel.Size = new Size(959, 852);
             bookPanel.TabIndex = 4;
             // 
             // tableLayoutPanel3
@@ -98,52 +109,20 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
+            tableLayoutPanel3.Controls.Add(editButtonBookPanel, 2, 0);
             tableLayoutPanel3.Controls.Add(bookLabelBookPanel, 1, 0);
-            tableLayoutPanel3.Controls.Add(homeButtonBookPanel, 2, 0);
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(697, 94);
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Size = new Size(953, 121);
             tableLayoutPanel3.TabIndex = 1;
-            // 
-            // bookLabelBookPanel
-            // 
-            bookLabelBookPanel.Dock = DockStyle.Fill;
-            bookLabelBookPanel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            bookLabelBookPanel.Location = new Point(115, 0);
-            bookLabelBookPanel.Name = "bookLabelBookPanel";
-            bookLabelBookPanel.Size = new Size(467, 94);
-            bookLabelBookPanel.TabIndex = 6;
-            bookLabelBookPanel.Text = "Book Title";
-            bookLabelBookPanel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // homeButtonBookPanel
-            // 
-            homeButtonBookPanel.Anchor = AnchorStyles.Right;
-            homeButtonBookPanel.Location = new Point(588, 30);
-            homeButtonBookPanel.Name = "homeButtonBookPanel";
-            homeButtonBookPanel.Size = new Size(106, 34);
-            homeButtonBookPanel.TabIndex = 0;
-            homeButtonBookPanel.Text = "Home";
-            homeButtonBookPanel.UseVisualStyleBackColor = true;
-            homeButtonBookPanel.Click += homeButtonBookPanel_Click;
-            // 
-            // flowLayoutPanel13
-            // 
-            flowLayoutPanel13.Controls.Add(editButtonBookPanel);
-            flowLayoutPanel13.Dock = DockStyle.Fill;
-            flowLayoutPanel13.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel13.Location = new Point(3, 602);
-            flowLayoutPanel13.Name = "flowLayoutPanel13";
-            flowLayoutPanel13.Size = new Size(697, 62);
-            flowLayoutPanel13.TabIndex = 0;
             // 
             // editButtonBookPanel
             // 
             editButtonBookPanel.Anchor = AnchorStyles.None;
-            editButtonBookPanel.Location = new Point(571, 20);
-            editButtonBookPanel.Margin = new Padding(20);
+            editButtonBookPanel.Location = new Point(844, 43);
             editButtonBookPanel.Name = "editButtonBookPanel";
             editButtonBookPanel.Size = new Size(106, 34);
             editButtonBookPanel.TabIndex = 4;
@@ -151,14 +130,25 @@
             editButtonBookPanel.UseVisualStyleBackColor = true;
             editButtonBookPanel.Click += editButtonBookPanel_Click;
             // 
+            // bookLabelBookPanel
+            // 
+            bookLabelBookPanel.Dock = DockStyle.Fill;
+            bookLabelBookPanel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            bookLabelBookPanel.Location = new Point(115, 0);
+            bookLabelBookPanel.Name = "bookLabelBookPanel";
+            bookLabelBookPanel.Size = new Size(723, 121);
+            bookLabelBookPanel.TabIndex = 6;
+            bookLabelBookPanel.Text = "Book Title";
+            bookLabelBookPanel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // panel1
             // 
             panel1.AutoScroll = true;
             panel1.Controls.Add(descriptionLabelBookPanel);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 435);
+            panel1.Location = new Point(3, 551);
             panel1.Name = "panel1";
-            panel1.Size = new Size(697, 161);
+            panel1.Size = new Size(953, 210);
             panel1.TabIndex = 2;
             // 
             // descriptionLabelBookPanel
@@ -169,14 +159,14 @@
             descriptionLabelBookPanel.Name = "descriptionLabelBookPanel";
             descriptionLabelBookPanel.ReadOnly = true;
             descriptionLabelBookPanel.ScrollBars = ScrollBars.Vertical;
-            descriptionLabelBookPanel.Size = new Size(697, 161);
+            descriptionLabelBookPanel.Size = new Size(953, 210);
             descriptionLabelBookPanel.TabIndex = 3;
             descriptionLabelBookPanel.Text = "Description";
             // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 103);
+            splitContainer1.Location = new Point(3, 130);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -186,8 +176,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(flowLayoutPanel15);
-            splitContainer1.Size = new Size(697, 326);
-            splitContainer1.SplitterDistance = 272;
+            splitContainer1.Size = new Size(953, 415);
+            splitContainer1.SplitterDistance = 371;
             splitContainer1.TabIndex = 3;
             // 
             // pictureBoxBookPanel
@@ -196,7 +186,7 @@
             pictureBoxBookPanel.Dock = DockStyle.Fill;
             pictureBoxBookPanel.Location = new Point(0, 0);
             pictureBoxBookPanel.Name = "pictureBoxBookPanel";
-            pictureBoxBookPanel.Size = new Size(272, 326);
+            pictureBoxBookPanel.Size = new Size(371, 415);
             pictureBoxBookPanel.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxBookPanel.TabIndex = 0;
             pictureBoxBookPanel.TabStop = false;
@@ -214,7 +204,7 @@
             flowLayoutPanel15.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel15.Location = new Point(0, 0);
             flowLayoutPanel15.Name = "flowLayoutPanel15";
-            flowLayoutPanel15.Size = new Size(421, 326);
+            flowLayoutPanel15.Size = new Size(578, 415);
             flowLayoutPanel15.TabIndex = 0;
             // 
             // authorFlowBookPanel
@@ -366,16 +356,129 @@
             label17.Text = "Genre:";
             label17.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.Controls.Add(button5, 0, 0);
+            tableLayoutPanel2.Controls.Add(button4, 0, 0);
+            tableLayoutPanel2.Controls.Add(button3, 2, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 767);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(953, 82);
+            tableLayoutPanel2.TabIndex = 4;
+            // 
+            // button5
+            // 
+            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button5.Location = new Point(43, 18);
+            button5.Margin = new Padding(3, 3, 3, 30);
+            button5.Name = "button5";
+            button5.Size = new Size(34, 34);
+            button5.TabIndex = 2;
+            button5.Text = ">";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button4.Location = new Point(3, 18);
+            button4.Margin = new Padding(3, 3, 3, 30);
+            button4.Name = "button4";
+            button4.Size = new Size(34, 34);
+            button4.TabIndex = 1;
+            button4.Text = "<";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button3.Location = new Point(838, 18);
+            button3.Margin = new Padding(3, 3, 3, 30);
+            button3.Name = "button3";
+            button3.Size = new Size(112, 34);
+            button3.TabIndex = 0;
+            button3.Text = "Home";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.MaximumSize = new Size(0, 50);
+            tableLayoutPanel1.MinimumSize = new Size(0, 50);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(200, 50);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(button1);
+            flowLayoutPanel2.Controls.Add(button2);
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel2.Location = new Point(3, 3);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(94, 44);
+            flowLayoutPanel2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(34, 34);
+            button1.TabIndex = 2;
+            button1.Text = "<";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(43, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(34, 34);
+            button2.TabIndex = 3;
+            button2.Text = ">";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.Controls.Add(homeButtonBookPanel);
+            flowLayoutPanel3.Dock = DockStyle.Fill;
+            flowLayoutPanel3.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel3.Location = new Point(3, 3);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(1, 44);
+            flowLayoutPanel3.TabIndex = 1;
+            // 
+            // homeButtonBookPanel
+            // 
+            homeButtonBookPanel.Anchor = AnchorStyles.Right;
+            homeButtonBookPanel.Location = new Point(-108, 3);
+            homeButtonBookPanel.Name = "homeButtonBookPanel";
+            homeButtonBookPanel.Size = new Size(106, 34);
+            homeButtonBookPanel.TabIndex = 1;
+            homeButtonBookPanel.Text = "Home";
+            homeButtonBookPanel.UseVisualStyleBackColor = true;
+            // 
             // BookControl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(bookPanel);
             Name = "BookControl";
-            Size = new Size(779, 720);
+            Size = new Size(1051, 923);
             bookPanel.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel13.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
@@ -397,17 +500,16 @@
             flowLayoutPanel21.PerformLayout();
             genreFlowBookPanel.ResumeLayout(false);
             genreFlowBookPanel.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private TableLayoutPanel bookPanel;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Button editButtonBookPanel;
-        private Label bookLabelBookPanel;
-        private FlowLayoutPanel flowLayoutPanel13;
-        private Button homeButtonBookPanel;
         private Panel panel1;
         private TextBox descriptionLabelBookPanel;
         private SplitContainer splitContainer1;
@@ -428,5 +530,18 @@
         private TextBox isbnLabelBookPanel;
         private FlowLayoutPanel genreFlowBookPanel;
         private Label label17;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label bookLabelBookPanel;
+        private Button editButtonBookPanel;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Button button3;
+        private TableLayoutPanel tableLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Button button1;
+        private Button button2;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private Button homeButtonBookPanel;
+        private Button button4;
+        private Button button5;
     }
 }

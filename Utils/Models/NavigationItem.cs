@@ -21,5 +21,10 @@ namespace LibraryDisplay.Utils.Models
         public Publisher? referencedPublisher { get; set; }
         public Genre? referencedGenre { get; set; }
 
+        public NavigationItem(PanelState panelState)
+        {
+            this.panelState = panelState;
+        }
+
     }
 }

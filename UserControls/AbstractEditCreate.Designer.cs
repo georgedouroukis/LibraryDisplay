@@ -104,11 +104,11 @@
             subComboBoxEditGenrePanel = new ComboBox();
             createSubButtonEditGenrePanel = new Button();
             subFlowEditGenrePanel = new FlowLayoutPanel();
-            splitContainer1 = new SplitContainer();
-            flowLayoutPanel5 = new FlowLayoutPanel();
             deleteButtonEditPanel = new Button();
-            flowLayoutPanel3 = new FlowLayoutPanel();
             saveButtonEditPanel = new Button();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            button5 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)editPanel).BeginInit();
             editPanel.Panel1.SuspendLayout();
             editPanel.Panel2.SuspendLayout();
@@ -144,12 +144,7 @@
             flowLayoutPanel67.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // editPanel
@@ -175,8 +170,9 @@
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 112F));
+            tableLayoutPanel7.Controls.Add(deleteButtonEditPanel, 0, 0);
+            tableLayoutPanel7.Controls.Add(saveButtonEditPanel, 2, 0);
             tableLayoutPanel7.Controls.Add(pageTitle, 1, 0);
-            tableLayoutPanel7.Controls.Add(homeButtonEditPanel, 2, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
             tableLayoutPanel7.Location = new Point(0, 0);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -198,8 +194,9 @@
             // 
             // homeButtonEditPanel
             // 
-            homeButtonEditPanel.Anchor = AnchorStyles.Right;
-            homeButtonEditPanel.Location = new Point(1013, 24);
+            homeButtonEditPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            homeButtonEditPanel.Location = new Point(1013, 22);
+            homeButtonEditPanel.Margin = new Padding(3, 3, 3, 30);
             homeButtonEditPanel.Name = "homeButtonEditPanel";
             homeButtonEditPanel.Size = new Size(106, 34);
             homeButtonEditPanel.TabIndex = 7;
@@ -220,7 +217,7 @@
             // 
             // splitContainer10.Panel2
             // 
-            splitContainer10.Panel2.Controls.Add(splitContainer1);
+            splitContainer10.Panel2.Controls.Add(tableLayoutPanel2);
             splitContainer10.Size = new Size(1122, 1006);
             splitContainer10.SplitterDistance = 916;
             splitContainer10.TabIndex = 0;
@@ -979,65 +976,66 @@
             subFlowEditGenrePanel.Size = new Size(0, 0);
             subFlowEditGenrePanel.TabIndex = 23;
             // 
-            // splitContainer1
-            // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 0);
-            splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            splitContainer1.Panel1.Controls.Add(flowLayoutPanel5);
-            // 
-            // splitContainer1.Panel2
-            // 
-            splitContainer1.Panel2.Controls.Add(flowLayoutPanel3);
-            splitContainer1.Size = new Size(1122, 86);
-            splitContainer1.SplitterDistance = 374;
-            splitContainer1.TabIndex = 10;
-            splitContainer1.TabStop = false;
-            // 
-            // flowLayoutPanel5
-            // 
-            flowLayoutPanel5.Controls.Add(deleteButtonEditPanel);
-            flowLayoutPanel5.Dock = DockStyle.Fill;
-            flowLayoutPanel5.Location = new Point(0, 0);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Size = new Size(374, 86);
-            flowLayoutPanel5.TabIndex = 0;
-            // 
             // deleteButtonEditPanel
             // 
-            deleteButtonEditPanel.Location = new Point(20, 20);
-            deleteButtonEditPanel.Margin = new Padding(20);
+            deleteButtonEditPanel.Anchor = AnchorStyles.None;
+            deleteButtonEditPanel.Location = new Point(3, 24);
             deleteButtonEditPanel.Name = "deleteButtonEditPanel";
-            deleteButtonEditPanel.Size = new Size(112, 34);
+            deleteButtonEditPanel.Size = new Size(106, 34);
             deleteButtonEditPanel.TabIndex = 2;
             deleteButtonEditPanel.Text = "Delete";
             deleteButtonEditPanel.UseVisualStyleBackColor = true;
             deleteButtonEditPanel.Click += deleteButtonEditPanel_Click;
             // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.Controls.Add(saveButtonEditPanel);
-            flowLayoutPanel3.Dock = DockStyle.Fill;
-            flowLayoutPanel3.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel3.Location = new Point(0, 0);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(744, 86);
-            flowLayoutPanel3.TabIndex = 10;
-            // 
             // saveButtonEditPanel
             // 
             saveButtonEditPanel.Anchor = AnchorStyles.None;
-            saveButtonEditPanel.Location = new Point(618, 20);
-            saveButtonEditPanel.Margin = new Padding(20);
+            saveButtonEditPanel.Location = new Point(1013, 24);
             saveButtonEditPanel.Name = "saveButtonEditPanel";
             saveButtonEditPanel.Size = new Size(106, 34);
             saveButtonEditPanel.TabIndex = 1;
             saveButtonEditPanel.Text = "Save";
             saveButtonEditPanel.UseVisualStyleBackColor = true;
             saveButtonEditPanel.Click += saveButtonEditPanel_Click;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.Controls.Add(button5, 0, 0);
+            tableLayoutPanel2.Controls.Add(button4, 0, 0);
+            tableLayoutPanel2.Controls.Add(homeButtonEditPanel, 2, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(1122, 86);
+            tableLayoutPanel2.TabIndex = 5;
+            // 
+            // button5
+            // 
+            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button5.Location = new Point(43, 22);
+            button5.Margin = new Padding(3, 3, 3, 30);
+            button5.Name = "button5";
+            button5.Size = new Size(34, 34);
+            button5.TabIndex = 2;
+            button5.Text = ">";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button4.Location = new Point(3, 22);
+            button4.Margin = new Padding(3, 3, 3, 30);
+            button4.Name = "button4";
+            button4.Size = new Size(34, 34);
+            button4.TabIndex = 1;
+            button4.Text = "<";
+            button4.UseVisualStyleBackColor = true;
             // 
             // AbstractEditCreate
             // 
@@ -1102,12 +1100,7 @@
             flowLayoutPanel4.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
-            flowLayoutPanel5.ResumeLayout(false);
-            flowLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -1185,14 +1178,14 @@
         protected ComboBox subComboBoxEditGenrePanel;
         protected FlowLayoutPanel subFlowEditGenrePanel;
         protected Button homeButtonEditPanel;
-        private SplitContainer splitContainer1;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private FlowLayoutPanel flowLayoutPanel3;
         protected Button deleteButtonEditPanel;
         private Button createAuthorButtonEditBookPanel;
         private Button createPublisherButtonEditBookPanel;
         private Button createGenreButtonEditBookPanel;
         private Button createParentButtonEditGenrePanel;
         private Button createSubButtonEditGenrePanel;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Button button5;
+        private Button button4;
     }
 }

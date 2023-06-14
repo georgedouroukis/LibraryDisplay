@@ -27,7 +27,7 @@ namespace LibraryDisplay.UserControls.GenericItems
             Cursor = Cursors.Hand;
             this.parentFlow = parentFlow;
             Size = new Size(170, 340);
-            //pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             MouseEnter += enableBorder;
             textBox.MouseEnter += enableBorder;
             pictureBox.MouseEnter += enableBorder;
@@ -50,11 +50,9 @@ namespace LibraryDisplay.UserControls.GenericItems
             Book book = await GetRequests.GetBookById(id);
 
             textBox.Text = book.title;
-            if (book.imageUrl != string.Empty)
-                pictureBox.LoadAsync(book.imageUrl);
-            else
-                pictureBox.LoadAsync(new Uri(@"Resourses\placeholder.png", UriKind.Relative).ToString());
 
+            Image image = await ImageHandler.GetImageFromUrl(book.imageUrl);
+            pictureBox.Image = image;
         }
 
         public void enableBorder(object sender, EventArgs e)

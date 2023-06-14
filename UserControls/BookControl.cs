@@ -25,6 +25,7 @@ namespace LibraryDisplay.UserControls
             InitializeComponent();
             this.parentForm = parentForm;
             bookPanel.Dock = DockStyle.Fill;
+
         }
 
         private void homeButtonBookPanel_Click(object sender, EventArgs e)
@@ -98,6 +99,11 @@ namespace LibraryDisplay.UserControls
             {
                 Form checkImageForm = new CheckImage(url);
             }
+        }
+
+        private void homeButtonBookPanel_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
