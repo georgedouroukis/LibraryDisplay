@@ -58,7 +58,7 @@ namespace LibraryDisplay.UserControls
                     if (dr == DialogResult.Yes)
                     {
                         await DeleteRequests.DeleteEntity<Genre>(referencedGenre!);
-                        parentForm.homeControl.genreTreeViewPopulate();
+                        parentForm.homeControl.genreTreeViewPopulate();/// only this implemented
                         parentForm.homeControl.BringToFront();
                     }
                         break;

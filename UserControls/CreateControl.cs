@@ -132,7 +132,7 @@ namespace LibraryDisplay.UserControls
                                 if (calledFrom == CallFrom.None)
                                 {
                                     parentForm.createControl.populateEditBookPanel(new Book(), true);
-                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateGenre) { genre = new Genre() });
+                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
                                     await parentForm.genreControl.openGenrePanel(id);
                                 }
 
@@ -142,7 +142,8 @@ namespace LibraryDisplay.UserControls
                                         parentForm.createControl.tempBook.genres.Add(Int32.Parse(id));
                                     parentForm.createControl.populateEditBookPanel(new Book(parentForm.createControl.tempBook), false);
                                     calledFrom = CallFrom.None;
-                                    
+                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
+
                                 }
                                 else if (calledFrom == CallFrom.EditBook)
                                 {
@@ -151,6 +152,7 @@ namespace LibraryDisplay.UserControls
                                     parentForm.editControl.populateEditBookPanel(new Book(parentForm.editControl.tempBook), false);
                                     calledFrom = CallFrom.None;
                                     parentForm.editControl.BringToFront();
+                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
                                 }
                                 else if (calledFrom == CallFrom.CreateGenreSub)
                                 {

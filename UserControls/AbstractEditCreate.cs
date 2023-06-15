@@ -232,6 +232,12 @@ namespace LibraryDisplay.UserControls
             editTabs.SelectedTab = publisherEditTab;
         }
 
+        public async void populateEditGenrePanel(string genreId)
+        {
+            Genre genre = await GetRequests.GetGenreById(genreId);
+            populateEditGenrePanel(genre, CallFrom.None, true);
+        }
+
         public async void populateEditGenrePanel(Genre genre, CallFrom openedFrom, bool firstCall)
         {
             calledFrom = openedFrom;
@@ -519,9 +525,15 @@ namespace LibraryDisplay.UserControls
         {
             createTempBook();
             if (this.GetType() == typeof(CreateControl))
+            {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateBook, true);
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = tempBook });
+            }
             if (this.GetType() == typeof(EditControl))
+            {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditBook, true);
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = tempBook });
+            }
             parentForm.createControl.BringToFront();
         }
 
@@ -529,9 +541,15 @@ namespace LibraryDisplay.UserControls
         {
             createTempGenre();
             if (this.GetType() == typeof(CreateControl))
+            {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreParent, true);
+
+            }
             if (this.GetType() == typeof(EditControl))
+            {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreParent, true);
+
+            }
             parentForm.createControl.BringToFront();
         }
 
@@ -539,9 +557,15 @@ namespace LibraryDisplay.UserControls
         {
             createTempGenre();
             if (this.GetType() == typeof(CreateControl))
+            {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreSub, true);
+
+            }
             if (this.GetType() == typeof(EditControl))
+            {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditGenreSub, true);
+
+            }
             parentForm.createControl.BringToFront();
         }
 

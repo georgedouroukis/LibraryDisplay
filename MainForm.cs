@@ -168,8 +168,9 @@ namespace LibraryDisplay
 
                     case PanelState.EditBook:
                         if (current.book != null)
-                            current.referencedId = current.book.id.ToString();
-                        editControl.populateEditBookPanel(current.referencedId!);
+                            editControl.populateEditBookPanel(current.book, false);
+                        else
+                            editControl.populateEditBookPanel(current.referencedId!);
                         editControl.BringToFront();
                         break;
 
@@ -184,6 +185,13 @@ namespace LibraryDisplay
                         if (current.publisher != null)
                             current.referencedId = current.publisher.id.ToString();
                         editControl.populateEditPublisherPanel(current.referencedId!);
+                        editControl.BringToFront();
+                        break;
+
+                    case PanelState.EditGenre:
+                        if (current.genre != null)
+                            current.referencedId = current.genre.id.ToString();
+                        editControl.populateEditGenrePanel(current.referencedId!);
                         editControl.BringToFront();
                         break;
 
