@@ -166,7 +166,26 @@ namespace LibraryDisplay
                         await genreControl.openGenrePanel(current.referencedId!);
                         break;
 
+                    case PanelState.EditBook:
+                        if (current.book != null)
+                            current.referencedId = current.book.id.ToString();
+                        editControl.populateEditBookPanel(current.referencedId!);
+                        editControl.BringToFront();
+                        break;
 
+                    case PanelState.EditAuthor:
+                        if (current.author != null)
+                            current.referencedId = current.author.id.ToString();
+                        editControl.populateEditAuthorPanel(current.referencedId!);
+                        editControl.BringToFront();
+                        break;
+
+                    case PanelState.EditPublisher:
+                        if (current.publisher != null)
+                            current.referencedId = current.publisher.id.ToString();
+                        editControl.populateEditPublisherPanel(current.referencedId!);
+                        editControl.BringToFront();
+                        break;
 
                 }
             }

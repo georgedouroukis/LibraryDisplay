@@ -43,8 +43,5 @@
         }
 
         #endregion
-        private Label DescriptionLabelAuthorPanel;
-        private TextBox textBox14;
-        private TextBox textBox13;
     }
 }

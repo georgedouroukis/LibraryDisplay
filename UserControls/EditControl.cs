@@ -58,6 +58,7 @@ namespace LibraryDisplay.UserControls
                     if (dr == DialogResult.Yes)
                     {
                         await DeleteRequests.DeleteEntity<Genre>(referencedGenre!);
+                        parentForm.homeControl.genreTreeViewPopulate();
                         parentForm.homeControl.BringToFront();
                     }
                         break;
@@ -114,7 +115,6 @@ namespace LibraryDisplay.UserControls
             }
             else
             {
-                navigationHomePush();
                 Console.WriteLine("no changes found");
             }
         }

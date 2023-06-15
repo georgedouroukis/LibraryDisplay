@@ -94,12 +94,15 @@ namespace LibraryDisplay.UserControls
             parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.BookControl) { book = referencedBook });
         }
 
-        private void pictureBoxBookPanel_Click(object sender, EventArgs e)
+        private void pictureBoxBookPanel_Click(object sender, MouseEventArgs e)
         {
-            string url = referencedBook.imageUrl;
-            if (!string.IsNullOrEmpty(url))
+            if (e.Button == MouseButtons.Left)
             {
-                Form checkImageForm = new CheckImage(url);
+                string url = referencedBook.imageUrl;
+                if (!string.IsNullOrEmpty(url))
+                {
+                    Form checkImageForm = new CheckImage(url);
+                }
             }
         }
     }

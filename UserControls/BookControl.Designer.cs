@@ -190,7 +190,7 @@
             pictureBoxBookPanel.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxBookPanel.TabIndex = 0;
             pictureBoxBookPanel.TabStop = false;
-            pictureBoxBookPanel.Click += pictureBoxBookPanel_Click;
+            pictureBoxBookPanel.MouseClick += pictureBoxBookPanel_Click;
             // 
             // flowLayoutPanel15
             // 

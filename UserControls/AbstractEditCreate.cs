@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,7 +84,7 @@ namespace LibraryDisplay.UserControls
             else if (editTabs.SelectedTab == publisherEditTab)
             {
                 createTempPublisher();
-                checkChanges = !referencedPublisher!.Equals(tempAuthor);
+                checkChanges = !referencedPublisher!.Equals(tempPublisher);
                 table = DbTable.Publisher;
             }
             else
@@ -95,7 +96,11 @@ namespace LibraryDisplay.UserControls
             return new EditStatus(checkChanges, table);
         }
 
-        
+        public async void populateEditBookPanel(string bookId)
+        {
+            Book book = await GetRequests.GetBookById(bookId);
+            populateEditBookPanel(book, true);
+        }
 
         public async void populateEditBookPanel(Book book, bool firstCall)
         {
@@ -185,6 +190,12 @@ namespace LibraryDisplay.UserControls
             editTabs.SelectedTab = bookEditTab;
         }
 
+        public async void populateEditAuthorPanel(string authorId)
+        {
+            Author author = await GetRequests.GetAuthorById(authorId);
+            populateEditAuthorPanel(author, CallFrom.None, true);
+        }
+
         public void populateEditAuthorPanel(Author author, CallFrom openedFrom, bool firstCall)
         {
             calledFrom = openedFrom;
@@ -199,6 +210,12 @@ namespace LibraryDisplay.UserControls
 
             authorEditTab.Enabled = true;
             editTabs.SelectedTab = authorEditTab;
+        }
+
+        public async void populateEditPublisherPanel(string publisherId)
+        {
+            Publisher publisher = await GetRequests.GetPublisherById(publisherId);
+            populateEditPublisherPanel(publisher, CallFrom.None, true);
         }
 
         public void populateEditPublisherPanel(Publisher publisher, CallFrom openedFrom, bool firstCall)
@@ -470,9 +487,15 @@ namespace LibraryDisplay.UserControls
         {
             createTempBook();
             if (this.GetType() == typeof(CreateControl))
+            {
                 parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.CreateBook, true);
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = tempBook });
+            }
             if (this.GetType() == typeof(EditControl))
+            {
                 parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.EditBook, true);
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = tempBook });
+            }
             parentForm.createControl.BringToFront();
         }
 
@@ -480,9 +503,15 @@ namespace LibraryDisplay.UserControls
         {
             createTempBook();
             if (this.GetType() == typeof(CreateControl))
+            {
                 parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.CreateBook, true);
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = tempBook });
+            }
             if (this.GetType() == typeof(EditControl))
+            {
                 parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.EditBook, true);
+                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = tempBook });
+            }
             parentForm.createControl.BringToFront();
         }
 
@@ -541,9 +570,5 @@ namespace LibraryDisplay.UserControls
             subComboBoxEditGenrePanel.DroppedDown = true;
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

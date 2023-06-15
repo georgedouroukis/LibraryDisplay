@@ -47,23 +47,24 @@ namespace LibraryDisplay.UserControls.GenericItems
 
         public async void MouseClicked(object sender, MouseEventArgs e)
         {
-            form.navigationBackStack.Push(new NavigationItem(PanelState.BookControl) { referencedId = callerId });
-            NavigationItem temp = form.navigationBackStack.Peek();
-            Console.WriteLine(temp.referencedId);
-            if (table == DbTable.Genre)
+            if (e.Button == MouseButtons.Left)
             {
-                await form.genreControl.openGenrePanel(id);
-                form.genreControl.BringToFront();
-            }
-            else if (table == DbTable.Author)
-            {
-                await form.authorControl.openAuthorPanel(id);
-                form.authorControl.BringToFront();
-            }
-            else if (table == DbTable.Publisher)
-            {
-                await form.publisherControl.openPublisherPanel(id);
-                form.publisherControl.BringToFront();
+                form.navigationBackStack.Push(new NavigationItem(PanelState.BookControl) { referencedId = callerId });
+                if (table == DbTable.Genre)
+                {
+                    await form.genreControl.openGenrePanel(id);
+                    form.genreControl.BringToFront();
+                }
+                else if (table == DbTable.Author)
+                {
+                    await form.authorControl.openAuthorPanel(id);
+                    form.authorControl.BringToFront();
+                }
+                else if (table == DbTable.Publisher)
+                {
+                    await form.publisherControl.openPublisherPanel(id);
+                    form.publisherControl.BringToFront();
+                }
             }
         }
     }

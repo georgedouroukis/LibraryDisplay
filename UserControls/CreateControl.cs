@@ -89,7 +89,7 @@ namespace LibraryDisplay.UserControls
                             case DbTable.Book:
 
                                 id = await PostRequests.CreateEntity<Book>(tempBook);
-                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = new Book() });
+                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { referencedId = id });
                                 await parentForm.bookControl.openBookPanel(id);
                                 break;
 
@@ -102,7 +102,6 @@ namespace LibraryDisplay.UserControls
                                 if (calledFrom == CallFrom.None)
                                 {
                                     parentForm.createControl.populateEditBookPanel(new Book(), true);
-                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateAuthor) { author = new Author()});
                                     await parentForm.authorControl.openAuthorPanel(id);
                                 }
                                 else if (calledFrom == CallFrom.CreateBook)
@@ -120,6 +119,9 @@ namespace LibraryDisplay.UserControls
                                     calledFrom = CallFrom.None;
                                     parentForm.editControl.BringToFront();
                                 }
+
+                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditAuthor) { referencedId = id }); //because its already saved in all cases
+
                                 parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.None, true); //refresh
                                 break;
 
@@ -213,6 +215,8 @@ namespace LibraryDisplay.UserControls
                                     calledFrom = CallFrom.None;
                                     parentForm.editControl.BringToFront();
                                 }
+
+                                parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditPublisher) { referencedId = id }); //because its already saved in all cases
 
                                 parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.None, true); //refresh
 
