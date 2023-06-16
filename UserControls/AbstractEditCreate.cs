@@ -32,6 +32,7 @@ namespace LibraryDisplay.UserControls
         protected Author? referencedAuthor;
         protected Publisher? referencedPublisher;
         protected Genre? referencedGenre;
+        protected Stack<GenreAndSource> genreStack = new Stack<GenreAndSource>();
         public CallFrom calledFrom;
 
 
@@ -464,7 +465,6 @@ namespace LibraryDisplay.UserControls
             }
             tempGenre.subGenres = s;
             tempGenre.books = referencedGenre.books;
-
         }
 
         private void pagesTextBoxEditBookPanel_TextChanged(object sender, EventArgs e)
@@ -540,6 +540,7 @@ namespace LibraryDisplay.UserControls
         private void createParentButtonEditGenrePanel_Click(object sender, EventArgs e)
         {
             createTempGenre();
+            genreStack.Push(new GenreAndSource(new Genre(tempGenre), calledFrom));
             if (this.GetType() == typeof(CreateControl))
             {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreParent, true);
@@ -556,6 +557,7 @@ namespace LibraryDisplay.UserControls
         private void createSubButtonEditGenrePanel_Click(object sender, EventArgs e)
         {
             createTempGenre();
+            genreStack.Push(new GenreAndSource(new Genre(tempGenre), calledFrom));
             if (this.GetType() == typeof(CreateControl))
             {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateGenreSub, true);

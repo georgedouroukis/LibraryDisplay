@@ -76,6 +76,7 @@ namespace LibraryDisplay.UserControls
                 switch (dr)
                 {
                     case DialogResult.Yes:
+                        genreStack.Push(new GenreAndSource(new Genre(tempGenre), calledFrom));
                         switch (status.Table)
                         {
                             case DbTable.Book:

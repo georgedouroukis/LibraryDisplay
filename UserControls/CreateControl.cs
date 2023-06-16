@@ -84,6 +84,7 @@ namespace LibraryDisplay.UserControls
                 switch (dr)
                 {
                     case DialogResult.Yes:
+                        genreStack.Push(new GenreAndSource(new Genre(tempGenre), calledFrom));
                         switch (status.Table)
                         {
                             case DbTable.Book:
@@ -126,7 +127,12 @@ namespace LibraryDisplay.UserControls
                                 break;
 
                             case DbTable.Genre:
+
+                                
                                 id = await PostRequests.CreateEntity<Genre>(tempGenre);
+                                genreStack.Pop();
+                                tempGenre = genreStack.Peek().genre;                               
+
                                 parentForm.homeControl.genreTreeViewPopulate(); //refresh
 
                                 if (calledFrom == CallFrom.None)
@@ -158,8 +164,8 @@ namespace LibraryDisplay.UserControls
                                 {
                                     if (!string.IsNullOrEmpty(id))
                                         parentForm.createControl.tempGenre.subGenres.Add(Int32.Parse(id));
-                                    parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, CallFrom.None, false);
-                                    calledFrom = CallFrom.None;
+                                    calledFrom = genreStack.Peek().source;
+                                    parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, calledFrom, false);
 
                                 }
                                 else if (calledFrom == CallFrom.EditGenreSub)
@@ -187,7 +193,7 @@ namespace LibraryDisplay.UserControls
                                     parentForm.editControl.BringToFront();
                                 }
 
-                                parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None, true); //refresh
+                                //parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None, true); //refresh
 
                                 break;
 
