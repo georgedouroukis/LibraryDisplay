@@ -168,5 +168,14 @@ namespace LibraryDisplay.UserControls
             });
             parentForm.createControl.BringToFront();
         }
+
+        private void searchTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ((char)Keys.Enter))
+            {
+                searchButton_Click(sender, (EventArgs)e);
+                e.Handled = true;
+            }
+        }
     }
 }

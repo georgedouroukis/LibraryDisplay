@@ -21,6 +21,7 @@ namespace LibraryDisplay.Models
         public Genre(Genre other)
         {
             genre = other.genre;
+            parentGenre = other.parentGenre;
             subGenres = other.subGenres;
             books = other.books;
         }

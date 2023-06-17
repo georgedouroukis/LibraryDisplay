@@ -30,7 +30,7 @@
         {
             splitContainer1 = new SplitContainer();
             pictureBox = new PictureBox();
-            textBox = new TextBox();
+            textBox = new MouseTransparentTextBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -65,11 +65,13 @@
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.TabIndex = 7;
             pictureBox.TabStop = false;
+            pictureBox.Cursor = Cursors.Hand;
             // 
             // textBox
             // 
             textBox.BorderStyle = BorderStyle.None;
             textBox.Dock = DockStyle.Fill;
+            textBox.Enabled = true;
             textBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             textBox.Location = new Point(0, 0);
             textBox.Multiline = true;
@@ -78,6 +80,7 @@
             textBox.Size = new Size(375, 225);
             textBox.TabIndex = 5;
             textBox.TextAlign = HorizontalAlignment.Center;
+            textBox.Cursor = Cursors.Hand;
             // 
             // ClickableBookItem
             // 
@@ -102,6 +105,6 @@
 
         private SplitContainer splitContainer1;
         private PictureBox pictureBox;
-        private TextBox textBox;
+        private MouseTransparentTextBox textBox;
     }
 }

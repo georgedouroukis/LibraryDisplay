@@ -171,6 +171,7 @@
             searchTextBox.Name = "searchTextBox";
             searchTextBox.Size = new Size(413, 31);
             searchTextBox.TabIndex = 0;
+            searchTextBox.KeyPress += searchTextBox_KeyPress;
             // 
             // searchButton
             // 

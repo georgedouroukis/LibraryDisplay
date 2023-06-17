@@ -59,7 +59,7 @@ namespace LibraryDisplay.UserControls
             //get authors
             foreach (var item in book.authors)
             {
-                ClickableLabel label = new ClickableLabel(item.ToString(), id, DbTable.Author, parentForm, authorFlowBookPanel); //this param is used for id
+                ClickableLabel label = new ClickableLabel(item.ToString(), id, DbTable.Author, DbTable.Author, parentForm, authorFlowBookPanel); //this param is used for id
                 Author author = await GetRequests.GetAuthorById(item.ToString());
                 label.Text = author.firstName + " " + author.lastName + " " + author.middleName;
                 authorFlowBookPanel.Controls.Add(label);
@@ -67,14 +67,14 @@ namespace LibraryDisplay.UserControls
 
             //get publisher
             Publisher publisher = await GetRequests.GetPublisherById(book.publisher.ToString());
-            ClickableLabel publisherLabel = new ClickableLabel(book.publisher.ToString(), id, DbTable.Publisher, parentForm, publisherFlowBookPanel);
+            ClickableLabel publisherLabel = new ClickableLabel(book.publisher.ToString(), id, DbTable.Publisher, DbTable.Publisher, parentForm, publisherFlowBookPanel);
             publisherLabel.Text = publisher.name;
             publisherFlowBookPanel.Controls.Add(publisherLabel);
 
             //get genres
             foreach (var item in book.genres)
             {
-                ClickableLabel label = new ClickableLabel(item.ToString(), id, DbTable.Genre, parentForm, genreFlowBookPanel);
+                ClickableLabel label = new ClickableLabel(item.ToString(), id, DbTable.Book, DbTable.Genre, parentForm, genreFlowBookPanel);
                 Genre genre = await GetRequests.GetGenreById(item.ToString());
                 label.Text = genre.genre;
                 genreFlowBookPanel.Controls.Add(label);

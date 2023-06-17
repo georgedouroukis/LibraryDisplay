@@ -41,10 +41,12 @@ namespace LibraryDisplay.UserControls.GenericItems
             this.callerId = callerId;
 
             this.form = form;
-            if (table!=null) this.table = table.Value;
+            if (table != null) this.table = table.Value;
             MouseClick += MouseClicked;
             textBox.MouseClick += MouseClicked;
             pictureBox.MouseClick += MouseClicked;
+            
+            
 
             populate();
         }

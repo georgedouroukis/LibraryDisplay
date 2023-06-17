@@ -13,12 +13,13 @@ namespace LibraryDisplay.UserControls.GenericItems
 
         string id;
         string callerId;
-        DbTable table;
+        DbTable fromTable;
+        DbTable toTable;
         LibraryForm form;
         FlowLayoutPanel parentFlow;
 
 
-        public ClickableLabel(string id, string callerId, DbTable table, LibraryForm form, FlowLayoutPanel parentFlow) : base()
+        public ClickableLabel(string id, string callerId, DbTable fromTable, DbTable toTable, LibraryForm form, FlowLayoutPanel parentFlow) : base()
         {
             AutoSize = true;
             Cursor = Cursors.Hand;
@@ -26,7 +27,8 @@ namespace LibraryDisplay.UserControls.GenericItems
             MouseLeave += changeColorback;
             this.id = id;
             this.callerId = callerId;
-            this.table = table;
+            this.fromTable = fromTable;
+            this.toTable = toTable;
             this.form = form;
             this.parentFlow = parentFlow;
             MouseClick += MouseClicked;
@@ -49,18 +51,22 @@ namespace LibraryDisplay.UserControls.GenericItems
         {
             if (e.Button == MouseButtons.Left)
             {
-                form.navigationBackStack.Push(new NavigationItem(PanelState.BookControl) { referencedId = callerId });
-                if (table == DbTable.Genre)
+                if (fromTable==DbTable.Genre)
+                    form.navigationBackStack.Push(new NavigationItem(PanelState.GenreControl) { referencedId = callerId });
+                else
+                    form.navigationBackStack.Push(new NavigationItem(PanelState.BookControl) { referencedId = callerId });
+
+                if (toTable == DbTable.Genre)
                 {
                     await form.genreControl.openGenrePanel(id);
                     form.genreControl.BringToFront();
                 }
-                else if (table == DbTable.Author)
+                else if (toTable == DbTable.Author)
                 {
                     await form.authorControl.openAuthorPanel(id);
                     form.authorControl.BringToFront();
                 }
-                else if (table == DbTable.Publisher)
+                else if (toTable == DbTable.Publisher)
                 {
                     await form.publisherControl.openPublisherPanel(id);
                     form.publisherControl.BringToFront();

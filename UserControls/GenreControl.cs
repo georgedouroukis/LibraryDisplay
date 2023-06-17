@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,30 @@ namespace LibraryDisplay.UserControls
         {
 
         }
+
+        public async void populateGenrePath()
+        {
+            genrePathFlowGenrePanel.Controls.Clear();
+            Stack<Genre> path = new Stack<Genre>();
+            path.Push(referencedGenre);
+            while (path.Peek().parentGenre != null)
+            {
+                Genre temp = await GetRequests.GetGenreById(path.Peek().parentGenre.ToString());
+                path.Push(temp);
+            }
+            while (path.Count > 0)
+            {
+                Genre g = path.Pop();
+                ClickableLabel label = new ClickableLabel(g.id.ToString(), referencedGenre.id.ToString(), DbTable.Genre, DbTable.Genre, parentForm, genrePathFlowGenrePanel);
+                label.Text = g.genre;
+                genrePathFlowGenrePanel.Controls.Add(label);
+
+                if (path.Count > 0)
+                    genrePathFlowGenrePanel.Controls.Add(new Label() { Text = "→", AutoSize = true });
+
+            }
+        }
+
         public async Task openGenrePanel(string id)
         {
             genreBookFlow.Controls.Clear();
@@ -50,6 +75,7 @@ namespace LibraryDisplay.UserControls
                 genreBookFlow.Controls.Add(book);
             }
             this.BringToFront();
+            populateGenrePath();
         }
 
         private void editButtonGenrePanel_Click(object sender, EventArgs e)

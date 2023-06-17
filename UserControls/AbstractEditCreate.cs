@@ -159,12 +159,16 @@ namespace LibraryDisplay.UserControls
                 item.Text = publisher.name;
                 item.Id = publisher.id.ToString();
                 publisherComboBoxEditBookPanel.Items.Add(item);
+            }
+            foreach (ComboBoxItem item in publisherComboBoxEditBookPanel.Items)
+            {
                 if (book.publisher == Int32.Parse(item.Id))
                 {
                     publisherComboBoxEditBookPanel.SelectedItem = item;
+                    break;
                 }
             }
-
+            
             ////////////////////////////////populate genres
             HashSet<Genre> genres = await GetRequests.GetGenres();
             genreComboBoxEditBookPanel.Items.Clear();
@@ -263,15 +267,22 @@ namespace LibraryDisplay.UserControls
                 item.Text = g.genre;
                 item.Id = g.id.ToString();
                 parentGenreComboBoxEditGenrePanel.Items.Add(item);
-                if (genre.parentGenre == Int32.Parse(item.Id))
-                {
-                    parentGenreComboBoxEditGenrePanel.SelectedItem = item;
-                }
             }
-            parentGenreComboBoxEditGenrePanel.Text = string.Empty;
+
             if (genre.parentGenre == null)
             {
                 parentGenreComboBoxEditGenrePanel.SelectedItem = noParent;
+            }
+            else
+            {
+                foreach(ComboBoxItem item in parentGenreComboBoxEditGenrePanel.Items)
+                {
+                    if (genre.parentGenre == Int32.Parse(item.Id))
+                    {
+                        parentGenreComboBoxEditGenrePanel.SelectedItem = item;
+                        break;
+                    }
+                }
             }
 
             ////////////////////////////////populate sub genres

@@ -84,7 +84,6 @@ namespace LibraryDisplay.UserControls
                 switch (dr)
                 {
                     case DialogResult.Yes:
-                        genreStack.Push(new GenreAndSource(new Genre(tempGenre), calledFrom));
                         switch (status.Table)
                         {
                             case DbTable.Book:
@@ -98,7 +97,7 @@ namespace LibraryDisplay.UserControls
                             case DbTable.Author:
 
                                 id = await PostRequests.CreateEntity<Author>(tempAuthor);
-                                
+
 
                                 if (calledFrom == CallFrom.None)
                                 {
@@ -128,69 +127,78 @@ namespace LibraryDisplay.UserControls
 
                             case DbTable.Genre:
 
-                                
                                 id = await PostRequests.CreateEntity<Genre>(tempGenre);
-                                genreStack.Pop();
-                                tempGenre = genreStack.Peek().genre;                               
+                                if (genreStack.Count != 0)
+                                    tempGenre = genreStack.Peek().genre;
 
                                 parentForm.homeControl.genreTreeViewPopulate(); //refresh
 
-                                if (calledFrom == CallFrom.None)
+                                switch (calledFrom) 
                                 {
-                                    parentForm.createControl.populateEditBookPanel(new Book(), true);
-                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
-                                    await parentForm.genreControl.openGenrePanel(id);
-                                }
+                                    case CallFrom.None:
 
-                                else if (calledFrom == CallFrom.CreateBook)
-                                {
-                                    if (!string.IsNullOrEmpty(id))
-                                        parentForm.createControl.tempBook.genres.Add(Int32.Parse(id));
-                                    parentForm.createControl.populateEditBookPanel(new Book(parentForm.createControl.tempBook), false);
-                                    calledFrom = CallFrom.None;
-                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
+                                        parentForm.createControl.populateEditBookPanel(new Book(), true);
+                                        parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
+                                        await parentForm.genreControl.openGenrePanel(id);
+                                        break;
 
-                                }
-                                else if (calledFrom == CallFrom.EditBook)
+                                    case CallFrom.CreateBook:
+
+                                        if (!string.IsNullOrEmpty(id))
+                                            parentForm.createControl.tempBook.genres.Add(Int32.Parse(id));
+                                        parentForm.createControl.populateEditBookPanel(new Book(parentForm.createControl.tempBook), false);
+                                        calledFrom = CallFrom.None;
+                                        parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
+                                        break;
+
+                                    case CallFrom.EditBook:
+                                
+                                        if (!string.IsNullOrEmpty(id))
+                                            parentForm.editControl.tempBook.genres.Add(Int32.Parse(id));
+                                        parentForm.editControl.populateEditBookPanel(new Book(parentForm.editControl.tempBook), false);
+                                        calledFrom = CallFrom.None;
+                                        parentForm.editControl.BringToFront();
+                                        parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
+                                        break;
+
+                                        
+                                    case CallFrom.CreateGenreSub:
+                                
+                                        if (!string.IsNullOrEmpty(id))
+                                            parentForm.createControl.tempGenre.subGenres.Add(Int32.Parse(id));
+                                        parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, calledFrom, false);
+                                        break;
+                                
+                                    case CallFrom.EditGenreSub:
+                                
+                                        if (!string.IsNullOrEmpty(id))
+                                            parentForm.editControl.tempGenre.subGenres.Add(Int32.Parse(id));
+                                        parentForm.editControl.populateEditGenrePanel(parentForm.editControl.tempGenre, CallFrom.None, false);
+                                        calledFrom = CallFrom.None;
+                                        parentForm.editControl.BringToFront();
+                                        break;
+                                
+                                    case CallFrom.CreateGenreParent:
+                                
+                                        if (!string.IsNullOrEmpty(id))
+                                            parentForm.createControl.tempGenre.parentGenre = Int32.Parse(id);
+                                        parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, calledFrom, false);
+                                        break;
+                                
+                                    case CallFrom.EditGenreParent:
+                                
+                                        if (!string.IsNullOrEmpty(id))
+                                            parentForm.editControl.tempGenre.parentGenre = Int32.Parse(id);
+                                        parentForm.editControl.populateEditGenrePanel(parentForm.editControl.tempGenre, CallFrom.None, false);
+                                        calledFrom = CallFrom.None;
+                                        parentForm.editControl.BringToFront();
+                                        break;
+                                } 
+
+                                if (genreStack.Count != 0)
                                 {
-                                    if (!string.IsNullOrEmpty(id))
-                                        parentForm.editControl.tempBook.genres.Add(Int32.Parse(id));
-                                    parentForm.editControl.populateEditBookPanel(new Book(parentForm.editControl.tempBook), false);
-                                    calledFrom = CallFrom.None;
-                                    parentForm.editControl.BringToFront();
-                                    parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
-                                }
-                                else if (calledFrom == CallFrom.CreateGenreSub)
-                                {
-                                    if (!string.IsNullOrEmpty(id))
-                                        parentForm.createControl.tempGenre.subGenres.Add(Int32.Parse(id));
                                     calledFrom = genreStack.Peek().source;
-                                    parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, calledFrom, false);
-
-                                }
-                                else if (calledFrom == CallFrom.EditGenreSub)
-                                {
-                                    if (!string.IsNullOrEmpty(id))
-                                        parentForm.editControl.tempGenre.subGenres.Add(Int32.Parse(id));
-                                    parentForm.editControl.populateEditGenrePanel(parentForm.editControl.tempGenre, CallFrom.None, false);
-                                    calledFrom = CallFrom.None;
-                                    parentForm.editControl.BringToFront();
-                                }
-                                else if (calledFrom == CallFrom.CreateGenreParent)
-                                {
-                                    if (!string.IsNullOrEmpty(id))
-                                        parentForm.createControl.tempGenre.parentGenre = Int32.Parse(id);
-                                    parentForm.createControl.populateEditGenrePanel(parentForm.createControl.tempGenre, CallFrom.None, false);
-                                    calledFrom = CallFrom.None;
-
-                                }
-                                else if (calledFrom == CallFrom.EditGenreParent)
-                                {
-                                    if (!string.IsNullOrEmpty(id))
-                                        parentForm.editControl.tempGenre.parentGenre = Int32.Parse(id);
-                                    parentForm.editControl.populateEditGenrePanel(parentForm.editControl.tempGenre, CallFrom.None, false);
-                                    calledFrom = CallFrom.None;
-                                    parentForm.editControl.BringToFront();
+                                    genreStack.Pop();
                                 }
 
                                 //parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.None, true); //refresh
