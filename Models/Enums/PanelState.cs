@@ -1,5 +1,8 @@
 ﻿namespace LibraryDisplay.Models.Enums
 {
+    /// <summary>
+    /// used for identifing where to navigate back or forward
+    /// </summary>
     public enum PanelState
     {
         HomeControl = 1,

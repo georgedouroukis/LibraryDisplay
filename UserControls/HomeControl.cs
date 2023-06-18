@@ -103,7 +103,7 @@ namespace LibraryDisplay.UserControls
                     genreTreeView.Nodes.Add(rootNode);
                 }
             }
-
+            genreTreeView.Sort();
             genreTreeView.ExpandAll();
         }
 

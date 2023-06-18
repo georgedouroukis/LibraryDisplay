@@ -19,7 +19,7 @@ namespace LibraryDisplay.UserControls
     public partial class BookControl : UserControl
     {
         private LibraryForm parentForm;
-        private Book referencedBook;
+        public Book referencedBook;
         public BookControl(LibraryForm parentForm)
         {
             InitializeComponent();

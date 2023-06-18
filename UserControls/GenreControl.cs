@@ -19,7 +19,7 @@ namespace LibraryDisplay.UserControls
     public partial class GenreControl : UserControl
     {
         private LibraryForm parentForm;
-        private Genre referencedGenre;
+        public Genre referencedGenre;
         public GenreControl(LibraryForm parentForm)
         {
             InitializeComponent();

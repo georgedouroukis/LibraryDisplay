@@ -305,6 +305,7 @@
             searchListView.MultiSelect = false;
             searchListView.Name = "searchListView";
             searchListView.Size = new Size(765, 799);
+            searchListView.Sorting = SortOrder.Ascending;
             searchListView.TabIndex = 0;
             searchListView.UseCompatibleStateImageBehavior = false;
             searchListView.View = View.Details;
@@ -313,7 +314,7 @@
             // result
             // 
             result.Text = "Result";
-            result.Width = 300;
+            result.Width = 500;
             // 
             // category
             // 

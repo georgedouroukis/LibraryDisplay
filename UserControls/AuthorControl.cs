@@ -18,7 +18,7 @@ namespace LibraryDisplay.UserControls
     public partial class AuthorControl : UserControl
     {
         private LibraryForm parentForm;
-        private Author referencedAuthor;
+        public Author referencedAuthor;
         public AuthorControl(LibraryForm parentForm)
         {
             InitializeComponent();

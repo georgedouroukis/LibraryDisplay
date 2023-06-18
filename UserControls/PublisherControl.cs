@@ -19,7 +19,7 @@ namespace LibraryDisplay.UserControls
     public partial class PublisherControl : UserControl
     {
         private LibraryForm parentForm;
-        private Publisher referencedPublisher;
+        public Publisher referencedPublisher;
         public PublisherControl(LibraryForm parentForm)
         {
             InitializeComponent();
