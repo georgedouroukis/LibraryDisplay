@@ -507,11 +507,13 @@ namespace LibraryDisplay.UserControls
             {
                 parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.CreateBook, true);
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = tempBook });
+                parentForm.navigationForwardStack.Clear();
             }
             if (this.GetType() == typeof(EditControl))
             {
                 parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.EditBook, true);
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = tempBook });
+                parentForm.navigationForwardStack.Clear();
             }
             parentForm.createControl.BringToFront();
         }
@@ -523,11 +525,13 @@ namespace LibraryDisplay.UserControls
             {
                 parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.CreateBook, true);
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = tempBook });
+                parentForm.navigationForwardStack.Clear();
             }
             if (this.GetType() == typeof(EditControl))
             {
                 parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.EditBook, true);
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = tempBook });
+                parentForm.navigationForwardStack.Clear();
             }
             parentForm.createControl.BringToFront();
         }
@@ -539,11 +543,13 @@ namespace LibraryDisplay.UserControls
             {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.CreateBook, true);
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = tempBook });
+                parentForm.navigationForwardStack.Clear();
             }
             if (this.GetType() == typeof(EditControl))
             {
                 parentForm.createControl.populateEditGenrePanel(new Genre(), CallFrom.EditBook, true);
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = tempBook });
+                parentForm.navigationForwardStack.Clear();
             }
             parentForm.createControl.BringToFront();
         }

@@ -34,6 +34,7 @@ namespace LibraryDisplay.UserControls
         private void homeButtonAuthorPanel_Click(object sender, EventArgs e)
         {
             parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.AuthorControl) { author = referencedAuthor});
+            parentForm.navigationForwardStack.Clear();
             parentForm.homeControl.BringToFront();
         }
 
@@ -58,6 +59,7 @@ namespace LibraryDisplay.UserControls
         {
             parentForm.editControl.BringToFront();
             parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.AuthorControl) { author = referencedAuthor });
+            parentForm.navigationForwardStack.Clear();
             parentForm.editControl.populateEditAuthorPanel(referencedAuthor, CallFrom.None, true);
         }
     }

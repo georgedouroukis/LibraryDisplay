@@ -26,5 +26,19 @@ namespace LibraryDisplay.Utils.Models
             this.panelState = panelState;
         }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is NavigationItem item &&
+                   panelState == item.panelState &&
+                   bookCheckBox == item.bookCheckBox &&
+                   authorCheckBox == item.authorCheckBox &&
+                   publisherCheckBox == item.publisherCheckBox &&
+                   searchString == item.searchString &&
+                   referencedId == item.referencedId &&
+                   EqualityComparer<Book?>.Default.Equals(book, item.book) &&
+                   EqualityComparer<Author?>.Default.Equals(author, item.author) &&
+                   EqualityComparer<Publisher?>.Default.Equals(publisher, item.publisher) &&
+                   EqualityComparer<Genre?>.Default.Equals(genre, item.genre);
+        }
     }
 }

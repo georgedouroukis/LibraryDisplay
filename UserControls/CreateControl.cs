@@ -65,13 +65,25 @@ namespace LibraryDisplay.UserControls
         private void navigationHomePush()
         {
             if (editTabs.SelectedTab == bookEditTab)
+            {
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateBook) { book = new Book() });
+                parentForm.navigationForwardStack.Clear();
+            }
             else if (editTabs.SelectedTab == authorEditTab)
+            {
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateAuthor) { author = new Author() });
+                parentForm.navigationForwardStack.Clear();
+            }
             else if (editTabs.SelectedTab == publisherEditTab)
+            {
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreatePublisher) { publisher = new Publisher() });
+                parentForm.navigationForwardStack.Clear();
+            }
             else
+            {
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreateGenre) { genre = new Genre() });
+                parentForm.navigationForwardStack.Clear();
+            }
         }
 
         protected override async void saveButtonEditPanel_Click(object sender, EventArgs e)
@@ -90,6 +102,7 @@ namespace LibraryDisplay.UserControls
 
                                 id = await PostRequests.CreateEntity<Book>(tempBook);
                                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { referencedId = id });
+                                parentForm.navigationForwardStack.Clear();
                                 await parentForm.bookControl.openBookPanel(id);
                                 break;
 
@@ -121,6 +134,7 @@ namespace LibraryDisplay.UserControls
                                 }
 
                                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditAuthor) { referencedId = id }); //because its already saved in all cases
+                                parentForm.navigationForwardStack.Clear();
 
                                 parentForm.createControl.populateEditAuthorPanel(new Author(), CallFrom.None, true); //refresh
                                 break;
@@ -139,6 +153,7 @@ namespace LibraryDisplay.UserControls
 
                                         parentForm.createControl.populateEditBookPanel(new Book(), true);
                                         parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
+                                        parentForm.navigationForwardStack.Clear();
                                         await parentForm.genreControl.openGenrePanel(id);
                                         break;
 
@@ -149,6 +164,7 @@ namespace LibraryDisplay.UserControls
                                         parentForm.createControl.populateEditBookPanel(new Book(parentForm.createControl.tempBook), false);
                                         calledFrom = CallFrom.None;
                                         parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
+                                        parentForm.navigationForwardStack.Clear();
                                         break;
 
                                     case CallFrom.EditBook:
@@ -159,6 +175,7 @@ namespace LibraryDisplay.UserControls
                                         calledFrom = CallFrom.None;
                                         parentForm.editControl.BringToFront();
                                         parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { referencedId = id });
+                                        parentForm.navigationForwardStack.Clear();
                                         break;
 
                                         
@@ -213,6 +230,7 @@ namespace LibraryDisplay.UserControls
                                 {
                                     parentForm.createControl.populateEditBookPanel(new Book(), true);
                                     parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CreatePublisher) { publisher = new Publisher() });
+                                    parentForm.navigationForwardStack.Clear();
                                     await parentForm.publisherControl.openPublisherPanel(id);
                                 }
 
@@ -233,6 +251,7 @@ namespace LibraryDisplay.UserControls
                                 }
 
                                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditPublisher) { referencedId = id }); //because its already saved in all cases
+                                parentForm.navigationForwardStack.Clear();
 
                                 parentForm.createControl.populateEditPublisherPanel(new Publisher(), CallFrom.None, true); //refresh
 

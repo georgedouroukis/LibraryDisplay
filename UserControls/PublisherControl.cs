@@ -30,6 +30,7 @@ namespace LibraryDisplay.UserControls
         private void homeButtonPublisherPanel_Click(object sender, EventArgs e)
         {
             parentForm.navigationBackStack.Push(new NavigationItem(PanelState.PublisherControl) { publisher = referencedPublisher});
+            parentForm.navigationForwardStack.Clear();
             parentForm.homeControl.BringToFront();
         }
 
@@ -56,6 +57,7 @@ namespace LibraryDisplay.UserControls
         {
             parentForm.editControl.BringToFront();
             parentForm.navigationBackStack.Push(new NavigationItem(PanelState.PublisherControl) { publisher = referencedPublisher });
+            parentForm.navigationForwardStack.Clear();
             parentForm.editControl.populateEditPublisherPanel(referencedPublisher, CallFrom.None, true);
         }
     }

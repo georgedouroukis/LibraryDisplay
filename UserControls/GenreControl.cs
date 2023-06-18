@@ -30,6 +30,7 @@ namespace LibraryDisplay.UserControls
         private void homeButtonGenrePanel_Click(object sender, EventArgs e)
         {
             parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.GenreControl) { genre = referencedGenre });
+            parentForm.navigationForwardStack.Clear();
             parentForm.homeControl.BringToFront();
         }
 
@@ -82,6 +83,7 @@ namespace LibraryDisplay.UserControls
         {
             parentForm.editControl.BringToFront();
             parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.GenreControl) { genre = referencedGenre });
+            parentForm.navigationForwardStack.Clear();
             parentForm.editControl.populateEditGenrePanel(referencedGenre, CallFrom.None, true);
         }
 

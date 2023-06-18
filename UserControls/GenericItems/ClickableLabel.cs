@@ -55,6 +55,7 @@ namespace LibraryDisplay.UserControls.GenericItems
                     form.navigationBackStack.Push(new NavigationItem(PanelState.GenreControl) { referencedId = callerId });
                 else
                     form.navigationBackStack.Push(new NavigationItem(PanelState.BookControl) { referencedId = callerId });
+                form.navigationForwardStack.Clear();
 
                 if (toTable == DbTable.Genre)
                 {

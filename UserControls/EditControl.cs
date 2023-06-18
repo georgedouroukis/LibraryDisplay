@@ -83,18 +83,21 @@ namespace LibraryDisplay.UserControls
                                 await PutRequests.UpdateEntity<Book>(tempBook);
                                 await parentForm.bookControl.openBookPanel(tempBook.id.ToString());
                                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditBook) { book = tempBook });
+                                parentForm.navigationForwardStack.Clear();
                                 break;
                             case DbTable.Author:
                                 await PutRequests.UpdateEntity<Author>(tempAuthor);
                                 parentForm.createControl.populateEditBookPanel(new Book(), true); //regenerate panels
                                 await parentForm.authorControl.openAuthorPanel(tempAuthor.id.ToString());
                                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditAuthor) { author = tempAuthor });
+                                parentForm.navigationForwardStack.Clear();
                                 break;
                             case DbTable.Publisher:
                                 await PutRequests.UpdateEntity<Publisher>(tempPublisher);
                                 parentForm.createControl.populateEditBookPanel(new Book(), true); //regenerate panels
                                 await parentForm.publisherControl.openPublisherPanel(tempPublisher.id.ToString());
                                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditPublisher) { publisher = tempPublisher });
+                                parentForm.navigationForwardStack.Clear();
                                 break;
                             case DbTable.Genre:
                                 await PutRequests.UpdateEntity<Genre>(tempGenre);
@@ -103,6 +106,7 @@ namespace LibraryDisplay.UserControls
                                 parentForm.homeControl.genreTreeViewPopulate();
                                 await parentForm.genreControl.openGenrePanel(tempGenre.id.ToString());
                                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { genre = tempGenre });
+                                parentForm.navigationForwardStack.Clear();
                                 break;
                         }
                         bookEditTab.Enabled = false;
@@ -159,6 +163,7 @@ namespace LibraryDisplay.UserControls
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditPublisher) { publisher = referencedPublisher });
             else
                 parentForm.navigationBackStack.Push(new NavigationItem(PanelState.EditGenre) { genre = referencedGenre });
+            parentForm.navigationForwardStack.Clear();
         }
     }
 }

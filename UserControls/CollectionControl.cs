@@ -28,6 +28,7 @@ namespace LibraryDisplay.UserControls
         private void homeButtonCollectionPanel_Click(object sender, EventArgs e)
         {
             parentForm.navigationBackStack.Push(new NavigationItem(PanelState.CollectionContol));
+            parentForm.navigationForwardStack.Clear();
             parentForm.homeControl.BringToFront();
         }
 

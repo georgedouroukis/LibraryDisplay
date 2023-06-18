@@ -93,6 +93,7 @@ namespace LibraryDisplay.UserControls.GenericItems
                 form.navigationBackStack.Push(new NavigationItem(PanelState.GenreControl) { referencedId = callerId });
             else
                 form.navigationBackStack.Push(new NavigationItem(PanelState.CollectionContol));
+            form.navigationForwardStack.Clear();
         }
     }
 }

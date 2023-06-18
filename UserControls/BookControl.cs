@@ -31,6 +31,7 @@ namespace LibraryDisplay.UserControls
         private void homeButtonBookPanel_Click(object sender, EventArgs e)
         {
             parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.BookControl) { book = referencedBook});
+            parentForm.navigationForwardStack.Clear();
             parentForm.homeControl.BringToFront();
         }
 
@@ -92,6 +93,7 @@ namespace LibraryDisplay.UserControls
             parentForm.editControl.BringToFront();
             parentForm.editControl.populateEditBookPanel(referencedBook, true);
             parentForm.navigationBackStack.Push(new Utils.Models.NavigationItem(PanelState.BookControl) { book = referencedBook });
+            parentForm.navigationForwardStack.Clear();
         }
 
         private void pictureBoxBookPanel_Click(object sender, MouseEventArgs e)

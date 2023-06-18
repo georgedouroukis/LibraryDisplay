@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using LibraryDisplay.Network;
 using LibraryDisplay.Models.Enums;
 using LibraryDisplay.Utils.Models;
+using System.Runtime.CompilerServices;
 
 namespace LibraryDisplay.UserControls
 {
@@ -78,6 +79,7 @@ namespace LibraryDisplay.UserControls
                 authorCheckBox = authorsCheckBox.Checked,
                 searchString = searchTextBox.Text
             });
+            parentForm.navigationForwardStack.Clear();
         }
 
 
@@ -136,6 +138,7 @@ namespace LibraryDisplay.UserControls
                 authorCheckBox = authorsCheckBox.Checked,
                 searchString = searchTextBox.Text
             });
+            parentForm.navigationForwardStack.Clear();
             parentForm.genreControl.BringToFront();
         }
 
@@ -148,6 +151,7 @@ namespace LibraryDisplay.UserControls
                 authorCheckBox = authorsCheckBox.Checked,
                 searchString = searchTextBox.Text
             });
+            parentForm.navigationForwardStack.Clear();
             await parentForm.collectionControl.openCollectionPanel();
 
         }
@@ -166,6 +170,7 @@ namespace LibraryDisplay.UserControls
                 authorCheckBox = authorsCheckBox.Checked,
                 searchString = searchTextBox.Text
             });
+            parentForm.navigationForwardStack.Clear();
             parentForm.createControl.BringToFront();
         }
 
@@ -177,5 +182,7 @@ namespace LibraryDisplay.UserControls
                 e.Handled = true;
             }
         }
+
+
     }
 }
